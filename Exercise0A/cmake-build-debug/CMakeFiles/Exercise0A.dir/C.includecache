@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/stack/stack.c
+stack.h
+/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/stack/stack.h
+
+/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/stack/stack.h
+../utility.h
+/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/utility.h
+
+/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/utility.h
+assert.h
+-
+stdbool.h
+-
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+time.h
+-
+
