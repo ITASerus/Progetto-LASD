@@ -6,5 +6,5 @@ C_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk 
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/. -I/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/queue -I/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/stack 
+C_INCLUDES = -I/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/. -I/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/queue -I/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/stack 
 

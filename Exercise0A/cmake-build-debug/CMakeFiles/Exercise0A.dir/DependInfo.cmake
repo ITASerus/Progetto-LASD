@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/main.c" "/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/cmake-build-debug/CMakeFiles/Exercise0A.dir/main.c.o"
-  "/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/queue/queue.c" "/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/cmake-build-debug/CMakeFiles/Exercise0A.dir/queue/queue.c.o"
-  "/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/stack/stack.c" "/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/cmake-build-debug/CMakeFiles/Exercise0A.dir/stack/stack.c.o"
-  "/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/utility.c" "/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/cmake-build-debug/CMakeFiles/Exercise0A.dir/utility.c.o"
+  "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/main.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/cmake-build-debug/CMakeFiles/Exercise0A.dir/main.c.o"
+  "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/queue/queue.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/cmake-build-debug/CMakeFiles/Exercise0A.dir/queue/queue.c.o"
+  "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/stack/stack.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/cmake-build-debug/CMakeFiles/Exercise0A.dir/stack/stack.c.o"
+  "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/utility.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/cmake-build-debug/CMakeFiles/Exercise0A.dir/utility.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

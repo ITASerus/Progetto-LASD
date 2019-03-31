@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/stack/stack.c
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/stack/stack.c
 stack.h
-/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/stack/stack.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/stack/stack.h
 
-/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/stack/stack.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/stack/stack.h
 ../utility.h
-/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/utility.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/utility.h
 
-/Users/ernestodecrecchio/Desktop/Università/LASD/Exercise0A/utility.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0A/utility.h
 assert.h
 -
 stdbool.h
