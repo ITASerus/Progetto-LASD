@@ -20,16 +20,16 @@ StackObject* stkConstruct();
 void stkDestruct(StackObject* stack);
 
 // type stkEmpty(arguments);
-// type stkTop(arguments);
-// type stkPop(arguments);
+char* stkTop(StackObject* stack);
+void stkPop(StackObject* stack);
 char* stkTopNPop(StackObject* stack);
 void stkPush(StackObject* top, char* elem);
 int stkSize(StackObject* stack);
 
-// type stkClone(arguments);
-// type stkEqual(arguments);
-// type stkExists(arguments);
-// type stkMap(arguments);
+StackObject* stkClone(StackObject* stack);
+bool stkEqual(StackObject* stack1, StackObject* stack2);
+bool stkExists(StackObject* stack, char* value);
+void stkMap(StackObject* stack, void* function, void* param);
 // type stkFold(arguments);
 
 /* ************************************************************************** */

@@ -20,18 +20,31 @@ void stkDestruct(StackObject* stack) {
 }
 
 
-char* stkTopNPop(StackObject* stack) {
-    char* poppedElement = stack->elements[stack->index];
-    stack->elements[stack->index] = NULL;
+char* stkTop(StackObject* stack) {
+    char* elemCopy = (char*)malloc(sizeof(char)*(strlen(stack->elements[stack->index-1])));
+    strcpy(elemCopy, stack->elements[stack->index-1]);
 
-    free(stack->elements[stack->index]);
+    return elemCopy;
+}
+
+void stkPop(StackObject* stack) {
+    free(stack->elements[stack->index-1]);
+    stack->elements[stack->index - 1] = NULL;
+
+    stack->index--;
+}
+
+char* stkTopNPop(StackObject* stack) {
+    char* poppedElement = stack->elements[stack->index-1];
+    stack->elements[stack->index-1] = NULL;
+
+    free(stack->elements[stack->index-1]);
     stack->index--;
 
     return poppedElement;
 }
 
 void stkPush(StackObject* stack, char* elem) {
-    printf("\n");
     char* elemCopy = (char*)malloc(sizeof(char)*strlen(elem));
     strcpy(elemCopy, elem);
 
@@ -55,6 +68,52 @@ int stkSize(StackObject* stack) {
     return stack->index;
 }
 
+
+StackObject* stkClone(StackObject* stack) {
+   StackObject* clonedStack = stkConstruct(); //TODO: Creare un costruttore che alloca direttamente ciò che serve per allocare tutto stack, per questioni di efficienza
+
+   uint i = 0;
+   while(i < stack->index-1) {
+       stkPush(clonedStack, stack->elements[i]);
+       ++i;
+   }
+
+   return clonedStack;
+}
+
+bool stkEqual(StackObject* stack1, StackObject* stack2) { //TODO: Trattare come strcmp? (restituire <0 se stk1>stk2, 0 se stk1 == stk2 e >1 se stk1<stk2)
+    bool areEqual = true;
+    uint i = 0;
+
+    while(i < stack1->index-1) {
+        if(strcmp(stack1->elements[i], stack2->elements[i]) != 0) {
+            areEqual = false;
+            break;
+        }
+        ++i;
+    }
+
+    return areEqual;
+}
+
+bool stkExists(StackObject* stack, char* value) { //TODO: Far scorrere lo stack da index a 0 e non da 0 a index
+    bool valueExists = false;
+    uint i = 0;
+    while(i < stack->index-1) {
+        if(strcmp(stack->elements[i], value) == 0) {
+            valueExists = true;
+            break;
+        }
+        ++i;
+    }
+
+    return valueExists;
+}
+
+void stkMap(StackObject* stack, void* function, void* param) {
+
+}
+
 /* ************************************************************************** */
 
 void printInfoStack(StackObject* stack) {
@@ -67,7 +126,7 @@ void printStack(StackObject * stack) {
     }
 }
 
-char* rndStr(int numChar) {
+char* rndStr(int numChar) { //TODO: rndStr - Il prof non vuole charset ma generazione tramite ASCII
     const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     char* newString = (char*)malloc(sizeof(char)*(numChar+1));
 

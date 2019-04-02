@@ -33,8 +33,6 @@ int main()
     }
     printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
 
-    printf("Stack at index: %s\n\n", stack->elements[stack->index]);
-
     for(uint i = 0; i < 10; i++)
     {
         elemy = (char *) stkTopNPop(stack);
@@ -42,7 +40,7 @@ int main()
         free(elemy);
     }
     printf("Numero di elementi nello stack dopo le estrazioni: %d\n\n", stkSize(stack));
-/*
+
     for(uint i = 0; i < 15; i++)
     {
         elemx = rndStr(rndNum(1, 20));
@@ -51,17 +49,18 @@ int main()
     }
     printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
 
-    elemy = (int *) stkTop(stack);
-    printf("Rimozione della testa dello stack dopo gli inserimenti: %d\n\n", *elemy);
+    elemy = (char *) stkTop(stack);
+    printf("Rimozione della testa dello stack dopo gli inserimenti: %s\n\n", elemy);
     stkPop(stack);
+    free(elemy);
 
-    printf("Esistenza del valore 25 nello stack : %d\n\n", stkExists(stack, (int *) 25));
+    printf("Esistenza del valore ciao nello stack : %d\n\n", stkExists(stack, "stringaProva"));
 
     StackObject * stackx = stkClone(stack);
     printf("Controllo di uguaglianza tra il clone dello stack e lo stack stesso: %d\n\n", stkEqual(stack, stackx));
 
     stkMap(stackx, &mapPosZerNeg, NULL);
-    val = 1;
+    /*val = 1;
     stkFold(stack, &foldParity, &val, NULL);
     printf("Parità degli elementi contenuti nello stack: %d\n\n", val);
 
@@ -147,7 +146,5 @@ int main()
 
     */
     free(elemx);
-    stkDestruct(stack);
-
     return 0;
 }
