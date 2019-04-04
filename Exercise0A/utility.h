@@ -30,6 +30,8 @@ void foldParity(void * elm, void * val, void * par);
 
 int rndNum(int a, int b);
 
+char* rndStr(int numChar);
+
 /* ************************************************************************** */
 
 void getStr(char * str, uint len);

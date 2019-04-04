@@ -13,9 +13,9 @@ int main()
 {
     srand(time(NULL));
 
-    char * elemx = (char *) malloc(sizeof(char) * 20);
-    char * elemy = NULL;
-    int val = 0;
+    char* elemx = (char*) malloc(sizeof(char) * 20);
+    char* elemy = NULL;
+    char* val = NULL;
 
     /* ************************************************************************ */
 
@@ -41,7 +41,7 @@ int main()
     }
     printf("Numero di elementi nello stack dopo le estrazioni: %d\n\n", stkSize(stack));
 
-    for(uint i = 0; i < 15; i++)
+    for(uint i = 0; i < 15; ++i)
     {
         elemx = rndStr(rndNum(1, 20));
         printf("Inserimento nello stack: %s\n", elemx);
@@ -58,19 +58,30 @@ int main()
 
     StackObject * stackx = stkClone(stack);
     printf("Controllo di uguaglianza tra il clone dello stack e lo stack stesso: %d\n\n", stkEqual(stack, stackx));
+/*
+    stkMap(stackx, turnToChar, "b");
 
-    stkMap(stackx, &mapPosZerNeg, NULL);
-    /*val = 1;
-    stkFold(stack, &foldParity, &val, NULL);
-    printf("Parità degli elementi contenuti nello stack: %d\n\n", val);
+    printf("STACK:\n");
+    for(int i = 0; i<stack->index; i++) {
+        printf("%d) %s\n", i, stack->elements[i]);
+    }
+
+    printf("STACKX:\n");
+    for(int i = 0; i<stackx->index; i++) {
+        printf("%d) %s\n", i, stackx->elements[i]);
+    }
+
+    val = (char*)malloc(sizeof(char)*1000);
+    stkFold(stack, strConcat, val, NULL);
+    printf("Valore finale accumulatore: %s\n\n", val);
 
     while(!stkEmpty(stack))
     {
-        elemy = (int *) stkTopNPop(stack);
-        printf("Rimozione dallo stack: %d\n", *elemy);
+        elemy = stkTopNPop(stack);
+        printf("Rimozione dallo stack: %s\n", elemy);
         free(elemy);
-        elemy = (int *) stkTopNPop(stackx);
-        printf("Rimozione dal clone dello stack: %d\n", *elemy);
+        elemy = stkTopNPop(stackx);
+        printf("Rimozione dal clone dello stack: %s\n", elemy);
         free(elemy);
     }
     printf("Numero di elementi nello stack dopo le estrazioni: %d\n", stkSize(stack));
@@ -79,6 +90,7 @@ int main()
     printf("Distruzione Oggetti StackVec\n\n");
     stkDestruct(stackx);
     stkDestruct(stack);
+    **
 
     printf("*****************************************************************\n\n");
 

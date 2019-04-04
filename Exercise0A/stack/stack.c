@@ -20,6 +20,14 @@ void stkDestruct(StackObject* stack) {
 }
 
 
+bool stkEmpty(StackObject* stack) {
+    if (stack->index == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 char* stkTop(StackObject* stack) {
     char* elemCopy = (char*)malloc(sizeof(char)*(strlen(stack->elements[stack->index-1])));
     strcpy(elemCopy, stack->elements[stack->index-1]);
@@ -27,14 +35,14 @@ char* stkTop(StackObject* stack) {
     return elemCopy;
 }
 
-void stkPop(StackObject* stack) {
+void stkPop(StackObject* stack) { //TODO: Realloca spazio quando numero di elementi è <=1/3 della dimensione
     free(stack->elements[stack->index-1]);
     stack->elements[stack->index - 1] = NULL;
 
     stack->index--;
 }
 
-char* stkTopNPop(StackObject* stack) {
+char* stkTopNPop(StackObject* stack) { //TODO: Realloca spazio quando numero di elementi è <=1/3 della dimensione
     char* poppedElement = stack->elements[stack->index-1];
     stack->elements[stack->index-1] = NULL;
 
@@ -72,10 +80,8 @@ int stkSize(StackObject* stack) {
 StackObject* stkClone(StackObject* stack) {
    StackObject* clonedStack = stkConstruct(); //TODO: Creare un costruttore che alloca direttamente ciò che serve per allocare tutto stack, per questioni di efficienza
 
-   uint i = 0;
-   while(i < stack->index-1) {
+   for(uint i = 0; i<stack->index; ++i) {
        stkPush(clonedStack, stack->elements[i]);
-       ++i;
    }
 
    return clonedStack;
@@ -110,30 +116,32 @@ bool stkExists(StackObject* stack, char* value) { //TODO: Far scorrere lo stack 
     return valueExists;
 }
 
-void stkMap(StackObject* stack, void* function, void* param) {
+void stkMap(StackObject* stack,MapFun function, void* param) { //TODO: Ragionacii meglio sopra. Aggiungere concetto di funzione parametrica?
+    printf("ha");
+    printf("param: %s", param);
+    for(uint i = 0; i<stack->index; ++i) {
+        function(stack->elements[i], param);
+    }
+}
 
+void stkFold(StackObject* stack, FoldFun function, void* accumulator, void* param) { //TODO: Aggiungere concetto di funzione parametrica?, Far scorrere lo stack da index a 0 e non da 0 a index
+    printf("fold\n");
+    for(uint i = 0; i<stack->index; ++i) {
+        printf("%d) %s\n", i, accumulator);
+        function(stack->elements[i], accumulator, param);
+    }
 }
 
 /* ************************************************************************** */
 
-void printInfoStack(StackObject* stack) {
-    printf("-- Dimensione allocata stack: %d\n-- Elementi contenuti nello stack: %d\n", stack->size, stack->index);
+void turnToChar(void* elm, void* character) {
+    assert(elm != NULL); //TODO: Studia istruzione assert
+    strcpy(elm, character);
 }
 
-void printStack(StackObject * stack) {
-    for( uint i = 0; i<stack->index; ++i) {
-        printf("- %s\n", stack->elements[i]);
-    }
-}
-
-char* rndStr(int numChar) { //TODO: rndStr - Il prof non vuole charset ma generazione tramite ASCII
-    const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    char* newString = (char*)malloc(sizeof(char)*(numChar+1));
-
-    for(uint i = 0; i<numChar; ++i) {
-        newString[i] = charset[rndNum(0, 61)];
-    }
-    newString[numChar] = '\0';
-
-    return newString;
+void strConcat(void* elm, void* accumulator, void* param) {
+    sprintf("val elm: %s - val acc: %s", elm, accumulator);
+    char* resultString = (char*)malloc(sizeof(char)*(strlen(accumulator)+strlen(elm)));
+    strcpy(resultString, strcat(accumulator, elm));
+    printf("result str: %s\n", resultString);
 }

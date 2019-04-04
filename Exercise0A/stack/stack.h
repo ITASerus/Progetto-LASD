@@ -19,7 +19,7 @@ typedef struct StackObject {
 StackObject* stkConstruct();
 void stkDestruct(StackObject* stack);
 
-// type stkEmpty(arguments);
+bool stkEmpty(StackObject* stack);
 char* stkTop(StackObject* stack);
 void stkPop(StackObject* stack);
 char* stkTopNPop(StackObject* stack);
@@ -29,13 +29,11 @@ int stkSize(StackObject* stack);
 StackObject* stkClone(StackObject* stack);
 bool stkEqual(StackObject* stack1, StackObject* stack2);
 bool stkExists(StackObject* stack, char* value);
-void stkMap(StackObject* stack, void* function, void* param);
-// type stkFold(arguments);
+void stkMap(StackObject* stack, MapFun function, void* param);
+void stkFold(StackObject* stack, FoldFun function, void* accumulator, void* param);
 
 /* ************************************************************************** */
-
-void printInfoStack(StackObject* stack);
-void printStack(StackObject * stack);
-char* rndStr(int numChar);
+void turnToChar(void * elm, void* character);
+void strConcat(void* elm, void* accumulator, void* param);
 
 #endif
