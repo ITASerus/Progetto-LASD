@@ -16,9 +16,7 @@ int main()
     char* elemx = (char*) malloc(sizeof(char) * 20);
     char* elemy = NULL;
     char* val = NULL;
-
-    /* ************************************************************************ */
-
+/*
     printf("Creazione Oggetto Stack\n\n");
     StackObject * stack = stkConstruct();
 
@@ -58,18 +56,8 @@ int main()
 
     StackObject * stackx = stkClone(stack);
     printf("Controllo di uguaglianza tra il clone dello stack e lo stack stesso: %d\n\n", stkEqual(stack, stackx));
-/*
+
     stkMap(stackx, turnToChar, "b");
-
-    printf("STACK:\n");
-    for(int i = 0; i<stack->index; i++) {
-        printf("%d) %s\n", i, stack->elements[i]);
-    }
-
-    printf("STACKX:\n");
-    for(int i = 0; i<stackx->index; i++) {
-        printf("%d) %s\n", i, stackx->elements[i]);
-    }
 
     val = (char*)malloc(sizeof(char)*1000);
     stkFold(stack, strConcat, val, NULL);
@@ -90,45 +78,86 @@ int main()
     printf("Distruzione Oggetti StackVec\n\n");
     stkDestruct(stackx);
     stkDestruct(stack);
-    **
 
     printf("*****************************************************************\n\n");
+*/
 
     printf("Creazione Oggetto QueueVec\n\n");
     QueueObject * queue = queConstruct();
 
+    queuePrint(queue);
+    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
+
+    queEnqueue(queue, "1");
+    queuePrint(queue);
+    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
+
+    queEnqueue(queue, "2");
+    queuePrint(queue);
+    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
+
+    queDequeue(queue);
+    queuePrint(queue);
+    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
+
+    queEnqueue(queue, "3");
+    queuePrint(queue);
+    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
+
+    queEnqueue(queue, "4");
+    queuePrint(queue);
+    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
+
+    /*
     for(uint i = 0; i < 17; i++)
     {
-        *elemx = rndNum(-50, 50);
-        printf("Inserimento nella queue: %d\n", *elemx);
+        strcpy(elemx, rndStr(10));
+        printf("Inserimento nella queue: %s\n", elemx);
         queEnqueue(queue, elemx);
     }
     printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
 
+    queuePrint(queue);
+    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
+
     for(uint i = 0; i < 10; i++)
     {
-        elemy = (int *) queHeadNDequeue(queue);
-        printf("Rimozione dalla queue: %d\n", *elemy);
+        elemy = (char *) queHeadNDequeue(queue);
+        printf("Rimozione dalla queue: %s\n", elemy);
         free(elemy);
     }
     printf("Numero di elementi nella queue dopo le estrazioni: %d\n\n", queSize(queue));
 
-    *elemx = 25;
+    queuePrint(queue);
+    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
+
+    strcpy(elemx, "ciao");
     queEnqueue(queue, elemx);
+
+    queuePrint(queue);
+    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
 
     for(uint i = 0; i < 15; i++)
     {
-        *elemx = rndNum(0, 100);
-        printf("Inserimento nella queue: %d\n", *elemx);
+        strcpy(elemx, rndStr(15));
+        printf("Inserimento nella queue: %s\n", elemx);
         queEnqueue(queue, elemx);
     }
     printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
 
-    elemy = (int *) queHead(queue);
-    printf("Rimozione della testa della queue dopo gli inserimenti: %d\n\n", *elemy);
+    queuePrint(queue);
+    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
+
+    strcpy(elemy, queHead(queue));
+    printf("Rimozione della testa della queue dopo gli inserimenti: %s\n\n", elemy);
     queDequeue(queue);
 
-    printf("Esistenza del valore 25 nella queue : %d\n\n", queExists(queue, (int *) 25));
+    queuePrint(queue);
+    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
+
+
+    printf("Esistenza del valore ciao nella queue : %d\n\n", queExists(queue, "ciao"));
+
 
     QueueObject * queuex = queClone(queue);
     printf("Controllo di uguaglianza tra il clone della queue e lo queus stessa: %d\n\n", queEqual(queue, queuex));
@@ -156,7 +185,7 @@ int main()
 
     printf("*****************************************************************\n\n");
 
-    */
     free(elemx);
+    */
     return 0;
 }

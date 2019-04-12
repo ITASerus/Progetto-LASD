@@ -11,7 +11,7 @@
 typedef struct StackObject {
     char** elements; //Array di stringhe
     uint index; //Posizione dell'ultimo elemento inserito nell'array
-    uint size; //Dimensione dell'array, comprese le locazioni non utilizzate
+    uint size; //Dimensione dell'array, comprese le locazioni non utilizzate TODO: Cambiare size in altro (dimension?) perchè nelle librerie reali con size indicano il num di elementi presenti
 } StackObject;
 
 /* ************************************************************************** */

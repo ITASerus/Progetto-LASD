@@ -3,7 +3,7 @@
 /* ************************************************************************** */
 
 struct StackObject* stkConstruct() {
-	struct StackObject * obj = (struct StackObject *) malloc(sizeof(StackObject));
+	struct StackObject * obj = (struct StackObject *) malloc(sizeof(StackObject)); //TODO: Togliere riferimenti a struct
 
     obj->size = 0;
     obj->index = 0;
@@ -35,7 +35,7 @@ char* stkTop(StackObject* stack) {
     return elemCopy;
 }
 
-void stkPop(StackObject* stack) { //TODO: Realloca spazio quando numero di elementi è <=1/3 della dimensione
+void stkPop(StackObject* stack) { //TODO: Realloca spazio quando numero di elementi è <=1/3 della dimensione, Controlla logica
     free(stack->elements[stack->index-1]);
     stack->elements[stack->index - 1] = NULL;
 
@@ -43,7 +43,7 @@ void stkPop(StackObject* stack) { //TODO: Realloca spazio quando numero di eleme
 }
 
 char* stkTopNPop(StackObject* stack) { //TODO: Realloca spazio quando numero di elementi è <=1/3 della dimensione
-    char* poppedElement = stack->elements[stack->index-1];
+    char* poppedElement = stack->elements[stack->index-1]; //TODO: SBAGLIATA! Devo copiare l'elemento, restituire la copia e poi fare la free dell'elemento nello stack!
     stack->elements[stack->index-1] = NULL;
 
     free(stack->elements[stack->index-1]);
@@ -52,7 +52,7 @@ char* stkTopNPop(StackObject* stack) { //TODO: Realloca spazio quando numero di 
     return poppedElement;
 }
 
-void stkPush(StackObject* stack, char* elem) {
+void stkPush(StackObject* stack, char* elem) { //TODO: Usare stkEmpty per controllo se stack vuoto?
     char* elemCopy = (char*)malloc(sizeof(char)*strlen(elem));
     strcpy(elemCopy, elem);
 
@@ -102,7 +102,7 @@ bool stkEqual(StackObject* stack1, StackObject* stack2) { //TODO: Trattare come 
     return areEqual;
 }
 
-bool stkExists(StackObject* stack, char* value) { //TODO: Far scorrere lo stack da index a 0 e non da 0 a index
+bool stkExists(StackObject* stack, char* value) { //TODO: Far scorrere lo stack da index a 0 e non da 0 a index, Si può togliere valueExists (vedi queue)
     bool valueExists = false;
     uint i = 0;
     while(i < stack->index-1) {
@@ -117,15 +117,12 @@ bool stkExists(StackObject* stack, char* value) { //TODO: Far scorrere lo stack 
 }
 
 void stkMap(StackObject* stack,MapFun function, void* param) { //TODO: Ragionacii meglio sopra. Aggiungere concetto di funzione parametrica?
-    printf("ha");
-    printf("param: %s", param);
     for(uint i = 0; i<stack->index; ++i) {
         function(stack->elements[i], param);
     }
 }
 
-void stkFold(StackObject* stack, FoldFun function, void* accumulator, void* param) { //TODO: Aggiungere concetto di funzione parametrica?, Far scorrere lo stack da index a 0 e non da 0 a index
-    printf("fold\n");
+void stkFold(StackObject* stack, FoldFun function, void* accumulator, void* param) { //TODO: NON FUNZIONA BENE?, Aggiungere concetto di funzione parametrica?, Far scorrere lo stack da index a 0 e non da 0 a index
     for(uint i = 0; i<stack->index; ++i) {
         printf("%d) %s\n", i, accumulator);
         function(stack->elements[i], accumulator, param);

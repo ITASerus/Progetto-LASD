@@ -8,29 +8,33 @@
 
 /* ************************************************************************** */
 
-typedef struct QueueObject
-{
-  // Struct da completare!
+typedef struct QueueObject {
+    char** elements; //Array di stringhe
+    uint front;
+    uint rear;
+    uint size; //Dimensione della queue, comprese le locazioni non utilizzate TODO: Cambiare size in altro (dimension?) perchè nelle librerie reali con size indicano il num di elementi presenti
+    uint numElem; //TODO: Togliere? Superfluo?
 } QueueObject;
 
 /* ************************************************************************** */
 
-// type queConstruct(arguments);
+QueueObject* queConstruct();
 // type queDestruct(arguments);
 
-// type queEmpty(arguments);
-// type queHead(arguments);
-// type queDequeue(arguments);
-// type queHeadNDequeue(arguments);
-// type queEnqueue(arguments);
-// type queSize(arguments);
+bool queEmpty(QueueObject* queue);
+char* queHead(QueueObject* queue);
+void queDequeue(QueueObject* queue);
+char* queHeadNDequeue(QueueObject* queue);
+void queEnqueue(QueueObject* queue, char* elem);
+int queSize(QueueObject* queue);
 
 // type queClone(arguments);
 // type queEqual(arguments);
-// type queExists(arguments);
+bool queExists(QueueObject* queue, char* elem);
 // type queMap(arguments);
 // type queFold(arguments);
 
 /* ************************************************************************** */
 
+void queuePrint(QueueObject* queue);
 #endif
