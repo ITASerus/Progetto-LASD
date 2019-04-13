@@ -23,6 +23,7 @@ bool queEmpty(QueueObject* queue) {
 }
 
 char* queHead(QueueObject* queue) {
+    printf("HEAD) %s\n", queue->elements[17]);
     return queue->elements[queue->front];
 }
 
@@ -72,11 +73,33 @@ void queEnqueue(QueueObject* queue, char* elem) {
     if(queue->elements == NULL) { //Queue non ancora inizializzata
         queue->size = 2;
         queue->elements = (char**)malloc(sizeof(char*)*queue->size);
-        printf("MEMORIA INIZIALIZZATA (%d)\n", queue->size);
     } else if(((queue->front == 0) && (queue->rear == queue->size-1)) || (queue->rear == queue->front-1)) { //Non ci sono slot liberi
-        queue->size *= 2; //Raddoppio la sua dimensione
-        queue->elements = realloc(queue->elements, sizeof(char *) * queue->size); //Alloco nuova memoria
-        printf("MEMORIA RADDOPPIATA (%d)\n", queue->size);
+        char** newElements = (char**)malloc(sizeof(char*)*(queue->size*2)); //Alloco un vettore grande il doppio di quello attualmente contenuto in queue
+
+        int newElementsIndex = 0;
+        if(queue->front < queue->rear) { // TODO: Si può evitare di usare "i" sfruttando il fatto che non mi serve tenere traccia di queue->front?
+            for(int i = queue->front; i<= queue->rear; i++) {
+                newElements[newElementsIndex] = queue->elements[i];
+                newElementsIndex++;
+            }
+        } else {
+            for (int i = queue->front; i < queue->size; i++) {
+                newElements[newElementsIndex] = queue->elements[i];
+                newElementsIndex++;
+            }
+            for (int i = 0; i <= queue->rear; i++) {
+                newElements[newElementsIndex] = queue->elements[i];
+                newElementsIndex++;
+            }
+        }
+
+        free(queue->elements);
+        queue->elements = newElements;
+
+        queue->front = 0;
+        queue->rear = queue->numElem-1;
+
+        queue->size *= 2;
     }
 
     //Inserimento effettivo della stringa nella queue
@@ -90,9 +113,13 @@ void queEnqueue(QueueObject* queue, char* elem) {
             queue->rear = queue->rear+1;
         }
     }
-    //rintf("Inserisco in posizione %d\n", queue->rear);
+    //printf("Inserisco in posizione %d\n", queue->rear);
     queue->elements[queue->rear] = elemCopy;
     queue->numElem++;
+}
+
+char** duplicateAndOrderVectorElem(char** elements) {
+
 }
 
 int queSize(QueueObject* queue) {
@@ -100,19 +127,116 @@ int queSize(QueueObject* queue) {
 }
 
 
-// type queClone(arguments);
+QueueObject* queClone(QueueObject* queue) { //TODO: Controllare complessità computazionale: si può fare meglio?
+    QueueObject* clonedQueue = queConstruct();
 
-// type queEqual(arguments);
+    if(queue->front < queue->rear) {
+        for(int i = queue->front; i <= queue->rear; i++) {
+            queEnqueue(clonedQueue, queue->elements[i]);
+        }
+    } else {
+        for(int i = queue->front; i < queue->size; i++) {
+            queEnqueue(clonedQueue, queue->elements[i]);
+        }
+        for(int i = 0; i<=queue->rear; i++) {
+            queEnqueue(clonedQueue, queue->elements[i]);
+        }
+    }
+
+    return clonedQueue;
+}
+
+bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue) {
+    if(firstQueue->front != -1 && secondQueue->front != -1) { //Controllo che entrambe le queue non siano vuote
+        if(firstQueue->front < firstQueue->rear) {
+            printf("-CASO F<R\n");
+            for(int i = firstQueue->front; i <= firstQueue->rear; i++) {
+                if(secondQueue->front < secondQueue->rear) {
+                    for(int j = secondQueue->front; j <= secondQueue->rear; j++) {
+                        if(strcmp(firstQueue->elements[i], secondQueue->elements[j]) != 0) {
+                            return false;
+                        }
+                    }
+                } else {
+                    for(int j = secondQueue->front; j < secondQueue->size; j++) {
+                        if(strcmp(firstQueue->elements[i], secondQueue->elements[j]) != 0) {
+                            return false;
+                        }
+                    }
+                    for(int j = 0; j <= secondQueue->rear; j++) {
+                        if(strcmp(firstQueue->elements[i], secondQueue->elements[j]) != 0) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        } else {
+            printf("-CASO F>R\n");
+            for(int i = firstQueue->front; i < firstQueue->size; i++) {
+                if(secondQueue->front < secondQueue->rear) {
+                    for(int j = secondQueue->front; j <= secondQueue->rear; j++) {
+                        printf("--COMPARE %s vs %s", firstQueue->elements[i], secondQueue->elements[j])
+                        if(strcmp(firstQueue->elements[i], secondQueue->elements[j]) != 0) {
+                            return false;
+                        }
+                    }
+                } else {
+                    for(int j = secondQueue->front; j < secondQueue->size; j++) {
+                        if(strcmp(firstQueue->elements[i], secondQueue->elements[j]) != 0) {
+                            return false;
+                        }
+                    }
+                    for(int j = 0; j <= secondQueue->rear; j++) {
+                        if(strcmp(firstQueue->elements[i], secondQueue->elements[j]) != 0) {
+                            return false;
+                        }
+                    }
+                }
+            }
+            for(int i = 0; i < firstQueue->rear; i++) {
+                if(secondQueue->front < secondQueue->rear) {
+                    for(int j = secondQueue->front; j <= secondQueue->rear; j++) {
+                        if(strcmp(firstQueue->elements[i], secondQueue->elements[j]) != 0) {
+                            return false;
+                        }
+                    }
+                } else {
+                    for(int j = secondQueue->front; j < secondQueue->size; j++) {
+                        if(strcmp(firstQueue->elements[i], secondQueue->elements[j]) != 0) {
+                            return false;
+                        }
+                    }
+                    for(int j = 0; j <= secondQueue->rear; j++) {
+                        if(strcmp(firstQueue->elements[i], secondQueue->elements[j]) != 0) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return true;
+}
 
 bool queExists(QueueObject* queue, char* elem) {
-    int i = 0;
-
-    while(i < queue->numElem) {
-        printf("ELEMENTO: %s\n", queue->elements[i]);
-        if(strcmp(queue->elements[i], elem) == 0) {
-            return true;
+    if(queue->front < queue->rear) {
+        for(int i = queue->front; i <= queue->rear; i++) {
+            if(strcmp(queue->elements[i], elem) == 0) {
+                return true;
+            }
         }
-        ++i;
+    } else {
+        for(int i = queue->front; i<queue->size; i++) {
+            if(strcmp(queue->elements[i], elem) == 0) {
+                return true;
+            }
+        }
+        for(int i = 0; i<=queue->rear; i++) {
+            if(strcmp(queue->elements[i], elem) == 0) {
+                return true;
+            }
+        }
     }
 
     return false;
@@ -123,7 +247,7 @@ bool queExists(QueueObject* queue, char* elem) {
 // type queFold(arguments);
 
 void queuePrint(QueueObject* queue) {
-    printf("\nELEMENTI:\n");
+    printf("ELEMENTI:\n");
 
     if(!queEmpty(queue)) {
         if (queue->front <= queue->rear) {

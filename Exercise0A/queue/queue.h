@@ -28,8 +28,8 @@ char* queHeadNDequeue(QueueObject* queue);
 void queEnqueue(QueueObject* queue, char* elem);
 int queSize(QueueObject* queue);
 
-// type queClone(arguments);
-// type queEqual(arguments);
+QueueObject* queClone(QueueObject* queue);
+bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue);
 bool queExists(QueueObject* queue, char* elem);
 // type queMap(arguments);
 // type queFold(arguments);

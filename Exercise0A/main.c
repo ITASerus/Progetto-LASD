@@ -85,57 +85,25 @@ int main()
     printf("Creazione Oggetto QueueVec\n\n");
     QueueObject * queue = queConstruct();
 
-    queuePrint(queue);
-    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
-
-    queEnqueue(queue, "1");
-    queuePrint(queue);
-    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
-
-    queEnqueue(queue, "2");
-    queuePrint(queue);
-    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
-
-    queDequeue(queue);
-    queuePrint(queue);
-    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
-
-    queEnqueue(queue, "3");
-    queuePrint(queue);
-    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
-
-    queEnqueue(queue, "4");
-    queuePrint(queue);
-    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
-
-    /*
     for(uint i = 0; i < 17; i++)
     {
         strcpy(elemx, rndStr(10));
-        printf("Inserimento nella queue: %s\n", elemx);
+        printf("%d) Inserimento nella queue: %s\n", i, elemx);
         queEnqueue(queue, elemx);
     }
     printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
 
-    queuePrint(queue);
-    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
-
     for(uint i = 0; i < 10; i++)
     {
-        elemy = (char *) queHeadNDequeue(queue);
+        elemy = queHeadNDequeue(queue);
         printf("Rimozione dalla queue: %s\n", elemy);
         free(elemy);
     }
     printf("Numero di elementi nella queue dopo le estrazioni: %d\n\n", queSize(queue));
 
-    queuePrint(queue);
-    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
-
     strcpy(elemx, "ciao");
+    printf("Inserimento nella queue: %s\n", elemx);
     queEnqueue(queue, elemx);
-
-    queuePrint(queue);
-    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
 
     for(uint i = 0; i < 15; i++)
     {
@@ -145,23 +113,19 @@ int main()
     }
     printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
 
-    queuePrint(queue);
-    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
-
-    strcpy(elemy, queHead(queue));
+    //strcpy(elemy, queHead(queue)); //<---
     printf("Rimozione della testa della queue dopo gli inserimenti: %s\n\n", elemy);
     queDequeue(queue);
 
-    queuePrint(queue);
-    printf("Front: %d - Rear: %d - NumElem: %d\n", queue->front, queue->rear, queue->numElem);
-
-
     printf("Esistenza del valore ciao nella queue : %d\n\n", queExists(queue, "ciao"));
 
-
     QueueObject * queuex = queClone(queue);
-    printf("Controllo di uguaglianza tra il clone della queue e lo queus stessa: %d\n\n", queEqual(queue, queuex));
 
+    queuePrint(queue);
+    queuePrint(queuex);
+
+    printf("Controllo di uguaglianza tra il clone della queue e lo queue stessa: %d\n\n", queEqual(queue, queuex));
+/*
     queMap(queue, &mapPosZerNeg, NULL);
     val = 1;
     queFold(queue, &foldParity, &val, NULL);
