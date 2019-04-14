@@ -117,39 +117,52 @@ int main()
     printf("Rimozione della testa della queue dopo gli inserimenti: %s\n\n", elemy);
     queDequeue(queue);
 
-    printf("Esistenza del valore ciao nella queue : %d\n\n", queExists(queue, "ciao"));
+    printf("Esistenza del valore ciao nella queue : ");
+    bool result = queExists(queue, "ciao");
+    if(result == true) {
+        printf("TRUE\n\n");
+    } else {
+        printf("FALSE\n\n");
+    }
 
     QueueObject * queuex = queClone(queue);
 
-    queuePrint(queue);
-    queuePrint(queuex);
+    printf("Controllo di uguaglianza tra il clone della queue e la queue stessa: ");
+    result = queEqual(queue, queuex);
+    if(result == true) {
+        printf("TRUE\n\n");
+    } else {
+        printf("FALSE\n\n");
+    }
 
-    printf("Controllo di uguaglianza tra il clone della queue e lo queue stessa: %d\n\n", queEqual(queue, queuex));
-/*
-    queMap(queue, &mapPosZerNeg, NULL);
+    queMap(queue, &turnToChar, "a");
+    printf("Queue dopo la Map:\n");
+    queuePrint(queue);
+    /*
     val = 1;
     queFold(queue, &foldParity, &val, NULL);
     printf("Parità degli elementi contenuti nella queue: %d\n\n", val);
-
+*/
     while(!queEmpty(queue))
     {
-        elemy = (int *) queHeadNDequeue(queue);
-        printf("Rimozione dalla queue: %d\n", *elemy);
+        elemy =  queHeadNDequeue(queue);
+        printf("Rimozione dalla queue: %s\n", elemy);
         free(elemy);
-        elemy = (int *) queHeadNDequeue(queuex);
-        printf("Rimozione dal clone della queue: %d\n", *elemy);
+        elemy =  queHeadNDequeue(queuex);
+        printf("Rimozione dal clone della queue: %s\n", elemy);
         free(elemy);
     }
-    printf("Numero di elementi nella queue dopo le estrazioni: %d\n", queSize(queue));
-    printf("Numero di elementi nel clone della queue dopo le estrazioni: %d\n\n", queSize(queuex));
+    printf("Numero di elementi nella queue dopo le estrazioni: %d - front: %d - rear: %d\n", queSize(queue), queue->front, queue->rear);
+    printf("Numero di elementi nel clone della queue dopo le estrazioni: %d - front: %d - rear: %d\n\n", queSize(queuex), queuex->front, queuex->rear);
 
     printf("Distruzione Oggetti QueueVec\n\n");
     queDestruct(queuex);
+    printf("QueueX distrutta\n");
     queDestruct(queue);
+    printf("Queue distrutta\n");
 
     printf("*****************************************************************\n\n");
 
     free(elemx);
-    */
     return 0;
 }

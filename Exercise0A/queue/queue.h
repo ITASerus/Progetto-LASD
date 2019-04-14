@@ -19,7 +19,7 @@ typedef struct QueueObject {
 /* ************************************************************************** */
 
 QueueObject* queConstruct();
-// type queDestruct(arguments);
+void queDestruct(QueueObject* queue);
 
 bool queEmpty(QueueObject* queue);
 char* queHead(QueueObject* queue);
@@ -31,8 +31,8 @@ int queSize(QueueObject* queue);
 QueueObject* queClone(QueueObject* queue);
 bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue);
 bool queExists(QueueObject* queue, char* elem);
-// type queMap(arguments);
-// type queFold(arguments);
+void queMap(QueueObject* queue, MapFun function, void* param);
+void queFold(QueueObject* queue, FoldFun function, void* accumulator, void* param);
 
 /* ************************************************************************** */
 
