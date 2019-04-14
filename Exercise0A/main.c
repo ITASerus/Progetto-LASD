@@ -135,13 +135,13 @@ int main()
         printf("FALSE\n\n");
     }
 
-    queMap(queue, &turnToChar, "a");
-    printf("Queue dopo la Map:\n");
-    queuePrint(queue);
-    /*
-    val = 1;
-    queFold(queue, &foldParity, &val, NULL);
-    printf("Parità degli elementi contenuti nella queue: %d\n\n", val);
+    queMap(queuex, turnToChar, "a");
+    printf("QueueX dopo la Map:\n");
+    queuePrint(queuex);
+
+    /*val = (char*)malloc(sizeof(char)*500);
+    queFold(queue, elemConcat, val, NULL);
+    printf("Parità degli elementi contenuti nella queue: %s\n\n", val);
 */
     while(!queEmpty(queue))
     {

@@ -124,7 +124,6 @@ void stkMap(StackObject* stack,MapFun function, void* param) { //TODO: Ragionaci
 
 void stkFold(StackObject* stack, FoldFun function, void* accumulator, void* param) { //TODO: NON FUNZIONA BENE?, Aggiungere concetto di funzione parametrica?, Far scorrere lo stack da index a 0 e non da 0 a index
     for(uint i = 0; i<stack->index; ++i) {
-        printf("%d) %s\n", i, accumulator);
         function(stack->elements[i], accumulator, param);
     }
 }

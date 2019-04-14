@@ -16,7 +16,7 @@ QueueObject* queConstruct() {
 }
 
 void queDestruct(QueueObject* queue) {
-    if(queue->front != -1) {
+    if(!queEmpty(queue)) {
         if (queue->front < queue->rear) {
             for (uint i = queue->front; i <= queue->rear; ++i) {
                 free(queue->elements[i]);
@@ -161,7 +161,7 @@ QueueObject* queClone(QueueObject* queue) { //TODO: Controllare complessità com
 }
 
 bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue) { //TODO: Ripensare logica!
-    if((firstQueue->front != -1) && (secondQueue->front != -1)) {  //Controllo che entrambe le queue non siano vuote
+    if(!queEmpty(firstQueue) && !queEmpty(secondQueue)) {  //Controllo che entrambe le queue non siano vuote
         if(firstQueue->numElem != secondQueue->numElem) {
             return false;
         }
@@ -202,21 +202,23 @@ bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue) { //TODO: Ripen
 }
 
 bool queExists(QueueObject* queue, char* elem) {
-    if(queue->front < queue->rear) {
-        for(int i = queue->front; i <= queue->rear; i++) {
-            if(strcmp(queue->elements[i], elem) == 0) {
-                return true;
+    if(!queEmpty(queue)) {
+        if (queue->front < queue->rear) {
+            for (int i = queue->front; i <= queue->rear; i++) {
+                if (strcmp(queue->elements[i], elem) == 0) {
+                    return true;
+                }
             }
-        }
-    } else {
-        for(int i = queue->front; i<queue->size; i++) {
-            if(strcmp(queue->elements[i], elem) == 0) {
-                return true;
+        } else {
+            for (int i = queue->front; i < queue->size; i++) {
+                if (strcmp(queue->elements[i], elem) == 0) {
+                    return true;
+                }
             }
-        }
-        for(int i = 0; i<=queue->rear; i++) {
-            if(strcmp(queue->elements[i], elem) == 0) {
-                return true;
+            for (int i = 0; i <= queue->rear; i++) {
+                if (strcmp(queue->elements[i], elem) == 0) {
+                    return true;
+                }
             }
         }
     }
@@ -225,22 +227,37 @@ bool queExists(QueueObject* queue, char* elem) {
 }
 
 void queMap(QueueObject* queue, MapFun function, void* param) {
-    if(queue->front < queue->rear) {
-        for(uint i = queue->front; i <= queue->rear; ++i) {
-            function(queue->elements[i], param);
-        }
-    } else {
-        for(uint i = queue->front; i < queue->size; ++i) {
-            function(queue->elements[i], param);
-        }
-        for(uint i = 0; i <= queue->rear; ++i) {
-            function(queue->elements[i], param);
+    if(!queEmpty(queue)) {
+        if (queue->front < queue->rear) {
+            for (uint i = queue->front; i <= queue->rear; ++i) {
+                function(queue->elements[i], param);
+            }
+        } else {
+            for (uint i = queue->front; i < queue->size; ++i) {
+                function(queue->elements[i], param);
+            }
+            for (uint i = 0; i <= queue->rear; ++i) {
+                function(queue->elements[i], param);
+            }
         }
     }
 }
 
 void queFold(QueueObject* queue, FoldFun function, void* accumulator, void* param) {
-
+    if(!queEmpty(queue)) {
+        if (queue->front < queue->rear) {
+            for (uint i = queue->front; i <= queue->rear; ++i) {
+                function(queue->elements[i], accumulator, param);
+            }
+        } else {
+            for (uint i = queue->front; i < queue->size; ++i) {
+                function(queue->elements[i], accumulator, param);
+            }
+            for (uint i = 0; i <= queue->rear; ++i) {
+                function(queue->elements[i], accumulator, param);
+            }
+        }
+    }
 }
 
 void queuePrint(QueueObject* queue) {
@@ -262,4 +279,8 @@ void queuePrint(QueueObject* queue) {
     } else {
         printf("Queue vuota\n");
     }
+}
+
+void elemConcat(char* elem, char* accumulator, void* param) {
+    strcat(accumulator, elem);
 }

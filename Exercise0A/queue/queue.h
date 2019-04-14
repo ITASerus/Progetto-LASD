@@ -37,4 +37,5 @@ void queFold(QueueObject* queue, FoldFun function, void* accumulator, void* para
 /* ************************************************************************** */
 
 void queuePrint(QueueObject* queue);
+void elemConcat(char* elem, char* accumulator, void* param);
 #endif
