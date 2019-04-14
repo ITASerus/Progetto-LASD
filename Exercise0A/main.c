@@ -16,7 +16,7 @@ int main()
     char* elemx = (char*) malloc(sizeof(char) * 20);
     char* elemy = NULL;
     char* val = NULL;
-/*
+
     printf("Creazione Oggetto Stack\n\n");
     StackObject * stack = stkConstruct();
 
@@ -41,7 +41,7 @@ int main()
 
     for(uint i = 0; i < 15; ++i)
     {
-        elemx = rndStr(rndNum(1, 20));
+        elemx = rndStr(rndNum(1, 15));
         printf("Inserimento nello stack: %s\n", elemx);
         stkPush(stack, elemx);
     }
@@ -59,10 +59,10 @@ int main()
 
     stkMap(stackx, turnToChar, "b");
 
-    val = (char*)malloc(sizeof(char)*1000);
+    /*val = (char*)malloc(sizeof(char)*1000);
     stkFold(stack, strConcat, val, NULL);
     printf("Valore finale accumulatore: %s\n\n", val);
-
+*/
     while(!stkEmpty(stack))
     {
         elemy = stkTopNPop(stack);
@@ -80,8 +80,8 @@ int main()
     stkDestruct(stack);
 
     printf("*****************************************************************\n\n");
-*/
 
+/*
     printf("Creazione Oggetto QueueVec\n\n");
     QueueObject * queue = queConstruct();
 
@@ -113,7 +113,7 @@ int main()
     }
     printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
 
-    //strcpy(elemy, queHead(queue)); //<---
+    elemy = queHead(queue);
     printf("Rimozione della testa della queue dopo gli inserimenti: %s\n\n", elemy);
     queDequeue(queue);
 
@@ -139,10 +139,10 @@ int main()
     printf("QueueX dopo la Map:\n");
     queuePrint(queuex);
 
-    /*val = (char*)malloc(sizeof(char)*500);
+    val = (char*)malloc(sizeof(char)*500);
     queFold(queue, elemConcat, val, NULL);
     printf("Parità degli elementi contenuti nella queue: %s\n\n", val);
-*/
+
     while(!queEmpty(queue))
     {
         elemy =  queHeadNDequeue(queue);
@@ -162,7 +162,7 @@ int main()
     printf("Queue distrutta\n");
 
     printf("*****************************************************************\n\n");
-
+*/
     free(elemx);
     return 0;
 }

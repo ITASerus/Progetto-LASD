@@ -53,7 +53,7 @@ char* stkTopNPop(StackObject* stack) { //TODO: Realloca spazio quando numero di 
 }
 
 void stkPush(StackObject* stack, char* elem) { //TODO: Usare stkEmpty per controllo se stack vuoto?
-    char* elemCopy = (char*)malloc(sizeof(char)*strlen(elem));
+    char* elemCopy = (char*)malloc(sizeof(char)*(strlen(elem)+1));
     strcpy(elemCopy, elem);
 
     //Controllo memoria disponibile

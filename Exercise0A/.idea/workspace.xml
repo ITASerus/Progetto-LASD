@@ -28,27 +28,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1440">
-              <caret line="144" column="2" lean-forward="true" selection-start-line="144" selection-start-column="2" selection-end-line="144" selection-end-column="2" />
+            <state relative-caret-position="398">
+              <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
               <folding>
                 <element signature="e#105#129#0" expanded="true" />
-                <element signature="e#375#2554#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utility.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="270">
+              <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
               <folding>
                 <element signature="e#23#260#0" />
                 <element signature="e#262#466#0" />
                 <element signature="e#468#635#0" />
-                <element signature="e#637#1040#0" />
-                <element signature="e#1042#1323#0" />
               </folding>
             </state>
           </provider>
@@ -57,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+            <state relative-caret-position="-197">
+              <caret lean-forward="true" />
               <folding>
                 <element signature="e#120#139#0" expanded="true" />
               </folding>
@@ -67,49 +64,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queue/queue.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="39" column="60" selection-start-line="39" selection-start-column="60" selection-end-line="39" selection-end-column="60" />
-              <folding>
-                <element signature="e#231#566#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/queue/queue.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
-              <folding>
-                <element signature="e#21#329#0" />
-                <element signature="e#2460#4481#0" />
-                <element signature="e#5217#6691#0" />
-                <element signature="e#6697#7422#0" />
-                <element signature="e#7424#7975#0" />
-                <element signature="e#7977#8588#0" />
-                <element signature="e#8590#9202#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stack/stack.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="13" column="192" selection-start-line="13" selection-start-column="192" selection-end-line="13" selection-end-column="192" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stack/stack.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="128" column="1" lean-forward="true" selection-start-line="128" selection-start-column="1" selection-end-line="128" selection-end-column="1" />
+            <state relative-caret-position="324">
+              <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+              <folding>
+                <element signature="e#20#378#0" />
+                <element signature="e#380#521#0" />
+                <element signature="e#528#652#0" />
+                <element signature="e#654#859#0" />
+                <element signature="e#861#1099#0" />
+                <element signature="e#1101#1520#0" />
+                <element signature="e#2369#2429#0" />
+                <element signature="e#2772#3167#0" />
+                <element signature="e#3173#3560#0" />
+                <element signature="e#3562#3798#0" />
+                <element signature="e#3800#4121#0" />
+                <element signature="e#4123#4338#0" />
+                <element signature="e#4340#4647#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,18 +93,19 @@
     <findStrings>
       <find>size</find>
       <find>size-1</find>
+      <find>strlen</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/utility.c" />
         <option value="$PROJECT_DIR$/utility.h" />
         <option value="$PROJECT_DIR$/stack/stack.h" />
-        <option value="$PROJECT_DIR$/queue/queue.c" />
         <option value="$PROJECT_DIR$/queue/queue.h" />
+        <option value="$PROJECT_DIR$/queue/queue.c" />
         <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/stack/stack.c" />
+        <option value="$PROJECT_DIR$/utility.c" />
       </list>
     </option>
   </component>
@@ -220,12 +194,12 @@
       <workItem from="1555232317116" duration="3718000" />
       <workItem from="1555243682715" duration="3191000" />
       <workItem from="1555263927869" duration="283000" />
-      <workItem from="1555269241572" duration="522000" />
+      <workItem from="1555269241572" duration="3535000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76425000" />
+    <option name="totallyTimeSpent" value="79438000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -248,18 +222,18 @@
       <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="5" weight="0.32959184" />
+      <window_info anchor="bottom" id="TODO" order="5" visible="true" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49873096" visible="true" weight="0.2244898" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50934297" side_tool="true" weight="0.26938775" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="CMake" order="10" weight="0.32959184" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50934297" side_tool="true" weight="0.26938775" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="CMake" order="9" weight="0.32959184" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info active="true" anchor="right" id="Run" order="4" sideWeight="0.49065703" visible="true" weight="0.34798536" />
+      <window_info active="true" anchor="right" id="Run" order="4" sideWeight="0.49065703" visible="true" weight="0.31257632" />
       <window_info anchor="right" id="Messages" order="5" sideWeight="0.49238577" weight="0.34493285" />
+      <window_info anchor="right" id="Terminal" order="6" sideWeight="0.49873096" weight="0.26678878" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17460318" />
@@ -302,41 +276,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#23#260#0" />
-            <element signature="e#262#466#0" />
-            <element signature="e#468#635#0" />
-            <element signature="e#637#1040#0" />
-            <element signature="e#1042#1323#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-          <folding>
-            <element signature="e#120#139#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="144" column="2" lean-forward="true" selection-start-line="144" selection-start-column="2" selection-end-line="144" selection-end-column="2" />
-          <folding>
-            <element signature="e#105#129#0" expanded="true" />
-            <element signature="e#375#2554#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stack/stack.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -344,17 +283,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stack/stack.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="128" column="1" lean-forward="true" selection-start-line="128" selection-start-column="1" selection-end-line="128" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/queue/queue.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
+        <state relative-caret-position="539">
+          <caret line="43" column="46" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="46" />
           <folding>
             <element signature="e#21#329#0" />
             <element signature="e#2460#4481#0" />
@@ -363,6 +295,60 @@
             <element signature="e#7424#7975#0" />
             <element signature="e#7977#8588#0" />
             <element signature="e#8590#9202#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding>
+            <element signature="e#105#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/stack.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+          <folding>
+            <element signature="e#20#378#0" />
+            <element signature="e#380#521#0" />
+            <element signature="e#528#652#0" />
+            <element signature="e#654#859#0" />
+            <element signature="e#861#1099#0" />
+            <element signature="e#1101#1520#0" />
+            <element signature="e#2369#2429#0" />
+            <element signature="e#2772#3167#0" />
+            <element signature="e#3173#3560#0" />
+            <element signature="e#3562#3798#0" />
+            <element signature="e#3800#4121#0" />
+            <element signature="e#4123#4338#0" />
+            <element signature="e#4340#4647#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-197">
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="e#120#139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+          <folding>
+            <element signature="e#23#260#0" />
+            <element signature="e#262#466#0" />
+            <element signature="e#468#635#0" />
           </folding>
         </state>
       </provider>

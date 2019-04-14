@@ -63,7 +63,7 @@ void queDequeue(QueueObject* queue) {
 
 char* queHeadNDequeue(QueueObject* queue) { //TODO: Sostituire parte dell'algoritmo con queDequeue?
     if(!queEmpty(queue)) {
-        char *dequeuedElement = (char *) malloc(sizeof(char) * strlen(queue->elements[queue->front]));
+        char *dequeuedElement = (char *) malloc(sizeof(char) * (strlen(queue->elements[queue->front])+1));
         strcpy(dequeuedElement, queue->elements[queue->front]);
 
         free(queue->elements[queue->front]);
@@ -84,7 +84,7 @@ char* queHeadNDequeue(QueueObject* queue) { //TODO: Sostituire parte dell'algori
 }
 
 void queEnqueue(QueueObject* queue, char* elem) {
-    char* elemCopy = (char*)malloc(sizeof(char)*strlen(elem));
+    char* elemCopy = (char*)malloc(sizeof(char)*(strlen(elem)+1));
     strcpy(elemCopy, elem);
 
     //Controllo memoria disponibile
