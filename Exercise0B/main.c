@@ -14,7 +14,7 @@
 #include "queue/queue.h"
 
 /* ************************************************************************** */
-
+/*
 void mapPosZerNeg(DataObject * dat, void * _)
 {
   assert(dat != NULL);
@@ -169,15 +169,17 @@ void testQueue(DataObject * data)
   queDestruct(queuex);
   queDestruct(queue);
 }
-
+*/
 /* ************************************************************************** */
 
-void main()
+int main()
 {
+  printf("hello\n");
+
   srand(time(NULL));
 
   /* ************************************************************************ */
-
+/*
   printf("Creazione ADT per Intero\n\n");
   DataType * intdatatype = ConstructIntDataType();
 
@@ -199,6 +201,7 @@ void main()
 
   printf("Distruzione ADT per Intero\n");
   DestructIntDataType(intdatatype);
-
+*/
   /* ************************************************************************ */
+  return 0;
 }
