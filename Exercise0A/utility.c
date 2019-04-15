@@ -27,12 +27,11 @@ int rndNum(int a, int b)
   return (a + (rand() % (b - a + 1)));
 }
 
-char* rndStr(int numChar) { //TODO: rndStr - Il prof non vuole charset ma generazione tramite ASCII
-    const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    char* newString = (char*)malloc(sizeof(char)*numChar);
+char* rndStr(int numChar) {
+    char* newString = (char*)malloc(sizeof(char)*(numChar+1));
 
     for(uint i = 0; i<numChar; ++i) {
-        newString[i] = charset[rndNum(0, 61)];
+        newString[i] = (char)rndNum(65, 90);
     }
     newString[numChar] = '\0';
 

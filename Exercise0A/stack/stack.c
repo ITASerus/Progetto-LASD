@@ -29,7 +29,7 @@ bool stkEmpty(StackObject* stack) {
 }
 
 char* stkTop(StackObject* stack) {
-    char* elemCopy = (char*)malloc(sizeof(char)*(strlen(stack->elements[stack->index-1])));
+    char* elemCopy = (char*)malloc(sizeof(char)*(strlen(stack->elements[stack->index-1])+1));
     strcpy(elemCopy, stack->elements[stack->index-1]);
 
     return elemCopy;

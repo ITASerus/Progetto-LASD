@@ -22,12 +22,14 @@ int main()
 
     strcpy(elemx, "stringaProva");
     stkPush(stack, elemx);
+    free(elemx);
 
     for(uint i = 0; i < 17; i++)
     {
-        strcpy(elemx, rndStr(rndNum(1, 10)));
+        elemx = rndStr(rndNum(1, 10));
         printf("Inserimento nello stack: %s\n", elemx);
         stkPush(stack, elemx);
+        free(elemx);
     }
     printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
 
@@ -58,8 +60,8 @@ int main()
     printf("Controllo di uguaglianza tra il clone dello stack e lo stack stesso: %d\n\n", stkEqual(stack, stackx));
 
     stkMap(stackx, turnToChar, "b");
-
-    /*val = (char*)malloc(sizeof(char)*1000);
+/*
+    val = (char*)malloc(sizeof(char)*1000);
     stkFold(stack, strConcat, val, NULL);
     printf("Valore finale accumulatore: %s\n\n", val);
 */
@@ -81,13 +83,12 @@ int main()
 
     printf("*****************************************************************\n\n");
 
-/*
     printf("Creazione Oggetto QueueVec\n\n");
     QueueObject * queue = queConstruct();
 
     for(uint i = 0; i < 17; i++)
     {
-        strcpy(elemx, rndStr(10));
+        elemx = rndStr(10);
         printf("%d) Inserimento nella queue: %s\n", i, elemx);
         queEnqueue(queue, elemx);
     }
@@ -107,7 +108,7 @@ int main()
 
     for(uint i = 0; i < 15; i++)
     {
-        strcpy(elemx, rndStr(15));
+        elemx = rndStr(15);
         printf("Inserimento nella queue: %s\n", elemx);
         queEnqueue(queue, elemx);
     }
@@ -138,11 +139,11 @@ int main()
     queMap(queuex, turnToChar, "a");
     printf("QueueX dopo la Map:\n");
     queuePrint(queuex);
-
+/*
     val = (char*)malloc(sizeof(char)*500);
     queFold(queue, elemConcat, val, NULL);
     printf("Parità degli elementi contenuti nella queue: %s\n\n", val);
-
+*/
     while(!queEmpty(queue))
     {
         elemy =  queHeadNDequeue(queue);
@@ -162,7 +163,7 @@ int main()
     printf("Queue distrutta\n");
 
     printf("*****************************************************************\n\n");
-*/
+
     free(elemx);
     return 0;
 }
