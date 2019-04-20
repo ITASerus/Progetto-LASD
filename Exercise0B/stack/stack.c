@@ -3,12 +3,22 @@
 
 /* ************************************************************************** */
 
-struct StackObject* stkConstruct() {
+StackObject* stkConstruct() {
     StackObject * obj = (StackObject *) malloc(sizeof(StackObject));
 
-    obj->size = 0;
     obj->index = 0;
+    obj->size = 0;
     obj->elements = NULL;
+
+    return obj;
+}
+
+StackObject* stkConstructWSize(int size) {
+    StackObject * obj = (StackObject *) malloc(sizeof(StackObject));
+
+    obj->index = 0;
+    obj->size = 0;
+    obj->elements = (DataObject**)malloc(sizeof(DataObject*)*size);
 
     return obj;
 }
@@ -33,23 +43,28 @@ DataObject* stkTop(StackObject* stack) {
     return adtClone(stack->elements[stack->index-1]);
 }
 
-void stkPop(StackObject* stack) { //TODO: Realloca spazio quando numero di elementi è <=1/3 della dimensione, Controlla logica
-    adtDestruct(stack->elements[stack->index-1]);
-    stack->elements[stack->index - 1] = NULL; //Per precauzione assegno la posizione non più utilizzata a NULL
+void stkPop(StackObject* stack) { //TODO: Realloca spazio quando numero di elementi è <1/4 della dimensione, Controlla logica
+    if(!stkEmpty(stack)) { //Se lo stack è vuoto non è possibile rimuovere elementi
+        adtDestruct(stack->elements[stack->index-1]);
+        stack->elements[stack->index - 1] = NULL; //Per precauzione assegno la posizione non più utilizzata a NULL
 
-    stack->index--;
+        stack->index--;
+    }
 }
 
-DataObject* stkTopNPop(StackObject* stack) { //TODO: Realloca spazio quando numero di elementi è <=1/3 della dimensione
-    DataObject* poppedElement = adtClone(stack->elements[stack->index-1]);
+DataObject* stkTopNPop(StackObject* stack) {
+    if(!stkEmpty(stack)) {
+        DataObject *poppedElement = adtClone(stack->elements[stack->index - 1]);
 
-    free(stack->elements[stack->index-1]);
-    stack->index--;
+        stkPop(stack);
 
-    return poppedElement;
+        return poppedElement;
+    } else {
+        return NULL; //Lo stack è vuoto
+    }
 }
 
-void stkPush(StackObject* stack, DataObject* elem) { //TODO: Usare stkEmpty per controllo se stack vuoto?
+void stkPush(StackObject* stack, DataObject* elem) {
     DataObject* elemCopy = adtClone(elem);
 
     //Controllo memoria disponibile
@@ -57,7 +72,7 @@ void stkPush(StackObject* stack, DataObject* elem) { //TODO: Usare stkEmpty per 
         if (stack->elements == NULL) { //Lo stack non è stato ancora inizializzato
             stack->size = 4;
             stack->elements = (DataObject**)malloc(sizeof(DataObject*)*stack->size);
-        } else { //Lo stack è stato allocato almeno una volta
+        } else { //La memoria dello stack è stata allocata almeno una volta
             stack->size *= 2; //Raddoppio la sua dimensione
             stack->elements = realloc(stack->elements, sizeof(DataObject*) * stack->size); //Alloco nuova memoria
         }
@@ -73,35 +88,44 @@ int stkSize(StackObject* stack) {
 }
 
 StackObject* stkClone(StackObject* stack) {
-    StackObject* clonedStack = stkConstruct(); //TODO: Creare un costruttore che alloca direttamente ciò che serve per allocare tutto stack, per questioni di efficienza
+    /*StackObject* clonedStack = stkConstruct(); //TODO: Creare un costruttore che alloca direttamente ciò che serve per allocare tutto stack, per questioni di efficienza
 
     for(uint i = 0; i<stack->index; ++i) {
         stkPush(clonedStack, stack->elements[i]);
     }
 
+    return clonedStack;*/
+    StackObject* clonedStack = stkConstructWSize(stack->size);
+
+    while(clonedStack->index < stack->index) {
+        printf("Clono: ");
+        adtWriteToMonitor(stack->elements[clonedStack->index]);
+        printf("\n");
+        clonedStack->elements[clonedStack->index] = adtClone(stack->elements[clonedStack->index]);
+        clonedStack->index++;
+    }
+
     return clonedStack;
 }
 
-bool stkEqual(StackObject* firstStack, StackObject* secondStack) { //TODO: RIVEDI STRUTTURA - Trattare come strcmp? (restituire <0 se stk1>stk2, 0 se stk1 == stk2 e >1 se stk1<stk2)
-
-    if(firstStack->index != secondStack->index)
+bool stkEqual(StackObject* firstStack, StackObject* secondStack) {
+    if(firstStack->index != secondStack->index) //Se gli index delle due stack non coincidono, una delle due stack è più corta dell'altra quindi sono diverse ed inutile procedere con il confronto
         return false;
 
     uint i = 0;
     while(i < firstStack->index) {
-        if(!adtCompare(firstStack->elements[i], firstStack->elements[i])) {
+        if(adtCompare(firstStack->elements[i], firstStack->elements[i]) != 0) {
             return false;
         }
         ++i;
     }
-
     return true;
 }
 
-bool stkExists(StackObject* stack, DataObject* object) { //TODO: Far scorrere lo stack da index a 0 e non da 0 a index, Si può togliere valueExists (vedi queue)
+bool stkExists(StackObject* stack, DataObject* object) {
     uint i = 0;
-    while(i < stack->index) { //TODO: Assicurati che non serve -1
-        if(adtCompare(stack->elements[i], object)) {
+    while(i < stack->index) {
+        if(adtCompare(stack->elements[i], object) == 0) {
             return true;
         }
         ++i;
@@ -109,13 +133,13 @@ bool stkExists(StackObject* stack, DataObject* object) { //TODO: Far scorrere lo
     return false;
 }
 
-void stkMap(StackObject* stack,MapFun function, void* param) { //TODO: Ragionacii meglio sopra. Aggiungere concetto di funzione parametrica?
+void stkMap(StackObject* stack,MapFun function, void* param) {
     for(uint i = 0; i<stack->index; ++i) {
         function(stack->elements[i], param);
     }
 }
 
-void stkFold(StackObject* stack, FoldFun function, void* accumulator, void* param) { //TODO: NON FUNZIONA BENE?, Aggiungere concetto di funzione parametrica?, Far scorrere lo stack da index a 0 e non da 0 a index
+void stkFold(StackObject* stack, FoldFun function, void* accumulator, void* param) {
     for(uint i = 0; i<stack->index; ++i) {
         function(stack->elements[i], accumulator, param);
     }

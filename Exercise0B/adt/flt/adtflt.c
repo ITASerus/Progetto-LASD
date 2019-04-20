@@ -38,8 +38,14 @@ void floatWriteToMonitor(void* value) {
     printf("%f", *(float*)value);
 }
 
-bool floatCompare(void* firstValue, void* secondValue) { //TODO: Distingui casi 1, -1, 0, NON SI COMPARANO COSì DUE FLOAT!
-    return *(float*)firstValue == *(float*)secondValue;
+int floatCompare(void* firstValue, void* secondValue) {
+    if(*(float*)firstValue < *(float*)secondValue) {
+        return -1;
+    } else if (*(float*)firstValue > *(float*)secondValue) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 void* floatClone(void* value) {
@@ -67,6 +73,6 @@ DataType* ConstructFloatDataType() {
     return type;
 }
 
-void DestructFloatDataType(DataType* type) { //TODO: Vuole questo?
+void DestructFloatDataType(DataType* type) {
     free(type);
 }

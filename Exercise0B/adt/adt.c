@@ -47,10 +47,10 @@ DataObject* adtClone(DataObject* object) {
     return clonedObejct;
 }
 
-bool adtCompare(DataObject* firstObject, DataObject* secondObject) { //TODO: Ritorna -1, 0 o +1 ecc?
+int adtCompare(DataObject* firstObject, DataObject* secondObject) {
     if(firstObject->type == secondObject->type) {
         return firstObject->type->compare(firstObject->value, secondObject->value);
     } else {
-        return false;
+        return 0; //Gli oggetti passati come parametro sono di tipo diverso, di conseguenza hanno anche valore diverso (il valore interno potrebbe essere lo stesso ma il loro "significato" è diverso)
     }
 }

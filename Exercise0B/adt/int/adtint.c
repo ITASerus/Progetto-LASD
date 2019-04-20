@@ -1,7 +1,7 @@
 
 #include "adtint.h"
 
-/* ************************************************************************** */ //TODO: Assicurati che non ci stanno riferimenti a "obj->" in quanto questa è la libreria degli interi, deve funzionare con gli interi e non deve esserci necessità di passare per forza un DataObject!
+/* ************************************************************************** */
 
 void* intConstruct() {
     int* value = (int*)malloc(sizeof(int));
@@ -22,13 +22,13 @@ void intSetValue(void* value, void* newValue) {
     *(int*)value = *(int*)newValue;
 }
 
-void* intRandomValue() { //TODO: Rivedi struttura
+void* intRandomValue() {
     int* rndValue = (int*)malloc(sizeof(int));
     *rndValue = rndNum(-MaxIntAbsRndVal, MaxIntAbsRndVal);
     return rndValue;
 }
 
-void* intReadFromKeyboard() { //TODO: Rivedi struttura, non suare scanf
+void* intReadFromKeyboard() { //TODO: Rivedi struttura, non suare scanf - DA TESTARE
     int* value = (int*)malloc(sizeof(int));
     scanf("%d", value);
     return value;
@@ -38,8 +38,14 @@ void intWriteToMonitor(void* value) {
     printf("%d", *(int*)value);
 }
 
-bool intCompare(void* firstValue, void* secondValue) { //TODO: Distingui casi 1, -1, 0
-    return *(int*)firstValue == *(int*)secondValue;
+int intCompare(void* firstValue, void* secondValue) {
+    if(*(int*)firstValue < *(int*)secondValue) {
+        return -1;
+    } else if (*(int*)firstValue > *(int*)secondValue) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 void* intClone(void* value) { //TODO: COPIA DI INTGETVALUE?
@@ -67,6 +73,6 @@ DataType* ConstructIntDataType() {
     return type;
 }
 
-void DestructIntDataType(DataType* type) { //TODO: Vuole questo?
+void DestructIntDataType(DataType* type) {
     free(type);
 }

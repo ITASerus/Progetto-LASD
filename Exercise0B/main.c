@@ -33,7 +33,7 @@ void intFoldParity(DataObject * dat, void * val, void * _)
 }
 
 void turnToChar(DataObject* dat, void* character) {
-    assert(dat != NULL); //TODO: Studia istruzione assert
+    assert(dat != NULL);
     strcpy(dat->value, character);
 }
 
@@ -303,7 +303,7 @@ void testStackString(DataObject * data)
     while(!stkEmpty(stack))
     {
         dataptr = stkTopNPop(stack);
-        printf("Rimozione dallo stack: %s\n", (char*) adtGetValue(dataptr));
+        printf("Rimozione dallo stack: %s\n", (char*) adtGetValue(dataptr)); //TODO: Ogni tanto crasha qua
         adtDestruct(dataptr);
         dataptr = stkTopNPop(stackx);
         printf("Rimozione dallo stack: %s\n", (char*) adtGetValue(dataptr));
@@ -917,6 +917,7 @@ void testQueueRecord(DataObject * data)
 int main()
 {
   srand(time(NULL));
+  printf("%d\n\n\n", strcmp("4", "4"));
 
   /* ************************************************************************ */
 

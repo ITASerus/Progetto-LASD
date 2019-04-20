@@ -91,7 +91,7 @@ DataType* ConstructRecordDataType() {
     return type;
 }
 
-void DestructRecordDataType(DataType* type) { //TODO: Vuole questo?
+void DestructRecordDataType(DataType* type) {
     free(type);
 }
 

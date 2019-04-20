@@ -15,6 +15,19 @@ QueueObject* queConstruct() {
     return obj;
 }
 
+//Costruttore di queue che riceve come parametro la dimensione da allocare in memoria all'atto della creazione della queue
+QueueObject* queConstructWSize(int size) {
+    QueueObject * obj = (QueueObject *) malloc(sizeof(QueueObject));
+
+    obj->front = -1;
+    obj->rear = -1;
+    obj->size = size;
+    obj->numElem = 0;
+    obj->elements = (DataObject**)malloc(sizeof(DataObject*)*size);
+
+    return obj;
+}
+
 void queDestruct(QueueObject* queue) {
     if(!queEmpty(queue)) {
         if (queue->front < queue->rear) {
@@ -31,13 +44,13 @@ void queDestruct(QueueObject* queue) {
         }
     }
 
-    free(queue->elements); //TODO: Si usa qualche funzione adt? Vedi anche altro in basso (e forse anche nella stack)
+    free(queue->elements);
     free(queue);
 }
 
 
 bool queEmpty(QueueObject* queue) {
-    return ((queue->front == -1) && (queue->rear == -1)); //TODO: Secondo controllo superficiale?
+    return queue->front == -1; //Se queue->front = -1, di conseguenza lo sarà sicuramente anche queue->rear. Tale situazione si verifica solo nel casp in cui la queue è vuota
 }
 
 DataObject* queHead(QueueObject* queue) {
@@ -60,20 +73,11 @@ void queDequeue(QueueObject* queue) {
     }
 }
 
-DataObject* queHeadNDequeue(QueueObject* queue) { //TODO: Sostituire parte dell'algoritmo con queDequeue?
+DataObject* queHeadNDequeue(QueueObject* queue) {
     if(!queEmpty(queue)) {
         DataObject* dequeuedElement = adtClone(queue->elements[queue->front]);
-        adtDestruct(queue->elements[queue->front]);
 
-        if (queue->front == queue->rear) { //La queue aveva un solo elemento
-            queue->front = -1;
-            queue->rear = -1;
-        } else if (queue->front == queue->size-1) {  //La queue ha almeno un elemento e front si trova all'ultimo indice disponibile prima di ricominciare
-            queue->front = 0;
-        } else {
-            queue->front++;
-        }
-        queue->numElem--;
+        queDequeue(queue);
 
         return dequeuedElement;
     } else { //La queue è vuota
@@ -92,20 +96,37 @@ void queEnqueue(QueueObject* queue, DataObject* elem) {
         DataObject** newElements = (DataObject**)malloc(sizeof(DataObject*)*(queue->size*2)); //Alloco un vettore grande il doppio di quello attualmente contenuto in queue
 
         int newElementsIndex = 0;
-        if(queue->front < queue->rear) { // TODO: Si può evitare di usare "i" sfruttando il fatto che non mi serve tenere traccia di queue->front?
-            for(int i = queue->front; i<= queue->rear; i++) {
+        if(queue->front < queue->rear) { //TODO: Risparmiati 4 bytes e il codice è meno leggibile... ne vale la pena?
+            while(queue->front <= queue->rear) {
+                newElements[newElementsIndex] = queue->elements[queue->front];
+                newElementsIndex++;
+                queue->front++;
+            }
+            /*for(int i = queue->front; i<= queue->rear; i++) {
                 newElements[newElementsIndex] = queue->elements[i];
                 newElementsIndex++;
-            }
+            }*/
         } else {
+            while(queue->front < queue->size) {
+                newElements[newElementsIndex] = queue->elements[queue->front];
+                newElementsIndex++;
+                queue->front++;
+            }
+            queue->front = 0;
+            while(queue->front <= queue->rear) {
+                newElements[newElementsIndex] = queue->elements[queue->front];
+                newElementsIndex++;
+                queue->front++;
+            }
+            /*
             for (int i = queue->front; i < queue->size; i++) {
                 newElements[newElementsIndex] = queue->elements[i];
                 newElementsIndex++;
             }
             for (int i = 0; i <= queue->rear; i++) {
                 newElements[newElementsIndex] = queue->elements[i];
-                newElementsIndex++;
-            }
+              */
+
         }
 
         free(queue->elements);
@@ -138,8 +159,8 @@ int queSize(QueueObject* queue) { //TODO: Togliere numElem e cambiare tutto di c
 }
 
 
-QueueObject* queClone(QueueObject* queue) { //TODO: Controllare complessità computazionale: si può fare meglio?
-    QueueObject* clonedQueue = queConstruct();
+QueueObject* queClone(QueueObject* queue) {
+    /*QueueObject* clonedQueue = queConstruct();
 
     if(queue->front < queue->rear) {
         for(int i = queue->front; i <= queue->rear; i++) {
@@ -154,7 +175,33 @@ QueueObject* queClone(QueueObject* queue) { //TODO: Controllare complessità com
         }
     }
 
+    return clonedQueue;*/
+
+    QueueObject* clonedQueue = queConstructWSize(queue->size);
+
+    if(!queEmpty(queue)) {
+        if (queue->front < queue->rear) {
+            for (int i = queue->front; i <= queue->rear; i++) {
+                clonedQueue->rear++;
+                clonedQueue->elements[clonedQueue->rear] = adtClone(queue->elements[i]);
+            }
+        } else {
+            for (int i = queue->front; i < queue->size; i++) {
+                clonedQueue->rear++;
+                clonedQueue->elements[clonedQueue->rear] = adtClone(queue->elements[i]);
+            }
+            for (int i = 0; i <= queue->rear; i++) {
+                clonedQueue->rear++;
+                clonedQueue->elements[clonedQueue->rear] = adtClone(queue->elements[i]);
+            }
+        }
+
+        clonedQueue->front = 0;
+        clonedQueue->numElem = queue->numElem;
+    }
+
     return clonedQueue;
+
 }
 
 bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue) { //TODO: Ripensare logica! - CONTROLLARE RITORNI
@@ -261,8 +308,6 @@ void queFold(QueueObject* queue, FoldFun function, void* accumulator, void* para
 }
 
 void queuePrint(QueueObject* queue) {
-    printf("ELEMENTI:\n"); //TODO: Togli?
-
     if(!queEmpty(queue)) {
         if (queue->front <= queue->rear) {
             for(int i = queue->front; i <= queue->rear; ++i) {

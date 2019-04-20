@@ -19,7 +19,7 @@ typedef void* (*ADTReadFromKeyboard)();
 typedef void (*ADTWriteToMonitor)(void*);
 
 typedef void* (*ADTClone)(void*); // ??
-typedef bool (*ADTCompare)(void*, void*);
+typedef int (*ADTCompare)(void*, void*);
 
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void adtReadFromKeyboard(DataObject* object);
 void adtWriteToMonitor(DataObject* object);
 
 DataObject* adtClone(DataObject* object);
-bool adtCompare(DataObject* firstObject, DataObject* secondObject);
+int adtCompare(DataObject* firstObject, DataObject* secondObject);
 
 /* ************************************************************************** */
 

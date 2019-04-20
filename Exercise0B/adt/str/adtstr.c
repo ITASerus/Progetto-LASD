@@ -35,12 +35,8 @@ void stringWriteToMonitor(void* value) {
 }
 
 
-bool stringCompare(void* firstValue, void* secondValue) { //TODO: Distingui casi 1, -1, 0
-    if (strcmp((char*)firstValue, (char*)secondValue) == 0) {
-        return true;
-    } else {
-        return false;
-    }
+int stringCompare(void* firstValue, void* secondValue) {
+    return strcmp((char*)firstValue, (char*)secondValue);
 }
 
 void* stringClone(void* value) {
@@ -68,7 +64,7 @@ DataType* ConstructStringDataType() {
     return type;
 }
 
-void DestructStringDataType(DataType* type) { //TODO: Vuole questo?
+void DestructStringDataType(DataType* type) {
     free(type);
 }
 
