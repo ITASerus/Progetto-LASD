@@ -8,8 +8,13 @@
 
 /* ************************************************************************** */
 
-// type ConstructRecordDataType(arguments);
-// type DestructRecordDataType(arguments);
+typedef struct Record {
+    char* name;
+    char* surname;
+} Record;
+
+DataType* ConstructRecordDataType();
+void DestructRecordDataType(DataType* type);
 
 /* ************************************************************************** */
 

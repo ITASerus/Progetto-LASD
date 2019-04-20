@@ -12,8 +12,8 @@
 
 /* ************************************************************************** */
 
-// type ConstructStringDataType(arguments);
-// type DestructStringDataType(arguments);
+DataType* ConstructStringDataType();
+void DestructStringDataType(DataType* type);
 
 /* ************************************************************************** */
 

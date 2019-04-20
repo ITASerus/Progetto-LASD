@@ -12,27 +12,34 @@
 
 typedef struct QueueObject
 {
-  // Struct da completare!
+    DataObject** elements; //Array di stringhe
+    uint front;
+    uint rear;
+    uint size; //Dimensione della queue, comprese le locazioni non utilizzate TODO: Cambiare size in altro (dimension?) perchè nelle librerie reali con size indicano il num di elementi presenti
+    uint numElem; //TODO: Togliere? Superfluo?
 } QueueObject;
 
 /* ************************************************************************** */
 
-// type queConstruct(arguments);
-// type queDestruct(arguments);
+QueueObject* queConstruct();
+void queDestruct(QueueObject* queue);
 
-// type queEmpty(arguments);
-// type queHead(arguments);
-// type queDequeue(arguments);
-// type queHeadNDequeue(arguments);
-// type queEnqueue(arguments);
-// type queSize(arguments);
+bool queEmpty(QueueObject* queue);
+DataObject* queHead(QueueObject* queue);
+void queDequeue(QueueObject* queue);
+DataObject* queHeadNDequeue(QueueObject* queue);
+void queEnqueue(QueueObject* queue, DataObject* elem);
+int queSize(QueueObject* queue);
 
-// type queClone(arguments);
-// type queEqual(arguments);
-// type queExists(arguments);
-// type queMap(arguments);
-// type queFold(arguments);
+QueueObject* queClone(QueueObject* queue);
+bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue);
+bool queExists(QueueObject* queue, DataObject* elem);
+void queMap(QueueObject* queue, MapFun function, void* param);
+void queFold(QueueObject* queue, FoldFun function, void* accumulator, void* param);
 
 /* ************************************************************************** */
+
+void queuePrint(QueueObject* queue);
+void elemConcat(char* elem, char* accumulator, void* param);
 
 #endif

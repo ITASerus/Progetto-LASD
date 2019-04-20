@@ -12,26 +12,28 @@
 
 typedef struct StackObject
 {
-  // Struct da completare!
+  DataObject** elements;
+  uint index;
+  uint size;
 } StackObject;
 
 /* ************************************************************************** */
 
-// type stkConstruct(arguments);
-// type stkDestruct(arguments);
+StackObject* stkConstruct();
+void stkDestruct(StackObject* stack);
 
-// type stkEmpty(arguments);
-// type stkTop(arguments);
-// type stkPop(arguments);
-// type stkTopNPop(arguments);
-// type stkPush(arguments);
-// type stkSize(arguments);
+bool stkEmpty(StackObject* stack);
+DataObject* stkTop(StackObject* stack);
+void stkPop(StackObject* stack);
+DataObject* stkTopNPop(StackObject* stack);
+void stkPush(StackObject* top, DataObject* elem);
+int stkSize(StackObject* stack);
 
-// type stkClone(arguments);
-// type stkEqual(arguments);
-// type stkExists(arguments);
-// type stkMap(arguments);
-// type stkFold(arguments);
+StackObject* stkClone(StackObject* stack);
+bool stkEqual(StackObject* stack1, StackObject* stack2);
+bool stkExists(StackObject* stack, DataObject* object);
+void stkMap(StackObject* stack, MapFun function, void* param);
+void stkFold(StackObject* stack, FoldFun function, void* accumulator, void* param);
 
 /* ************************************************************************** */
 

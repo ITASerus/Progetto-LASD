@@ -3,7 +3,7 @@
 /* ************************************************************************** */
 
 struct StackObject* stkConstruct() {
-	struct StackObject * obj = (struct StackObject *) malloc(sizeof(StackObject)); //TODO: Togliere riferimenti a struct
+    StackObject * obj = (StackObject *) malloc(sizeof(StackObject));
 
     obj->size = 0;
     obj->index = 0;

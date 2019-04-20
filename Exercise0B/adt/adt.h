@@ -8,45 +8,55 @@
 
 /* ************************************************************************** */
 
-// typedef type (*ADTConstruct)(arguments);
-// typedef type (*ADTDestruct)(arguments);
+typedef void* (*ADTConstruct)();
+typedef void (*ADTDestruct)(void*);
 
-// typedef type (*ADTGetValue)(arguments);
-// typedef type (*ADTSetValue)(arguments);
+typedef void* (*ADTGetValue)(void*);
+typedef void (*ADTSetValue)(void*, void*);
 
-// typedef type (*ADTRandomValue)(arguments);
-// typedef type (*ADTReadFromKeyboard)(arguments);
-// typedef type (*ADTWriteToMonitor)(arguments);
+typedef void* (*ADTRandomValue)();
+typedef void* (*ADTReadFromKeyboard)();
+typedef void (*ADTWriteToMonitor)(void*);
 
-// typedef type (*ADTClone)(arguments);
-// typedef type (*ADTCompare)(arguments);
+typedef void* (*ADTClone)(void*); // ??
+typedef bool (*ADTCompare)(void*, void*);
 
 /* ************************************************************************** */
 
-typedef struct DataType
-{
-  // Struct da completare!
+typedef struct DataType {
+  ADTConstruct  construct;
+  ADTDestruct destruct;
+
+  ADTGetValue getValue;
+  ADTSetValue setValue;
+
+  ADTRandomValue randomValue;
+  ADTReadFromKeyboard readFromKeyboard;
+  ADTWriteToMonitor writeToMonitor;
+
+  ADTClone clone;
+  ADTCompare compare;
 } DataType;
 
-typedef struct DataObject
-{
-  // Struct da completare!
+typedef struct DataObject {
+  DataType* type;
+  void* value;
 } DataObject;
 
 /* ************************************************************************** */
 
-// type adtConstruct(arguments);
-// type adtDestruct(arguments);
+DataObject* adtConstruct(DataType* dataType);
+void adtDestruct(DataObject* object);
 
-// type adtGetValue(arguments);
-// type adtSetValue(arguments);
+void* adtGetValue(DataObject* object);
+void adtSetValue(DataObject* object, void* elem);
 
-// type adtRandomValue(arguments);
-// type adtReadFromKeyboard(arguments);
-// type adtWriteToMonitor(arguments);
+void adtRandomValue(DataObject* object);
+void adtReadFromKeyboard(DataObject* object);
+void adtWriteToMonitor(DataObject* object);
 
-// type adtClone(arguments);
-// type adtCompare(arguments);
+DataObject* adtClone(DataObject* object);
+bool adtCompare(DataObject* firstObject, DataObject* secondObject);
 
 /* ************************************************************************** */
 
