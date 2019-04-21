@@ -4,15 +4,14 @@
 /* ************************************************************************** */
 
 void* floatConstruct() {
-    float* value = (float*)malloc(sizeof(float));
-    return value;
+    return (float*)malloc(sizeof(float));
 }
 
 void floatDestruct(void* value) {
     free(value);
 }
 
-void* floatGetValue(void* value) { //TODO: Usa floatClone
+void* floatGetValue(void* value) {
     float* valueCopy = (float*)malloc(sizeof(float));
     *valueCopy = *(float*) value;
     return valueCopy;
@@ -22,7 +21,7 @@ void floatSetValue(void* value, void* newValue) {
     *(float*)value = *(float*)newValue;
 }
 
-void* floatRandomValue() { //TODO: Rivedi struttura
+void* floatRandomValue() {
     float* rndValue = (float*)malloc(sizeof(float));
     *rndValue = ((float)rndNum(-MaxFltAbsRndVal, MaxFltAbsRndVal)/(float)(MaxFltPrcRndVal)) * MaxFltAbsRndVal; //TODO: Si genera così? NO, trova altro modo
     return rndValue;

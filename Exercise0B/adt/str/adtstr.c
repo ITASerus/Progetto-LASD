@@ -6,8 +6,7 @@ char* rndStr(int numChar);
 /* ************************************************************************** */
 
 void* stringConstruct() {
-    char* value = (char*)malloc(sizeof(char)* MaxStrLen);
-    return value; //Ritorno NULL. Inutile allocare una stringa grande a piacere che poi avrà quasi sicuramente necessità di realloc
+    return (char*)malloc(sizeof(char)*MaxStrLen);
 }
 
 void stringDestruct(void* value) {
@@ -19,15 +18,23 @@ void* stringGetValue(void* value) {
     return valueCopy;
 }
 
-void stringSetValue(void* value, void* newValue) { //TODO: Ragionare in modo opposto? alloco prima la memoria in stringConstruct e poi qua faccio ciò che devo
-    //value = (char*)malloc(sizeof(char)* (strlen(newValue)+1));
+void stringSetValue(void* value, void* newValue) {
+    if(strlen(value) != strlen(newValue)) {
+        value = realloc(value, sizeof(char) * strlen((char*)newValue) + 1);
+    }
+
     strcpy((char*)value, (char*)newValue);
 }
 
 
-void* stringRandomValue() { //TODO: Rivedi struttura
-    char* rndString = rndStr(rndNum(1, MaxStrLen));
-    return rndString;
+void* stringRandomValue() {
+    return rndStr(rndNum(1, MaxStrLen));
+}
+
+void* stringReadFromKeyboard() {
+    char* string = (char*)malloc(sizeof(char));
+    scanf("%s", string);
+    return string;
 }
 
 void stringWriteToMonitor(void* value) {
@@ -55,7 +62,7 @@ DataType* ConstructStringDataType() {
     type->setValue = stringSetValue;
 
     type->randomValue = stringRandomValue;
-    //type->readFromKeyboard = stringReadFromKeyboard; //TODO: Da implementare
+    type->readFromKeyboard = stringReadFromKeyboard;
     type->writeToMonitor = stringWriteToMonitor;
 
     type->clone = stringClone;
@@ -73,7 +80,7 @@ void DestructStringDataType(DataType* type) {
 char* rndStr(int numChar) {
     char* newString = (char*)malloc(sizeof(char)*(numChar+1));
 
-    for(uint i = 0; i<numChar; ++i) {
+    for(uint i = 0; i < numChar; ++i) {
         newString[i] = (char)rndNum(65, 90);
     }
     newString[numChar] = '\0';

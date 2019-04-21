@@ -21,92 +21,47 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="vertical" split-proportion="0.37067938">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="294">
-                  <caret line="928" selection-start-line="928" selection-end-line="928" />
+                <state relative-caret-position="183">
+                  <caret line="290" column="28" lean-forward="true" selection-start-line="290" selection-start-column="28" selection-end-line="290" selection-end-column="28" />
                   <folding>
-                    <element signature="e#105#125#0" expanded="true" />
                     <element signature="e#291#568#0" />
                     <element signature="e#570#796#0" />
-                    <element signature="e#946#1163#0" />
-                    <element signature="e#1165#1376#0" />
-                    <element signature="e#1378#1626#0" />
-                    <element signature="e#1628#5266#0" />
-                    <element signature="e#9389#13201#0" />
-                    <element signature="e#13203#17678#0" />
-                    <element signature="e#17681#20058#0" />
-                    <element signature="e#20060#22654#0" />
-                    <element signature="e#22656#25197#0" />
-                    <element signature="e#25199#27996#0" />
+                    <element signature="e#798#911#0" />
+                    <element signature="e#913#1130#0" />
+                    <element signature="e#1132#1343#0" />
+                    <element signature="e#1345#1593#0" />
+                    <element signature="e#1595#5233#0" />
+                    <element signature="e#9386#13198#0" />
+                    <element signature="e#13200#17675#0" />
+                    <element signature="e#17678#20055#0" />
+                    <element signature="e#20057#22651#0" />
+                    <element signature="e#22653#25194#0" />
+                    <element signature="e#25196#27993#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/stack/stack.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="176">
-                  <caret line="107" column="23" lean-forward="true" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
+                <state relative-caret-position="90">
+                  <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/adt/rec/adtrec.c">
+            <entry file="file://$PROJECT_DIR$/adt/adt.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="423">
-                  <caret line="57" column="89" selection-start-line="57" selection-start-column="89" selection-end-line="57" selection-end-column="89" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/queue/queue.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/adt/flt/adtflt.c">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="133">
-                  <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/queue/queue.c">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1793">
-                  <caret line="75" column="49" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/adt/str/adtstr.c">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="182">
-                  <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/adt/int/adtint.c">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="367">
-                  <caret line="47" column="5" lean-forward="true" selection-start-line="41" selection-start-column="4" selection-end-line="47" selection-end-column="5" />
+                <state relative-caret-position="84">
+                  <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
                 </state>
               </provider>
             </entry>
@@ -114,43 +69,70 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/stack/stack.c">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1620">
-                  <caret line="90" column="51" selection-start-line="90" selection-start-column="51" selection-end-line="90" selection-end-column="51" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
+        <splitter split-orientation="vertical" split-proportion="0.6813793">
+          <split-first>
+            <leaf>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/adt/adt.c">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="100">
+                      <caret line="25" column="34" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="34" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/adt/adt.c">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="38">
+                      <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/adt/str/adtstr.c">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="67">
+                      <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-second>
     </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>ciao</find>
+      <find>adtGetValue</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/stack/stack.h" />
         <option value="$PROJECT_DIR$/adt/int/adtint.h" />
         <option value="$PROJECT_DIR$/adt/flt/adtflt.h" />
         <option value="$PROJECT_DIR$/adt/str/adtstr.h" />
-        <option value="$PROJECT_DIR$/adt/rec/adtrec.h" />
-        <option value="$PROJECT_DIR$/adt/int/adtint.c" />
-        <option value="$PROJECT_DIR$/adt/str/adtstr.c" />
-        <option value="$PROJECT_DIR$/adt/adt.c" />
         <option value="$PROJECT_DIR$/adt/adt.h" />
-        <option value="$PROJECT_DIR$/main.c" />
-        <option value="$PROJECT_DIR$/adt/flt/adtflt.c" />
-        <option value="$PROJECT_DIR$/adt/rec/adtrec.c" />
-        <option value="$PROJECT_DIR$/queue/queue.c" />
+        <option value="$PROJECT_DIR$/stack/stack.h" />
         <option value="$PROJECT_DIR$/queue/queue.h" />
+        <option value="$PROJECT_DIR$/queue/queue.c" />
+        <option value="$PROJECT_DIR$/adt/flt/adtflt.c" />
+        <option value="$PROJECT_DIR$/adt/int/adtint.c" />
+        <option value="$PROJECT_DIR$/adt/rec/adtrec.h" />
+        <option value="$PROJECT_DIR$/adt/rec/adtrec.c" />
+        <option value="$PROJECT_DIR$/adt/adt.c" />
         <option value="$PROJECT_DIR$/stack/stack.c" />
+        <option value="$PROJECT_DIR$/main.c" />
+        <option value="$PROJECT_DIR$/adt/str/adtstr.c" />
       </list>
     </option>
   </component>
@@ -163,6 +145,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -213,7 +196,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -255,12 +237,13 @@
       <workItem from="1555590695050" duration="10937000" />
       <workItem from="1555663744606" duration="13018000" />
       <workItem from="1555749725984" duration="8347000" />
-      <workItem from="1555769849938" duration="9802000" />
+      <workItem from="1555769849938" duration="12841000" />
+      <workItem from="1555853333386" duration="16767000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78230000" />
+    <option name="totallyTimeSpent" value="98036000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -273,26 +256,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14345992" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0982906" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49065703" visible="true" weight="0.41020408" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.30510205" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.23673469" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32959184" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50934297" side_tool="true" weight="0.20306122" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49125978" weight="0.272449" />
-      <window_info anchor="bottom" id="CMake" order="11" weight="0.32959184" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.30510205" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="5" weight="0.23673469" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32959184" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50934297" side_tool="true" weight="0.20306122" />
+      <window_info anchor="bottom" id="Messages" order="9" sideWeight="0.49125978" visible="true" weight="0.14387755" />
+      <window_info anchor="bottom" id="CMake" order="10" weight="0.32959184" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Run" order="3" sideWeight="0.49065703" weight="0.24603175" />
     </layout>
   </component>
   <component name="editorHistoryManager">
@@ -317,24 +299,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility.c">
+    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="270">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/queue.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+          <folding>
+            <element signature="e#21#329#0" />
+            <element signature="e#331#738#0" />
+            <element signature="e#740#1299#0" />
+            <element signature="e#1613#2472#0" />
+            <element signature="e#2474#2751#0" />
+            <element signature="e#2753#5346#0" />
+            <element signature="e#3743#3914#0" />
+            <element signature="e#4393#4714#0" />
+            <element signature="e#5381#5500#0" />
+            <element signature="e#5503#6918#0" />
+            <element signature="e#8543#9286#0" />
+            <element signature="e#9288#9839#0" />
+            <element signature="e#9841#10452#0" />
+            <element signature="e#10454#11221#0" />
+            <element signature="e#11223#11317#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/queue.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="17" column="77" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/adt/rec/adtrec.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stack/stack.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="198">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -345,95 +351,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adt/adt.c">
+    <entry file="file://$PROJECT_DIR$/stack/stack.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/adt.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="928" selection-start-line="928" selection-end-line="928" />
-          <folding>
-            <element signature="e#105#125#0" expanded="true" />
-            <element signature="e#291#568#0" />
-            <element signature="e#570#796#0" />
-            <element signature="e#946#1163#0" />
-            <element signature="e#1165#1376#0" />
-            <element signature="e#1378#1626#0" />
-            <element signature="e#1628#5266#0" />
-            <element signature="e#9389#13201#0" />
-            <element signature="e#13203#17678#0" />
-            <element signature="e#17681#20058#0" />
-            <element signature="e#20060#22654#0" />
-            <element signature="e#22656#25197#0" />
-            <element signature="e#25199#27996#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/int/adtint.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="41" selection-start-column="4" selection-end-line="47" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/flt/adtflt.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+        <state relative-caret-position="145">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/adt/rec/adtrec.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="57" column="89" selection-start-line="57" selection-start-column="89" selection-end-line="57" selection-end-column="89" />
+        <state relative-caret-position="1813">
+          <caret line="111" column="1" lean-forward="true" selection-start-line="111" selection-start-column="1" selection-end-line="111" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queue/queue.h">
+    <entry file="file://$PROJECT_DIR$/adt/flt/adtflt.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+        <state relative-caret-position="175">
+          <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="32" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queue/queue.c">
+    <entry file="file://$PROJECT_DIR$/adt/int/adtint.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1793">
-          <caret line="75" column="49" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
+        <state relative-caret-position="83">
+          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/adt.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stack/stack.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="107" column="23" lean-forward="true" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
+        <state relative-caret-position="90">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="290" column="28" lean-forward="true" selection-start-line="290" selection-start-column="28" selection-end-line="290" selection-end-column="28" />
+          <folding>
+            <element signature="e#291#568#0" />
+            <element signature="e#570#796#0" />
+            <element signature="e#798#911#0" />
+            <element signature="e#913#1130#0" />
+            <element signature="e#1132#1343#0" />
+            <element signature="e#1345#1593#0" />
+            <element signature="e#1595#5233#0" />
+            <element signature="e#9386#13198#0" />
+            <element signature="e#13200#17675#0" />
+            <element signature="e#17678#20055#0" />
+            <element signature="e#20057#22651#0" />
+            <element signature="e#22653#25194#0" />
+            <element signature="e#25196#27993#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/adt.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
         </state>
       </provider>
     </entry>

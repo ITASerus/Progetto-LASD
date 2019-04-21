@@ -18,18 +18,20 @@
 void intMapPosZerNeg(DataObject * dat, void * _)
 {
   assert(dat != NULL);
-  int elm = *((int *) (adtGetValue(dat)));
+  int* elm = adtGetValue(dat);
   int val = (elm > 0) ? 1 : ((elm == 0) ? 0 : -1);
   adtSetValue(dat, &val);
+  free(elm);
 }
 
 void intFoldParity(DataObject * dat, void * val, void * _)
 {
   assert(dat != NULL);
   assert(val != NULL);
-  int elm = *((int *) (adtGetValue(dat)));
+  int* elm = adtGetValue(dat);
   int valx = *((int *) val);
   *((int *) val) = (elm >= 0) ? valx : -valx;
+  free(elm);
 }
 
 void turnToChar(DataObject* dat, void* character) {
@@ -45,18 +47,20 @@ void strConcat(DataObject* elm, void* accumulator, void* _) {
 void floatMapPosZerNeg(DataObject * dat, void * _)
 {
     assert(dat != NULL);
-    float elm = *((float *) (adtGetValue(dat)));
+    float* elm = adtGetValue(dat);
     float val = (elm > 0) ? 1 : ((elm == 0) ? 0 : -1);
     adtSetValue(dat, &val);
+    free(elm);
 }
 
 void floatFoldParity(DataObject * dat, void * val, void * _)
 {
     assert(dat != NULL);
     assert(val != NULL);
-    float elm = *((float *) (adtGetValue(dat)));
+    float* elm = adtGetValue(dat);
     float valx = *((float *) val);
     *((float *) val) = (elm >= 0) ? valx : -valx;
+    free(elm);
 }
 
 /* ************************************************************************** */
@@ -81,7 +85,9 @@ void testStackInt(DataObject * data)
   {
     printf("\n");
     adtRandomValue(data);
-    printf("Inserimento nello stack: %d\n", *((int *) adtGetValue(data)));
+    printf("Inserimento nello stack:");
+    adtWriteToMonitor(data);
+    printf("\n");
     stkPush(stack, data);
   }
   printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
@@ -95,7 +101,9 @@ void testStackInt(DataObject * data)
   for(uint i = 0; i < 10; i++)
   {
     dataptr = stkTopNPop(stack);
-    printf("Rimozione dallo stack: %d\n", *((int *) adtGetValue(dataptr)));
+    printf("Rimozione dallo stack: ");
+    adtWriteToMonitor(dataptr);
+    printf("\n");
     adtDestruct(dataptr);
   }
   printf("Numero di elementi nello stack dopo le estrazioni: %d\n\n", stkSize(stack));
@@ -109,7 +117,9 @@ void testStackInt(DataObject * data)
   for(uint i = 0; i < 15; i++)
   {
     adtRandomValue(data);
-    printf("Inserimento nello stack: %d\n", *((int *) adtGetValue(data)));
+    printf("Inserimento nello stack: ");
+    adtWriteToMonitor(data);
+    printf("\n");
     stkPush(stack, data);
   }
   printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
@@ -121,7 +131,9 @@ void testStackInt(DataObject * data)
   printf("\n");
 
   dataptr = stkTop(stack);
-  printf("Rimozione della testa dello stack dopo gli inserimenti: %d\n\n", *((int *) adtGetValue(dataptr)));
+  printf("Rimozione della testa dello stack dopo gli inserimenti: ");
+  adtWriteToMonitor(dataptr);
+  printf("\n");
   adtDestruct(dataptr);
   stkPop(stack);
 
@@ -150,7 +162,7 @@ void testStackInt(DataObject * data)
   printf("\n");
 
   stkMap(stack, &intMapPosZerNeg, NULL);
-  printf("STACK (%d):\n", stackx->index);
+  printf("STACK (%d):\n", stack->index);
   for(int i=0; i<stack->index; i++) {
       printf("- %d\n", *(int*)stack->elements[i]->value);
   }
@@ -163,14 +175,25 @@ void testStackInt(DataObject * data)
   while(!stkEmpty(stack))
   {
     dataptr = stkTopNPop(stack);
-    printf("Rimozione dallo stack: %d\n", *((int *) adtGetValue(dataptr)));
+    printf("Rimozione dallo stack: ");
+    adtWriteToMonitor(dataptr);
+    printf("\n");
     adtDestruct(dataptr);
+
     dataptr = stkTopNPop(stackx);
-    printf("Rimozione dallo stack: %d\n", *((int *) adtGetValue(dataptr)));
+    printf("Rimozione dallo stack: ");
+    adtWriteToMonitor(dataptr);
+    printf("\n");
     adtDestruct(dataptr);
   }
   printf("Numero di elementi nello stack dopo le estrazioni: %d\n", stkSize(stack));
   printf("Numero di elementi nel clone dello stack dopo le estrazioni: %d\n\n", stkSize(stackx));
+
+  printf("STACK (%d):\n", stack->index);
+  for(int i=0; i<stack->index; i++) {
+      printf("- %d\n", *(int*)stack->elements[i]->value);
+  }
+  printf("\n");
 
   printf("Distruzione Oggetti Stack\n\n");
   stkDestruct(stackx);
@@ -180,7 +203,7 @@ void testStackInt(DataObject * data)
 void testStackString(DataObject * data)
 {
     char* val = NULL;
-    char* elem = (char*)malloc(sizeof(char)*8);
+    char* elem = (char*)malloc(sizeof(char)*strlen("ciaone!")+1);
     strcpy(elem, "ciaone!");
     DataObject * dataptr = NULL;
 
@@ -198,7 +221,9 @@ void testStackString(DataObject * data)
     {
         printf("\n");
         adtRandomValue(data);
-        printf("Inserimento nello stack: %s\n", (char *) adtGetValue(data));
+        printf("Inserimento nello stack: ");
+        adtWriteToMonitor(data);
+        printf("\n");
         stkPush(stack, data);
     }
     printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
@@ -214,7 +239,9 @@ void testStackString(DataObject * data)
     for(uint i = 0; i < 10; i++)
     {
         dataptr = stkTopNPop(stack);
-        printf("Rimozione dallo stack: %s\n", (char *) adtGetValue(dataptr));
+        printf("Rimozione dallo stack: ");
+        adtWriteToMonitor(dataptr);
+        printf("\n");
         adtDestruct(dataptr);
     }
     printf("Numero di elementi nello stack dopo le estrazioni: %d\n\n", stkSize(stack));
@@ -231,7 +258,9 @@ void testStackString(DataObject * data)
     for(uint i = 0; i < 15; i++)
     {
         adtRandomValue(data);
-        printf("Inserimento nello stack: %s\n", (char *) adtGetValue(data));
+        printf("Inserimento nello stack: ");
+        adtWriteToMonitor(data);
+        printf("\n");
         stkPush(stack, data);
     }
     printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
@@ -245,7 +274,9 @@ void testStackString(DataObject * data)
     printf("\n");
 
     dataptr = stkTop(stack);
-    printf("Rimozione della testa dello stack dopo gli inserimenti: %s\n\n", (char *) adtGetValue(dataptr));
+    printf("Rimozione della testa dello stack dopo gli inserimenti: ");
+    adtWriteToMonitor(dataptr);
+    printf("\n\n");
     adtDestruct(dataptr);
     stkPop(stack);
 
@@ -303,10 +334,14 @@ void testStackString(DataObject * data)
     while(!stkEmpty(stack))
     {
         dataptr = stkTopNPop(stack);
-        printf("Rimozione dallo stack: %s\n", (char*) adtGetValue(dataptr)); //TODO: Ogni tanto crasha qua
+        printf("Rimozione dallo stack: ");
+        adtWriteToMonitor(dataptr);
+        printf("\n");
         adtDestruct(dataptr);
         dataptr = stkTopNPop(stackx);
-        printf("Rimozione dallo stack: %s\n", (char*) adtGetValue(dataptr));
+        printf("Rimozione dallo stack: ");
+        adtWriteToMonitor(dataptr);
+        printf("\n");
         adtDestruct(dataptr);
     }
     printf("Numero di elementi nello stack dopo le estrazioni: %d\n", stkSize(stack));
@@ -337,7 +372,9 @@ void testStackFloat(DataObject * data)
     {
         printf("\n");
         adtRandomValue(data);
-        printf("Inserimento nello stack: %f\n", *((float *) adtGetValue(data)));
+        printf("Inserimento nello stack: ");
+        adtWriteToMonitor(data);
+        printf("\n");
         stkPush(stack, data);
     }
     printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
@@ -351,7 +388,9 @@ void testStackFloat(DataObject * data)
     for(uint i = 0; i < 10; i++)
     {
         dataptr = stkTopNPop(stack);
-        printf("Rimozione dallo stack: %f\n", *((float *) adtGetValue(dataptr)));
+        printf("Rimozione dallo stack: ");
+        adtWriteToMonitor(dataptr);
+        printf("\n");
         adtDestruct(dataptr);
     }
     printf("Numero di elementi nello stack dopo le estrazioni: %d\n\n", stkSize(stack));
@@ -365,7 +404,9 @@ void testStackFloat(DataObject * data)
     for(uint i = 0; i < 15; i++)
     {
         adtRandomValue(data);
-        printf("Inserimento nello stack: %f\n", *((float *) adtGetValue(data)));
+        printf("Inserimento nello stack: \n");
+        adtWriteToMonitor(data);
+        printf("\n");
         stkPush(stack, data);
     }
     printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
@@ -377,7 +418,9 @@ void testStackFloat(DataObject * data)
     printf("\n");
 
     dataptr = stkTop(stack);
-    printf("Rimozione della testa dello stack dopo gli inserimenti: %f\n\n", *((float *) adtGetValue(dataptr)));
+    printf("Rimozione della testa dello stack dopo gli inserimenti: ");
+    adtWriteToMonitor(dataptr);
+    printf("\n\n");
     adtDestruct(dataptr);
     stkPop(stack);
 
@@ -419,10 +462,14 @@ void testStackFloat(DataObject * data)
     while(!stkEmpty(stack))
     {
         dataptr = stkTopNPop(stack);
-        printf("Rimozione dallo stack: %f\n", *((float *) adtGetValue(dataptr)));
+        printf("Rimozione dallo stack: ");
+        adtWriteToMonitor(dataptr);
+        printf("\n");
         adtDestruct(dataptr);
         dataptr = stkTopNPop(stackx);
-        printf("Rimozione dallo stack: %f\n", *((float *) adtGetValue(dataptr)));
+        printf("Rimozione dallo stack: ");
+        adtWriteToMonitor(data);
+        printf("\n");
         adtDestruct(dataptr);
     }
     printf("Numero di elementi nello stack dopo le estrazioni: %d\n", stkSize(stack));
@@ -597,7 +644,9 @@ void testQueueInt(DataObject * data)
   for(uint i = 0; i < 17; i++)
   {
     adtRandomValue(data);
-    printf("Inserimento nella queue: %d\n", *((int *) adtGetValue(data)));
+    printf("Inserimento nella queue: ");
+    adtWriteToMonitor(data);
+    printf("\n");
     queEnqueue(queue, data);
   }
   printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
@@ -607,7 +656,9 @@ void testQueueInt(DataObject * data)
   for(uint i = 0; i < 10; i++)
   {
     dataptr = queHeadNDequeue(queue);
-    printf("Rimozione dalla queue: %d\n", *((int *) adtGetValue(dataptr)));
+    printf("Rimozione dalla queue: ");
+    adtWriteToMonitor(dataptr);
+    printf("\n");
     adtDestruct(dataptr);
   }
   printf("Numero di elementi nella queue dopo le estrazioni: %d\n\n", queSize(queue));
@@ -620,7 +671,9 @@ void testQueueInt(DataObject * data)
   for(uint i = 0; i < 15; i++)
   {
     adtRandomValue(data);
-    printf("Inserimento nella queue: %d\n", *((int *) adtGetValue(data)));
+    printf("Inserimento nella queue: ");
+    adtWriteToMonitor(data);
+    printf("\n");
     queEnqueue(queue, data);
   }
   printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
@@ -628,7 +681,9 @@ void testQueueInt(DataObject * data)
   queuePrint(queue);
 
   dataptr = queHead(queue);
-  printf("Rimozione della testa dello stack dopo gli inserimenti: %d\n\n", *((int *) adtGetValue(dataptr)));
+  printf("Rimozione della testa dello stack dopo gli inserimenti: ");
+  adtWriteToMonitor(dataptr);
+  printf("\n\n");
   adtDestruct(dataptr);
   queuePrint(queue);
   queDequeue(queue);
@@ -649,10 +704,14 @@ void testQueueInt(DataObject * data)
   while(!queEmpty(queue))
   {
     dataptr = queHeadNDequeue(queue);
-    printf("Rimozione dalla queue: %d\n", *((int *) adtGetValue(dataptr)));
+    printf("Rimozione dalla queue: ");
+    adtWriteToMonitor(dataptr);
+    printf("\n");
     adtDestruct(dataptr);
     dataptr = queHeadNDequeue(queuex);
-    printf("Rimozione dal clone della queue: %d\n", *((int *) adtGetValue(dataptr)));
+    printf("Rimozione dal clone della queue: ");
+    adtWriteToMonitor(dataptr);
+    printf("\n");
     adtDestruct(dataptr);
   }
   printf("Numero di elementi nella queue dopo le estrazioni: %d\n", queSize(queue));
@@ -676,7 +735,9 @@ void testQueueString(DataObject * data)
     for(uint i = 0; i < 17; i++)
     {
         adtRandomValue(data);
-        printf("Inserimento nella queue: %s\n", (char *) adtGetValue(data));
+        printf("Inserimento nella queue: ");
+        adtWriteToMonitor(data);
+        printf("\n");
         queEnqueue(queue, data);
     }
     printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
@@ -686,7 +747,9 @@ void testQueueString(DataObject * data)
     for(uint i = 0; i < 10; i++)
     {
         dataptr = queHeadNDequeue(queue);
-        printf("Rimozione dalla queue: %s\n", (char *) adtGetValue(dataptr));
+        printf("Rimozione dalla queue: ");
+        adtWriteToMonitor(dataptr);
+        printf("\n");
         adtDestruct(dataptr);
     }
     printf("Numero di elementi nella queue dopo le estrazioni: %d\n\n", queSize(queue));
@@ -700,7 +763,9 @@ void testQueueString(DataObject * data)
     for(uint i = 0; i < 15; i++)
     {
         adtRandomValue(data);
-        printf("Inserimento nella queue: %s\n", (char *) adtGetValue(data));
+        printf("Inserimento nella queue: ");
+        adtWriteToMonitor(data);
+        printf("\n");
         queEnqueue(queue, data);
     }
     printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
@@ -708,7 +773,9 @@ void testQueueString(DataObject * data)
     queuePrint(queue);
 
     dataptr = queHead(queue);
-    printf("Rimozione della testa dello stack dopo gli inserimenti: %s\n\n", (char *) adtGetValue(dataptr));
+    printf("Rimozione della testa dello stack dopo gli inserimenti: ");
+    adtWriteToMonitor(dataptr);
+    printf("\n");
     adtDestruct(dataptr);
     queDequeue(queue);
     queuePrint(queue);
@@ -729,10 +796,14 @@ void testQueueString(DataObject * data)
     while(!queEmpty(queue))
     {
         dataptr = queHeadNDequeue(queue);
-        printf("Rimozione dalla queue: %s\n", (char *) adtGetValue(dataptr));
+        printf("Rimozione dalla queue: ");
+        adtWriteToMonitor(dataptr);
+        printf("\n");
         adtDestruct(dataptr);
         dataptr = queHeadNDequeue(queuex);
-        printf("Rimozione dal clone della queue: %s\n", (char *) adtGetValue(dataptr));
+        printf("Rimozione dal clone della queue: ");
+        adtWriteToMonitor(dataptr);
+        printf("\n");
         adtDestruct(dataptr);
     }
     printf("Numero di elementi nella queue dopo le estrazioni: %d\n", queSize(queue));
@@ -755,7 +826,9 @@ void testQueueFloat(DataObject * data)
     for(uint i = 0; i < 17; i++)
     {
         adtRandomValue(data);
-        printf("Inserimento nella queue: %f\n", *((float *) adtGetValue(data)));
+        printf("Inserimento nella queue: ");
+        adtWriteToMonitor(data);
+        printf("\n");
         queEnqueue(queue, data);
     }
     printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
@@ -765,7 +838,9 @@ void testQueueFloat(DataObject * data)
     for(uint i = 0; i < 10; i++)
     {
         dataptr = queHeadNDequeue(queue);
-        printf("Rimozione dalla queue: %f\n", *((float *) adtGetValue(dataptr)));
+        printf("Rimozione dalla queue: ");
+        adtWriteToMonitor(dataptr);
+        printf("\n");
         adtDestruct(dataptr);
     }
     printf("Numero di elementi nella queue dopo le estrazioni: %d\n\n", queSize(queue));
@@ -778,7 +853,9 @@ void testQueueFloat(DataObject * data)
     for(uint i = 0; i < 15; i++)
     {
         adtRandomValue(data);
-        printf("Inserimento nella queue: %f\n", *((float *) adtGetValue(data)));
+        printf("Inserimento nella queue: ");
+        adtWriteToMonitor(data);
+        printf("\n");
         queEnqueue(queue, data);
     }
     printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
@@ -786,7 +863,9 @@ void testQueueFloat(DataObject * data)
     queuePrint(queue);
 
     dataptr = queHead(queue);
-    printf("Rimozione della testa dello stack dopo gli inserimenti: %f\n\n", *((float *) adtGetValue(dataptr)));
+    printf("Rimozione della testa dello stack dopo gli inserimenti: ");
+    adtWriteToMonitor(dataptr);
+    printf("\n\n");
     adtDestruct(dataptr);
     queuePrint(queue);
     queDequeue(queue);
@@ -807,10 +886,14 @@ void testQueueFloat(DataObject * data)
     while(!queEmpty(queue))
     {
         dataptr = queHeadNDequeue(queue);
-        printf("Rimozione dalla queue: %f\n", *((float *) adtGetValue(dataptr)));
+        printf("Rimozione dalla queue: ");
+        adtWriteToMonitor(dataptr);
+        printf("\n");
         adtDestruct(dataptr);
         dataptr = queHeadNDequeue(queuex);
-        printf("Rimozione dal clone della queue: %f\n", *((float *) adtGetValue(dataptr)));
+        printf("Rimozione dal clone della queue: ");
+        adtWriteToMonitor(dataptr);
+        printf("\n");
         adtDestruct(dataptr);
     }
     printf("Numero di elementi nella queue dopo le estrazioni: %d\n", queSize(queue));
@@ -917,7 +1000,6 @@ void testQueueRecord(DataObject * data)
 int main()
 {
   srand(time(NULL));
-  printf("%d\n\n\n", strcmp("4", "4"));
 
   /* ************************************************************************ */
 
@@ -927,9 +1009,9 @@ int main()
   printf("Creazione Oggetto Dato \n\n");
   DataObject * data = adtConstruct(intdatatype);
 
-  testStackInt(data);
+  //testStackInt(data);
 
-  testQueueInt(data);
+  //testQueueInt(data);
 
   printf("Distruzione Oggetto Dato\n\n");
   adtDestruct(data);
@@ -947,7 +1029,7 @@ int main()
 
   testStackString(data);
 
-  testQueueString(data);
+  //testQueueString(data);
 
   printf("Distruzione Oggetto Dato\n\n");
   adtDestruct(data);
@@ -963,9 +1045,9 @@ int main()
   printf("Creazione Oggetto Dato \n\n");
   data = adtConstruct(floatdatatype);
 
-  testStackFloat(data);
+ // testStackFloat(data);
 
-  testQueueFloat(data);
+ // testQueueFloat(data);
 
   printf("Distruzione Oggetto Dato\n\n");
   adtDestruct(data);
@@ -981,9 +1063,9 @@ int main()
   printf("Creazione Oggetto Dato \n\n");
   data = adtConstruct(recorddatatype);
 
-  testStackRecord(data);
+  //testStackRecord(data);
 
-  testQueueRecord(data);
+  //testQueueRecord(data);
 
   printf("Distruzione Oggetto Dato\n\n");
   adtDestruct(data);

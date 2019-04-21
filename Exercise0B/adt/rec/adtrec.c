@@ -3,7 +3,7 @@
 
 char* rndStr(int numChar);
 
-/* ************************************************************************** */ //TODO: Rivedi le allocazioni di memoira
+/* ************************************************************************** */
 
 void* recordConstruct() {
     Record* record = (Record*)malloc(sizeof(Record));
@@ -16,28 +16,44 @@ void* recordConstruct() {
 void recordDestruct(void* value) {
     free(((Record*)value)->name);
     free(((Record*)value)->surname);
-    free(value); //TODO: Necessita di cast?
+    free((Record*)value);
 }
 
-void* recordGetValue(void* value) { //TODO: Usa recordClone
+void* recordGetValue(void* value) {
     Record* recordCopy = (Record*)malloc(sizeof(Record));
 
-    recordCopy->name = (char*)malloc(sizeof(char)* strlen(((Record*)value)->name)+1 );
+    recordCopy->name = (char*)malloc(sizeof(char)* strlen(((Record*)value)->name)+1);
     strcpy(recordCopy->name, ((Record*)value)->name);
 
-    recordCopy->surname = (char*)malloc(sizeof(char)* strlen(((Record*)value)->surname)+1 );
+    recordCopy->surname = (char*)malloc(sizeof(char)* strlen(((Record*)value)->surname)+1);
     strcpy(recordCopy->surname, ((Record*)value)->surname);
 
     return recordCopy;
 }
 
-void recordSetValue(void* value, void* newValue) {
-    ((Record*)value)->name = ((Record*)newValue)->name;
-    ((Record*)value)->surname = ((Record*)newValue)->surname;
+void recordSetValue(void* value, void* newValue) { //TODO: Rivedi struttura
+    printf("(SetValue)\n");
+
+    if( (((Record*)value)->name) != NULL && (((Record*)value)->surname) != NULL) {
+        if (strlen((((Record *) value)->name)) != strlen((((Record *) newValue)->name))) {
+            ((Record *) value)->name = realloc((((Record *) value)->name), sizeof(char) * (strlen((((Record *) newValue)->name)) + 1));
+        }
+        if (strlen((((Record *) value)->surname)) != strlen((((Record *) newValue)->surname))) {
+            ((Record *) value)->surname = realloc((((Record *) value)->surname), sizeof(char) * (strlen((((Record *) newValue)->surname)) + 1));
+        }
+    } else {
+        (((Record*)value)->name) = (char*)malloc(sizeof(char)*strlen((((Record*)newValue)->name))+1);
+        (((Record*)value)->surname) = (char*)malloc(sizeof(char)*strlen((((Record*)newValue)->surname))+1);
+    }
+
+    strcpy(((Record *) value)->name, ((Record *) newValue)->name);
+    strcpy(((Record *) value)->surname, ((Record *) newValue)->surname);
+
+    printf("(Fine)\n");
 }
 
-void* recordRandomValue() { //TODO: Rivedi struttura
-    Record* rndValue = recordConstruct();
+void* recordRandomValue() {
+    Record* rndValue = (Record*)malloc(sizeof(Record));
 
     rndValue->name = rndStr(5);
     rndValue->surname = rndStr(10);
@@ -45,7 +61,7 @@ void* recordRandomValue() { //TODO: Rivedi struttura
     return rndValue;
 }
 
-void* recordReadFromKeyboard() { //TODO: DA IMPLEMENTARE - Rivedi struttura, non usare scanf
+void* recordReadFromKeyboard() { //TODO: DA IMPLEMENTARE non usare scanf
     /*int* value = (int*)malloc(sizeof(int));
     scanf("%d", value);
     return value;*/
@@ -55,18 +71,18 @@ void recordWriteToMonitor(void* value) {
     printf("(name) %s\n(surname) %s", ((Record*)value)->name, ((Record*)value)->surname);
 }
 
-bool recordCompare(void* firstValue, void* secondValue) { //TODO: Distingui casi 1, -1, 0
+int recordCompare(void* firstValue, void* secondValue) { //TODO: Distingui casi 1, -1, 0
     return ((strcmp(((Record*)firstValue)->name, ((Record*)secondValue)->name) == 0) &&
     (strcmp(((Record*)firstValue)->surname, ((Record*)secondValue)->surname) == 0));
 }
 
-void* recordClone(void* value) { //TODO: COPIA DI GETVALUE?
-    Record* clonedValue = (Record*)malloc(sizeof(int)); //TODO: Usa recordConstruct?
+void* recordClone(void* value) {
+    Record* clonedValue = (Record*)malloc(sizeof(Record));
 
-    clonedValue->name = (char*)malloc(sizeof(char)* strlen(((Record*)value)->name)+1 );
+    clonedValue->name = (char*)malloc(sizeof(char)* strlen(((Record*)value)->name) + 1);
     strcpy(clonedValue->name, ((Record*)value)->name);
 
-    clonedValue->surname = (char*)malloc(sizeof(char)* strlen(((Record*)value)->surname)+1 );
+    clonedValue->surname = (char*)malloc(sizeof(char)* strlen(((Record*)value)->surname) + 1);
     strcpy(clonedValue->surname, ((Record*)value)->surname);
 
     return clonedValue;
@@ -94,17 +110,3 @@ DataType* ConstructRecordDataType() {
 void DestructRecordDataType(DataType* type) {
     free(type);
 }
-
-/* ************************************************************************** */
-/* //TODO: Vedi dove devi mettere questa funzione che sta pure in adtString
-char* rndStr(int numChar) {
-    char* newString = (char*)malloc(sizeof(char)*(numChar+1));
-
-    for(uint i = 0; i<numChar; ++i) {
-        newString[i] = (char)rndNum(65, 90);
-    }
-    newString[numChar] = '\0';
-
-    return newString;
-}
-*/

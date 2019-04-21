@@ -12,9 +12,9 @@
 
 typedef struct StackObject
 {
-  DataObject** elements;
-  uint index;
-  uint size;
+  DataObject** elements; //Array di DataObject
+  uint index; //Testa dello stack
+  uint size; //Dimensione dello stack, comprese le locazioni non utilizzate
 } StackObject;
 
 /* ************************************************************************** */

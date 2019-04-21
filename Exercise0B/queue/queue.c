@@ -64,12 +64,20 @@ void queDequeue(QueueObject* queue) {
         if (queue->front == queue->rear) { //La queue aveva un solo elemento
             queue->front = -1;
             queue->rear = -1;
-        } else if (queue->front == queue->size-1) {  //La queue ha almeno un elemento e front si trova all'ultimo indice disponibile prima di ricominciare
+        } else queue->front = (queue->front+1)%queue->size; /*if (queue->front == queue->size-1) {  //La queue ha almeno un elemento e front si trova all'ultimo indice disponibile prima di ricominciare
             queue->front = 0;
         } else {
             queue->front++;
         }
-        queue->numElem--;
+        queue->numElem--;*/
+
+        /*if(queue->numElem < queue->size/4) { //La queue ha troppa memoria libera
+            printf("-------------- Dimezzo la dimensione della queue --------------\n");
+            QueueObject* newQueue = queConstructWSize(queue->size/2);
+
+            free(queue);
+            *queue = *newQueue;
+        }*/
     }
 }
 
@@ -86,8 +94,6 @@ DataObject* queHeadNDequeue(QueueObject* queue) {
 }
 
 void queEnqueue(QueueObject* queue, DataObject* elem) {
-    DataObject* elemCopy = adtClone(elem);
-
     //Controllo memoria disponibile
     if(queue->elements == NULL) { //Queue non ancora inizializzata
         queue->size = 2;
@@ -139,7 +145,7 @@ void queEnqueue(QueueObject* queue, DataObject* elem) {
     }
 
     //Inserimento effettivo della stringa nella queue
-    if (queue->front == -1) { //La queue è vuota
+    /*if (queue->front == -1) { //La queue è vuota
         queue->front = 0;
         queue->rear = 0;
     } else {
@@ -148,9 +154,14 @@ void queEnqueue(QueueObject* queue, DataObject* elem) {
         } else {
             queue->rear = queue->rear+1;
         }
+    }*/
+    if(queue->front == -1) {
+        queue->front = 0;
     }
+    queue->rear = (queue->rear+1) % queue->size;
+
     //printf("Inserisco in posizione %d\n", queue->rear);
-    queue->elements[queue->rear] = elemCopy;
+    queue->elements[queue->rear] = adtClone(elem);
     queue->numElem++;
 }
 
@@ -204,9 +215,9 @@ QueueObject* queClone(QueueObject* queue) {
 
 }
 
-bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue) { //TODO: Ripensare logica! - CONTROLLARE RITORNI
+bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue) {
     if(!queEmpty(firstQueue) && !queEmpty(secondQueue)) {  //Controllo che entrambe le queue non siano vuote
-        if(firstQueue->numElem != secondQueue->numElem) {
+        if(firstQueue->numElem != secondQueue->numElem) { //Controllo che il numero degli elementi delle queue sia lo stesso
             return false;
         }
 
@@ -214,7 +225,6 @@ bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue) { //TODO: Ripen
         if(firstQueue->front <= firstQueue->rear) {
             for(int i = firstQueue->front; i <= firstQueue->rear; i++) { //Ciclo su tutti gli elementi della prima queue
                 if (adtCompare(firstQueue->elements[i], secondQueue->elements[j]) == 0) {
-                    printf("1\n");
                     return false;
                 }
                 j++;
@@ -225,7 +235,6 @@ bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue) { //TODO: Ripen
         } else {
             for(int i = firstQueue->front; i < firstQueue->size; i++) {
                 if (adtCompare(firstQueue->elements[i], secondQueue->elements[j]) == 0) {
-                    printf("2\n");
                     return false;
                 }
                 j++;
@@ -235,7 +244,6 @@ bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue) { //TODO: Ripen
             }
             for(int i = 0; i <= firstQueue->rear; i++) {
                 if (adtCompare(firstQueue->elements[i], secondQueue->elements[j]) == 0) {
-                    printf("3\n");
                     return false;
                 }
                 j++;
@@ -244,6 +252,8 @@ bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue) { //TODO: Ripen
                 }
             }
         }
+    } else {
+        return false; //Solo una delle due queue è vuota
     }
     return true;
 }

@@ -4,15 +4,14 @@
 /* ************************************************************************** */
 
 void* intConstruct() {
-    int* value = (int*)malloc(sizeof(int));
-    return value;
+    return (int*)malloc(sizeof(int));
 }
 
 void intDestruct(void* value) {
     free(value);
 }
 
-void* intGetValue(void* value) { //TODO: Usa intClone - COPIA DI INTCLONE?
+void* intGetValue(void* value) {
     int* valueCopy = (int*)malloc(sizeof(int));
     *valueCopy = *(int*) value;
     return valueCopy;
@@ -48,8 +47,8 @@ int intCompare(void* firstValue, void* secondValue) {
     }
 }
 
-void* intClone(void* value) { //TODO: COPIA DI INTGETVALUE?
-    int* clonedValue = (int*)malloc(sizeof(int)); //TODO: Usa intConstruct?
+void* intClone(void* value) {
+    int* clonedValue = (int*)malloc(sizeof(int));
     *clonedValue = *(int*)value;
     return clonedValue;
 }

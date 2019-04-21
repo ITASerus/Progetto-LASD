@@ -27,6 +27,7 @@ void adtSetValue(DataObject* object, void* elem) {
 }
 
 void adtRandomValue(DataObject* object) {
+    object->type->destruct(object->value); //Libero la memoria occupata in precedenza
     object->value = object->type->randomValue();
 }
 
@@ -41,10 +42,12 @@ void adtWriteToMonitor(DataObject* object) {
 
 //Prende in input un oggetto astratto e ne restituisce un clone
 DataObject* adtClone(DataObject* object) {
-    DataObject* clonedObejct = adtConstruct(object->type); //Crea l'oggetto clone
-    clonedObejct->value = object->type->clone(object->value); //Assegna all'oggetto clone lo stesso valore dell'oggetto clonato
+    //Crea l'oggetto clone e ne inizializza i campi
+    DataObject* clonedObject = (DataObject*)malloc(sizeof(DataObject));
+    clonedObject->type = object->type;
+    clonedObject->value = object->type->clone(object->value); //Assegna all'oggetto clone lo stesso valore dell'oggetto clonato
 
-    return clonedObejct;
+    return clonedObject;
 }
 
 int adtCompare(DataObject* firstObject, DataObject* secondObject) {

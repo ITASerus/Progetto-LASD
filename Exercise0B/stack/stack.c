@@ -17,7 +17,7 @@ StackObject* stkConstructWSize(int size) {
     StackObject * obj = (StackObject *) malloc(sizeof(StackObject));
 
     obj->index = 0;
-    obj->size = 0;
+    obj->size = size;
     obj->elements = (DataObject**)malloc(sizeof(DataObject*)*size);
 
     return obj;
@@ -25,7 +25,7 @@ StackObject* stkConstructWSize(int size) {
 
 void stkDestruct(StackObject* stack) {
     for (uint i = 0; i<stack->index; ++i) {
-        free(stack->elements[i]);
+        adtDestruct(stack->elements[i]);
     }
     free(stack);
 }
@@ -43,12 +43,22 @@ DataObject* stkTop(StackObject* stack) {
     return adtClone(stack->elements[stack->index-1]);
 }
 
-void stkPop(StackObject* stack) { //TODO: Realloca spazio quando numero di elementi è <1/4 della dimensione, Controlla logica
+void stkPop(StackObject* stack) {
     if(!stkEmpty(stack)) { //Se lo stack è vuoto non è possibile rimuovere elementi
         adtDestruct(stack->elements[stack->index-1]);
         stack->elements[stack->index - 1] = NULL; //Per precauzione assegno la posizione non più utilizzata a NULL
 
         stack->index--;
+
+        if(stack->index < stack->size/4) { //Lo stack ha troppa memoria libera
+            printf("-------------- (%d) Dimezzo la dimensione dello stack --------------\n", stack->size/2);
+            stack->size /= 2;
+            stack->elements = realloc(stack->elements, sizeof(DataObject*) * stack->size); //Rimuovo la memoria in eccesso
+
+            if(stack->elements == NULL) {
+                printf("ERRORE REALLOC -----------------\n"); //TODO: Gestisci
+            }
+        }
     }
 }
 
@@ -65,8 +75,6 @@ DataObject* stkTopNPop(StackObject* stack) {
 }
 
 void stkPush(StackObject* stack, DataObject* elem) {
-    DataObject* elemCopy = adtClone(elem);
-
     //Controllo memoria disponibile
     if(stack->index == stack->size) { //Non ci sono slot liberi
         if (stack->elements == NULL) { //Lo stack non è stato ancora inizializzato
@@ -79,7 +87,7 @@ void stkPush(StackObject* stack, DataObject* elem) {
     }
 
     //Inserimento effettivo della stringa nello stack
-    stack->elements[stack->index] = elemCopy;
+    stack->elements[stack->index] = adtClone(elem);
     stack->index++;
 }
 
@@ -88,7 +96,7 @@ int stkSize(StackObject* stack) {
 }
 
 StackObject* stkClone(StackObject* stack) {
-    /*StackObject* clonedStack = stkConstruct(); //TODO: Creare un costruttore che alloca direttamente ciò che serve per allocare tutto stack, per questioni di efficienza
+    /*StackObject* clonedStack = stkConstruct();
 
     for(uint i = 0; i<stack->index; ++i) {
         stkPush(clonedStack, stack->elements[i]);

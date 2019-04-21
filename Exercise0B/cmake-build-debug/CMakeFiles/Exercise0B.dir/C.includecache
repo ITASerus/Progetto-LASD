@@ -10,14 +10,12 @@
 ../utility.h
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0B/utility.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0B/stack/stack.c
-stack.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0B/stack/stack.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0B/adt/str/adtstr.c
+adtstr.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0B/adt/str/adtstr.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0B/stack/stack.h
-../utility.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0B/utility.h
-../adt/adt.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0B/adt/str/adtstr.h
+../adt.h
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0B/adt/adt.h
 
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise0B/utility.h
