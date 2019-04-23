@@ -27,6 +27,8 @@ void stkDestruct(StackObject* stack) {
     for (uint i = 0; i<stack->index; ++i) {
         adtDestruct(stack->elements[i]);
     }
+
+    free(stack->elements);
     free(stack);
 }
 
@@ -51,7 +53,6 @@ void stkPop(StackObject* stack) {
         stack->index--;
 
         if(stack->index < stack->size/4) { //Lo stack ha troppa memoria libera
-            printf("-------------- (%d) Dimezzo la dimensione dello stack --------------\n", stack->size/2);
             stack->size /= 2;
             stack->elements = realloc(stack->elements, sizeof(DataObject*) * stack->size); //Rimuovo la memoria in eccesso
 
@@ -125,7 +126,7 @@ bool stkEqual(StackObject* firstStack, StackObject* secondStack) {
         if(adtCompare(firstStack->elements[i], firstStack->elements[i]) != 0) {
             return false;
         }
-        ++i;
+        i++;
     }
     return true;
 }

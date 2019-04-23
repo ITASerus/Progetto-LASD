@@ -6,7 +6,10 @@ char* rndStr(int numChar);
 /* ************************************************************************** */
 
 void* stringConstruct() {
-    return (char*)malloc(sizeof(char)*MaxStrLen);
+    char* value = (char*)malloc(sizeof(char) * (MaxStrLen + 1)); //TODO: Sostituire con calloc?
+    strcpy(value, "");//o
+    //value[0] = '\0';
+    return value;
 }
 
 void stringDestruct(void* value) {
@@ -14,13 +17,19 @@ void stringDestruct(void* value) {
 }
 
 void* stringGetValue(void* value) {
-    char* valueCopy = stringClone(value);
+    char* valueCopy = (char*)malloc(sizeof(char) * (strlen(value) + 1));
+    strcpy(valueCopy, value);
     return valueCopy;
 }
 
 void stringSetValue(void* value, void* newValue) {
-    if(strlen(value) != strlen(newValue)) {
-        value = realloc(value, sizeof(char) * strlen((char*)newValue) + 1);
+    if (strlen((char*) newValue) > strlen(value)) { //TODO: Scegli
+    //if (strlen((char*) value) != strlen((char*) newValue)) {
+        value = (char *)realloc(value, sizeof(char) * (strlen((char *) newValue) + 1));
+        strcpy(value, ""); //o ((char*)value)[0] = '\0';
+        if (value == NULL) {
+            printf("REALLOC FALLITA\n"); //TODO: Gestisci
+        }
     }
 
     strcpy((char*)value, (char*)newValue);
@@ -47,7 +56,7 @@ int stringCompare(void* firstValue, void* secondValue) {
 }
 
 void* stringClone(void* value) {
-    char* clonedValue = (char*)malloc(sizeof(char)*(strlen(value)+1));
+    char* clonedValue = (char*)malloc(sizeof(char) * (strlen(value) + 1));
     strcpy(clonedValue, value);
     return clonedValue;
 }
@@ -78,7 +87,7 @@ void DestructStringDataType(DataType* type) {
 /* ************************************************************************** */
 
 char* rndStr(int numChar) {
-    char* newString = (char*)malloc(sizeof(char)*(numChar+1));
+    char* newString = (char*)malloc(sizeof(char) * (numChar + 1));
 
     for(uint i = 0; i < numChar; ++i) {
         newString[i] = (char)rndNum(65, 90);

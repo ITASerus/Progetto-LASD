@@ -350,6 +350,8 @@ void testStackString(DataObject * data)
     printf("Distruzione Oggetti Stack\n\n");
     stkDestruct(stackx);
     stkDestruct(stack);
+
+    free(elem);
 }
 
 void testStackFloat(DataObject * data)
@@ -629,6 +631,10 @@ void testStackRecord(DataObject * data)
     printf("Distruzione Oggetti Stack\n\n");
     stkDestruct(stackx);
     stkDestruct(stack);
+
+    free(elem->name);
+    free(elem->surname);
+    free(elem);
 }
 
 
@@ -812,6 +818,8 @@ void testQueueString(DataObject * data)
     printf("Distruzione Oggetti Queue\n\n");
     queDestruct(queuex);
     queDestruct(queue);
+
+    free(elem);
 }
 
 void testQueueFloat(DataObject * data)
@@ -993,6 +1001,10 @@ void testQueueRecord(DataObject * data)
     printf("Distruzione Oggetti Queue\n\n");
     queDestruct(queuex);
     queDestruct(queue);
+
+    free(elem->name);
+    free(elem->surname);
+    free(elem);
 }
 
 /* ************************************************************************** */
@@ -1045,9 +1057,9 @@ int main()
   printf("Creazione Oggetto Dato \n\n");
   data = adtConstruct(floatdatatype);
 
- // testStackFloat(data);
+  //testStackFloat(data);
 
- // testQueueFloat(data);
+  //testQueueFloat(data);
 
   printf("Distruzione Oggetto Dato\n\n");
   adtDestruct(data);
