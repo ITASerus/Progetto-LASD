@@ -10,52 +10,66 @@
 
 /* ************************************************************************** */
 
-// typedef type (*QueConstruct)(arguments);
-// typedef type (*QueDestruct)(arguments);
+typedef void* (*QueConstruct)(void*);
+typedef void (*QueDestruct)(void*);
 
-// typedef type (*QueEmpty)(arguments);
-// typedef type (*QueHead)(arguments);
-// typedef type (*QueDequeue)(arguments);
-// typedef type (*QueHeadNDequeue)(arguments);
-// typedef type (*QueEnqueue)(arguments);
-// typedef type (*QueClear)(arguments);
+typedef bool (*QueEmpty)(void*);
+typedef void* (*QueHead)(void*);
+typedef void (*QueDequeue)(void*);
+typedef void* (*QueHeadNDequeue)(void*);
+typedef void (*QueEnqueue)(void*, void*);
+typedef void (*QueClear)(void*);
 
-// typedef type (*QueClone)(arguments);
-// typedef type (*QueEqual)(arguments);
-// typedef type (*QueMap)(arguments);
-// typedef type (*QueFold)(arguments);
+typedef void* (*QueClone)(void*);
+typedef bool (*QueEqual)(void*, void*);
+typedef void (*QueMap)(); //TODO: Metti parametri
+typedef void (*QueFold)(); //TODO: Metti parametri
 
 /* ************************************************************************** */
 
 typedef struct QueueType
 {
-  // Struct da completare!
+    QueConstruct construct;
+    QueDestruct destruct;
+
+    QueEmpty isEmpty;
+    QueHead head;
+    QueDequeue dequeue;
+    QueHeadNDequeue headNDequeue;
+    QueEnqueue enqueue;
+    QueClear clear;
+
+    QueClone clone;
+    QueEqual equal;
+    QueMap map;
+    QueFold fold;
 } QueueType;
 
 typedef struct QueueObject
 {
-  // Struct da completare!
+    QueueType* type;
+    void* queue; //TODO: Cambia nome perchè altrimenti devi fare queue->queue
 } QueueObject;
 
 /* ************************************************************************** */
 
-// type queConstruct(arguments);
-// type queDestruct(arguments);
+QueueObject* queConstruct(QueueType* type);
+void queDestruct(QueueObject* queue);
 
-// type queEmpty(arguments);
-// type queHead(arguments);
-// type queDequeue(arguments);
-// type queHeadNDequeue(arguments);
-// type queEnqueue(arguments);
-// type queClear(arguments);
+bool queEmpty(QueueObject* queue);
+void* queHead(QueueObject* queue);
+void queDequeue(QueueObject* queue);
+void* queHeadNDequeue(QueueObject* queue);
+void queEnqueue(QueueObject* queue, DataObject* object);
+void queClear(QueueObject* queue);
 
-// type queClone(arguments);
-// type queEqual(arguments);
-// type queMap(arguments);
-// type queFold(arguments);
+QueueObject* queClone(QueueObject* queue);
+bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue);
+void queMap(QueueObject* queue, MapFun mapFunction, void* param);
+void queFold(QueueObject* queue, FoldFun foldFunction, void* accumulator, void* param);
 
-// type queSize(arguments);
-// type queExists(arguments);
+int queSize(QueueObject* queue);
+bool queExists(QueueObject* queue, DataObject* object);
 
 /* ************************************************************************** */
 

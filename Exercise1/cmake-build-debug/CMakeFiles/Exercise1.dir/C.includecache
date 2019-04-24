@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/adt.h
+../utility.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/utility.h
+
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/queue.h
+../utility.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/utility.h
+../adt/adt.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/adt.h
+
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/vec/queuevec.c
+queuevec.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/vec/queuevec.h
+
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/vec/queuevec.h
+../queue.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/queue.h
+
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/utility.h
+assert.h
+-
+stdbool.h
+-
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+time.h
+-
+

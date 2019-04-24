@@ -123,7 +123,7 @@ bool stkEqual(StackObject* firstStack, StackObject* secondStack) {
 
     uint i = 0;
     while(i < firstStack->index) {
-        if(adtCompare(firstStack->elements[i], firstStack->elements[i]) != 0) {
+        if(adtCompare(firstStack->elements[i], secondStack->elements[i]) != 0) {
             return false;
         }
         i++;
@@ -142,7 +142,7 @@ bool stkExists(StackObject* stack, DataObject* object) {
     return false;
 }
 
-void stkMap(StackObject* stack,MapFun function, void* param) {
+void stkMap(StackObject* stack, MapFun function, void* param) {
     for(uint i = 0; i<stack->index; ++i) {
         function(stack->elements[i], param);
     }

@@ -55,7 +55,7 @@ void testStack(StackType * stktyp, DataObject * data)
     stkPush(stack, data);
   }
   printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
-
+/*
   for(uint i = 0; i < 10; i++)
   {
     dataptr = stkTopNPop(stack);
@@ -103,9 +103,10 @@ void testStack(StackType * stktyp, DataObject * data)
   printf("Distruzione Oggetti Stack\n\n");
   stkDestruct(stackx);
   stkDestruct(stack);
+  */
 }
 
-void testQueue(QueueType * quetyp, DataObject * data)
+/*void testQueue(QueueType * quetyp, DataObject * data)
 {
   int val = 0;
   int elem = 75;
@@ -173,10 +174,10 @@ void testQueue(QueueType * quetyp, DataObject * data)
   // queDestruct(queuex);
   queDestruct(queue);
 }
-
+*/
 /* ************************************************************************** */
 
-void main()
+int main()
 {
   srand(time(NULL));
 
@@ -198,7 +199,7 @@ void main()
   printf("Distruzione Tipo StackVec\n\n");
   DestructStackVecType(stktyp);
 
-  printf("*****************************************************************\n\n");
+  /*printf("*****************************************************************\n\n");
 
   printf("Creazione Tipo StackLst\n\n");
   stktyp = ConstructStackLstType();
@@ -235,7 +236,8 @@ void main()
 
   printf("Distruzione ADT per Intero\n");
   DestructIntDataType(intdatatype);
-
+*/
   /* ************************************************************************ */
 
+  return 0;
 }

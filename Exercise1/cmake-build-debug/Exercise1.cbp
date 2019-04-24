@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Exercise1"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Exercise1">
+				<Option output="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Exercise1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/."/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/flt"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/int"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/rec"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/str"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/lst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/vec"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/lst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/vec"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Exercise1"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Exercise1/fast">
+				<Option output="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Exercise1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/."/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/flt"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/int"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/rec"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/str"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/lst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/vec"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/lst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/vec"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Exercise1/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/adt.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/adt.h">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/flt/adtflt.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/flt/adtflt.h">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/int/adtint.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/int/adtint.h">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/rec/adtrec.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/rec/adtrec.h">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/str/adtstr.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/adt/str/adtstr.h">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/main.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/lst/queuelst.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/lst/queuelst.h">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/queue.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/queue.h">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/vec/queuevec.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/queue/vec/queuevec.h">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/lst/stacklst.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/lst/stacklst.h">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/stack.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/stack.h">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/vec/stackvec.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/vec/stackvec.h">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/utility.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/utility.h">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

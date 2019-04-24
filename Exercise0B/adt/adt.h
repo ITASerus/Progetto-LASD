@@ -18,7 +18,7 @@ typedef void* (*ADTRandomValue)();
 typedef void* (*ADTReadFromKeyboard)();
 typedef void (*ADTWriteToMonitor)(void*);
 
-typedef void* (*ADTClone)(void*); // ??
+typedef void* (*ADTClone)(void*);
 typedef int (*ADTCompare)(void*, void*);
 
 /* ************************************************************************** */
