@@ -45,6 +45,7 @@ void adtWriteToMonitor(DataObject* object) {
 DataObject* adtClone(DataObject* object) {
     //Crea l'oggetto clone e ne inizializza i campi
     DataObject* clonedObject = (DataObject*)malloc(sizeof(DataObject));
+
     clonedObject->type = object->type;
     clonedObject->value = object->type->clone(object->value); //Assegna all'oggetto clone lo stesso valore dell'oggetto clonato
 
@@ -53,6 +54,11 @@ DataObject* adtClone(DataObject* object) {
 
 int adtCompare(DataObject* firstObject, DataObject* secondObject) {
     if(firstObject->type == secondObject->type) {
+        printf("Confronto ");
+        adtWriteToMonitor(firstObject);
+        printf(" con ");
+        adtWriteToMonitor(secondObject);
+        printf("\n");
         return firstObject->type->compare(firstObject->value, secondObject->value);
     } else {
         return 0; //Gli oggetti passati come parametro sono di tipo diverso, di conseguenza hanno anche valore diverso (il valore interno potrebbe essere lo stesso ma il loro "significato" è diverso)

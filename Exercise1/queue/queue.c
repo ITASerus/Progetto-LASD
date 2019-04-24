@@ -44,7 +44,12 @@ void queClear(QueueObject* queue) {
 
 
 QueueObject* queClone(QueueObject* queue) {
-    return queue->type->clone(queue->queue);
+    QueueObject* clonedQueue = (QueueObject*)malloc(sizeof(QueueObject));
+
+    clonedQueue->type = queue->type;
+    clonedQueue->queue = queue->type->clone(queue->queue);
+
+    return clonedQueue;
 }
 
 bool queEqual(QueueObject* firstQueue, QueueObject* secondQueue) {
@@ -64,11 +69,19 @@ void queFold(QueueObject* queue, FoldFun foldFunction, void* accumulator, void* 
 }
 
 
-int queSize(QueueObject* queue) {
-    return 0;
+int queSize(QueueObject* queue) { //TODO: Da implementare
+    /*int* size = (int*)malloc(sizeof(int));
+    *size = 0;
+    queFold(queue, sizeIncrement, size, NULL);
+    return *size;*/
+    return -1;
 }
 
-bool queExists(QueueObject* queue, DataObject* object) {
+bool queExists(QueueObject* queue, DataObject* object) { //TODO: Da implementare
+    /*bool* result = (bool*)malloc(sizeof(bool));
+    *result = false;
+    queFold(queue, existElem, result, object);
+    return result;*/
     return false;
 }
 

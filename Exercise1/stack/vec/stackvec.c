@@ -4,7 +4,7 @@
 /* ************************************************************************** */
 
 void* stkVecConstruct() {
-    StackVec * obj = (StackVec *) malloc(sizeof(StackVec));
+    StackVec* obj = (StackVec*)malloc(sizeof(StackVec));
 
     obj->index = 0;
     obj->size = 0;
@@ -72,11 +72,9 @@ void stkVecPop(void* stack) {
 void* stkVecTopNPop(void* stack) {
     StackVec* stackVector = stack;
 
-    if(!stkVecEmpty(stack)) {
+    if(!stkVecEmpty(stackVector)) {
         DataObject *poppedElement = adtClone(stackVector->elements[stackVector->index - 1]);
-
         stkVecPop(stackVector);
-
         return poppedElement;
     } else {
         return NULL; //Lo stack è vuoto
@@ -102,6 +100,14 @@ void stkVecPush(void* stack, void* elem) {
     stackVector->index++;
 }
 
+void stkVecClear(void* stack) { //TODO: Da testare
+    StackVec* stackVector = stack;
+
+    for (uint i = 0; i<stackVector->index; ++i) {
+        adtDestruct(stackVector->elements[i]);
+    }
+}
+
 int stkVecSize(void* stack) {
     return ((StackVec*)stack)->index;
 }
@@ -120,9 +126,6 @@ void* stkVecClone(void* stack) {
     StackVec* clonedStack = stkVecConstructWSize(stackVector->size);
 
     while(clonedStack->index < stackVector->index) {
-        printf("Clono: ");
-        adtWriteToMonitor(stackVector->elements[clonedStack->index]);
-        printf("\n");
         clonedStack->elements[clonedStack->index] = adtClone(stackVector->elements[clonedStack->index]);
         clonedStack->index++;
     }
@@ -187,7 +190,7 @@ StackType* ConstructStackVecType() {
     type->pop = stkVecPop;
     type->topNPop = stkVecTopNPop;
     type->push = stkVecPush;
-    //type->clear = stkVec
+    type->clear = stkVecClear;
 
     type->clone = stkVecClone;
     type->equal = stkVecEqual;

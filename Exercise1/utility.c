@@ -22,3 +22,4 @@ void getStr(char * str, uint len)
     }
   str[i] = '\0';
 }
+

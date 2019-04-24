@@ -11,13 +11,14 @@
 typedef struct StackLst StackLst;
 struct StackLst
 {
-  // Struct da completare!
+  DataObject* element;
+  StackLst* next;
 };
 
 /* ************************************************************************** */
 
-// type ConstructStackLstType(arguments);
-// type DestructStackLstType(arguments);
+StackType* ConstructStackLstType();
+void DestructStackLstType(StackType* stackType);
 
 /* ************************************************************************** */
 

@@ -58,7 +58,7 @@ void* queVecHead(void* queue) {
     QueueVec* queueVector = queue;
 
     return adtClone(queueVector->elements[queueVector->front]);
-}
+} //TODO: Rinominare front in head e rear in tail?
 
 void queVecDequeue(void* queue) {
     QueueVec* queueVector = queue;
@@ -76,7 +76,7 @@ void queVecDequeue(void* queue) {
         }
         queue->numElem--;*/
 
-        /*if(queue->numElem < queue->size/4) { //La queue ha troppa memoria libera
+        /*if(queue->numElem < queue->size/4) { //La queue ha troppa memoria libera //TODO: Da implementare
             printf("-------------- Dimezzo la dimensione della queue --------------\n");
             QueueObject* newQueue = queConstructWSize(queue->size/2);
 
@@ -176,6 +176,24 @@ void queVecEnqueue(void* queue, void* elem) {
 
 int queVecSize(void* queue) { //TODO: Togliere numElem e cambiare tutto di conseguenza
     return ((QueueVec*)queue)->numElem;
+}
+
+void queVecClear(void* queue) { //TODO: Da testare
+    QueueVec* queueVector = queue;
+    if(!queVecEmpty(queueVector)) {
+        if (queueVector->front < queueVector->rear) {
+            for (uint i = queueVector->front; i <= queueVector->rear; ++i) {
+                adtDestruct(queueVector->elements[i]);
+            }
+        } else {
+            for (uint i = queueVector->front; i < queueVector->size; ++i) {
+                adtDestruct(queueVector->elements[i]);
+            }
+            for (uint i = 0; i <= queueVector->rear; ++i) {
+                adtDestruct(queueVector->elements[i]);
+            }
+        }
+    }
 }
 
 
@@ -380,7 +398,7 @@ QueueType* ConstructQueueVecType() {
     type->dequeue = queVecDequeue;
     type->headNDequeue = queVecHeadNDequeue;
     type->enqueue = queVecEnqueue;
-    //type->clear = queVecClear;
+    type->clear = queVecClear;
 
     type->clone = queVecClone;
     type->equal = queVecEqual;
