@@ -22,8 +22,8 @@ typedef void (*StkClear)(void*);
 
 typedef void* (*StkClone)(void*);
 typedef bool (*StkEqual)(void*, void*);
-typedef void (*StkMap)(); //TODO: Metti parametri
-typedef void (*StkFold)(); //TODO: Metti parametri
+typedef void (*StkMap)(void*, MapFun, void* ); //TODO: Controlla parametri
+typedef void (*StkFold)(void*, FoldFun, void*, void*); //TODO: Controlla parametri
 
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct StackObject
 {
   StackType* type;
   void* stack; //TODO: Cambia nome perchè altrimenti devi fare stack->stack
+  int numberOfElements;
 } StackObject;
 
 /* ************************************************************************** */

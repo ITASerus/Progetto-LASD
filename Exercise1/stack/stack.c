@@ -1,12 +1,14 @@
 
 #include "stack.h"
 
-void sizeIncrement(DataObject* dat, void * val, void * _) { //TODO: Rivedi
-    *(int*)val = *(int*)val +1;
-} //TODO: Non si fa con la fold
-
-void existElem(DataObject* objectToCompare, void * val, void * elem) { //TODO: Rivedi
+void existElem(DataObject* objectToCompare, void * val, void * elem) {
+    printf("Confronto ");
+    adtWriteToMonitor(objectToCompare);
+    printf(" con ");
+    adtWriteToMonitor(elem);
+    printf("\n");
     if(adtCompare(objectToCompare, elem) == 0) {
+        printf("TRUE\n");
         *(bool*)val = true;
     }
 }
@@ -18,6 +20,7 @@ StackObject* stkConstruct(StackType* type) {
 
     object->type = type;
     object->stack = object->type->construct(type);
+    object->numberOfElements = 0;
 
     return object;
 }
@@ -37,19 +40,30 @@ void* stkTop(StackObject* stack) {
 }
 
 void stkPop(StackObject* stack) {
-    stack->type->pop(stack->stack);
+    if( stack->numberOfElements > 0) {
+        stack->type->pop(stack->stack);
+        stack->numberOfElements--;
+    }
 }
 
 void* stkTopNPop(StackObject* stack) {
-    return stack->type->topNPop(stack->stack);
+    if( stack->numberOfElements > 0) {
+        stack->numberOfElements--;
+        return stack->type->topNPop(stack->stack);
+    } else {
+        return NULL;
+    }
+
 }
 
 void stkPush(StackObject* stack, DataObject* object) {
     stack->type->push(stack->stack, object);
+    stack->numberOfElements++;
 }
 
 void stkClear(StackObject* stack) {
     stack->type->clear(stack->stack);
+    stack->numberOfElements = 0;
 }
 
 
@@ -58,6 +72,7 @@ StackObject* stkClone(StackObject* stack) {
 
     clonedStack->type = stack->type;
     clonedStack->stack = stack->type->clone(stack->stack);
+    clonedStack->numberOfElements = stack->numberOfElements;
 
     return clonedStack;
 }
@@ -79,16 +94,13 @@ void stkFold(StackObject* stack, FoldFun foldFunction, void* accumulator, void* 
 }
 
 
-int stkSize(StackObject* stack) { //TODO: Memory leak
-    int* size = (int*)malloc(sizeof(int));
-    *size = 0;
-    stkFold(stack, sizeIncrement, size, NULL);
-    return *size;
+int stkSize(StackObject* stack) {
+    return stack->numberOfElements;
 }
 
 bool stkExists(StackObject* stack, DataObject* object) {
     bool* result = (bool*)malloc(sizeof(bool));
     *result = false;
     stkFold(stack, existElem, result, object);
-    return result;
+    return *result;
 }

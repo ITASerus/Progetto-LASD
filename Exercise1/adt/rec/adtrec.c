@@ -61,19 +61,31 @@ void* recordRandomValue() {
     return rndValue;
 }
 
-void* recordReadFromKeyboard() { //TODO: DA IMPLEMENTARE non usare scanf
-    /*int* value = (int*)malloc(sizeof(int));
-    scanf("%d", value);
-    return value;*/
+void* recordReadFromKeyboard() { //Non usare scanf
+    Record* record = (Record*)malloc(sizeof(Record));
+    record->name = (char*)malloc(sizeof(char)*20);
+    record->surname = (char*)malloc(sizeof(char)*20);
+
+    printf("Inserire nome: ");
+    scanf("%s", record->name);
+
+    printf("Inserire cognome: ");
+    scanf("%s", record->surname);
+
+    return record;
 }
 
 void recordWriteToMonitor(void* value) {
-    printf("(name) %s\n(surname) %s", ((Record*)value)->name, ((Record*)value)->surname);
+    printf("(name) %s (surname) %s", ((Record*)value)->name, ((Record*)value)->surname);
 }
 
-int recordCompare(void* firstValue, void* secondValue) { //TODO: Distingui casi 1, -1, 0
-    return ((strcmp(((Record*)firstValue)->name, ((Record*)secondValue)->name) == 0) &&
-            (strcmp(((Record*)firstValue)->surname, ((Record*)secondValue)->surname) == 0));
+int recordCompare(void* firstValue, void* secondValue) {
+    if ((strcmp(((Record*)firstValue)->name, ((Record*)secondValue)->name) == 0) &&
+            (strcmp(((Record*)firstValue)->surname, ((Record*)secondValue)->surname) == 0)) {
+        return 0; //I due record sono uguali
+    } else {
+        return -1; //I due record NON sono uguali
+    }
 }
 
 void* recordClone(void* value) {

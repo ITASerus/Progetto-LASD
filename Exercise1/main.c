@@ -17,6 +17,11 @@
 #include "queue/vec/queuevec.h"
 #include "queue/lst/queuelst.h"
 
+//TODO: Rimuovere controlli doppi empty? Secondo me no perchè le funzioni interne potrebbero anche essere usate interamente direttamente
+//TODO: Le funzioni clear devono reallocare?
+//TODO: Aggiungere assert?
+//TODO: Sostituisci scanf con funzioni opportune
+//TODO: Rivedi l'utilizzo deii vari "variabili cast di comodo": potrebbero essere usate meglio
 /* ************************************************************************** */
 
 void mapPosZerNeg(DataObject * dat, void * _)
@@ -36,533 +41,645 @@ void foldParity(DataObject * dat, void * val, void * _)
   *((int *) val) = (elm >= 0) ? valx : -valx;
 }
 
-void testStack(StackType * stktyp, DataObject * data)
-{
-  int val = 0;
-  int elem = -25;
-  DataObject * dataptr = NULL;
-
-  printf("Creazione Oggetto Stack\n\n");
-  StackObject * stack = stkConstruct(stktyp);
-
-  adtSetValue(data, &elem);
-  stkPush(stack, data);
-
-  for(uint i = 0; i < 17; i++)
-  {
-    adtRandomValue(data);
-    printf("Inserimento nello stack: %d\n", *((int *) adtGetValue(data)));
-    stkPush(stack, data);
-  }
-  printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
-
-  for(uint i = 0; i < 10; i++)
-  {
-    dataptr = stkTopNPop(stack);
-    printf("Rimozione dallo stack: %d\n", *((int *) adtGetValue(dataptr)));
-    adtDestruct(dataptr);
-  }
-  printf("Numero di elementi nello stack dopo le estrazioni: %d\n\n", stkSize(stack));
-
-  for(uint i = 0; i < 15; i++)
-  {
-    adtRandomValue(data);
-    printf("Inserimento nello stack: %d\n", *((int *) adtGetValue(data)));
-    stkPush(stack, data);
-  }
-  printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
-
-  dataptr = stkTop(stack);
-  printf("Rimozione della testa dello stack dopo gli inserimenti: %d\n\n", *((int *) adtGetValue(dataptr)));
-  adtDestruct(dataptr);
-  stkPop(stack);
-
-  adtSetValue(data, &elem);
-  printf("Esistenza del valore %d nello stack: %d\n\n", elem, stkExists(stack, data));
-
-  StackObject * stackx = stkClone(stack);
-  printf("Controllo di uguaglianza tra il clone dello stack e lo stack stesso: %d\n\n", stkEqual(stack, stackx));
-
-  stkMap(stack, &mapPosZerNeg, NULL);
-
-  val = 1;
-  stkFold(stack, &foldParity, &val, NULL);
-  printf("Parità degli elementi contenuti nello stack: %d\n\n", val);
-
-  while(!stkEmpty(stack))
-  {
-    dataptr = stkTopNPop(stack);
-    printf("Rimozione dallo stack: %d\n", *((int *) adtGetValue(dataptr)));
-    adtDestruct(dataptr);
-    dataptr = stkTopNPop(stackx);
-    printf("Rimozione dallo stackx: %d\n", *((int *) adtGetValue(dataptr)));
-    adtDestruct(dataptr);
-  }
-  printf("Numero di elementi nello stack dopo le estrazioni: %d\n", stkSize(stack));
-  printf("Numero di elementi nel clone dello stack dopo le estrazioni: %d\n\n", stkSize(stackx));
-
-  printf("Distruzione Oggetti Stack\n\n");
-  stkDestruct(stackx);
-  stkDestruct(stack);
+void printStruct(DataObject* dat, void* _) {
+    printf("- ");
+    adtWriteToMonitor(dat);
+    printf("\n");
 }
 
-void testQueue(QueueType * quetyp, DataObject * data)
-{
-  int val = 0;
-  int elem = 75;
-  DataObject * dataptr = NULL;
+void mapDoubleInteger(DataObject* dat, void* _) {
+    *(int*)dat->value *= 2;
+}
 
-  printf("Creazione Oggetto Queue\n\n");
-  QueueObject * queue = queConstruct(quetyp);
+void mapSquareFloat(DataObject* dat, void* _) {
+    *(float*)dat->value = (*(float*)dat->value)*(*(float*)dat->value);
+}
 
-  for(uint i = 0; i < 17; i++)
-  {
-    adtRandomValue(data);
-    printf("Inserimento nella queue: %d\n", *((int *) adtGetValue(data)));
-    queEnqueue(queue, data);
-  }
-  printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
+void mapLowerCase(DataObject* dat, void* _) {
+   for(int i = 0; i<strlen((char*)dat->value); i++) {
+       if((((char*)dat->value)[i] >= 65) && (((char*)dat->value)[i]<=90)) {
+           ((char*)dat->value)[i] += 32;
+       }
+   }
+}
 
-  for(uint i = 0; i < 10; i++)
-  {
-    dataptr = queHeadNDequeue(queue);
-    printf("Rimozione dalla queue: %d\n", *((int *) adtGetValue(dataptr)));
-    adtDestruct(dataptr);
-  }
-  printf("Numero di elementi nella queue dopo le estrazioni: %d\n\n", queSize(queue));
+void mapUpperCase(DataObject* dat, void* _) {
+    for(int i = 0; i<strlen((char*)dat->value); i++) {
+        if((((char*)dat->value)[i] >= 97) && (((char*)dat->value)[i]<=122)) {
+            ((char*)dat->value)[i] -= 32;
+        }
+    }
+}
 
-  adtSetValue(data, &elem);
-  queEnqueue(queue, data);
+void foldSumLesserThanN(DataObject * dat, void *val, void *n) {
+    if((*(int*)dat->value < *(int*)n)) {
+        *(int*)val += *(int*)dat->value;
+    }
+}
 
-  for(uint i = 0; i < 15; i++)
-  {
-    adtRandomValue(data);
-    printf("Inserimento nella queue: %d\n", *((int *) adtGetValue(data)));
-    queEnqueue(queue, data);
-  }
-  printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
+void foldProdGreaterThanN(DataObject * dat, void *val, void *n) {
+    printf("Comparo %f con %f\n", *(float*)dat->value, *(float*)n);
+    if((*(float*)dat->value > *(float*)n)) {
+        *(float*)val *= *(float*)dat->value;
+        printf("Vero, quindi val vale %f\n", *(float*)val);
+    }
+}
 
-  dataptr = queHead(queue);
-  printf("Rimozione della testa dello stack dopo gli inserimenti: %d\n\n", *((int *) adtGetValue(dataptr)));
-  adtDestruct(dataptr);
-  queDequeue(queue);
-
-  adtSetValue(data, &elem);
-  printf("Esistenza del valore %d nella queue: %d\n\n", elem, queExists(queue, data));
-
-  QueueObject * queuex = queClone(queue);
-  printf("Controllo di uguaglianza tra il clone della queue e la queue stessa: %d\n\n", queEqual(queue, queuex));
-
-  queMap(queue, &mapPosZerNeg, NULL);
-  val = 1;
-  queFold(queue, &foldParity, &val, NULL);
-  printf("Parità degli elementi contenuti nella queue: %d\n\n", val);
-
-  while(!queEmpty(queue))
-  {
-    dataptr = queHeadNDequeue(queue);
-    printf("Rimozione dalla queue: %d\n", *((int *) adtGetValue(dataptr)));
-    adtDestruct(dataptr);
-    dataptr = queHeadNDequeue(queuex);
-    printf("Rimozione dal clone della queue: %d\n", *((int *) adtGetValue(dataptr)));
-    adtDestruct(dataptr);
-  }
-  printf("Numero di elementi nella queue dopo le estrazioni: %d\n", queSize(queue));
-  printf("Numero di elementi nel clone della queue dopo le estrazioni: %d\n\n", queSize(queuex));
-
-  printf("Distruzione Oggetti Queue\n\n");
-  queDestruct(queuex);
-  queDestruct(queue);
+void foldConcatLessOrEqThanN(DataObject * dat, void *val, void *n) {
+    printf("Confronto %s con %d\n", (char*)dat->value, *(int*)n);
+    if((strlen((char*)dat->value) <= *(int*)n)) {
+        printf("Compatibile, realloco\n");
+        val = realloc((char*)val, sizeof(char)*((strlen((char*)dat->value))+strlen((char*)val)));
+        strcat((char*)val, (char*)dat->value);
+        printf("Nuova stringa %s\n", (char*)val);
+    } else {
+        printf("Non compatibile\n");
+    }
 }
 
 /* ************************************************************************** */
 
-void testStackVecInt() { printf("COMING SOON\n"); }
-void testStackVecFloat() { printf("COMING SOON\n"); }
-void testStackVecString() { printf("COMING SOON\n"); }
-void testStackVecRecord() { printf("COMING SOON\n"); }
+void testStack() {
+    StackType* stkTyp = NULL;
+    DataType* datatype = NULL;
 
-void testStackListInt() {
-    printf("Creazione ADT per Intero\n\n");
-    DataType * intdatatype = ConstructIntDataType();
+    int scelta, number;
+    printf("Inserire tipologia di implementazione della pila da utilizzare\n(1) Vettore\n(2) Lista\n");
+    do {
+        printf("Scelta: ");
+        scanf("%d", &scelta);
+        switch (scelta) {
+            case 1: {
+                stkTyp = ConstructStackVecType();
+                break;
+            }
+            case 2: {
+                stkTyp = ConstructStackLstType();
+                break;
+            }
+            default: {
+                printf("Opzione non valida.\nOpzioni possibili:\n(1) Vettore\n(2) Lista\n");
+                break;
+            }
+        }
+    } while (scelta != 1 && scelta != 2);
 
-    printf("Creazione Oggetto Dato\n\n");
-    DataObject * data = adtConstruct(intdatatype);
+    int tipoScelto;
+    printf("Inserire tipologia di dato da gestire\n(1) Intero\n(2) Float\n(3) Stringhe\n(4) Record\n");
+    do {
+        printf("Scelta: ");
+        scanf("%d", &tipoScelto);
+        switch (tipoScelto) {
+            case 1: {
+                datatype = ConstructIntDataType();
+                break;
+            }
+            case 2: {
+                datatype = ConstructFloatDataType();
+                break;
+            }
+            case 3: {
+                datatype = ConstructStringDataType();
+                break;
+            }
+            case 4: {
+                datatype = ConstructRecordDataType();
+                break;
+            }
+            default: {
+                printf("Opzione non valida.\nOpzioni possibili:\n(1) Intero\n(2) Float\n(3) Stringhe\n(4) Record\n");
+                break;
+            }
+        }
+    } while( (tipoScelto<1) || (tipoScelto >4));
 
-    printf("Creazione Tipo StackLst\n\n");
-    StackType * stktyp = ConstructStackLstType();
+    StackObject* stack = stkConstruct(stkTyp);
+    DataObject* dataPtr = adtConstruct(datatype);
 
-    printf("Creazione Oggetto Stack\n\n");
-    StackObject * stack = stkConstruct(stktyp);
+    do {
+        printf("\n***********************************************************************************************\n\n");
+        printf("Menu':\n(1) Popolamento randomico della struttura con N elementi\n"
+               "(2) Visualizzazione del contenuto della struttura\n");
+        switch (tipoScelto) {
+            case 1: {
+                printf("(3) Somma valori minori di N\n(4) Applicazione 2n per ogni elemento\n");
+                break;
+            }
+            case 2: {
+                printf("(3) Prodotto valori maggiori di N\n(4) Applicazione n^2 per ogni elemento\n");
+                break;
+            }
+            case 3: {
+                printf("(3) Concatenazione dei valori di lunghezza minore o uguale a N\n(4) Applicazione funzione uppercase/lowercase\n");
+                break;
+            }
+            default: {
+                printf("(3) N/A\n(4) N/A\n");
+                break;
+            }
+        }
+        printf("(5) Inserimento manuale di un elemento\n"
+               "(6) Rimozione dell'elemento in testa alla struttura\n"
+               "(7) Stampa elemento in testa alla struttura\n"
+               "(8) Ricerca di un elemento\n"
+               "(9) Numero degli elementi memorizzati nella struttura\n"
+               "(10) Svuotamento della struttura\n"
+               "(11) Creazione e stampa di un clone della struttura e\n"
+               "     controllo uguaglianza con la struttura principale\n"
+               "(0) Deallocazione della stuttura ed uscita dal programma\n"
+               "Scelta: ");
+        scanf("%d", &scelta);
+        switch (scelta) {
+            case 1: {
+                printf("Numero di elementi da inserire nella struttura: ");
+                scanf("%d", &number);
 
-    printf("*****************************************************************\n\n");
+                for(int i = 0; i < number; i++) {
+                    adtRandomValue(dataPtr);
+                    stkPush(stack, dataPtr);
+                }
 
-    int elem = -25;
-    DataObject* dataptr = NULL;
+                printf("Elementi inseriti!\n");
+                break;
+            }
+            case 2: {
+                if(!stkEmpty(stack)) {
+                    stkMap(stack, printStruct, NULL);
+                } else {
+                    printf("La pila è vuota!\n");
+                }
+                break;
+            }
+            case 3: {
+                switch (tipoScelto) {
+                    case 1: {
+                        int* value = (int*)malloc(sizeof(int)); //TODO: Inizializzare? (funziona lo stesso sembra)
+                        *value = 0;
+                        int* n = (int*)malloc(sizeof(int));
 
-    printf("Stack vuoto ad inizio test: %d\n\n", stkEmpty(stack));
+                        printf("Inserire N: ");
+                        scanf("%d", n);
+                        stkFold(stack, foldSumLesserThanN, value, n);
+                        printf("Risultato: %d\n", *value);
 
-    adtSetValue(data, &elem);
-    stkPush(stack, data);
+                        free(value);
+                        free(n);
 
-    printf("\nSTACK:\n");
-    StackLst* stampaStack = stack->stack;
-    while(stampaStack->next != NULL) {
-        adtWriteToMonitor(stampaStack->next->element);
-        printf("\n");
-        stampaStack = stampaStack->next;
-    }
-    printf("\n");
+                        break;
+                    }
+                    case 2: {
+                        float* value = (float*)malloc(sizeof(float));
+                        *value = 1;   //TODO: Inizializzare? (se non ci sono elementi restituirà 1
+                        float* n = (float*)malloc(sizeof(float));
 
-    for(uint i = 0; i < 17; i++)
-    {
-        adtRandomValue(data);
-        printf("Inserimento nello stack: %d\n", *((int *) adtGetValue(data)));
-        stkPush(stack, data);
-    }
-    //printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
+                        printf("Inserire N: ");
+                        scanf("%f", n);
+                        stkFold(stack, foldProdGreaterThanN, value, n);
+                        printf("Risultato: %f\n", *value);
 
-    printf("\nSTACK:\n");
-    stampaStack = stack->stack;
-    while(stampaStack->next != NULL) {
-        adtWriteToMonitor(stampaStack->next->element);
-        printf("\n");
-        stampaStack = stampaStack->next;
-    }
-    printf("\n");
+                        free(value);
+                        free(n);
 
-    for(uint i = 0; i < 10; i++)
-    {
-        dataptr = stkTopNPop(stack);
-        printf("Rimozione dallo stack: %d\n", *((int *) adtGetValue(dataptr)));
-        adtDestruct(dataptr);
-    }
-    //printf("Numero di elementi nello stack dopo le estrazioni: %d\n\n", stkSize(stack));
+                        break;
+                    }
+                    case 3: {
+                        char* value = (char*)malloc(sizeof(char)); //TODO: Ogni tanto crasha
+                        strcpy(value, "");
+                        int* n = (int*)malloc(sizeof(int));
 
-    printf("\nSTACK:\n");
-    stampaStack = stack->stack;
-    while(stampaStack->next != NULL) {
-        adtWriteToMonitor(stampaStack->next->element);
-        printf("\n");
-        stampaStack = stampaStack->next;
-    }
-    printf("\n");
+                        printf("Inserire N: ");
+                        scanf("%d", n);
+                        stkFold(stack, foldConcatLessOrEqThanN, value, n);
+                        printf("Risultato: %s\n", value);
 
-    for(uint i = 0; i < 15; i++) {
-        adtRandomValue(data);
-        printf("Inserimento nello stack: %d\n", *((int *) adtGetValue(data)));
-        stkPush(stack, data);
-    }
-    //printf("Numero di elementi nello stack dopo gli inserimenti: %d\n\n", stkSize(stack));
+                        free(value);
+                        free(n);
 
-    printf("\nSTACK:\n");
-    stampaStack = stack->stack;
-    while(stampaStack->next != NULL) {
-        adtWriteToMonitor(stampaStack->next->element);
-        printf("\n");
-        stampaStack = stampaStack->next;
-    }
-    printf("\n");
+                        break;
+                    }
+                    default: break;
+                }
+                break;
+            }
+            case 4: {
+                switch (tipoScelto) {
+                    case 1: {
+                        stkMap(stack, mapDoubleInteger, NULL);
+                        break;
+                    }
+                    case 2: {
+                        stkMap(stack, mapSquareFloat, NULL);
+                        break;
+                    }
+                    case 3: {
+                        printf("(1) Applica funzione upperCase\n(2) Applica funzione lowerCase\nScelta: ");
+                        scanf("%d", &scelta);
+                        switch (scelta) {
+                            case 1: {
+                                stkMap(stack, mapUpperCase, NULL);
+                                break;
+                            }
+                            case 2: {
+                                stkMap(stack, mapLowerCase, NULL);
+                                break;
+                            }
+                            default: {
+                                printf("Scleta non valida\n");
+                                break;
+                            }
+                        }
+                    }
+                    default: {
+                        printf("Il tipo di dato scelto non ha funzioni speciali disponibili\n");
+                        break;
+                    }
+                }
+                break;
+            }
+            case 5: {
+                printf("Valore da inserire: ");
+                adtReadFromKeyboard(dataPtr);
+                stkPush(stack, dataPtr);
+                break;
+            }
+            case 6: {
+                stkPop(stack);
+                printf("Elemento in testa alla struttura rimosso!\n");
+                break;
+            }
+            case 7: {
+                printf("Elemento in testa alla struttura: ");
+                adtWriteToMonitor(stkTop(stack));
+                printf("\n");
+                break;
+            }
+            case 8: {
+                printf("Inserire valore da cercare: ");
+                adtReadFromKeyboard(dataPtr);
 
-    dataptr = stkTop(stack);
-    printf("Rimozione della testa dello stack dopo gli inserimenti: %d\n\n", *((int *) adtGetValue(dataptr)));
-    adtDestruct(dataptr);
-    stkPop(stack);
+                if(stkExists(stack, dataPtr)) {
+                    printf("Il valore è presente nella struttura\n");
+                } else {
+                    printf("Il valore NON è presente nella struttura\n");
+                }
+                break;
+            }
+            case 9: {
+                printf("Il numero di elementi attualmente contenuto nella struttura e': %d\n", stkSize(stack));
+                break;
+            }
+            case 10: {
+                stkClear(stack);
+                printf("Stack svuotato\n");
+                break;
+            }
+            case 11: {
+                StackObject* stackClone = stkClone(stack);
+                stkMap(stackClone, printStruct, NULL);
+                printf("Controllo di uguaglianza tra il clone dello stack e lo stack principale: ");
+                if(stkEqual(stackClone, stack)) {
+                    printf("VERO\n");
+                } else {
+                    printf("FALSO\n");
+                }
 
-    printf("\nSTACK:\n");
-    stampaStack = stack->stack;
-    while(stampaStack->next != NULL) {
-        adtWriteToMonitor(stampaStack->next->element);
-        printf("\n");
-        stampaStack = stampaStack->next;
-    }
-    printf("\n");
+                printf("Aggiunta di un ulteriore elemento al clone\n");
+                adtRandomValue(dataPtr);
+                stkPush(stackClone, dataPtr);
+                stkMap(stackClone, printStruct, NULL);
 
-    //adtSetValue(data, &elem);
-    // printf("Esistenza del valore %d nello stack: %d\n\n", elem, stkExists(stack, data));
+                printf("Controllo di uguaglianza tra il clone della queue e la queue principale: ");
+                if(stkEqual(stackClone, stack)) {
+                    printf("VERO\n");
+                } else {
+                    printf("FALSO\n");
+                }
 
-    StackObject * stackx = stkClone(stack);
-    printf("\nSTACK CLONE:\n");
-    stampaStack = stackx->stack;
-    while(stampaStack->next != NULL) {
-        adtWriteToMonitor(stampaStack->next->element);
-        printf("\n");
-        stampaStack = stampaStack->next;
-    }
-    printf("\n");
-    printf("Controllo di uguaglianza tra il clone dello stack e lo stack stesso: %d\n\n", stkEqual(stack, stackx));
+                stkDestruct(stackClone);
+                break;
+            }
+            case 0: {
+                stkDestruct(stack);
+                printf("Stack deallocato");
+                break;
+            }
+            default: {
+                printf("Opzione non valida!\n");
+                break;
+            }
+        }
+    } while (scelta != 0);
 
-    /*stkMap(stack, &mapPosZerNeg, NULL);
-    val = 1;
-    stkFold(stack, &foldParity, &val, NULL);
-    printf("Parità degli elementi contenuti nello stack: %d\n\n", val);
-*/
-    while(!stkEmpty(stack))
-    {
-        dataptr = stkTopNPop(stack);
-        printf("Rimozione dallo stack: %d\n", *((int *) adtGetValue(dataptr)));
-        adtDestruct(dataptr);
-        dataptr = stkTopNPop(stackx);
-        printf("Rimozione dallo stack: %d\n", *((int *) adtGetValue(dataptr)));
-        adtDestruct(dataptr);
-    }
-    //printf("Numero di elementi nello stack dopo le estrazioni: %d\n", stkSize(stack));
-    //printf("Numero di elementi nel clone dello stack dopo le estrazioni: %d\n\n", stkSize(stackx));
-
-    printf("Distruzione Oggetti Stack\n\n");
-    stkDestruct(stackx);
-    stkDestruct(stack);
-
-    printf("*****************************************************************\n\n");
-
-    printf("Distruzione Tipo StackLst\n\n");
-    DestructStackLstType(stktyp);
-
+    DestructStackLstType(stkTyp); //TODO: DestructStackVecType?
 }
-void testStackListFloat() { printf("COMING SOON\n"); }
-void testStackListString() { printf("COMING SOON\n"); }
-void testStackListRecord() { printf("COMING SOON\n"); }
 
-void testQueueVecInt() { printf("COMING SOON\n"); }
-void testQueueVecFloat() { printf("COMING SOON\n"); }
-void testQueueVecString() { printf("COMING SOON\n"); }
-void testQueueVecRecord() { printf("COMING SOON\n"); }
+void testQueue() {
+    QueueType* queTyp = NULL;
+    DataType* datatype = NULL;
 
-void testQueueListInt() {
-    printf("Creazione ADT per Intero\n\n");
-    DataType * intdatatype = ConstructIntDataType();
+    int scelta, number;
+    printf("Inserire tipologia di implementazione della coda da utilizzare\n(1) Vettore\n(2) Lista\n");
+    do {
+        printf("Scelta: ");
+        scanf("%d", &scelta);
+        switch (scelta) {
+            case 1: {
+                queTyp = ConstructQueueVecType();
+                break;
+            }
+            case 2: {
+                queTyp = ConstructQueueLstType();
+                break;
+            }
+            default: {
+                printf("Opzione non valida.\nOpzioni possibili:\n(1) Vettore\n(2) Lista\n");
+                break;
+            }
+        }
+    } while (scelta != 1 && scelta != 2);
 
-    printf("Creazione Oggetto Dato\n\n");
-    DataObject * data = adtConstruct(intdatatype);
+    int tipoScelto;
+    printf("Inserire tipologia di dato da gestire\n(1) Intero\n(2) Float\n(3) Stringhe\n(4) Record\n");
+    do {
+        printf("Scelta: ");
+        scanf("%d", &tipoScelto);
+        switch (tipoScelto) {
+            case 1: {
+                datatype = ConstructIntDataType();
+                break;
+            }
+            case 2: {
+                datatype = ConstructFloatDataType();
+                break;
+            }
+            case 3: {
+                datatype = ConstructStringDataType();
+                break;
+            }
+            case 4: {
+                datatype = ConstructRecordDataType();
+                break;
+            }
+            default: {
+                printf("Opzione non valida.\nOpzioni possibili:\n(1) Intero\n(2) Float\n(3) Stringhe\n(4) Record\n");
+                break;
+            }
+        }
+    } while( (tipoScelto<1) || (tipoScelto >4));
 
-    printf("Creazione Tipo QueueLst\n\n");
-    QueueType * quetyp = ConstructQueueLstType();
+    QueueObject* queue = queConstruct(queTyp);
+    DataObject* dataPtr = adtConstruct(datatype);
 
-    printf("Creazione Oggetto Queue\n\n");
-    QueueObject * queue = queConstruct(quetyp);
+    do {
+        printf("\n***********************************************************************************************\n\n");
+        printf("Menu':\n(1) Popolamento randomico della struttura con N elementi\n"
+               "(2) Visualizzazione del contenuto della struttura\n");
+        switch (tipoScelto) {
+            case 1: {
+                printf("(3) Somma valori minori di N\n(4) Applicazione 2n per ogni elemento\n");
+                break;
+            }
+            case 2: {
+                printf("(3) Prodotto valori maggiori di N\n(4) Applicazione n^2 per ogni elemento\n");
+                break;
+            }
+            case 3: {
+                printf("(3) Concatenazione dei valori di lunghezza minore o uguale a N\n(4) Applicazione funzione uppercase/lowercase\n");
+                break;
+            }
+            default: {
+                printf("(3) N/A\n(4) N/A\n");
+                break;
+            }
+        }
+        printf("(5) Inserimento manuale di un elemento\n"
+               "(6) Rimozione dell'elemento in testa alla struttura\n"
+               "(7) Stampa elemento in testa alla struttura\n"
+               "(8) Ricerca di un elemento\n"
+               "(9) Numero degli elementi memorizzati nella struttura\n"
+               "(10) Svuotamento della struttura\n"
+               "(11) Creazione e stampa di un clone della struttura e\n"
+               "     controllo uguaglianza con la struttura principale\n"
+               "(0) Deallocazione della stuttura ed uscita dal programma\n"
+               "Scelta: ");
+        scanf("%d", &scelta);
+        switch (scelta) {
+            case 1: {
+                printf("Numero di elementi da inserire nella struttura: ");
+                scanf("%d", &number);
 
-    printf("*****************************************************************\n\n");
+                for(int i = 0; i < number; i++) {
+                    adtRandomValue(dataPtr);
+                    queEnqueue(queue, dataPtr);
+                }
 
-    int val = 0;
-    int elem = 75;
-    DataObject * dataptr = NULL;
+                printf("Elementi inseriti!\n");
+                break;
+            }
+            case 2: {
+                if(!queEmpty(queue)) {
+                    queMap(queue, printStruct, NULL);
+                } else {
+                    printf("La coda è vuota!\n");
+                }
+                break;
+            }
+            case 3: {
+                switch (tipoScelto) {
+                    case 1: {
+                        int* value = (int*)malloc(sizeof(int)); //TODO: Inizializzare? (funziona lo stesso sembra)
+                        *value = 0;
+                        int* n = (int*)malloc(sizeof(int));
 
-    for(uint i = 0; i < 17; i++)
-    {
-        adtRandomValue(data);
-        printf("Inserimento nella queue: %d\n", *((int *) adtGetValue(data)));
-        queEnqueue(queue, data);
-    }
-    //printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
+                        printf("Inserire N: ");
+                        scanf("%d", n);
+                        queFold(queue, foldSumLesserThanN, value, n);
+                        printf("Risultato: %d\n", *value);
 
-    /*
-    for(uint i = 0; i < 10; i++)
-    {
-        dataptr = queHeadNDequeue(queue);
-        printf("Rimozione dalla queue: %d\n", *((int *) adtGetValue(dataptr)));
-        adtDestruct(dataptr);
-    }
-    printf("Numero di elementi nella queue dopo le estrazioni: %d\n\n", queSize(queue));
+                        free(value);
+                        free(n);
 
-    adtSetValue(data, &elem);
-    queEnqueue(queue, data);
+                        break;
+                    }
+                    case 2: {
+                        float* value = (float*)malloc(sizeof(float));
+                        *value = 1;   //TODO: Inizializzare? (se non ci sono elementi restituirà 1)
+                        float* n = (float*)malloc(sizeof(float));
 
-    for(uint i = 0; i < 15; i++)
-    {
-        adtRandomValue(data);
-        printf("Inserimento nella queue: %d\n", *((int *) adtGetValue(data)));
-        queEnqueue(queue, data);
-    }
-    printf("Numero di elementi nella queue dopo gli inserimenti: %d\n\n", queSize(queue));
+                        printf("Inserire N: ");
+                        scanf("%f", n);
+                        queFold(queue, foldProdGreaterThanN, value, n);
+                        printf("Risultato: %f\n", *value);
 
-    dataptr = queHead(queue);
-    printf("Rimozione della testa dello stack dopo gli inserimenti: %d\n\n", *((int *) adtGetValue(dataptr)));
-    adtDestruct(dataptr);
-    queDequeue(queue);
+                        free(value);
+                        free(n);
 
-    adtSetValue(data, &elem);
-    printf("Esistenza del valore %d nella queue: %d\n\n", elem, queExists(queue, data));
+                        break;
+                    }
+                    case 3: {
+                        char* value = (char*)malloc(sizeof(char)); //TODO: Ogni tanto crasha
+                        strcpy(value, "");
+                        int* n = (int*)malloc(sizeof(int));
 
-    QueueObject * queuex = queClone(queue);
-    printf("Controllo di uguaglianza tra il clone della queue e la queue stessa: %d\n\n", queEqual(queue, queuex));
+                        printf("Inserire N: ");
+                        scanf("%d", n);
+                        queFold(queue, foldConcatLessOrEqThanN, value, n);
+                        printf("Risultato: %s\n", value);
 
-    queMap(queue, &mapPosZerNeg, NULL);
-    val = 1;
-    queFold(queue, &foldParity, &val, NULL);
-    printf("Parità degli elementi contenuti nella queue: %d\n\n", val);
+                        free(value);
+                        free(n);
 
-    while(!queEmpty(queue))
-    {
-        dataptr = queHeadNDequeue(queue);
-        printf("Rimozione dalla queue: %d\n", *((int *) adtGetValue(dataptr)));
-        adtDestruct(dataptr);
-        // dataptr = queHeadNDequeue(queuex);
-        // printf("Rimozione dal clone della queue: %d\n", *((int *) adtGetValue(dataptr)));
-        // adtDestruct(dataptr);
-    }
-    printf("Numero di elementi nella queue dopo le estrazioni: %d\n", queSize(queue));
-    // printf("Numero di elementi nel clone della queue dopo le estrazioni: %d\n\n", queSize(queuex));
+                        break;
+                    }
+                    default: break;
+                }
+                break;
+            }
+            case 4: {
+                switch (tipoScelto) {
+                    case 1: {
+                        queMap(queue, mapDoubleInteger, NULL);
+                        break;
+                    }
+                    case 2: {
+                        queMap(queue, mapSquareFloat, NULL);
+                        break;
+                    }
+                    case 3: {
+                        printf("(1) Applica funzione upperCase\n(2) Applica funzione lowerCase\nScelta: ");
+                        scanf("%d", &scelta);
+                        switch (scelta) {
+                            case 1: {
+                                queMap(queue, mapUpperCase, NULL);
+                                break;
+                            }
+                            case 2: {
+                                queMap(queue, mapLowerCase, NULL);
+                                break;
+                            }
+                            default: {
+                                printf("Scleta non valida\n");
+                                break;
+                            }
+                        }
+                    }
+                    default: {
+                        printf("Il tipo di dato scelto non ha funzioni speciali disponibili\n");
+                        break;
+                    }
+                }
+                break;
+            }
+            case 5: {
+                printf("Valore da inserire: ");
+                adtReadFromKeyboard(dataPtr);
+                queEnqueue(queue, dataPtr);
+                break;
+            }
+            case 6: {
+                queDequeue(queue);
+                printf("Elemento in testa alla struttura rimosso!\n");
+                break;
+            }
+            case 7: {
+                printf("Elemento in testa alla struttura: ");
+                adtWriteToMonitor(queHead(queue));
+                printf("\n");
+                break;
+            }
+            case 8: {
+                printf("Inserire valore da cercare: ");
+                adtReadFromKeyboard(dataPtr);
 
-    printf("Distruzione Oggetti Queue\n\n");
-    // queDestruct(queuex);
-    queDestruct(queue);
-*/
-    printf("*****************************************************************\n\n");
+                if(queExists(queue, dataPtr)) {
+                    printf("Il valore è presente nella struttura\n");
+                } else {
+                    printf("Il valore NON è presente nella struttura\n");
+                }
+                break;
+            }
+            case 9: {
+                printf("Il numero di elementi attualmente contenuto nella struttura e': %d\n", queSize(queue));
+                break;
+            }
+            case 10: {
+                queClear(queue);
+                printf("Queue svuotata\n");
+                break;
+            }
+            case 11: {
+                QueueObject* queueClone = queClone(queue);
 
-    printf("Distruzione Tipo QueueLst\n\n");
-    DestructQueueLstType(quetyp);
+                queMap(queueClone, printStruct, NULL);
+
+                printf("Controllo di uguaglianza tra il clone della queue e la queue principale: ");
+                if(queEqual(queueClone, queue)) {
+                    printf("VERO\n");
+                } else {
+                    printf("FALSO\n");
+                }
+
+                printf("Aggiunta di un ulteriore elemento al clone\n");
+                adtRandomValue(dataPtr);
+                queEnqueue(queueClone, dataPtr);
+                queMap(queueClone, printStruct, NULL);
+
+                printf("Controllo di uguaglianza tra il clone della queue e la queue principale: ");
+                if(queEqual(queueClone, queue)) {
+                    printf("VERO\n");
+                } else {
+                    printf("FALSO\n");
+                }
+
+                queDestruct(queueClone);
+                break;
+            }
+            case 0: {
+                queDestruct(queue);
+                printf("Stack deallocato");
+                break;
+            }
+            default: {
+                printf("Opzione non valida!\n");
+                break;
+            }
+        }
+    } while (scelta != 0);
+
+    DestructQueueLstType(queTyp); //TODO: DestructQueueVecType
 }
-void testQueueListFloat() { printf("COMING SOON\n"); }
-void testQueueListString() { printf("COMING SOON\n"); }
-void testQueueListRecord() { printf("COMING SOON\n"); }
 
 /* ************************************************************************** */
 
 void testMain() {
     int scelta;
-    printf("Inserire tipologia di struttura da creare:\n(1) Stack\n(2) Queue\nScelta: ");
-    scanf("%d", &scelta);
-    switch (scelta) {
-        case 1: {
-            printf("Inserire tipologia di implementazione da utilizzare:\n(1) Vettore\n(2) Lista\nScelta: ");
-            scanf("%d", &scelta);
-            switch (scelta) {
-                case 1: {
-                    printf("Inserire tipologia dei dati da utilizzare per il vettore dello stack:\n(1) Intero\n(2) Float\n(3) Stringa\n(4) Record\nScelta: ");
-                    scanf("%d", &scelta);
-                    switch (scelta) {
-                        case 1: {
-                            testStackVecInt();
-                            break;
-                        }
-                        case 2: {
-                            testStackVecFloat();
-                            break;
-                        }
-                        case 3: {
-                            testStackVecString();
-                            break;
-                        }
-                        case 4: {
-                            testStackVecRecord();
-                            break;
-                        }
-                        default: {
-                            printf("Scelta non valida!\n");
-                        }
-                    }
-                    break;
-                }
-                case 2: {
-                    printf("Inserire tipologia dei dati da utilizzare per la lista dello stack:\n(1) Intero\n(2) Float\n(3) Stringa\n(4) Record\nScelta: ");
-                    scanf("%d", &scelta);
-                    switch (scelta) {
-                        case 1: {
-                            testStackListInt();
-                            break;
-                        }
-                        case 2: {
-                            testStackListFloat();
-                            break;
-                        }
-                        case 3: {
-                            testStackListString();
-                            break;
-                        }
-                        case 4: {
-                            testStackListRecord();
-                            break;
-                        }
-                        default: {
-                            printf("Scelta non valida!\n");
-                        }
-                    }
-                    break;
-                }
-                default: {
-                    printf("Scelta non valida!\n");
-                }
+
+    printf("Inserire tipologia di struttra da utilizzare\n(1) Pila\n(2) Coda\n");
+    do {
+        printf("Scelta: ");
+        scanf("%d", &scelta);
+        switch (scelta) {
+            case 1: {
+                testStack();
+                break;
             }
-            break;
-        }
-        case 2: {
-            printf("Inserire tipologia di implementazione da utilizzare per la Queue:\n(1) Vettore\n(2) Lista\nScelta: ");
-            scanf("%d", &scelta);
-            switch (scelta) {
-                case 1: {
-                    printf("Inserire tipologia dei dati da utilizzare per il vettore della queue:\n(1) Intero\n(2) Float\n(3) Stringa\n(4) Record\nScelta: ");
-                    scanf("%d", &scelta);
-                    switch (scelta) {
-                        case 1: {
-                            testQueueVecInt();
-                            break;
-                        }
-                        case 2: {
-                            testQueueVecFloat();
-                            break;
-                        }
-                        case 3: {
-                            testQueueVecString();
-                            break;
-                        }
-                        case 4: {
-                            testQueueVecRecord();
-                            break;
-                        }
-                        default: {
-                            printf("Scelta non valida!\n");
-                        }
-                    }
-                    break;
-                }
-                case 2: {
-                    printf("Inserire tipologia dei dati da utilizzare per la lista della queue:\n(1) Intero\n(2) Float\n(3) Stringa\n(4) Record\nScelta: ");
-                    scanf("%d", &scelta);
-                    switch (scelta) {
-                        case 1: {
-                            testQueueListInt();
-                            break;
-                        }
-                        case 2: {
-                            testQueueListFloat();
-                            break;
-                        }
-                        case 3: {
-                            testQueueListString();
-                            break;
-                        }
-                        case 4: {
-                            testQueueListRecord();
-                            break;
-                        }
-                        default: {
-                            printf("Scelta non valida!\n");
-                        }
-                    }
-                    break;
-                }
-                default: {
-                    printf("Scelta non valida!\n");
-                }
+            case 2: {
+                testQueue();
+                break;
             }
-            break;
+            default: {
+                printf("Opzione non valida.\nOpzioni possibili:\n(1) Pila\n(2) Coda\n");
+                break;
+            }
         }
-        default: {
-            printf("Scelta non valida!\n");
-        }
-    }
-
-
-
+    } while (scelta != 1 && scelta != 2);
 }
 
 int main()
 {
   srand(time(NULL));
 
-  //testMain();
-  //testStackListInt();
-  testQueueListInt();
+  testMain();
 
   return 0;
 }

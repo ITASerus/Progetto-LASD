@@ -49,6 +49,7 @@ typedef struct QueueObject
 {
     QueueType* type;
     void* queue; //TODO: Cambia nome perchè altrimenti devi fare queue->queue
+    int numberOfElements;
 } QueueObject;
 
 /* ************************************************************************** */

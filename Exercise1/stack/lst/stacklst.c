@@ -36,16 +36,19 @@ void* stkLstTop(void* stack) {
     return adtClone(((StackLst*)stack)->next->element);
 }
 
-void stkLstPop(void* stack) { //TODO: Rivedi
-    StackLst* stackList = stack;
-    adtDestruct(stackList->next->element);
-    ((StackLst*)stack)->next = ((StackLst*)stack)->next->next;
+void stkLstPop(void* stack) {
+    if(!stkLstEmpty(stack)) {
+        StackLst *stackList = stack;
+
+        adtDestruct(stackList->next->element);
+        ((StackLst *) stack)->next = ((StackLst *) stack)->next->next;
+    }
 }
 
 void* stkLstTopNPop(void* stack) {
-    StackLst* stackList = stack;
+    if(!stkLstEmpty(stack)) {
+        StackLst* stackList = stack;
 
-    if(!stkLstEmpty(stackList)) {
         DataObject *poppedElement = adtClone(stackList->next->element); //TODO: Puoi evitare di clonare l'elemento: ritornalo direttamente! (vedi anche nelle altre strutture)
         stkLstPop(stackList);
         return poppedElement;
@@ -62,15 +65,17 @@ void stkLstPush(void* stack, void* elem) {
     ((StackLst*)stack)->next = newObj;
 }
 
-void stkLstClear(void* stack) { //TODO: Da testare
-    StackLst* stackList = stack;
+void stkLstClear(void* stack) {
+    if(!stkLstEmpty(stack)) {
+        StackLst* stackList = ((StackLst*)stack)->next;
 
-    while(stackList->element != NULL) {
-        adtDestruct(stackList->element);
-        stackList = stackList->next;
+        while(stackList != NULL) {
+            ((StackLst*)stack)->next = stackList->next;
+            adtDestruct(stackList->element);
+            free(stackList);
+            stackList = ((StackLst*)stack)->next;
+        }
     }
-
-    ((StackLst*)stack)->next = NULL;
 }
 
 

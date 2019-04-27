@@ -9,10 +9,16 @@
 /* ************************************************************************** */
 
 typedef struct QueueLst QueueLst;
-struct QueueLst
-{
+typedef struct QueueNode QueueNode;
+
+struct QueueLst {
+    QueueNode* front;
+    QueueNode* rear;
+};
+
+struct QueueNode {
     DataObject* element;
-    QueueLst* next;
+    QueueNode* next;
 };
 
 /* ************************************************************************** */

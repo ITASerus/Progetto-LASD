@@ -1,6 +1,8 @@
 
 #include "queue.h"
 
+void existElem(DataObject* objectToCompare, void * val, void * elem);
+
 /* ************************************************************************** */
 
 QueueObject* queConstruct(QueueType* type) {
@@ -8,6 +10,7 @@ QueueObject* queConstruct(QueueType* type) {
 
     object->type = type;
     object->queue = object->type->construct(type);
+    object->numberOfElements = 0;
 
     return object;
 }
@@ -27,19 +30,29 @@ void* queHead(QueueObject* queue) {
 }
 
 void queDequeue(QueueObject* queue) {
-    queue->type->dequeue(queue->queue);
+    if(queue->numberOfElements > 0) {
+        queue->type->dequeue(queue->queue);
+        queue->numberOfElements--;
+    }
 }
 
 void* queHeadNDequeue(QueueObject* queue) {
-    return queue->type->headNDequeue(queue->queue);
+    if(queue->numberOfElements > 0) {
+        queue->numberOfElements--;
+        return queue->type->headNDequeue(queue->queue);
+    } else {
+        return NULL;
+    }
 }
 
 void queEnqueue(QueueObject* queue, DataObject* object) {
     queue->type->enqueue(queue->queue, object);
+    queue->numberOfElements++;
 }
 
 void queClear(QueueObject* queue) {
     queue->type->clear(queue->queue);
+    queue->numberOfElements = 0;
 }
 
 
@@ -49,6 +62,7 @@ QueueObject* queClone(QueueObject* queue) {
     clonedQueue->type = queue->type;
     clonedQueue->queue = queue->type->clone(queue->queue);
 
+    clonedQueue->numberOfElements = queue->numberOfElements;
     return clonedQueue;
 }
 
@@ -69,19 +83,14 @@ void queFold(QueueObject* queue, FoldFun foldFunction, void* accumulator, void* 
 }
 
 
-int queSize(QueueObject* queue) { //TODO: Da implementare
-    /*int* size = (int*)malloc(sizeof(int));
-    *size = 0;
-    queFold(queue, sizeIncrement, size, NULL);
-    return *size;*/
-    return -1;
+int queSize(QueueObject* queue) {
+    return queue->numberOfElements;
 }
 
 bool queExists(QueueObject* queue, DataObject* object) { //TODO: Da implementare
-    /*bool* result = (bool*)malloc(sizeof(bool));
+    bool* result = (bool*)malloc(sizeof(bool));
     *result = false;
     queFold(queue, existElem, result, object);
-    return result;*/
-    return false;
+    return *result;
 }
 

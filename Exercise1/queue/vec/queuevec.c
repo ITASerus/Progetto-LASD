@@ -29,13 +29,13 @@ void* queVecConstructWSize(int size) {
 }
 
 bool queVecEmpty(void* queue) {
-    return ((QueueVec*)queue)->front == -1; //Se queue->front = -1, di conseguenza lo sarà sicuramente anche queue->rear. Tale situazione si verifica solo nel casp in cui la queue è vuota
-} //TODO: Evitare di usare queVecEmpty per lo stack
+    return (((QueueVec*)queue)->front == -1); //Se queue->front = -1, di conseguenza lo sarà sicuramente anche queue->rear. Tale situazione si verifica solo nel casp in cui la queue è vuota
+}
 
 void queVecDestruct(void* queue) {
     QueueVec* queueVector = queue;
     if(!queVecEmpty(queueVector)) {
-        if (queueVector->front < queueVector->rear) {
+        if (queueVector->front <= queueVector->rear) {
             for (uint i = queueVector->front; i <= queueVector->rear; ++i) {
                 adtDestruct(queueVector->elements[i]);
             }
@@ -58,35 +58,33 @@ void* queVecHead(void* queue) {
     QueueVec* queueVector = queue;
 
     return adtClone(queueVector->elements[queueVector->front]);
-} //TODO: Rinominare front in head e rear in tail?
+}
 
 void queVecDequeue(void* queue) {
     QueueVec* queueVector = queue;
 
     if(!queVecEmpty(queueVector)) {
         adtDestruct(queueVector->elements[queueVector->front]);
-
         if (queueVector->front == queueVector->rear) { //La queue aveva un solo elemento
             queueVector->front = -1;
             queueVector->rear = -1;
-        } else queueVector->front = (queueVector->front+1)%queueVector->size; /*if (queue->front == queue->size-1) {  //La queue ha almeno un elemento e front si trova all'ultimo indice disponibile prima di ricominciare
-            queue->front = 0;
-        } else {
-            queue->front++;
-        }
-        queue->numElem--;*/
+        } else queueVector->front = (queueVector->front+1) % queueVector->size; //La queue ha almeno un elemento e front si trova all'ultimo indice disponibile prima di ricominciare
 
-        /*if(queue->numElem < queue->size/4) { //La queue ha troppa memoria libera //TODO: Da implementare
+        /*
+        if(queueVector->numElem < queueVector->size/4) { //La queue ha troppa memoria libera //TODO: Da implementare
             printf("-------------- Dimezzo la dimensione della queue --------------\n");
-            QueueObject* newQueue = queConstructWSize(queue->size/2);
+            QueueObject* newQueue = queVecConstructWSize(queueVector->size/2);
 
             free(queue);
-            *queue = *newQueue;
-        }*/
+            queue = newQueue;
+        }
+         */
     }
+
+    printf("FRONT: %d - REAR: %d\n", queueVector->front, queueVector->rear);
 }
 
-void* queVecHeadNDequeue(void* queue) {
+void* queVecHeadNDequeue(void* queue) { //TODO: Ragionaci..togliere dalla testa (quindi non si può usare queVecDequeue?
     QueueVec* queueVector = queue;
 
     if(!queVecEmpty(queueVector)) {
@@ -111,16 +109,12 @@ void queVecEnqueue(void* queue, void* elem) {
         DataObject** newElements = (DataObject**)malloc(sizeof(DataObject*)*(queueVector->size*2)); //Alloco un vettore grande il doppio di quello attualmente contenuto in queue
 
         int newElementsIndex = 0;
-        if(queueVector->front < queueVector->rear) { //TODO: Risparmiati 4 bytes e il codice è meno leggibile... ne vale la pena?
+        if(queueVector->front <= queueVector->rear) {
             while(queueVector->front <= queueVector->rear) {
                 newElements[newElementsIndex] = queueVector->elements[queueVector->front];
                 newElementsIndex++;
                 queueVector->front++;
             }
-            /*for(int i = queue->front; i<= queue->rear; i++) {
-                newElements[newElementsIndex] = queue->elements[i];
-                newElementsIndex++;
-            }*/
         } else {
             while(queueVector->front < queueVector->size) {
                 newElements[newElementsIndex] = queueVector->elements[queueVector->front];
@@ -133,15 +127,6 @@ void queVecEnqueue(void* queue, void* elem) {
                 newElementsIndex++;
                 queueVector->front++;
             }
-            /*
-            for (int i = queue->front; i < queue->size; i++) {
-                newElements[newElementsIndex] = queue->elements[i];
-                newElementsIndex++;
-            }
-            for (int i = 0; i <= queue->rear; i++) {
-                newElements[newElementsIndex] = queue->elements[i];
-              */
-
         }
 
         free(queueVector->elements);
@@ -154,34 +139,19 @@ void queVecEnqueue(void* queue, void* elem) {
     }
 
     //Inserimento effettivo della stringa nella queue
-    /*if (queue->front == -1) { //La queue è vuota
-        queue->front = 0;
-        queue->rear = 0;
-    } else {
-        if(queue->rear == queue->size-1) { //rear è all'ultima posizione della queue
-            queue->rear = 0;
-        } else {
-            queue->rear = queue->rear+1;
-        }
-    }*/
     if(queueVector->front == -1) {
         queueVector->front = 0;
     }
     queueVector->rear = (queueVector->rear+1) % queueVector->size;
-
-    //printf("Inserisco in posizione %d\n", queue->rear);
     queueVector->elements[queueVector->rear] = adtClone(elem);
     queueVector->numElem++;
 }
 
-int queVecSize(void* queue) { //TODO: Togliere numElem e cambiare tutto di conseguenza
-    return ((QueueVec*)queue)->numElem;
-}
-
-void queVecClear(void* queue) { //TODO: Da testare
+void queVecClear(void* queue) {
     QueueVec* queueVector = queue;
+
     if(!queVecEmpty(queueVector)) {
-        if (queueVector->front < queueVector->rear) {
+        if (queueVector->front <= queueVector->rear) {
             for (uint i = queueVector->front; i <= queueVector->rear; ++i) {
                 adtDestruct(queueVector->elements[i]);
             }
@@ -193,34 +163,23 @@ void queVecClear(void* queue) { //TODO: Da testare
                 adtDestruct(queueVector->elements[i]);
             }
         }
+
+        free(queueVector->elements);
+        queueVector->elements = NULL;
+        queueVector->size = 0;
+        queueVector->numElem = 0;
+        queueVector->front = -1;
+        queueVector->rear = -1;
     }
 }
 
 
 void* queVecClone(void* queue) {
     QueueVec* queueVector = queue;
-
-    /*QueueObject* clonedQueue = queConstruct();
-
-    if(queue->front < queue->rear) {
-        for(int i = queue->front; i <= queue->rear; i++) {
-            queEnqueue(clonedQueue, queue->elements[i]);
-        }
-    } else {
-        for(int i = queue->front; i < queue->size; i++) {
-            queEnqueue(clonedQueue, queue->elements[i]);
-        }
-        for(int i = 0; i<=queue->rear; i++) {
-            queEnqueue(clonedQueue, queue->elements[i]);
-        }
-    }
-
-    return clonedQueue;*/
-
     QueueVec* clonedQueue = queVecConstructWSize(queueVector->size);
 
     if(!queVecEmpty(queueVector)) {
-        if (queueVector->front < queueVector->rear) {
+        if (queueVector->front <= queueVector->rear) {
             for (int i = queueVector->front; i <= queueVector->rear; i++) {
                 clonedQueue->rear++;
                 clonedQueue->elements[clonedQueue->rear] = adtClone(queueVector->elements[i]);
@@ -241,95 +200,89 @@ void* queVecClone(void* queue) {
     }
 
     return clonedQueue;
-
 }
 
-bool queVecEqual(void* firstQueue, void* secondQueue) {
+bool queVecEqual(void* firstQueue, void* secondQueue) { //TODO: Funziona ma rivedi struttura!
     QueueVec* firstQueueVector = firstQueue;
     QueueVec* secondQueueVector = secondQueue;
 
-    if(!queVecEmpty(firstQueueVector) && !queVecEmpty(secondQueue)) {  //Controllo che entrambe le queue non siano vuote
-        if(firstQueueVector->numElem != secondQueueVector->numElem) { //Controllo che il numero degli elementi delle queue sia lo stesso
-            return false;
-        }
+    if(firstQueueVector->numElem != secondQueueVector->numElem) { //Controllo che il numero degli elementi delle queue sia lo stesso
+        printf("FALSE 1\n");
+        return false;
+    }
 
-        int j = secondQueueVector->front;
-        if(firstQueueVector->front <= firstQueueVector->rear) {
-            for(int i = firstQueueVector->front; i <= firstQueueVector->rear; i++) { //Ciclo su tutti gli elementi della prima queue
-                if (adtCompare(firstQueueVector->elements[i], secondQueueVector->elements[j]) == 0) {
-                    return false;
-                }
-                j++;
-                if (j >= secondQueueVector->size) {
-                    j = 0;
-                }
-            }
-        } else {
-            for(int i = firstQueueVector->front; i < firstQueueVector->size; i++) {
-                if (adtCompare(firstQueueVector->elements[i], secondQueueVector->elements[j]) == 0) {
-                    return false;
-                }
-                j++;
-                if (j >= secondQueueVector->size) {
-                    j = 0;
-                }
-            }
-            for(int i = 0; i <= firstQueueVector->rear; i++) {
-                if (adtCompare(firstQueueVector->elements[i], secondQueueVector->elements[j]) == 0) {
-                    return false;
-                }
-                j++;
-                if (j >= secondQueueVector->size) {
-                    j = 0;
-                }
-            }
-        }
+    if(queVecEmpty(firstQueueVector) && queVecEmpty(secondQueueVector)) {
+        return true;
     } else {
-        return false; //Solo una delle due queue è vuota
-    }
-    return true;
-}
-
-bool queVecExists(void* queue, DataObject* elem) {
-    QueueVec* queueVector = queue;
-
-    if(!queVecEmpty(queueVector)) {
-        if (queueVector->front < queueVector->rear) {
-            for (int i = queueVector->front; i <= queueVector->rear; i++) {
-                if (adtCompare(queueVector->elements[i], elem) == 0) {
-                    return true;
+        int j = secondQueueVector->front;
+        if (firstQueueVector->front <= firstQueueVector->rear) {
+            for (int i = firstQueueVector->front;
+                 i <= firstQueueVector->rear; i++) { //Ciclo su tutti gli elementi della prima queue
+                printf("Confronto ");
+                adtWriteToMonitor(firstQueueVector->elements[i]);
+                printf(" con ");
+                adtWriteToMonitor(secondQueueVector->elements[j]);
+                printf("\n");
+                if (adtCompare(firstQueueVector->elements[i], secondQueueVector->elements[j]) != 0) {
+                    return false;
+                }
+                j++;
+                if (j >= secondQueueVector->size) {
+                    j = 0;
                 }
             }
         } else {
-            for (int i = queueVector->front; i < queueVector->size; i++) {
-                if (adtCompare(queueVector->elements[i], elem) == 0) {
-                    return true;
+            for (int i = firstQueueVector->front; i < firstQueueVector->size; i++) {
+                printf("Confronto ");
+                adtWriteToMonitor(firstQueueVector->elements[i]);
+                printf(" con ");
+                adtWriteToMonitor(secondQueueVector->elements[j]);
+                printf("\n");
+                if (adtCompare(firstQueueVector->elements[i], secondQueueVector->elements[j]) != 0) {
+                    return false;
+                }
+                j++;
+                if (j >= secondQueueVector->size) {
+                    j = 0;
                 }
             }
-            for (int i = 0; i <= queueVector->rear; i++) {
-                if (adtCompare(queueVector->elements[i], elem) == 0) {
-                    return true;
+            for (int i = 0; i <= firstQueueVector->rear; i++) {
+                printf("Confronto ");
+                adtWriteToMonitor(firstQueueVector->elements[i]);
+                printf(" con ");
+                adtWriteToMonitor(secondQueueVector->elements[j]);
+                printf("\n");
+                if (adtCompare(firstQueueVector->elements[i], secondQueueVector->elements[j]) != 0) {
+                    return false;
+                }
+                j++;
+                if (j >= secondQueueVector->size) {
+                    j = 0;
                 }
             }
         }
-    }
 
-    return false;
+        return true;
+    }
 }
 
 void queVecMap(void* queue, MapFun function, void* param) {
     QueueVec* queueVector = queue;
 
+    //printf("FRONT: %d - REAR: %d\n", queueVector->front, queueVector->rear);
     if(!queVecEmpty(queueVector)) {
-        if (queueVector->front < queueVector->rear) {
+        if (queueVector->front <= queueVector->rear) {
             for (uint i = queueVector->front; i <= queueVector->rear; ++i) {
+                //printf("I: %d\n", i);
                 function(queueVector->elements[i], param);
             }
         } else {
             for (uint i = queueVector->front; i < queueVector->size; ++i) {
+              //  printf("I: %d\n", i);
                 function(queueVector->elements[i], param);
             }
             for (uint i = 0; i <= queueVector->rear; ++i) {
+                //printf("I: %d\n", i);
                 function(queueVector->elements[i], param);
             }
         }
@@ -340,7 +293,7 @@ void queVecFold(void* queue, FoldFun function, void* accumulator, void* param) {
     QueueVec* queueVector = queue;
 
     if(!queVecEmpty(queueVector)) {
-        if (queueVector->front < queueVector->rear) {
+        if (queueVector->front <= queueVector->rear) {
             for (uint i = queueVector->front; i <= queueVector->rear; ++i) {
                 function(queueVector->elements[i], accumulator, param);
             }
@@ -354,38 +307,6 @@ void queVecFold(void* queue, FoldFun function, void* accumulator, void* param) {
         }
     }
 }
-
-void queueVecPrint(void* queue) {
-    QueueVec* queueVector = queue;
-
-    if(!queVecEmpty(queueVector)) {
-        if (queueVector->front <= queueVector->rear) {
-            for(int i = queueVector->front; i <= queueVector->rear; ++i) {
-                printf("%d) ", i);
-                adtWriteToMonitor(queueVector->elements[i]);
-                printf("\n");
-            }
-        } else {
-            for(int i = queueVector->front; i < queueVector->size; ++i) {
-                printf("%d) ", i);
-                adtWriteToMonitor(queueVector->elements[i]);
-                printf("\n");
-            }
-            for(int i = 0; i <= queueVector->rear; ++i) {
-                printf("%d) ", i);
-                adtWriteToMonitor(queueVector->elements[i]);
-                printf("\n");
-            }
-        }
-    } else {
-        printf("Queue vuota\n");
-    }
-}
-
-void elemConcat(char* elem, char* accumulator, void* param) {
-    strcat(accumulator, elem);
-}
-
 
 QueueType* ConstructQueueVecType() {
     QueueType* type = (QueueType*)malloc(sizeof(QueueType));

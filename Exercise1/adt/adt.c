@@ -54,11 +54,6 @@ DataObject* adtClone(DataObject* object) {
 
 int adtCompare(DataObject* firstObject, DataObject* secondObject) {
     if(firstObject->type == secondObject->type) {
-        printf("Confronto ");
-        adtWriteToMonitor(firstObject);
-        printf(" con ");
-        adtWriteToMonitor(secondObject);
-        printf("\n");
         return firstObject->type->compare(firstObject->value, secondObject->value);
     } else {
         return 0; //Gli oggetti passati come parametro sono di tipo diverso, di conseguenza hanno anche valore diverso (il valore interno potrebbe essere lo stesso ma il loro "significato" è diverso)

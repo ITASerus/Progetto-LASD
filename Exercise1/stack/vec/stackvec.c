@@ -46,7 +46,11 @@ bool stkVecEmpty(void* stack) {
 void* stkVecTop(void* stack) {
     StackVec* stackVector = stack;
 
-    return adtClone(stackVector->elements[stackVector->index-1]);
+    if(!stkVecEmpty(stackVector)) {
+        return adtClone(stackVector->elements[stackVector->index-1]);
+    } else {
+        return NULL;
+    }
 }
 
 void stkVecPop(void* stack) {
@@ -100,29 +104,23 @@ void stkVecPush(void* stack, void* elem) {
     stackVector->index++;
 }
 
-void stkVecClear(void* stack) { //TODO: Da testare
+void stkVecClear(void* stack) {
     StackVec* stackVector = stack;
 
     for (uint i = 0; i<stackVector->index; ++i) {
         adtDestruct(stackVector->elements[i]);
     }
-}
 
-int stkVecSize(void* stack) {
-    return ((StackVec*)stack)->index;
+    free(stackVector->elements);
+    stackVector->elements = NULL;
+    stackVector->index = 0;
+    stackVector->size = 0;
 }
 
 
 void* stkVecClone(void* stack) {
     StackVec* stackVector = stack;
 
-    /*StackObject* clonedStack = stkVecConstruct();
-
-    for(uint i = 0; i<stack->index; ++i) {
-        stkVecPush(clonedStack, stack->elements[i]);
-    }
-
-    return clonedStack;*/
     StackVec* clonedStack = stkVecConstructWSize(stackVector->size);
 
     while(clonedStack->index < stackVector->index) {
@@ -150,23 +148,10 @@ bool stkVecEqual(void* firstStack, void* secondStack) {
     return true;
 }
 
-bool stkVecExists(void* stack, DataObject* object) {
-    StackVec* stackVector = stack;
-
-    uint i = 0;
-    while(i < stackVector->index) {
-        if(adtCompare(stackVector->elements[i], object) == 0) {
-            return true;
-        }
-        ++i;
-    }
-    return false;
-}
-
 void stkVecMap(void* stack, MapFun function, void* param) {
     StackVec* stackVector = stack;
 
-    for(uint i = 0; i<stackVector->index; ++i) {
+    for(int i = stackVector->index-1; i >=0; --i) {
         function(stackVector->elements[i], param);
     }
 }
@@ -174,10 +159,11 @@ void stkVecMap(void* stack, MapFun function, void* param) {
 void stkVecFold(void* stack, FoldFun function, void* accumulator, void* param) {
     StackVec* stackVector = stack;
 
-    for(uint i = 0; i<stackVector->index; ++i) {
+    for(int i = stackVector->index-1; i >= 0; --i) {
         function(stackVector->elements[i], accumulator, param);
     }
 }
+
 
 StackType* ConstructStackVecType() {
     StackType* type = (StackType*)malloc(sizeof(StackType));
