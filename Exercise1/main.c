@@ -17,29 +17,7 @@
 #include "queue/vec/queuevec.h"
 #include "queue/lst/queuelst.h"
 
-//TODO: Rimuovere controlli doppi empty? Secondo me no perchè le funzioni interne potrebbero anche essere usate interamente direttamente
-//TODO: Le funzioni clear devono reallocare?
-//TODO: Aggiungere assert?
-//TODO: Sostituisci scanf con funzioni opportune
-//TODO: Rivedi l'utilizzo deii vari "variabili cast di comodo": potrebbero essere usate meglio
 /* ************************************************************************** */
-
-void mapPosZerNeg(DataObject * dat, void * _)
-{
-  assert(dat != NULL);
-  int elm = *((int *) (adtGetValue(dat)));
-  int val = (elm > 0) ? 1 : ((elm == 0) ? 0 : -1);
-  adtSetValue(dat, &val);
-}
-
-void foldParity(DataObject * dat, void * val, void * _)
-{
-  assert(dat != NULL);
-  assert(val != NULL);
-  int elm = *((int *) (adtGetValue(dat)));
-  int valx = *((int *) val);
-  *((int *) val) = (elm >= 0) ? valx : -valx;
-}
 
 void printStruct(DataObject* dat, void* _) {
     printf("- ");
@@ -88,8 +66,10 @@ void foldProdGreaterThanN(DataObject * dat, void *val, void *n) {
 void foldConcatLessOrEqThanN(DataObject * dat, void *val, void *n) {
     printf("Confronto %s con %d\n", (char*)dat->value, *(int*)n);
     if((strlen((char*)dat->value) <= *(int*)n)) {
-        printf("Compatibile, realloco\n");
-        val = realloc((char*)val, sizeof(char)*((strlen((char*)dat->value))+strlen((char*)val)));
+        printf("Compatibile, realloco\n", strlen(val));
+
+        val = realloc((char*)val, sizeof(char)*(strlen(val) + (strlen(dat->value) + 1)));
+
         strcat((char*)val, (char*)dat->value);
         printf("Nuova stringa %s\n", (char*)val);
     } else {
@@ -213,7 +193,7 @@ void testStack() {
             case 3: {
                 switch (tipoScelto) {
                     case 1: {
-                        int* value = (int*)malloc(sizeof(int)); //TODO: Inizializzare? (funziona lo stesso sembra)
+                        int* value = (int*)malloc(sizeof(int));
                         *value = 0;
                         int* n = (int*)malloc(sizeof(int));
 
@@ -229,7 +209,7 @@ void testStack() {
                     }
                     case 2: {
                         float* value = (float*)malloc(sizeof(float));
-                        *value = 1;   //TODO: Inizializzare? (se non ci sono elementi restituirà 1
+                        *value = 1;
                         float* n = (float*)malloc(sizeof(float));
 
                         printf("Inserire N: ");
@@ -303,14 +283,29 @@ void testStack() {
                 break;
             }
             case 6: {
-                stkPop(stack);
-                printf("Elemento in testa alla struttura rimosso!\n");
+                DataObject* head = stkTopNPop(stack);
+
+                if(head != NULL) {
+                    printf("Elemento in testa alla struttura: \n");
+                    adtWriteToMonitor(head);
+                    printf("\nElemento rimosso!");
+                    adtDestruct(head);
+                } else {
+                    printf("La struttura e' vuota!");
+                }
+
                 break;
             }
             case 7: {
                 printf("Elemento in testa alla struttura: ");
-                adtWriteToMonitor(stkTop(stack));
-                printf("\n");
+                dataPtr = stkTop(stack);
+
+                if(dataPtr != NULL) {
+                    adtWriteToMonitor(dataPtr);
+                    printf("\n");
+                } else {
+                    printf("La struttura è vuota!\n");
+                }
                 break;
             }
             case 8: {
@@ -370,7 +365,26 @@ void testStack() {
         }
     } while (scelta != 0);
 
-    DestructStackLstType(stkTyp); //TODO: DestructStackVecType?
+    DestructStackLstType(stkTyp);
+
+    switch (tipoScelto) {
+        case 1: {
+            DestructIntDataType(datatype);
+            break;
+        }
+        case 2: {
+           DestructFloatDataType(datatype);
+            break;
+        }
+        case 3: {
+            DestructStringDataType(datatype);
+            break;
+        }
+        case 4: {
+            DestructRecordDataType(datatype);
+            break;
+        }
+    }
 }
 
 void testQueue() {
@@ -487,7 +501,7 @@ void testQueue() {
             case 3: {
                 switch (tipoScelto) {
                     case 1: {
-                        int* value = (int*)malloc(sizeof(int)); //TODO: Inizializzare? (funziona lo stesso sembra)
+                        int* value = (int*)malloc(sizeof(int));
                         *value = 0;
                         int* n = (int*)malloc(sizeof(int));
 
@@ -503,7 +517,7 @@ void testQueue() {
                     }
                     case 2: {
                         float* value = (float*)malloc(sizeof(float));
-                        *value = 1;   //TODO: Inizializzare? (se non ci sono elementi restituirà 1)
+                        *value = 1;
                         float* n = (float*)malloc(sizeof(float));
 
                         printf("Inserire N: ");
@@ -577,14 +591,30 @@ void testQueue() {
                 break;
             }
             case 6: {
-                queDequeue(queue);
-                printf("Elemento in testa alla struttura rimosso!\n");
+                dataPtr = queHeadNDequeue(queue);
+
+                if(dataPtr != NULL) {
+                    printf("Elemento in testa alla struttura: \n");
+                    adtWriteToMonitor(dataPtr);
+                    printf("\nElemento rimosso!");
+
+                } else {
+                    printf("La struttura e' vuota!");
+                }
+
                 break;
             }
             case 7: {
                 printf("Elemento in testa alla struttura: ");
-                adtWriteToMonitor(queHead(queue));
-                printf("\n");
+                dataPtr = queHead(queue);
+
+                if(dataPtr != NULL) {
+                    adtWriteToMonitor(dataPtr);
+                    printf("\n");
+                } else {
+                    printf("La struttura è vuota!\n");
+                }
+
                 break;
             }
             case 8: {
@@ -646,13 +676,34 @@ void testQueue() {
         }
     } while (scelta != 0);
 
-    DestructQueueLstType(queTyp); //TODO: DestructQueueVecType
+    DestructQueueLstType(queTyp);
+
+    switch (tipoScelto) {
+        case 1: {
+            DestructIntDataType(datatype);
+            break;
+        }
+        case 2: {
+            DestructFloatDataType(datatype);
+            break;
+        }
+        case 3: {
+            DestructStringDataType(datatype);
+            break;
+        }
+        case 4: {
+            DestructRecordDataType(datatype);
+            break;
+        }
+    }
 }
 
 /* ************************************************************************** */
 
 void testMain() {
     int scelta;
+
+    char* buffer = (char*)malloc(sizeof(char)* MaxStrLen);
 
     printf("Inserire tipologia di struttra da utilizzare\n(1) Pila\n(2) Coda\n");
     do {

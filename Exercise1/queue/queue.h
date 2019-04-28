@@ -22,8 +22,8 @@ typedef void (*QueClear)(void*);
 
 typedef void* (*QueClone)(void*);
 typedef bool (*QueEqual)(void*, void*);
-typedef void (*QueMap)(); //TODO: Metti parametri
-typedef void (*QueFold)(); //TODO: Metti parametri
+typedef void (*QueMap)();
+typedef void (*QueFold)();
 
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct QueueType
 typedef struct QueueObject
 {
     QueueType* type;
-    void* queue; //TODO: Cambia nome perchè altrimenti devi fare queue->queue
+    void* queue;
     int numberOfElements;
 } QueueObject;
 

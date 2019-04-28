@@ -22,123 +22,88 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="355" column="17" selection-start-line="355" selection-start-column="17" selection-end-line="355" selection-end-column="17" />
+            <state relative-caret-position="416">
+              <caret line="79" column="8" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
               <folding>
-                <element signature="e#419#693#0" />
-                <element signature="e#695#918#0" />
-                <element signature="e#920#1030#0" />
-                <element signature="e#1032#1111#0" />
-                <element signature="e#1113#1233#0" />
-                <element signature="e#1235#1467#0" />
-                <element signature="e#1469#1707#0" />
-                <element signature="e#1709#1862#0" />
-                <element signature="e#1864#2155#0" />
-                <element signature="e#2157#2637#0" />
-                <marker date="1556408022348" expanded="false" signature="3290:3762" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="3931:4666" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="4023:4660" ph="{...}" />
-                <marker date="1556408022348" expanded="true" signature="4816:12847" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="5122:5755" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="6446:6806" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="6827:7051" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="7072:8969" ph="{...}" />
-                <marker date="1556408022348" expanded="true" signature="7110:8932" ph="{...}" />
-                <marker date="1556408022348" expanded="true" signature="7140:7695" ph="{...}" />
-                <marker date="1556408022348" expanded="true" signature="8334:8878" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="8990:10348" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="10369:10542" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="10563:10703" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="10724:10904" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="10925:11301" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="11322:11472" ph="{...}" />
-                <marker date="1556408022348" expanded="true" signature="11494:11609" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="12604:12722" ph="{...}" />
-                <marker date="1556408022348" expanded="true" signature="12744:12831" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="13237:13619" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="13886:14523" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="15007:15142" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="15163:15304" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="15325:15502" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="15524:15608" ph="{...}" />
-                <marker date="1556408022348" expanded="true" signature="16287:22721" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="16309:16672" ph="{...}" />
-                <marker date="1556408022348" expanded="true" signature="16693:16917" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="16938:18836" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="18857:20215" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="20236:20412" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="20433:20577" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="20598:20779" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="20800:21176" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="21197:21347" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="21369:21484" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="22484:22602" ph="{...}" />
-                <marker date="1556408022348" expanded="false" signature="22624:22711" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="2525:2997" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="3166:3901" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="3258:3895" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="4051:12437" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="4357:4990" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="5681:6041" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="6062:6286" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="6307:8090" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="6345:8053" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="6375:6879" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="7455:7999" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="8111:9469" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="9490:9663" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="9684:10113" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="10134:10494" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="10515:10891" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="10912:11062" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="11084:11199" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="11221:12173" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="12194:12312" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="12334:12421" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="13197:13579" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="13846:14483" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="14967:15102" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="15123:15264" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="15285:15462" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="15484:15568" ph="{...}" />
+                <marker date="1556484472284" expanded="true" signature="16247:22996" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="16269:16632" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="16653:16877" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="16898:18681" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="18702:20060" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="20081:20257" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="20278:20671" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="20692:21054" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="21075:21451" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="21472:21622" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="21644:21759" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="22759:22877" ph="{...}" />
+                <marker date="1556484472284" expanded="false" signature="22899:22986" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queue/vec/queuevec.c">
+        <entry file="file://$PROJECT_DIR$/utility.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="225" column="24" selection-start-line="225" selection-start-column="24" selection-end-line="225" selection-end-column="24" />
+            <state relative-caret-position="468">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
               <folding>
-                <element signature="e#24#319#0" />
-                <element signature="e#321#715#0" />
-                <element signature="e#942#1614#0" />
-                <element signature="e#1617#1750#0" />
-                <element signature="e#1752#2726#0" />
-                <element signature="e#2728#3141#0" />
-                <element signature="e#3143#5165#0" />
-                <element signature="e#5167#5986#0" />
-                <element signature="e#5989#7012#0" />
-                <element signature="e#8825#9677#0" />
-                <element signature="e#9679#10392#0" />
+                <element signature="e#120#139#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stack/lst/stacklst.c">
+        <entry file="file://$PROJECT_DIR$/stack/vec/stackvec.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
-              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="534">
+              <caret line="88" selection-start-line="88" selection-end-line="88" />
               <folding>
-                <element signature="e#257#488#0" />
-                <element signature="e#495#629#0" />
-                <element signature="e#631#719#0" />
+                <element signature="e#24#273#0" />
+                <element signature="e#275#503#0" />
+                <element signature="e#505#731#0" />
+                <element signature="e#738#871#0" />
+                <element signature="e#873#1087#0" />
+                <element signature="e#1840#2242#0" />
+                <element signature="e#3139#3434#0" />
+                <element signature="e#3437#3796#0" />
+                <element signature="e#3802#4401#0" />
+                <element signature="e#4403#4609#0" />
+                <element signature="e#4611#4852#0" />
+                <marker date="1556483810112" expanded="false" signature="624:678" ph="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/queue/lst/queuelst.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-502">
-              <caret line="79" column="44" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
-              <folding>
-                <element signature="e#464#795#0" />
-                <element signature="e#1879#2384#0" />
-                <element signature="e#2386#3032#0" />
-                <element signature="e#3763#4010#0" />
-                <element signature="e#4012#4293#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queue/queue.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="69" column="47" lean-forward="true" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -162,6 +127,8 @@
       <find>//</find>
       <find>void*</find>
       <find>{}</find>
+      <find>stkTop</find>
+      <find>realloc</find>
     </findStrings>
     <replaceStrings>
       <replace>stackVec</replace>
@@ -172,6 +139,9 @@
       <replace>void*</replace>
       <replace>{ printf(&quot;COMING SOON\n&quot;); }</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -180,27 +150,27 @@
         <option value="$PROJECT_DIR$/adt/int/adtint.h" />
         <option value="$PROJECT_DIR$/adt/rec/adtrec.h" />
         <option value="$PROJECT_DIR$/adt/str/adtstr.h" />
-        <option value="$PROJECT_DIR$/adt/adt.h" />
         <option value="$PROJECT_DIR$/stack/vec/stackvec.h" />
-        <option value="$PROJECT_DIR$/queue/vec/queuevec.h" />
-        <option value="$PROJECT_DIR$/adt/int/adtint.c" />
         <option value="$PROJECT_DIR$/utility.h" />
         <option value="$PROJECT_DIR$/utility.c" />
         <option value="$PROJECT_DIR$/stack/lst/stacklst.h" />
         <option value="$PROJECT_DIR$/adt/adt.c" />
-        <option value="$PROJECT_DIR$/queue/queue.h" />
-        <option value="$PROJECT_DIR$/adt/flt/adtflt.c" />
         <option value="$PROJECT_DIR$/mainTest.c" />
-        <option value="$PROJECT_DIR$/stack/stack.h" />
-        <option value="$PROJECT_DIR$/adt/str/adtstr.c" />
         <option value="$PROJECT_DIR$/queue/lst/queuelst.h" />
         <option value="$PROJECT_DIR$/stack/stack.c" />
-        <option value="$PROJECT_DIR$/queue/queue.c" />
-        <option value="$PROJECT_DIR$/stack/lst/stacklst.c" />
-        <option value="$PROJECT_DIR$/queue/lst/queuelst.c" />
-        <option value="$PROJECT_DIR$/stack/vec/stackvec.c" />
+        <option value="$PROJECT_DIR$/adt/flt/adtflt.c" />
+        <option value="$PROJECT_DIR$/adt/int/adtint.c" />
         <option value="$PROJECT_DIR$/adt/rec/adtrec.c" />
+        <option value="$PROJECT_DIR$/adt/str/adtstr.c" />
+        <option value="$PROJECT_DIR$/adt/adt.h" />
+        <option value="$PROJECT_DIR$/stack/lst/stacklst.c" />
+        <option value="$PROJECT_DIR$/stack/stack.h" />
+        <option value="$PROJECT_DIR$/queue/lst/queuelst.c" />
         <option value="$PROJECT_DIR$/queue/vec/queuevec.c" />
+        <option value="$PROJECT_DIR$/queue/vec/queuevec.h" />
+        <option value="$PROJECT_DIR$/queue/queue.c" />
+        <option value="$PROJECT_DIR$/queue/queue.h" />
+        <option value="$PROJECT_DIR$/stack/vec/stackvec.c" />
         <option value="$PROJECT_DIR$/main.c" />
       </list>
     </option>
@@ -322,11 +292,13 @@
       <workItem from="1556214424282" duration="6295000" />
       <workItem from="1556268437426" duration="40841000" />
       <workItem from="1556391851438" duration="15814000" />
+      <workItem from="1556408124788" duration="32000" />
+      <workItem from="1556472045724" duration="12281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109699000" />
+    <option name="totallyTimeSpent" value="122012000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -341,7 +313,7 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49923897" visible="true" weight="0.12637363" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49923897" visible="true" weight="0.12759463" />
       <window_info id="Structure" order="1" sideWeight="0.50076103" side_tool="true" weight="0.17842074" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -359,7 +331,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Run" order="3" weight="0.30769232" />
+      <window_info anchor="right" id="Run" order="3" visible="true" weight="0.30769232" />
     </layout>
   </component>
   <component name="editorHistoryManager">
@@ -380,13 +352,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adt/flt/adtflt.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mainTest.c" />
     <entry file="file://$PROJECT_DIR$/adt/int/adtint.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -402,10 +367,167 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/lst/stacklst.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/lst/queuelst.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/adt.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#615#793#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/flt/adtflt.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/adt/int/adtint.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        <state relative-caret-position="251">
+          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/adt.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="51" column="49" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/stack.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+          <folding>
+            <element signature="e#116#139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/rec/adtrec.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-507">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/lst/stacklst.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-435">
+          <caret line="110" column="55" selection-start-line="110" selection-start-column="55" selection-end-line="110" selection-end-column="55" />
+          <folding>
+            <element signature="e#24#255#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/lst/queuelst.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="80" selection-start-line="3" selection-start-column="80" selection-end-line="3" selection-end-column="80" />
+          <folding>
+            <element signature="e#179#462#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/vec/queuevec.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="72" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/queue.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="77" column="48" selection-start-line="77" selection-start-column="48" selection-end-line="77" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/queue.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/vec/queuevec.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1622">
+          <caret line="225" column="55" selection-start-line="225" selection-start-column="55" selection-end-line="225" selection-end-column="55" />
+          <folding>
+            <element signature="e#24#319#0" />
+            <element signature="e#321#715#0" />
+            <element signature="e#942#1614#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/stack.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/vec/stackvec.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
+          <folding>
+            <element signature="e#24#273#0" />
+            <element signature="e#275#503#0" />
+            <element signature="e#505#731#0" />
+            <element signature="e#738#871#0" />
+            <element signature="e#873#1087#0" />
+            <element signature="e#1840#2242#0" />
+            <element signature="e#3139#3434#0" />
+            <element signature="e#3437#3796#0" />
+            <element signature="e#3802#4401#0" />
+            <element signature="e#4403#4609#0" />
+            <element signature="e#4611#4852#0" />
+            <marker date="1556483810112" expanded="false" signature="624:678" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -419,222 +541,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stack/stack.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="62" column="37" lean-forward="true" selection-start-line="62" selection-start-column="37" selection-end-line="62" selection-end-column="37" />
-          <folding>
-            <element signature="e#116#139#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/adt.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="57" column="28" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/adt.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
-          <folding>
-            <element signature="e#615#793#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
-          <folding>
-            <element signature="e#568#1046#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queue/queue.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queue/lst/queuelst.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stack/stack.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1104">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queue/vec/queuevec.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="80" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stack/lst/stacklst.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stack/vec/stackvec.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="141" column="40" selection-start-line="141" selection-start-column="40" selection-end-line="141" selection-end-column="40" />
-          <folding>
-            <element signature="e#275#503#0" />
-            <element signature="e#738#871#0" />
-            <element signature="e#873#1087#0" />
-            <element signature="e#1089#1900#0" />
-            <element signature="e#1902#2224#0" />
-            <element signature="e#2226#3076#0" />
-            <element signature="e#3078#3373#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/rec/adtrec.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="75" column="1" lean-forward="true" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queue/vec/queuevec.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="225" column="24" selection-start-line="225" selection-start-column="24" selection-end-line="225" selection-end-column="24" />
-          <folding>
-            <element signature="e#24#319#0" />
-            <element signature="e#321#715#0" />
-            <element signature="e#942#1614#0" />
-            <element signature="e#1617#1750#0" />
-            <element signature="e#1752#2726#0" />
-            <element signature="e#2728#3141#0" />
-            <element signature="e#3143#5165#0" />
-            <element signature="e#5167#5986#0" />
-            <element signature="e#5989#7012#0" />
-            <element signature="e#8825#9677#0" />
-            <element signature="e#9679#10392#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stack/lst/stacklst.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
-          <folding>
-            <element signature="e#257#488#0" />
-            <element signature="e#495#629#0" />
-            <element signature="e#631#719#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="355" column="17" selection-start-line="355" selection-start-column="17" selection-end-line="355" selection-end-column="17" />
+        <state relative-caret-position="416">
+          <caret line="79" column="8" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
           <folding>
-            <element signature="e#419#693#0" />
-            <element signature="e#695#918#0" />
-            <element signature="e#920#1030#0" />
-            <element signature="e#1032#1111#0" />
-            <element signature="e#1113#1233#0" />
-            <element signature="e#1235#1467#0" />
-            <element signature="e#1469#1707#0" />
-            <element signature="e#1709#1862#0" />
-            <element signature="e#1864#2155#0" />
-            <element signature="e#2157#2637#0" />
-            <marker date="1556408022348" expanded="false" signature="3290:3762" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="3931:4666" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="4023:4660" ph="{...}" />
-            <marker date="1556408022348" expanded="true" signature="4816:12847" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="5122:5755" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="6446:6806" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="6827:7051" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="7072:8969" ph="{...}" />
-            <marker date="1556408022348" expanded="true" signature="7110:8932" ph="{...}" />
-            <marker date="1556408022348" expanded="true" signature="7140:7695" ph="{...}" />
-            <marker date="1556408022348" expanded="true" signature="8334:8878" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="8990:10348" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="10369:10542" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="10563:10703" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="10724:10904" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="10925:11301" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="11322:11472" ph="{...}" />
-            <marker date="1556408022348" expanded="true" signature="11494:11609" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="12604:12722" ph="{...}" />
-            <marker date="1556408022348" expanded="true" signature="12744:12831" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="13237:13619" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="13886:14523" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="15007:15142" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="15163:15304" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="15325:15502" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="15524:15608" ph="{...}" />
-            <marker date="1556408022348" expanded="true" signature="16287:22721" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="16309:16672" ph="{...}" />
-            <marker date="1556408022348" expanded="true" signature="16693:16917" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="16938:18836" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="18857:20215" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="20236:20412" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="20433:20577" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="20598:20779" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="20800:21176" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="21197:21347" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="21369:21484" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="22484:22602" ph="{...}" />
-            <marker date="1556408022348" expanded="false" signature="22624:22711" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queue/queue.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="69" column="47" lean-forward="true" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queue/lst/queuelst.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-502">
-          <caret line="79" column="44" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
-          <folding>
-            <element signature="e#464#795#0" />
-            <element signature="e#1879#2384#0" />
-            <element signature="e#2386#3032#0" />
-            <element signature="e#3763#4010#0" />
-            <element signature="e#4012#4293#0" />
+            <marker date="1556484472284" expanded="true" signature="2525:2997" ph="{...}" />
+            <marker date="1556484472284" expanded="true" signature="3166:3901" ph="{...}" />
+            <marker date="1556484472284" expanded="true" signature="3258:3895" ph="{...}" />
+            <marker date="1556484472284" expanded="true" signature="4051:12437" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="4357:4990" ph="{...}" />
+            <marker date="1556484472284" expanded="true" signature="5681:6041" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="6062:6286" ph="{...}" />
+            <marker date="1556484472284" expanded="true" signature="6307:8090" ph="{...}" />
+            <marker date="1556484472284" expanded="true" signature="6345:8053" ph="{...}" />
+            <marker date="1556484472284" expanded="true" signature="6375:6879" ph="{...}" />
+            <marker date="1556484472284" expanded="true" signature="7455:7999" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="8111:9469" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="9490:9663" ph="{...}" />
+            <marker date="1556484472284" expanded="true" signature="9684:10113" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="10134:10494" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="10515:10891" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="10912:11062" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="11084:11199" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="11221:12173" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="12194:12312" ph="{...}" />
+            <marker date="1556484472284" expanded="true" signature="12334:12421" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="13197:13579" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="13846:14483" ph="{...}" />
+            <marker date="1556484472284" expanded="true" signature="14967:15102" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="15123:15264" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="15285:15462" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="15484:15568" ph="{...}" />
+            <marker date="1556484472284" expanded="true" signature="16247:22996" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="16269:16632" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="16653:16877" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="16898:18681" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="18702:20060" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="20081:20257" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="20278:20671" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="20692:21054" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="21075:21451" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="21472:21622" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="21644:21759" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="22759:22877" ph="{...}" />
+            <marker date="1556484472284" expanded="false" signature="22899:22986" ph="{...}" />
           </folding>
         </state>
       </provider>

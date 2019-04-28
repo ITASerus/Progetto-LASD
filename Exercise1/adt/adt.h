@@ -49,7 +49,7 @@ DataObject* adtConstruct(DataType* dataType);
 void adtDestruct(DataObject* object);
 
 void* adtGetValue(DataObject* object);
-void adtSetValue(DataObject* object, void* elem); //TODO: Sostituire void* con DataObject?
+void adtSetValue(DataObject* object, void* elem);
 
 void adtRandomValue(DataObject* object);
 void adtReadFromKeyboard(DataObject* object);

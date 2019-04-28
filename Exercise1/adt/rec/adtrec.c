@@ -31,7 +31,7 @@ void* recordGetValue(void* value) {
     return recordCopy;
 }
 
-void recordSetValue(void* value, void* newValue) { //TODO: Rivedi struttura
+void recordSetValue(void* value, void* newValue) {
     printf("(SetValue)\n");
 
     if( (((Record*)value)->name) != NULL && (((Record*)value)->surname) != NULL) {
@@ -61,7 +61,7 @@ void* recordRandomValue() {
     return rndValue;
 }
 
-void* recordReadFromKeyboard() { //Non usare scanf
+void* recordReadFromKeyboard() {
     Record* record = (Record*)malloc(sizeof(Record));
     record->name = (char*)malloc(sizeof(char)*20);
     record->surname = (char*)malloc(sizeof(char)*20);

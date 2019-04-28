@@ -57,7 +57,12 @@ void queVecDestruct(void* queue) {
 void* queVecHead(void* queue) {
     QueueVec* queueVector = queue;
 
-    return adtClone(queueVector->elements[queueVector->front]);
+    if(!queVecEmpty(queue)) {
+        return adtClone(queueVector->elements[queueVector->front]);
+    } else {
+        return NULL;
+    }
+
 }
 
 void queVecDequeue(void* queue) {
@@ -65,31 +70,47 @@ void queVecDequeue(void* queue) {
 
     if(!queVecEmpty(queueVector)) {
         adtDestruct(queueVector->elements[queueVector->front]);
+
         if (queueVector->front == queueVector->rear) { //La queue aveva un solo elemento
             queueVector->front = -1;
             queueVector->rear = -1;
-        } else queueVector->front = (queueVector->front+1) % queueVector->size; //La queue ha almeno un elemento e front si trova all'ultimo indice disponibile prima di ricominciare
+        } else queueVector->front = (queueVector->front+1) % queueVector->size;
 
-        /*
-        if(queueVector->numElem < queueVector->size/4) { //La queue ha troppa memoria libera //TODO: Da implementare
-            printf("-------------- Dimezzo la dimensione della queue --------------\n");
-            QueueObject* newQueue = queVecConstructWSize(queueVector->size/2);
+        /*if(queueVector->numElem < queueVector->size/4) { //La queue ha troppa memoria libera
+           DataObject** newElements = (DataObject**)malloc(sizeof(DataObject*)*queueVector->size/2);
 
-            free(queue);
-            queue = newQueue;
-        }
-         */
+           int newElementsIndex = 0;
+           if (queueVector->front <= queueVector->rear) {
+               for (uint i = queueVector->front; i <= queueVector->rear; ++i) {
+                   newElements[newElementsIndex] = queueVector->elements[i];
+                   newElements++;
+               }
+           } else {
+               for (uint i = queueVector->front; i < queueVector->size; ++i) {
+                   newElements[newElementsIndex] = queueVector->elements[i];
+                   newElements++;
+               }
+               for (uint i = 0; i <= queueVector->rear; ++i) {
+                   newElements[newElementsIndex] = queueVector->elements[i];
+                   newElements++;
+               }
+           }
+
+           free(queueVector->elements);
+           queueVector->elements = newElements;
+           queueVector->size /= 2;
+           queueVector->front = 0;
+           queueVector->rear = queueVector->numElem;
+           free(queueVector->elements);
+        }*/
     }
-
-    printf("FRONT: %d - REAR: %d\n", queueVector->front, queueVector->rear);
 }
 
-void* queVecHeadNDequeue(void* queue) { //TODO: Ragionaci..togliere dalla testa (quindi non si può usare queVecDequeue?
+void* queVecHeadNDequeue(void* queue) {
     QueueVec* queueVector = queue;
 
     if(!queVecEmpty(queueVector)) {
         DataObject* dequeuedElement = adtClone(queueVector->elements[queueVector->front]);
-
         queVecDequeue(queueVector);
 
         return dequeuedElement;
@@ -202,7 +223,7 @@ void* queVecClone(void* queue) {
     return clonedQueue;
 }
 
-bool queVecEqual(void* firstQueue, void* secondQueue) { //TODO: Funziona ma rivedi struttura!
+bool queVecEqual(void* firstQueue, void* secondQueue) {
     QueueVec* firstQueueVector = firstQueue;
     QueueVec* secondQueueVector = secondQueue;
 
@@ -269,20 +290,16 @@ bool queVecEqual(void* firstQueue, void* secondQueue) { //TODO: Funziona ma rive
 void queVecMap(void* queue, MapFun function, void* param) {
     QueueVec* queueVector = queue;
 
-    //printf("FRONT: %d - REAR: %d\n", queueVector->front, queueVector->rear);
     if(!queVecEmpty(queueVector)) {
         if (queueVector->front <= queueVector->rear) {
             for (uint i = queueVector->front; i <= queueVector->rear; ++i) {
-                //printf("I: %d\n", i);
                 function(queueVector->elements[i], param);
             }
         } else {
             for (uint i = queueVector->front; i < queueVector->size; ++i) {
-              //  printf("I: %d\n", i);
                 function(queueVector->elements[i], param);
             }
             for (uint i = 0; i <= queueVector->rear; ++i) {
-                //printf("I: %d\n", i);
                 function(queueVector->elements[i], param);
             }
         }

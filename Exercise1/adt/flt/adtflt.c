@@ -23,11 +23,11 @@ void floatSetValue(void* value, void* newValue) {
 
 void* floatRandomValue() {
     float* rndValue = (float*)malloc(sizeof(float));
-    *rndValue = ((float)rndNum(-MaxFltAbsRndVal, MaxFltAbsRndVal)/(float)(MaxFltPrcRndVal)) * MaxFltAbsRndVal; //TODO: Si genera così? NO, trova altro modo
+    *rndValue = ((float)rndNum(-MaxFltAbsRndVal, MaxFltAbsRndVal)/(float)(MaxFltPrcRndVal)) * MaxFltAbsRndVal;
     return rndValue;
 }
 
-void* floatReadFromKeyboard() { //TODO: Rivedi struttura, non suare scanf
+void* floatReadFromKeyboard() {
     float* value = (float*)malloc(sizeof(float));
     scanf("%f", value);
     return value;

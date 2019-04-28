@@ -6,9 +6,8 @@ char* rndStr(int numChar);
 /* ************************************************************************** */
 
 void* stringConstruct() {
-    char* value = (char*)malloc(sizeof(char) * (MaxStrLen + 1)); //TODO: Sostituire con calloc?
-    strcpy(value, "");//o
-    //value[0] = '\0';
+    char* value = (char*)malloc(sizeof(char) * (MaxStrLen + 1));
+    strcpy(value, "");
     return value;
 }
 
@@ -23,15 +22,12 @@ void* stringGetValue(void* value) {
 }
 
 void stringSetValue(void* value, void* newValue) {
-    if (strlen((char*) newValue) > strlen(value)) { //TODO: Scegli
-        //if (strlen((char*) value) != strlen((char*) newValue)) {
+    if (strlen((char*) newValue) > strlen(value)) {
         value = (char *)realloc(value, sizeof(char) * (strlen((char *) newValue) + 1));
-        strcpy(value, ""); //o ((char*)value)[0] = '\0';
-        if (value == NULL) {
-            printf("REALLOC FALLITA\n"); //TODO: Gestisci
-        }
-    }
+        assert(value != NULL);
 
+        strcpy(value, "");
+    }
     strcpy((char*)value, (char*)newValue);
 }
 

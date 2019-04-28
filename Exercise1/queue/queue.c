@@ -87,7 +87,7 @@ int queSize(QueueObject* queue) {
     return queue->numberOfElements;
 }
 
-bool queExists(QueueObject* queue, DataObject* object) { //TODO: Da implementare
+bool queExists(QueueObject* queue, DataObject* object) {
     bool* result = (bool*)malloc(sizeof(bool));
     *result = false;
     queFold(queue, existElem, result, object);

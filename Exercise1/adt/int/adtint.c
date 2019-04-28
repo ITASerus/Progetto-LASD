@@ -27,7 +27,7 @@ void* intRandomValue() {
     return rndValue;
 }
 
-void* intReadFromKeyboard() { //TODO: Rivedi struttura, non suare scanf - DA TESTARE
+void* intReadFromKeyboard() {
     int* value = (int*)malloc(sizeof(int));
     scanf("%d", value);
     return value;

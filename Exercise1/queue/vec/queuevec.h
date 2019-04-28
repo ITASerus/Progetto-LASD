@@ -14,7 +14,7 @@ typedef struct QueueVec
     uint front; //Testa della queue
     uint rear; //Coda della queue
     uint size; //Dimensione della queue, comprese le locazioni non utilizzate
-    uint numElem; //Numero di elementi attualmente contenuto nella queue TODO: Togliere? Superfluo?
+    uint numElem; //Numero di elementi attualmente contenuto nella queue
 } QueueVec;
 
 /* ************************************************************************** */

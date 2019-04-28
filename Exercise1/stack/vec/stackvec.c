@@ -66,9 +66,7 @@ void stkVecPop(void* stack) {
             stackVector->size /= 2;
             stackVector->elements = realloc(stackVector->elements, sizeof(DataObject*) * stackVector->size); //Rimuovo la memoria in eccesso
 
-            if(stackVector->elements == NULL) {
-                printf("ERRORE REALLOC -----------------\n"); //TODO: Gestisci
-            }
+            assert(stackVector->elements != NULL);
         }
     }
 }
@@ -79,6 +77,7 @@ void* stkVecTopNPop(void* stack) {
     if(!stkVecEmpty(stackVector)) {
         DataObject *poppedElement = adtClone(stackVector->elements[stackVector->index - 1]);
         stkVecPop(stackVector);
+
         return poppedElement;
     } else {
         return NULL; //Lo stack è vuoto

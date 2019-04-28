@@ -2,13 +2,7 @@
 #include "stack.h"
 
 void existElem(DataObject* objectToCompare, void * val, void * elem) {
-    printf("Confronto ");
-    adtWriteToMonitor(objectToCompare);
-    printf(" con ");
-    adtWriteToMonitor(elem);
-    printf("\n");
     if(adtCompare(objectToCompare, elem) == 0) {
-        printf("TRUE\n");
         *(bool*)val = true;
     }
 }

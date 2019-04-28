@@ -12,7 +12,7 @@ void* stkLstConstruct() {
     return obj;
 }
 
-void stkLstDestruct(void* stack) { //TODO: Da testare
+void stkLstDestruct(void* stack) {
     StackLst* stackList = stack;
 
     while(stackList->element != NULL) {
@@ -33,7 +33,11 @@ bool stkLstEmpty(void* stack) {
 }
 
 void* stkLstTop(void* stack) {
-    return adtClone(((StackLst*)stack)->next->element);
+    if(!stkLstEmpty(stack)) {
+        return adtClone(((StackLst *) stack)->next->element);
+    } else {
+        return NULL;
+    }
 }
 
 void stkLstPop(void* stack) {
@@ -49,8 +53,9 @@ void* stkLstTopNPop(void* stack) {
     if(!stkLstEmpty(stack)) {
         StackLst* stackList = stack;
 
-        DataObject *poppedElement = adtClone(stackList->next->element); //TODO: Puoi evitare di clonare l'elemento: ritornalo direttamente! (vedi anche nelle altre strutture)
+        DataObject *poppedElement = adtClone(stackList->next->element);
         stkLstPop(stackList);
+
         return poppedElement;
     } else {
         return NULL;
@@ -88,12 +93,13 @@ void* stkLstClone(void* stack) {
     while(sentinelStackList->next != NULL) {
         StackLst* newNode = (StackLst*)malloc(sizeof(StackLst));
         newNode->element = adtClone(sentinelStackList->next->element);
+        newNode->next = NULL;
+
         printf("Clono: ");
         adtWriteToMonitor(newNode->element);
         printf("\n");
 
         sentinelClonedStack->next = newNode;
-        newNode->next = NULL;
 
         sentinelClonedStack = sentinelClonedStack->next;
         sentinelStackList = sentinelStackList->next;
@@ -102,7 +108,7 @@ void* stkLstClone(void* stack) {
     return clonedStack;
 }
 
-bool stkLstEqual(void* firstStack, void* secondStack) { //TODO: Da rivedere assolutamente! Struttura non mi piace
+bool stkLstEqual(void* firstStack, void* secondStack) {
     StackLst* firstStackList = firstStack;
     StackLst* secondStackList = secondStack;
 

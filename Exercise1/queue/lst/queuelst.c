@@ -1,7 +1,7 @@
 
 #include "queuelst.h"
 
-/* ************************************************************************** */ //TODO: Controlla che al posto di adtDestruct non ci vada queLstDestruct
+/* ************************************************************************** */
 
 void* queLstConstruct() {
     QueueLst* obj = (QueueLst*)malloc(sizeof(QueueLst));
@@ -26,15 +26,15 @@ void queLstDestruct(void* queue) {
         adtDestruct(nodeToDelete->element);
         free(nodeToDelete);
     }
+
+    free(queue);
 }
 
 
 bool queLstEmpty(void* queue) {
     if(((QueueLst*)queue)->front->next == NULL) {
-        printf("true\n");
         return true;
     } else {
-        printf("false\n");
         return false;
     }
 }
@@ -88,56 +88,31 @@ void queLstEnqueue(void* queue, void* elem) {
     //Posizionamento in coda
     queueList->rear->next = newObj;
     queueList->rear = newObj;
-
-    printf("(enqueue)\n");
-    if(queueList->front->next == NULL) {
-        printf("--- Primo elemento\n");
-        queueList->front->next = queueList->rear;
-    }
 }
 
 void queLstClear(void* queue) {
-    printf("OK\n");
-    if(!queEmpty(queue)) {
-        printf("OK\n");
-        QueueNode* nodeToDelete = ((QueueLst*)queue)->front->next;
+    QueueLst* queueList = queue;
+    QueueNode* nodeToDelete;
 
-        while(nodeToDelete != NULL) {
-            printf("node != null\n");
-            ((QueueLst*)queue)->front->next = nodeToDelete->next;
-            printf("Elimino: ");
-            adtWriteToMonitor(nodeToDelete->element);
-            printf("\n");
-            adtDestruct(nodeToDelete->element);
-            free(nodeToDelete);
-            nodeToDelete = ((QueueLst*)queue)->front->next;
-        }
-
-        ((QueueLst*)queue)->rear = ((QueueLst*)queue)->front;
+    while(queueList->front->next != NULL) {
+        nodeToDelete = queueList->front->next;
+        queueList->front->next = queueList->front->next->next;
+        adtDestruct(nodeToDelete->element);
+        free(nodeToDelete);
     }
+
+    queueList->rear = queueList->front;
 }
 
-void* queLstClone(void* queue) { //TODO: Da implementare
+void* queLstClone(void* queue) {
+    QueueNode* nodeToClone = ((QueueLst*)queue)->front->next;
     QueueLst* clonedQueue = queLstConstruct();
 
-    /*QueueLst* sentinelQueueList = queue;
-    QueueLst* sentinelClonedQueue = clonedQueue;
-
-    while(sentinelQueueList->next != NULL) {
-        QueueLst* newNode = (QueueLst*)malloc(sizeof(QueueLst));
-        newNode->element = adtClone(sentinelQueueList->next->element);
-        printf("Clono: ");
-        adtWriteToMonitor(newNode->element);
-        printf("\n");
-
-        sentinelClonedQueue->next = newNode;
-        newNode->next = NULL;
-
-        sentinelClonedQueue = sentinelClonedQueue->next;
-        sentinelQueueList = sentinelQueueList->next;
+    while(nodeToClone != NULL) {
+        queLstEnqueue(clonedQueue, nodeToClone->element);
+        nodeToClone = nodeToClone->next;
     }
-*/
-    printf("DA IMPLEMENTARE\n");
+
     return clonedQueue;
 }
 
@@ -160,25 +135,22 @@ void queLstFold(void* queue, FoldFun function, void* accumulator, void* param) {
 }
 
 bool queLstEqual(void* firstQueue, void* secondQueue) {
-    /*
-    QueueLst* firstQueueList = firstQueue;
-    QueueLst* secondQueueList = secondQueue;
+    QueueNode* firstQueueNodeToCompare = ((QueueLst*)firstQueue)->front->next;
+    QueueNode* secondQueueNodeToCompre = ((QueueLst*)secondQueue)->front->next;
 
-    while(firstQueueList->next != NULL && secondQueueList->next != NULL) {
-        if(adtCompare(firstQueueList->next->element, secondQueueList->next->element) != 0) {
+    while(firstQueueNodeToCompare != NULL && secondQueueNodeToCompre != NULL) {
+        if(adtCompare(firstQueueNodeToCompare->element, secondQueueNodeToCompre->element) != 0) {
             return false;
         }
-        secondQueueList = secondQueueList->next;
-        firstQueueList = firstQueueList->next;
+        firstQueueNodeToCompare = firstQueueNodeToCompare->next;
+        secondQueueNodeToCompre = secondQueueNodeToCompre->next;
     }
 
-    if((firstQueueList->next == NULL && secondQueueList->next != NULL) || (firstQueueList->next != NULL && secondQueueList->next == NULL)) {
+    if((firstQueueNodeToCompare == NULL && secondQueueNodeToCompre != NULL) || (firstQueueNodeToCompare != NULL && secondQueueNodeToCompre == NULL)) {
         return false;
     }
 
     return true;
-     */
-    printf("DA IMPLEMENTARE\n");
 }
 
 QueueType* ConstructQueueLstType() {
