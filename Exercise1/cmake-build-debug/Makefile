@@ -447,6 +447,33 @@ stack/vec/stackvec.c.s:
 	$(MAKE) -f CMakeFiles/Exercise1.dir/build.make CMakeFiles/Exercise1.dir/stack/vec/stackvec.c.s
 .PHONY : stack/vec/stackvec.c.s
 
+test.o: test.c.o
+
+.PHONY : test.o
+
+# target to build an object file
+test.c.o:
+	$(MAKE) -f CMakeFiles/Exercise1.dir/build.make CMakeFiles/Exercise1.dir/test.c.o
+.PHONY : test.c.o
+
+test.i: test.c.i
+
+.PHONY : test.i
+
+# target to preprocess a source file
+test.c.i:
+	$(MAKE) -f CMakeFiles/Exercise1.dir/build.make CMakeFiles/Exercise1.dir/test.c.i
+.PHONY : test.c.i
+
+test.s: test.c.s
+
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.c.s:
+	$(MAKE) -f CMakeFiles/Exercise1.dir/build.make CMakeFiles/Exercise1.dir/test.c.s
+.PHONY : test.c.s
+
 utility.o: utility.c.o
 
 .PHONY : utility.o
@@ -519,6 +546,9 @@ help:
 	@echo "... stack/vec/stackvec.o"
 	@echo "... stack/vec/stackvec.i"
 	@echo "... stack/vec/stackvec.s"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
 	@echo "... utility.o"
 	@echo "... utility.i"
 	@echo "... utility.s"

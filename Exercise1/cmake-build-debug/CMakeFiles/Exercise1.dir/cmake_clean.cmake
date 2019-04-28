@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Exercise1.dir/stack/stack.c.o"
   "CMakeFiles/Exercise1.dir/main.c.o"
   "CMakeFiles/Exercise1.dir/utility.c.o"
+  "CMakeFiles/Exercise1.dir/test.c.o"
   "Exercise1.pdb"
   "Exercise1"
 )

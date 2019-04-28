@@ -171,6 +171,12 @@
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/vec/stackvec.h">
 			<Option target="Exercise1"/>
 		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/test.c">
+			<Option target="Exercise1"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/test.h">
+			<Option target="Exercise1"/>
+		</Unit>
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/utility.c">
 			<Option target="Exercise1"/>
 		</Unit>

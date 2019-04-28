@@ -41,4 +41,4 @@ add_executable(Exercise1
         stack/stack.h
         main.c
         utility.c
-        utility.h)
+        utility.h test.c test.h)

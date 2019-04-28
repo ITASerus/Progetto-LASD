@@ -1,5 +1,6 @@
 
-#include "utility.h"
+#ifndef EXERCISE1_TEST_H
+#define EXERCISE1_TEST_H
 
 /* ************************************************************************** */
 
@@ -17,15 +18,8 @@
 #include "queue/vec/queuevec.h"
 #include "queue/lst/queuelst.h"
 
-#include "test.h"
-
 /* ************************************************************************** */
 
-int main()
-{
-  srand(time(NULL));
+void testMain();
 
-  testMain();
-
-  return 0;
-}
+#endif //EXERCISE1_TEST_H

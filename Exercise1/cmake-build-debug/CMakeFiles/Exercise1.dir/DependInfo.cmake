@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/lst/stacklst.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/CMakeFiles/Exercise1.dir/stack/lst/stacklst.c.o"
   "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/stack.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/CMakeFiles/Exercise1.dir/stack/stack.c.o"
   "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/stack/vec/stackvec.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/CMakeFiles/Exercise1.dir/stack/vec/stackvec.c.o"
+  "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/test.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/CMakeFiles/Exercise1.dir/test.c.o"
   "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/utility.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise1/cmake-build-debug/CMakeFiles/Exercise1.dir/utility.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

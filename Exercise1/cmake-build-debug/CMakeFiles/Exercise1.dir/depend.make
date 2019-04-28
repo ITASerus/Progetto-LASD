@@ -37,6 +37,7 @@ CMakeFiles/Exercise1.dir/main.c.o: ../queue/vec/queuevec.h
 CMakeFiles/Exercise1.dir/main.c.o: ../stack/lst/stacklst.h
 CMakeFiles/Exercise1.dir/main.c.o: ../stack/stack.h
 CMakeFiles/Exercise1.dir/main.c.o: ../stack/vec/stackvec.h
+CMakeFiles/Exercise1.dir/main.c.o: ../test.h
 CMakeFiles/Exercise1.dir/main.c.o: ../utility.h
 
 CMakeFiles/Exercise1.dir/queue/lst/queuelst.c.o: ../adt/adt.h
@@ -72,6 +73,21 @@ CMakeFiles/Exercise1.dir/stack/vec/stackvec.c.o: ../stack/stack.h
 CMakeFiles/Exercise1.dir/stack/vec/stackvec.c.o: ../stack/vec/stackvec.c
 CMakeFiles/Exercise1.dir/stack/vec/stackvec.c.o: ../stack/vec/stackvec.h
 CMakeFiles/Exercise1.dir/stack/vec/stackvec.c.o: ../utility.h
+
+CMakeFiles/Exercise1.dir/test.c.o: ../adt/adt.h
+CMakeFiles/Exercise1.dir/test.c.o: ../adt/flt/adtflt.h
+CMakeFiles/Exercise1.dir/test.c.o: ../adt/int/adtint.h
+CMakeFiles/Exercise1.dir/test.c.o: ../adt/rec/adtrec.h
+CMakeFiles/Exercise1.dir/test.c.o: ../adt/str/adtstr.h
+CMakeFiles/Exercise1.dir/test.c.o: ../queue/lst/queuelst.h
+CMakeFiles/Exercise1.dir/test.c.o: ../queue/queue.h
+CMakeFiles/Exercise1.dir/test.c.o: ../queue/vec/queuevec.h
+CMakeFiles/Exercise1.dir/test.c.o: ../stack/lst/stacklst.h
+CMakeFiles/Exercise1.dir/test.c.o: ../stack/stack.h
+CMakeFiles/Exercise1.dir/test.c.o: ../stack/vec/stackvec.h
+CMakeFiles/Exercise1.dir/test.c.o: ../test.c
+CMakeFiles/Exercise1.dir/test.c.o: ../test.h
+CMakeFiles/Exercise1.dir/test.c.o: ../utility.h
 
 CMakeFiles/Exercise1.dir/utility.c.o: ../utility.c
 CMakeFiles/Exercise1.dir/utility.c.o: ../utility.h
