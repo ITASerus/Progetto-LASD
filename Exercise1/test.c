@@ -684,7 +684,6 @@ void testQueue() {
 
 void testMain() {
     int scelta;
-
     printf("Inserire tipologia di struttra da utilizzare\n(1) Pila\n(2) Coda\n");
     do {
         printf("Scelta: ");

@@ -76,7 +76,7 @@ void queVecDequeue(void* queue) {
             queueVector->rear = -1;
         } else queueVector->front = (queueVector->front+1) % queueVector->size;
 
-        /*if(queueVector->numElem < queueVector->size/4) { //La queue ha troppa memoria libera
+        if(queueVector->numElem < queueVector->size/4) { //La queue ha troppa memoria libera
            DataObject** newElements = (DataObject**)malloc(sizeof(DataObject*)*queueVector->size/2);
 
            int newElementsIndex = 0;
@@ -102,7 +102,7 @@ void queVecDequeue(void* queue) {
            queueVector->front = 0;
            queueVector->rear = queueVector->numElem;
            free(queueVector->elements);
-        }*/
+        }
     }
 }
 
