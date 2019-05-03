@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Exercise2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Exercise2" TARGET_NAME="Exercise2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Exercise2" RUN_TARGET_NAME="Exercise2">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+</project>
