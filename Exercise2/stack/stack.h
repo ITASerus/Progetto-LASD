@@ -10,52 +10,67 @@
 
 /* ************************************************************************** */
 
-// typedef type (*StkConstruct)(arguments);
-// typedef type (*StkDestruct)(arguments);
+typedef void* (*StkConstruct)(void*);
+typedef void (*StkDestruct)(void*);
 
-// typedef type (*StkEmpty)(arguments);
-// typedef type (*StkTop)(arguments);
-// typedef type (*StkPop)(arguments);
-// typedef type (*StkTopNPop)(arguments);
-// typedef type (*StkPush)(arguments);
-// typedef type (*StkClear)(arguments);
+typedef bool (*StkEmpty)(void*);
+typedef void* (*StkTop)(void*);
+typedef void (*StkPop)(void*);
+typedef void* (*StkTopNPop)(void*);
+typedef void (*StkPush)(void*, void*);
+typedef void (*StkClear)(void*);
 
-// typedef type (*StkClone)(arguments);
-// typedef type (*StkEqual)(arguments);
-// typedef type (*StkMap)(arguments);
-// typedef type (*StkFold)(arguments);
+typedef void* (*StkClone)(void*);
+typedef bool (*StkEqual)(void*, void*);
+typedef void (*StkMap)(void*, MapFun, void* );
+typedef void (*StkFold)(void*, FoldFun, void*, void*);
 
 /* ************************************************************************** */
 
 typedef struct StackType
 {
-  // Struct da completare!
+    StkConstruct construct;
+    StkDestruct destruct;
+
+    StkEmpty isEmpty;
+    StkTop top;
+    StkPop pop;
+    StkTopNPop topNPop;
+    StkPush push;
+    StkClear clear;
+
+    StkClone clone;
+    StkEqual equal;
+    StkMap map;
+    StkFold fold;
 } StackType;
 
 typedef struct StackObject
 {
-  // Struct da completare!
+    StackType* type;
+    void* stack;
+    int numberOfElements;
 } StackObject;
 
 /* ************************************************************************** */
 
-// type stkConstruct(arguments);
-// type stkDestruct(arguments);
+StackObject* stkConstruct(StackType* type);
+void stkDestruct(StackObject* stack);
 
-// type stkEmpty(arguments);
-// type stkTop(arguments);
-// type stkPop(arguments);
-// type stkTopNPop(arguments);
-// type stkPush(arguments);
-// type stkClear(arguments);
+bool stkEmpty(StackObject* stack);
+void* stkTop(StackObject* stack);
+void stkPop(StackObject* stack);
+void* stkTopNPop(StackObject* stack);
+void stkPush(StackObject* stack, DataObject* object);
+void stkClear(StackObject* stack);
 
-// type stkClone(arguments);
-// type stkEqual(arguments);
-// type stkMap(arguments);
-// type stkFold(arguments);
+StackObject* stkClone(StackObject* stack);
+bool stkEqual(StackObject* firstStack, StackObject* secondStack);
+void stkMap(StackObject* stack, MapFun mapFunction, void* param);
+void stkFold(StackObject* stack, FoldFun foldFunction, void* accumulator, void* param);
 
-// type stkSize(arguments);
-// type stkExists(arguments);
+int stkSize(StackObject* stack);
+bool stkExists(StackObject* stack, DataObject* object);
 
 /* ************************************************************************** */
 

@@ -105,6 +105,7 @@ CMakeFiles/Exercise2.dir/main.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/stack/lst/stacklst.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/stack/stack.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/stack/vec/stackvec.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/test.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 CMakeFiles/Exercise2.dir/queue/lst/queuelst.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/adt.h
@@ -139,6 +140,21 @@ CMakeFiles/Exercise2.dir/stack/vec/stackvec.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/stack/stack.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/stack/vec/stackvec.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/stack/vec/stackvec.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
+CMakeFiles/Exercise2.dir/test.c.o
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/adt.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/flt/adtflt.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/int/adtint.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/rec/adtrec.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/str/adtstr.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/queue/lst/queuelst.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/queue/queue.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/queue/vec/queuevec.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/stack/lst/stacklst.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/stack/stack.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/stack/vec/stackvec.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/test.c
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/test.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 CMakeFiles/Exercise2.dir/utility.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.c

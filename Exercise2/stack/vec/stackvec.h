@@ -10,13 +10,15 @@
 
 typedef struct StackVec
 {
-  // Struct da completare!
+    DataObject** elements; //Array di DataObject
+    uint index; //Testa dello stack
+    uint size; //Dimensione dello stack, comprese le locazioni non utilizzate
 } StackVec;
 
 /* ************************************************************************** */
 
-// type ConstructStackVecType(arguments);
-// type DestructStackVecType(arguments);
+StackType* ConstructStackVecType();
+void DestructStackVecType(StackType* stackType);
 
 /* ************************************************************************** */
 

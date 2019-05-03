@@ -9,15 +9,22 @@
 /* ************************************************************************** */
 
 typedef struct QueueLst QueueLst;
-struct QueueLst
-{
-  // Struct da completare!
+typedef struct QueueNode QueueNode;
+
+struct QueueLst {
+    QueueNode* front;
+    QueueNode* rear;
+};
+
+struct QueueNode {
+    DataObject* element;
+    QueueNode* next;
 };
 
 /* ************************************************************************** */
 
-// type ConstructQueueLstType(arguments);
-// type DestructQueueLstType(arguments);
+QueueType* ConstructQueueLstType();
+void DestructQueueLstType(QueueType* queueType);
 
 /* ************************************************************************** */
 

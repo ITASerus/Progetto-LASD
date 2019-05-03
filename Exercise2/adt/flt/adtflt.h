@@ -13,8 +13,8 @@
 
 /* ************************************************************************** */
 
-// type ConstructFloatDataType(arguments);
-// type DestructFloatDataType(arguments);
+DataType* ConstructFloatDataType();
+void DestructFloatDataType(DataType* type);
 
 /* ************************************************************************** */
 
