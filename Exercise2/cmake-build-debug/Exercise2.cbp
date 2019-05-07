@@ -233,6 +233,12 @@
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/test.h">
 			<Option target="Exercise2"/>
 		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/testBST.c">
+			<Option target="Exercise2"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/testBST.h">
+			<Option target="Exercise2"/>
+		</Unit>
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.c">
 			<Option target="Exercise2"/>
 		</Unit>

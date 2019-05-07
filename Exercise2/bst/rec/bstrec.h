@@ -8,8 +8,8 @@
 
 /* ************************************************************************** */
 
-// type ConstructBSTRecursive(arguments);
-// type DestructBSTRecursive(arguments);
+BSTType* ConstructBSTRecursive();
+void DestructBSTRecursive(BSTType* type);
 
 /* ************************************************************************** */
 

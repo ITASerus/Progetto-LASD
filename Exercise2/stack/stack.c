@@ -47,7 +47,6 @@ void* stkTopNPop(StackObject* stack) {
     } else {
         return NULL;
     }
-
 }
 
 void stkPush(StackObject* stack, DataObject* object) {
@@ -96,5 +95,5 @@ bool stkExists(StackObject* stack, DataObject* object) {
     bool* result = (bool*)malloc(sizeof(bool));
     *result = false;
     stkFold(stack, existElem, result, object);
-    return *result;
+    return *result; //TODO: Dealloca il result?
 }

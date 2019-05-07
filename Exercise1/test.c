@@ -56,10 +56,16 @@ void foldProdGreaterThanN(DataObject * dat, void *val, void *n) {
 }
 
 void foldConcatLessOrEqThanN(DataObject * dat, void *val, void *n) {
-    printf("Confronto %s con %d\n", (char*)dat->value, *(int*)n);
+    //printf("Confronto %s con %d\n", (char*)dat->value, *(int*)n);
     if((strlen((char*)dat->value) <= *(int*)n)) {
-        val = realloc((char*)val, sizeof(char)*(strlen(val) + (strlen(dat->value) + 1)));
-        strcat((char*)val, (char*)dat->value);
+        char* newVal = malloc(sizeof(char)* (strlen(val) + strlen(dat->value) + 1));
+        strcat(newVal, val);
+        strcat(newVal, dat->value);
+        printf("NUOVO NEWVAL: %s\n", newVal);
+        val = newVal;
+        printf("NUOVO VAL: %s\n", val);
+       // val = realloc((char*)val, sizeof(char)*(strlen(val) + (strlen(dat->value) + 1)));
+       // strcat((char*)val, (char*)dat->value);
     }
 }
 
@@ -261,7 +267,6 @@ void testStack() {
                 break;
             }
             case 5: {
-                printf("Valore da inserire: ");
                 adtReadFromKeyboard(dataPtr);
                 stkPush(stack, dataPtr);
                 break;

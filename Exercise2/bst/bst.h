@@ -11,101 +11,136 @@
 /* ************************************************************************** */
 
 typedef struct BSTNode BSTNode;
-struct BSTNode
-{
-  // Struct da completare!
+struct BSTNode {
+  DataObject* key;
+
+  BSTNode* left;
+  BSTNode* right;
 };
 
 /* ************************************************************************** */
 
-// typedef type (*BSTDestruct)(arguments);
+//TODO: Metti nomi attributi
+typedef void (*BSTDestruct)(BSTNode* tree);
 
-// typedef type (*BSTClone)(arguments);
+typedef void* (*BSTClone)(void*);
 
-// typedef type (*BSTEqual)(arguments);
+typedef bool (*BSTEqual)(BSTNode* firstTree, BSTNode* secondTree);
 
-// typedef type (*BSTExists)(arguments);
+typedef bool (*BSTExists)(BSTNode* tree, DataObject* elem);
 
-// typedef type (*BSTInsert)(arguments);
-// typedef type (*BSTRemove)(arguments);
+typedef void (*BSTInsert)(BSTNode* tree, DataObject* elem);
+typedef void (*BSTRemove)(void*, DataObject*);
 
-// typedef type (*BSTGetMin)(arguments);
-// typedef type (*BSTGetNRemoveMin)(arguments);
-// typedef type (*BSTRemoveMin)(arguments);
-// typedef type (*BSTGetMax)(arguments);
-// typedef type (*BSTGetNRemoveMax)(arguments);
-// typedef type (*BSTRemoveMax)(arguments);
+typedef DataObject* (*BSTGetMin)(void*);
+typedef DataObject* (*BSTGetNRemoveMin)(void*);
+typedef void (*BSTRemoveMin)(void*);
+typedef void* (*BSTGetMax)(void*);
+typedef void* (*BSTGetNRemoveMax)(void*);
+typedef void (*BSTRemoveMax)(void*);
 
-// typedef type (*BSTGetPredecessor)(arguments);
-// typedef type (*BSTGetNRemovePredecessor)(arguments);
-// typedef type (*BSTRemovePredecessor)(arguments);
-// typedef type (*BSTGetSuccessor)(arguments);
-// typedef type (*BSTGetNRemoveSuccessor)(arguments);
-// typedef type (*BSTRemoveSuccessor)(arguments);
+typedef void* (*BSTGetPredecessor)(void*, DataObject*);
+typedef void* (*BSTGetNRemovePredecessor)(void*, DataObject*);
+typedef void (*BSTRemovePredecessor)(void*, DataObject*);
+typedef void* (*BSTGetSuccessor)(void*, DataObject*);
+typedef void* (*BSTGetNRemoveSuccessor)(void*, DataObject*);
+typedef void (*BSTRemoveSuccessor)(void*, DataObject*);
 
-// typedef type (*BSTPreOrderMap)(arguments);
-// typedef type (*BSTInOrderMap)(arguments);
-// typedef type (*BSTPostOrderMap)(arguments);
-// typedef type (*BSTBreadthMap)(arguments);
-// typedef type (*BSTPreOrderFold)(arguments);
-// typedef type (*BSTInOrderFold)(arguments);
-// typedef type (*BSTPostOrderFold)(arguments);
-// typedef type (*BSTBreadthFold)(arguments);
+typedef void (*BSTPreOrderMap)(BSTNode* tree, MapFun mapFunction, void* parameter);
+typedef void (*BSTInOrderMap)(void*, MapFun, void*);
+typedef void (*BSTPostOrderMap)(void*, MapFun, void*);
+typedef void (*BSTBreadthMap)(void*, MapFun, void*);
+typedef void (*BSTPreOrderFold)(void*, FoldFun, void*, void*);
+typedef void (*BSTInOrderFold)(void*, FoldFun, void*, void*);
+typedef void (*BSTPostOrderFold)(void*, FoldFun, void*, void*);
+typedef void (*BSTBreadthFold)(void*, FoldFun, void*, void*);
 
 /* ************************************************************************** */
 
-typedef struct BSTType
-{
-  // Struct da completare!
+typedef struct BSTType {
+    BSTDestruct destruct;
+
+    BSTClone clone;
+
+    BSTEqual equal;
+
+    BSTExists exists;
+
+    BSTInsert insert;
+    BSTRemove remove;
+
+    BSTGetMin getMin;
+    BSTGetNRemoveMin getNRemoveMin;
+    BSTRemoveMin removeMin;
+    BSTGetMax getMax;
+    BSTGetNRemoveMax getNRemoveMax;
+    BSTRemoveMax removeMax;
+
+    BSTGetPredecessor getPredecessor;
+    BSTGetNRemovePredecessor getNRemovePredecessor;
+    BSTRemovePredecessor removePredecessor;
+    BSTGetSuccessor getSuccessor;
+    BSTGetNRemoveSuccessor getNRemoveSuccessor;
+    BSTRemoveSuccessor removeSuccessor;
+
+    BSTPreOrderMap preOrderMap;
+    BSTInOrderMap inOrderMap;
+    BSTPostOrderMap postOrderMap;
+    BSTBreadthMap breadthMap;
+    BSTPreOrderFold preOrderFold;
+    BSTInOrderFold inOrderFold;
+    BSTPostOrderFold postOrderFold;
+    BSTBreadthFold breadthFold;
 } BSTType;
 
-typedef struct BSTObject
-{
-  // Struct da completare!
+typedef struct BSTObject {
+    BSTType* type;
+    BSTNode* root;
+    int numberOfNodes;
 } BSTObject;
 
 /* ************************************************************************** */
 
-// type bstConstruct(arguments);
-// type bstDestruct(arguments);
+BSTObject* bstConstruct(BSTType* bstType);
+void bstDestruct(BSTObject* tree);
 
-// type bstEmpty(arguments);
+bool bstEmpty(BSTObject* tree);
 
-// type bstSize(arguments);
+int bstSize(BSTObject* tree);
 
-// type bstClear(arguments);
+void bstClear(BSTObject* tree);
 
-// type bstClone(arguments);
+BSTObject* bstClone(BSTObject* tree);
 
-// type bstEqual(arguments);
+bool bstEqual(BSTObject* firstTree, BSTObject* secondTree);
 
-// type bstExists(arguments);
+bool bstExists(BSTObject* tree, DataObject* keyToFind);
 
-// type bstInsert(arguments);
-// type bstRemove(arguments);
+void bstInsert(BSTObject* tree, DataObject* newKey);
+void bstRemove(BSTObject* tree, DataObject* keyToRemove);
 
-// type bstGetMin(arguments);
-// type bstGetNRemoveMin(arguments);
-// type bstRemoveMin(arguments);
-// type bstGetMax(arguments);
-// type bstGetNRemoveMax(arguments);
-// type bstRemoveMax(arguments);
+DataObject* bstGetMin(BSTObject* tree);
+DataObject* bstGetNRemoveMin(BSTObject* tree);
+void bstRemoveMin(BSTObject* tree);
+DataObject* bstGetMax(BSTObject* tree);
+DataObject* bstGetNRemoveMax(BSTObject* tree);
+void bstRemoveMax(BSTObject* tree);
 
-// type bstGetPredecessor(arguments);
-// type bstGetNRemovePredecessor(arguments);
-// type bstRemovePredecessor(arguments);
-// type bstGetSuccessor(arguments);
-// type bstGetNRemoveSuccessor(arguments);
-// type bstRemoveSuccessor(arguments);
+DataObject* bstGetPredecessor(BSTObject* tree, DataObject* key);
+DataObject* bstGetNRemovePredecessor(BSTObject* tree, DataObject* key);
+void bstRemovePredecessor(BSTObject* tree, DataObject* key);
+DataObject* bstGetSuccessor(BSTObject* tree, DataObject* key);
+DataObject* bstGetNRemoveSuccessor(BSTObject* tree, DataObject* key);
+void bstRemoveSuccessor(BSTObject* tree, DataObject* key);
 
-// type bstPreOrderMap(arguments);
-// type bstInOrderMap(arguments);
-// type bstPostOrderMap(arguments);
-// type bstBreadthMap(arguments);
-// type bstPreOrderFold(arguments);
-// type bstInOrderFold(arguments);
-// type bstPostOrderFold(arguments);
-// type bstBreadthFold(arguments);
+void bstPreOrderMap(BSTObject* tree, MapFun mapFunction, void* param);
+void bstInOrderMap(BSTObject* tree, MapFun mapFunction, void* param);
+void bstPostOrderMap(BSTObject* tree, MapFun mapFunction, void* param);
+void bstBreadthMap(BSTObject* tree, MapFun mapFunction, void* param);
+void bstPreOrderFold(BSTObject* tree, FoldFun foldFunction, void* accumulator, void* param);
+void bstInOrderFold(BSTObject* tree, FoldFun foldFunction, void* accumulator, void* param);
+void bstPostOrderFold(BSTObject* tree, FoldFun foldFunction, void* accumulator, void* param);
+void bstBreadthFold(BSTObject* tree, FoldFun foldFunction, void* accumulator, void* param);
 
 /* ************************************************************************** */
 

@@ -6,8 +6,9 @@ char* rndStr(int numChar);
 /* ************************************************************************** */
 
 void* stringConstruct() {
-    char* value = (char*)malloc(sizeof(char) * (MaxStrLen + 1));
-    strcpy(value, "");
+   //char* value = (char*)malloc(sizeof(char) * (MaxStrLen + 1));
+    char* value = (char*)calloc(MaxStrLen+1, sizeof(char)); //TODO: Aggiunto calloc..va bene?
+   // strcpy(value, "");
     return value;
 }
 
@@ -36,9 +37,16 @@ void* stringRandomValue() {
     return rndStr(rndNum(1, MaxStrLen));
 }
 
-void* stringReadFromKeyboard() {
-    char* string = (char*)malloc(sizeof(char) * (MaxStrLen + 1));
+void* stringReadFromKeyboard() { //TODO: Funzuona ma troppo permissivo: non controlla input
+    int n;
+    printf("\nInserire numero di caratteri della stringa: ");
+    scanf("%d", &n);
+
+    char* string = (char*)malloc(sizeof(char) * (n + 1));
+    printf("Stringa: ");
     scanf("%s", string);
+    string[n] = '\0'; //TODO: Serve?
+
     return string;
 }
 

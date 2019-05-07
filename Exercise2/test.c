@@ -66,7 +66,7 @@ void foldConcatLessOrEqThanN(DataObject * dat, void *val, void *n) {
 
 void testStack() {
     StackType* stkTyp = NULL;
-    DataType* datatype = NULL;
+    DataType* datatype = NULL; //TODO: Rinomina datatype in dataType
 
     int scelta, number;
     printf("Inserire tipologia di implementazione della pila da utilizzare\n(1) Vettore\n(2) Lista\n");
