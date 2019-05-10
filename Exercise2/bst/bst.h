@@ -23,19 +23,19 @@ struct BSTNode {
 //TODO: Metti nomi attributi
 typedef void (*BSTDestruct)(BSTNode* tree);
 
-typedef void* (*BSTClone)(void*);
+typedef BSTNode* (*BSTClone)(BSTNode* tree);
 
 typedef bool (*BSTEqual)(BSTNode* firstTree, BSTNode* secondTree);
 
 typedef bool (*BSTExists)(BSTNode* tree, DataObject* elem);
 
-typedef void (*BSTInsert)(BSTNode* tree, DataObject* elem);
-typedef void (*BSTRemove)(void*, DataObject*);
+typedef void (*BSTInsert)(BSTNode** tree, DataObject* elem);
+typedef BSTNode* (*BSTRemove)(BSTNode*, DataObject*);
 
-typedef DataObject* (*BSTGetMin)(void*);
+typedef DataObject* (*BSTGetMin)(BSTNode*);
 typedef DataObject* (*BSTGetNRemoveMin)(void*);
 typedef void (*BSTRemoveMin)(void*);
-typedef void* (*BSTGetMax)(void*);
+typedef DataObject* (*BSTGetMax)(BSTNode*);
 typedef void* (*BSTGetNRemoveMax)(void*);
 typedef void (*BSTRemoveMax)(void*);
 
@@ -47,13 +47,13 @@ typedef void* (*BSTGetNRemoveSuccessor)(void*, DataObject*);
 typedef void (*BSTRemoveSuccessor)(void*, DataObject*);
 
 typedef void (*BSTPreOrderMap)(BSTNode* tree, MapFun mapFunction, void* parameter);
-typedef void (*BSTInOrderMap)(void*, MapFun, void*);
-typedef void (*BSTPostOrderMap)(void*, MapFun, void*);
-typedef void (*BSTBreadthMap)(void*, MapFun, void*);
-typedef void (*BSTPreOrderFold)(void*, FoldFun, void*, void*);
-typedef void (*BSTInOrderFold)(void*, FoldFun, void*, void*);
-typedef void (*BSTPostOrderFold)(void*, FoldFun, void*, void*);
-typedef void (*BSTBreadthFold)(void*, FoldFun, void*, void*);
+typedef void (*BSTInOrderMap)(BSTNode* tree, MapFun mapFunction, void* parameter);
+typedef void (*BSTPostOrderMap)(BSTNode* tree, MapFun mapFunction, void* parameter);
+typedef void (*BSTBreadthMap)(BSTNode* tree, MapFun mapFunction, void* parameter);
+typedef void (*BSTPreOrderFold)(BSTNode* tree, FoldFun foldFunction, void* accumulator, void* parameter);
+typedef void (*BSTInOrderFold)(BSTNode* tree, FoldFun foldFunction, void* accumulator, void* parameter);
+typedef void (*BSTPostOrderFold)(BSTNode* tree, FoldFun foldFunction, void* accumulator, void* parameter);
+typedef void (*BSTBreadthFold)(BSTNode* tree, FoldFun foldFunction, void* accumulator, void* parameter);
 
 /* ************************************************************************** */
 

@@ -51,24 +51,24 @@ bool bstEqual(BSTObject* firstTree, BSTObject* secondTree) {
 
 
 bool bstExists(BSTObject* tree, DataObject* keyToFind) {
-    printf("TODO");
+    return tree->type->exists(tree->root, keyToFind);
 }
 
 
 void bstInsert(BSTObject* tree, DataObject* newKey) {
-    tree->type->insert(tree->root, newKey);
+    tree->type->insert(&(tree->root), newKey);
     tree->numberOfNodes++;
 }
 
 void bstRemove(BSTObject* tree, DataObject* keyToRemove) {
     if(tree->numberOfNodes > 0) {
-        tree->type->remove(tree->root, keyToRemove); //TODO: Fare remove in bst di tipo booleano che restituisce true se lo ha rimosso e false alltrimenti?
+        tree->root = tree->type->remove(tree->root, keyToRemove); //TODO: Fare remove in bst di tipo booleano che restituisce true se lo ha rimosso e false alltrimenti?
         tree->numberOfNodes--;
     }
 }
 
 DataObject* bstGetMin(BSTObject* tree) {
-    return tree->type->getMin(tree->root);
+    return adtClone(tree->type->getMin(tree->root));
 }
 
 DataObject* bstGetNRemoveMin(BSTObject* tree) {
@@ -88,7 +88,7 @@ void bstRemoveMin(BSTObject* tree) {
 }
 
 DataObject* bstGetMax(BSTObject* tree) {
-    return tree->type->getMax(tree->root);
+    return adtClone(tree->type->getMax(tree->root));
 }
 
 DataObject* bstGetNRemoveMax(BSTObject* tree) {
