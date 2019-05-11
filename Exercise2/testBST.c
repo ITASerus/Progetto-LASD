@@ -16,7 +16,7 @@ void testBST() {
 
 
     int number;
-    printf("Numero di elementi da inserire nell'albero: ");
+    printf("\n\nNumero di elementi da inserire nell'albero: ");
     scanf("%d", &number);
 
     for(int i = 0; i < number; i++) {
@@ -27,51 +27,113 @@ void testBST() {
 
     bstPreOrderMap(bst, printStructBST, NULL);
 
+    printf("\n************************************\n\n");
+
     int* valore = malloc(sizeof(int));
     *valore = 4;
     adtSetValue(dataPtr,valore);
     adtWriteToMonitor(dataPtr);
     if(bstExists(bst, dataPtr)) {
-        printf(" - Il valore esiste nell'albero\n\n");
+        printf(" - Il valore esiste nell'albero\n");
     } else {
-        printf(" - Il valore NON esiste nell'albero\n\n");
+        printf(" - Il valore NON esiste nell'albero\n");
     }
 
+    printf("\n************************************\n\n");
+
     BSTObject* bst2;
+    printf("Albero clonato:\n");
     bst2 = bstClone(bst);
     bstPreOrderMap(bst2, printStructBST, NULL);
-    printf("Albero clonato.\n");
+
     if(bstEqual(bst, bst2)) {
-        printf("Gli alberi sono uguali\n\n");
+        printf("\nGli alberi sono uguali\n");
     } else {
-        printf("Gli alberi NON sono uguali\n\n");
+        printf("\nGli alberi NON sono uguali\n");
     }
+
+    printf("\n************************************\n\n");
 
     adtWriteToMonitor(dataPtr);
     bstInsert(bst2, dataPtr);
     printf(" - Aggiunto l'elemento all'albero clone\n");
     printf("BST:\n");
     bstPreOrderMap(bst, printStructBST, NULL);
-    printf("\nBST2:\n");
+    printf("BST CLONE:\n");
     bstPreOrderMap(bst2, printStructBST, NULL);
     if(bstEqual(bst, bst2)) {
-        printf("Gli alberi sono uguali\n\n");
+        printf("Gli alberi sono uguali\n");
     } else {
-        printf("Gli alberi NON sono uguali\n\n");
+        printf("Gli alberi NON sono uguali\n");
     }
 
-    printf("Nodo con valore minimo: ");
+    printf("\n************************************\n");
+
+    printf("\nNodo con valore minimo: ");
     adtWriteToMonitor(bstGetMin(bst));
     printf("\nNodo con valore massimo: ");
     adtWriteToMonitor(bstGetMax(bst));
 
-    printf("\n\nRimuovo il nodo ");
+    printf("\n\n************************************\n");
+
+    printf("\nRimuovo il nodo ");
     adtWriteToMonitor(bstGetMin(bst));
     printf(":\nPRIMA:\n");
     bstPreOrderMap(bst, printStructBST, NULL);
     bstRemove(bst, bstGetMin(bst));
     printf("DOPO:\n");
     bstPreOrderMap(bst, printStructBST, NULL);
+
+    printf("\n************************************\n");
+    printf("\nAlbero:\n");
+    bstPreOrderMap(bst, printStructBST, NULL);
+
+    printf("\nCerco, restituisco e rimuovo il minimo.\n");
+    if((dataPtr = bstGetNRemoveMin(bst)) != NULL) {
+        printf("Minimo: ");
+        adtWriteToMonitor(dataPtr);
+
+        printf("\nAlbero dopo la getNRemoveMin:\n");
+        bstPreOrderMap(bst, printStructBST, NULL);
+    } else {
+        printf("L'albero è vuoto!\n");
+    }
+
+    printf("\n************************************\n");
+    printf("\nAlbero:\n");
+    bstPreOrderMap(bst, printStructBST, NULL);
+
+    printf("\nCerco, restituisco e rimuovo il massimo.\n");
+    if((dataPtr = bstGetNRemoveMax(bst)) != NULL) {
+        printf("Massimo: ");
+        adtWriteToMonitor(dataPtr);
+
+        printf("\nAlbero dopo la getNRemoveMax:\n");
+        bstPreOrderMap(bst, printStructBST, NULL);
+    } else {
+        printf("L'albero è vuoto!\n");
+    }
+
+    printf("\n************************************\n");
+    printf("\nAlbero:\n");
+    bstPreOrderMap(bst, printStructBST, NULL);
+
+    printf("\nCerco e rimuovo il minimo.\n");
+    bstRemoveMin(bst);
+
+    printf("\nAlbero dopo la removeMin:\n");
+    bstPreOrderMap(bst, printStructBST, NULL);
+
+    printf("\n************************************\n");
+    printf("\nAlbero:\n");
+    bstPreOrderMap(bst, printStructBST, NULL);
+
+    printf("\nCerco e rimuovo il massimo.\n");
+    bstRemoveMax(bst);
+
+    printf("\nAlbero dopo la removeMax:\n");
+    bstPreOrderMap(bst, printStructBST, NULL);
+
 
     bstDestruct(bst);
     bstDestruct(bst2);

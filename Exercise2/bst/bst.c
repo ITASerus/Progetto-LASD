@@ -74,7 +74,9 @@ DataObject* bstGetMin(BSTObject* tree) {
 DataObject* bstGetNRemoveMin(BSTObject* tree) {
     if(tree->numberOfNodes > 0) {
         tree->numberOfNodes--;
-        return tree->type->getNRemoveMin(tree->root);
+        DataObject* minValue = NULL;
+        tree->root = tree->type->getNRemoveMin(tree->root, &minValue);
+        return minValue;
     } else {
         return NULL;
     }
@@ -82,7 +84,7 @@ DataObject* bstGetNRemoveMin(BSTObject* tree) {
 
 void bstRemoveMin(BSTObject* tree) {
     if(tree->numberOfNodes > 0){
-        tree->type->removeMin(tree->root);
+        tree->root = tree->type->removeMin(tree->root);
         tree->numberOfNodes--;
     }
 }
@@ -94,7 +96,9 @@ DataObject* bstGetMax(BSTObject* tree) {
 DataObject* bstGetNRemoveMax(BSTObject* tree) {
     if(tree->numberOfNodes > 0) {
         tree->numberOfNodes--;
-        return tree->type->getNRemoveMax(tree->root);
+        DataObject* maxValue = NULL;
+        tree->root = tree->type->getNRemoveMax(tree->root, &maxValue);
+        return maxValue;
     } else {
         return NULL;
     }
@@ -102,7 +106,7 @@ DataObject* bstGetNRemoveMax(BSTObject* tree) {
 
 void bstRemoveMax(BSTObject* tree) {
     if(tree->numberOfNodes > 0) {
-        tree->type->removeMax(tree->root);
+        tree->root = tree->type->removeMax(tree->root);
         tree->numberOfNodes--;
     }
 }
