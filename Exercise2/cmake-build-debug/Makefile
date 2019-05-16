@@ -204,6 +204,33 @@ adt/int/adtint.c.s:
 	$(MAKE) -f CMakeFiles/Exercise2.dir/build.make CMakeFiles/Exercise2.dir/adt/int/adtint.c.s
 .PHONY : adt/int/adtint.c.s
 
+adt/ptr/adtptr.o: adt/ptr/adtptr.c.o
+
+.PHONY : adt/ptr/adtptr.o
+
+# target to build an object file
+adt/ptr/adtptr.c.o:
+	$(MAKE) -f CMakeFiles/Exercise2.dir/build.make CMakeFiles/Exercise2.dir/adt/ptr/adtptr.c.o
+.PHONY : adt/ptr/adtptr.c.o
+
+adt/ptr/adtptr.i: adt/ptr/adtptr.c.i
+
+.PHONY : adt/ptr/adtptr.i
+
+# target to preprocess a source file
+adt/ptr/adtptr.c.i:
+	$(MAKE) -f CMakeFiles/Exercise2.dir/build.make CMakeFiles/Exercise2.dir/adt/ptr/adtptr.c.i
+.PHONY : adt/ptr/adtptr.c.i
+
+adt/ptr/adtptr.s: adt/ptr/adtptr.c.s
+
+.PHONY : adt/ptr/adtptr.s
+
+# target to generate assembly for a file
+adt/ptr/adtptr.c.s:
+	$(MAKE) -f CMakeFiles/Exercise2.dir/build.make CMakeFiles/Exercise2.dir/adt/ptr/adtptr.c.s
+.PHONY : adt/ptr/adtptr.c.s
+
 adt/rec/adtrec.o: adt/rec/adtrec.c.o
 
 .PHONY : adt/rec/adtrec.o
@@ -762,6 +789,9 @@ help:
 	@echo "... adt/int/adtint.o"
 	@echo "... adt/int/adtint.i"
 	@echo "... adt/int/adtint.s"
+	@echo "... adt/ptr/adtptr.o"
+	@echo "... adt/ptr/adtptr.i"
+	@echo "... adt/ptr/adtptr.s"
 	@echo "... adt/rec/adtrec.o"
 	@echo "... adt/rec/adtrec.i"
 	@echo "... adt/rec/adtrec.s"

@@ -29,7 +29,7 @@ typedef bool (*BSTEqual)(BSTNode* firstTree, BSTNode* secondTree);
 
 typedef bool (*BSTExists)(BSTNode* tree, DataObject* elem);
 
-typedef void (*BSTInsert)(BSTNode** tree, DataObject* elem);
+typedef bool (*BSTInsert)(BSTNode** tree, DataObject* elem);
 typedef BSTNode* (*BSTRemove)(BSTNode* tree, DataObject* elem);
 
 typedef DataObject* (*BSTGetMin)(BSTNode* tree);
@@ -39,7 +39,7 @@ typedef DataObject* (*BSTGetMax)(BSTNode* tree);
 typedef BSTNode* (*BSTGetNRemoveMax)(BSTNode* tree, DataObject** elem);
 typedef BSTNode* (*BSTRemoveMax)(BSTNode* tree);
 
-typedef void* (*BSTGetPredecessor)(void*, DataObject*);
+typedef DataObject* (*BSTGetPredecessor)(BSTNode* tree, DataObject* elem);
 typedef void* (*BSTGetNRemovePredecessor)(void*, DataObject*);
 typedef void (*BSTRemovePredecessor)(void*, DataObject*);
 typedef void* (*BSTGetSuccessor)(void*, DataObject*);

@@ -12,15 +12,15 @@
 
 /* ************************************************************************** */
 
-typedef struct BSTPostOrderIterator
-{
-  // Struct da completare!
+typedef struct BSTPostOrderIterator {
+    StackObject* stack;
+    BSTNode* element;
 } BSTPostOrderIterator;
 
 /* ************************************************************************** */
 
-// type ConstructBSTPostOrderIterator(arguments);
-// type DestructBSTPostOrderIterator(arguments);
+ITRType* ConstructBSTPostOrderIterator();
+void DestructBSTPostOrderIterator(ITRType* type);
 
 /* ************************************************************************** */
 

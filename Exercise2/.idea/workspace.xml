@@ -27,8 +27,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/bst/bst.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="424">
-                  <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
+                <state relative-caret-position="147">
+                  <caret line="13" column="14" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="14" />
                   <folding>
                     <element signature="e#112#135#0" expanded="true" />
                   </folding>
@@ -36,15 +36,38 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/bst/bst.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="234">
-                  <caret line="99" selection-start-line="99" selection-end-line="99" />
+                <state relative-caret-position="281">
+                  <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
                   <folding>
-                    <element signature="e#1303#1603#0" />
-                    <element signature="e#1605#1700#0" />
+                    <element signature="e#19#319#0" />
+                    <element signature="e#419#482#0" />
+                    <element signature="e#485#549#0" />
+                    <element signature="e#552#606#0" />
+                    <element signature="e#609#889#0" />
+                    <element signature="e#896#1054#0" />
+                    <element signature="e#1061#1169#0" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/bst/rec/bstrec.c">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="429">
+                  <caret line="98" selection-start-line="98" selection-end-line="98" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/adt/adt.c">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="455">
+                  <caret line="60" selection-start-line="60" selection-end-line="60" />
                 </state>
               </provider>
             </entry>
@@ -52,37 +75,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/testBST.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="309">
-                  <caret line="106" selection-start-line="106" selection-end-line="106" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/bst/rec/bstrec.c">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="621">
-                  <caret line="216" column="1" lean-forward="true" selection-start-line="216" selection-start-column="1" selection-end-line="216" selection-end-column="1" />
-                  <folding>
-                    <element signature="e#1271#1520#0" />
-                    <element signature="e#1463#1762#0" />
-                    <element signature="e#1769#2124#0" />
-                    <element signature="e#2131#2313#0" />
-                    <element signature="e#2316#2753#0" />
-                    <element signature="e#2755#3341#0" />
-                    <element signature="e#3344#3502#0" />
-                    <element signature="e#3947#3995#0" />
-                    <element signature="e#4052#4245#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/bst/rec/bstrec.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="234">
-                  <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+                <state relative-caret-position="216">
+                  <caret line="23" selection-start-line="23" selection-end-line="23" />
                 </state>
               </provider>
             </entry>
@@ -92,14 +86,10 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/bst/rec/bstrec.c">
+            <entry file="file://$PROJECT_DIR$/testBST.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2680">
-                  <caret line="261" column="4" selection-start-line="261" selection-start-column="4" selection-end-line="261" selection-end-column="4" />
-                  <folding>
-                    <element signature="e#2755#3341#0" />
-                    <element signature="e#3344#3502#0" />
-                  </folding>
+                <state relative-caret-position="205">
+                  <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
                 </state>
               </provider>
             </entry>
@@ -110,9 +100,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>//</find>
       <find>typefed</find>
       <find>adtCo</find>
+      <find>//</find>
     </findStrings>
     <replaceStrings>
       <replace>// typefed</replace>
@@ -142,7 +132,6 @@
         <option value="$PROJECT_DIR$/queue/lst/queuelst.h" />
         <option value="$PROJECT_DIR$/queue/lst/queuelst.c" />
         <option value="$PROJECT_DIR$/test.h" />
-        <option value="$PROJECT_DIR$/itr/itr.h" />
         <option value="$PROJECT_DIR$/adt/adt.c" />
         <option value="$PROJECT_DIR$/stack/stack.c" />
         <option value="$PROJECT_DIR$/bst/rec/bstrec.h" />
@@ -150,10 +139,24 @@
         <option value="$PROJECT_DIR$/testBST.h" />
         <option value="$PROJECT_DIR$/adt/adt.h" />
         <option value="$PROJECT_DIR$/main.c" />
+        <option value="$PROJECT_DIR$/bst/itr/bstitr.h" />
+        <option value="$PROJECT_DIR$/bst/bstitrpreord.h" />
+        <option value="$PROJECT_DIR$/bst/bstitrpreord.c" />
+        <option value="$PROJECT_DIR$/bst/bstitrinord.h" />
+        <option value="$PROJECT_DIR$/bst/bstitrpostord.h" />
+        <option value="$PROJECT_DIR$/adt/ptr/adtptr.h" />
+        <option value="$PROJECT_DIR$/bst/bstitrbreadth.h" />
+        <option value="$PROJECT_DIR$/bst/bstitrbreadth.c" />
         <option value="$PROJECT_DIR$/bst/bst.h" />
+        <option value="$PROJECT_DIR$/bst/itr/bstitr.c" />
+        <option value="$PROJECT_DIR$/itr/itr.h" />
+        <option value="$PROJECT_DIR$/bst/bstitrpostord.c" />
+        <option value="$PROJECT_DIR$/itr/itr.c" />
+        <option value="$PROJECT_DIR$/adt/ptr/adtptr.c" />
+        <option value="$PROJECT_DIR$/bst/bstitrinord.c" />
+        <option value="$PROJECT_DIR$/bst/rec/bstrec.c" />
         <option value="$PROJECT_DIR$/testBST.c" />
         <option value="$PROJECT_DIR$/bst/bst.c" />
-        <option value="$PROJECT_DIR$/bst/rec/bstrec.c" />
       </list>
     </option>
   </component>
@@ -166,7 +169,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,19 +190,36 @@
             <path>
               <item name="Exercise2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Exercise2" type="462c0819:PsiDirectoryNode" />
-              <item name="bst" type="462c0819:PsiDirectoryNode" />
+              <item name="adt" type="462c0819:PsiDirectoryNode" />
+              <item name="ptr" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Exercise2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise2" type="462c0819:PsiDirectoryNode" />
+              <item name="adt" type="462c0819:PsiDirectoryNode" />
+              <item name="rec" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Exercise2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise2" type="462c0819:PsiDirectoryNode" />
+              <item name="adt" type="462c0819:PsiDirectoryNode" />
+              <item name="str" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Exercise2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Exercise2" type="462c0819:PsiDirectoryNode" />
               <item name="bst" type="462c0819:PsiDirectoryNode" />
-              <item name="itr" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Exercise2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Exercise2" type="462c0819:PsiDirectoryNode" />
               <item name="bst" type="462c0819:PsiDirectoryNode" />
               <item name="rec" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Exercise2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise2" type="462c0819:PsiDirectoryNode" />
+              <item name="itr" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Exercise2" type="b2602c69:ProjectViewProjectNode" />
@@ -217,10 +236,16 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/adt" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -262,12 +287,16 @@
       <workItem from="1557410304238" duration="1414000" />
       <workItem from="1557500842768" duration="13051000" />
       <workItem from="1557581083975" duration="7971000" />
-      <workItem from="1557589684174" duration="7415000" />
+      <workItem from="1557589684174" duration="7950000" />
+      <workItem from="1557685158252" duration="165000" />
+      <workItem from="1557738958018" duration="9294000" />
+      <workItem from="1557837474660" duration="6434000" />
+      <workItem from="1557990685238" duration="12977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68188000" />
+    <option name="totallyTimeSpent" value="97593000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -287,7 +316,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49909583" visible="true" weight="0.22857143" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49909583" weight="0.50306123" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -307,14 +336,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/bst/rec/bstrec.c</url>
-          <line>161</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/testBST.c</url>
-          <line>105</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/bst/bst.c</url>
+          <line>58</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -334,34 +358,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/rec/adtrec.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/rec/adtrec.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="723">
-          <caret line="123" column="1" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stack/vec/stackvec.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
@@ -429,36 +425,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/itr/itr.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bstitrpostord.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="93" column="1" selection-start-line="93" selection-start-column="1" selection-end-line="93" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stack/stack.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
-          <folding>
-            <element signature="e#116#139#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/int/adtint.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -479,68 +445,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/itr/itr.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bstitrbreadth.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/adt.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testBST.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bstitrbreadth.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#132#155#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bstitrinord.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bstitrinord.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bstitrpostord.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bstitrpreord.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bstitrpreord.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/itr/bstitr.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stack/vec/stackvec.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1529">
-          <caret line="189" column="1" selection-start-line="189" selection-start-column="1" selection-end-line="189" selection-end-column="1" />
-          <folding>
-            <element signature="e#24#273#0" />
-            <element signature="e#275#503#0" />
-            <element signature="e#505#731#0" />
-            <element signature="e#738#871#0" />
-            <element signature="e#873#1087#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -550,21 +458,6 @@
           <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stack/stack.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
-          <folding>
-            <element signature="e#21#176#0" />
-            <element signature="e#508#606#0" />
-            <element signature="e#613#693#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/itr/bstitr.h">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
@@ -593,31 +486,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adt/int/adtint.c">
+    <entry file="file://$PROJECT_DIR$/bst/bstitrpreord.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="234">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
-            <element signature="e#358#443#0" />
-            <element signature="e#600#717#0" />
+            <element signature="e#130#153#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adt/adt.c">
+    <entry file="file://$PROJECT_DIR$/bst/bstitrinord.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="306">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding>
+            <element signature="e#128#151#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bst.h">
+    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
+        <state relative-caret-position="270">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/rec/adtrec.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="919">
+          <caret line="123" column="1" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bst/bstitrpreord.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
           <folding>
-            <element signature="e#112#135#0" expanded="true" />
+            <element signature="e#1#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bst/bstitrbreadth.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="e#132#155#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bst/bstitrbreadth.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bst/itr/bstitr.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/adt.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/ptr/adtptr.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/int/adtint.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/rec/adtrec.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/stack.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="888">
+          <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+          <folding>
+            <element signature="e#116#139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/stack.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="52" column="44" lean-forward="true" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
+          <folding>
+            <element signature="e#21#176#0" />
+            <element signature="e#508#606#0" />
+            <element signature="e#613#693#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/vec/stackvec.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
@@ -628,38 +625,140 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testBST.c">
+    <entry file="file://$PROJECT_DIR$/stack/vec/stackvec.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="106" selection-start-line="106" selection-end-line="106" />
+        <state relative-caret-position="425">
+          <caret line="125" column="24" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="24" />
+          <folding>
+            <element signature="e#24#273#0" />
+            <element signature="e#275#503#0" />
+            <element signature="e#505#731#0" />
+            <element signature="e#738#871#0" />
+            <element signature="e#873#1087#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bst.c">
+    <entry file="file://$PROJECT_DIR$/adt/int/adtint.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
+        <state relative-caret-position="393">
+          <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
           <folding>
-            <element signature="e#1303#1603#0" />
-            <element signature="e#1605#1700#0" />
+            <element signature="e#358#443#0" />
+            <element signature="e#600#717#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bst/bst.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="14" />
+          <folding>
+            <element signature="e#112#135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bst/bstitrpostord.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#132#155#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bst/bstitrpostord.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/itr/itr.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/ptr/adtptr.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bst/bstitrinord.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bst/itr/bstitr.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="301" selection-start-line="301" selection-end-line="301" />
+          <folding>
+            <element signature="e#1#20#0" expanded="true" />
+            <element signature="e#140#267#0" />
+            <element signature="e#951#2598#0" />
+            <element signature="e#2756#2817#0" />
+            <element signature="e#3836#4143#0" />
+            <element signature="e#4222#4413#0" />
+            <element signature="e#4439#5087#0" />
+            <element signature="e#5273#5464#0" />
+            <element signature="e#5500#5725#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/itr/itr.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding>
+            <element signature="e#1#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testBST.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/adt.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bst/rec/bstrec.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="216" column="1" lean-forward="true" selection-start-line="216" selection-start-column="1" selection-end-line="216" selection-end-column="1" />
+        <state relative-caret-position="429">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bst/bst.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
           <folding>
-            <element signature="e#1271#1520#0" />
-            <element signature="e#1463#1762#0" />
-            <element signature="e#1769#2124#0" />
-            <element signature="e#2131#2313#0" />
-            <element signature="e#2316#2753#0" />
-            <element signature="e#2755#3341#0" />
-            <element signature="e#3344#3502#0" />
-            <element signature="e#3947#3995#0" />
-            <element signature="e#4052#4245#0" />
+            <element signature="e#19#319#0" />
+            <element signature="e#419#482#0" />
+            <element signature="e#485#549#0" />
+            <element signature="e#552#606#0" />
+            <element signature="e#609#889#0" />
+            <element signature="e#896#1054#0" />
+            <element signature="e#1061#1169#0" />
           </folding>
         </state>
       </provider>

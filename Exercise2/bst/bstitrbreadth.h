@@ -12,15 +12,15 @@
 
 /* ************************************************************************** */
 
-typedef struct BSTBreadthIterator
-{
-  // Struct da completare!
+typedef struct BSTBreadthIterator {
+    QueueObject* queue;
+    BSTNode* element;
 } BSTBreadthIterator;
 
 /* ************************************************************************** */
 
-// type ConstructBSTBreadthIterator(arguments);
-// type DestructBSTBreadthIterator(arguments);
+ITRType* ConstructBSTBreadthIterator();
+void DestructBSTBreadthIterator(ITRType* type);
 
 /* ************************************************************************** */
 

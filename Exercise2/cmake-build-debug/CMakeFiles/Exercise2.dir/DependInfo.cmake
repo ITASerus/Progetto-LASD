@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/adt.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/cmake-build-debug/CMakeFiles/Exercise2.dir/adt/adt.c.o"
   "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/flt/adtflt.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/cmake-build-debug/CMakeFiles/Exercise2.dir/adt/flt/adtflt.c.o"
   "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/int/adtint.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/cmake-build-debug/CMakeFiles/Exercise2.dir/adt/int/adtint.c.o"
+  "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/ptr/adtptr.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/cmake-build-debug/CMakeFiles/Exercise2.dir/adt/ptr/adtptr.c.o"
   "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/rec/adtrec.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/cmake-build-debug/CMakeFiles/Exercise2.dir/adt/rec/adtrec.c.o"
   "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/str/adtstr.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/cmake-build-debug/CMakeFiles/Exercise2.dir/adt/str/adtstr.c.o"
   "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.c" "/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/cmake-build-debug/CMakeFiles/Exercise2.dir/bst/bst.c.o"

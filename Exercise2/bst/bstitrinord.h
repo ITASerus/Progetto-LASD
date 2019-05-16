@@ -12,15 +12,15 @@
 
 /* ************************************************************************** */
 
-typedef struct BSTInOrderIterator
-{
-  // Struct da completare!
+typedef struct BSTInOrderIterator {
+    StackObject* stack;
+    BSTNode* element;
 } BSTInOrderIterator;
 
 /* ************************************************************************** */
 
-// type ConstructBSTInOrderIterator(arguments);
-// type DestructBSTInOrderIterator(arguments);
+ITRType* ConstructBSTInOrderIterator();
+void DestructBSTInOrderIterator(ITRType* typ);
 
 /* ************************************************************************** */
 

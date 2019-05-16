@@ -29,7 +29,17 @@ void testBST() {
 
     printf("\n************************************\n\n");
 
+    printf("Inserisco due volte lo stesso elemento\n");
     int* valore = malloc(sizeof(int));
+    *valore = 8;
+    adtSetValue(dataPtr,valore);
+    bstInsert(bst, dataPtr);
+    bstInsert(bst, dataPtr);
+    printf("\n");
+    bstPreOrderMap(bst, printStructBST, NULL);
+
+    printf("\n************************************\n\n");
+
     *valore = 4;
     adtSetValue(dataPtr,valore);
     adtWriteToMonitor(dataPtr);

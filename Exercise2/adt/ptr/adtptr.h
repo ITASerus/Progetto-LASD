@@ -1,15 +1,15 @@
 
-#ifndef BSTITR_H
-#define BSTITR_H
+#ifndef EXERCISE2_ADTPTR_H
+#define EXERCISE2_ADTPTR_H
 
 /* ************************************************************************** */
 
-#include "../bst.h"
+#include "../adt.h"
 
 /* ************************************************************************** */
 
-BSTType* ConstructBSTIterative();
-void DestructBSTIterative(BSTType* type);
+DataType* ConstructPointerDataType();
+void DestructPointerDataType(DataType* type);
 
 /* ************************************************************************** */
 

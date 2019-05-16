@@ -10,19 +10,15 @@
 ../utility.h
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.c
+bst.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.h
+
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.h
 ../utility.h
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 ../adt/adt.h
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/adt.h
-
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/rec/bstrec.c
-bstrec.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/rec/bstrec.h
-
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/rec/bstrec.h
-../bst.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.h
 
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 assert.h

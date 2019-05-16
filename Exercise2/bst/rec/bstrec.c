@@ -6,15 +6,15 @@ void recBSTDestruct(BSTNode* tree);
 BSTNode* recBSTClone(BSTNode* tree);
 bool recBSTEqual(BSTNode* firstTree, BSTNode* secondTree);
 bool recBSTExists(BSTNode* tree, DataObject* elem);
-void recBSTInsert(BSTNode** tree, DataObject* elem);
+bool recBSTInsert(BSTNode** tree, DataObject* elem);
 BSTNode* recBSTRemove(BSTNode* tree, DataObject* elem);
 DataObject* recBSTGetMin(BSTNode* tree);
 BSTNode* recBSTGetNRemoveMin(BSTNode* tree, DataObject** min);
 BSTNode* recBSTRemoveMin(BSTNode* tree);
 DataObject* recBSTGetMax(BSTNode* tree);
-BSTNode* recBSTGetNRemoveMax(BSTNode* tree, DataObject** min);
+BSTNode* recBSTGetNRemoveMax(BSTNode* tree, DataObject** max);
 BSTNode* recBSTRemoveMax(BSTNode* tree);
-//
+DataObject* recBSTGetPrecedessor(BSTNode* tree, DataObject* elem);
 //
 //
 //
@@ -80,17 +80,21 @@ bool recBSTExists(BSTNode* tree, DataObject* elem) {
 }
 
 
-void recBSTInsert(BSTNode** tree, DataObject* elem) { //TODO: Gestisci duplicati
+bool recBSTInsert(BSTNode** tree, DataObject* elem) { //TODO: Gestisci duplicati
     if (*tree != NULL) {
         if (adtCompare(elem, (*tree)->key) < 0) {
             recBSTInsert(&(*tree)->left, elem);
-        } else {
+        } else if (adtCompare(elem, (*tree)->key) > 0) {
             recBSTInsert(&(*tree)->right, elem);
+        } else {
+            printf("NO\n");
+            return false;
         }
     } else {
         *tree = (BSTNode*)malloc(sizeof(BSTNode));
         (*tree)->right = (*tree)->left = NULL;
         (*tree)->key = adtClone(elem);
+        return true;
     }
 }
 
@@ -110,7 +114,7 @@ BSTNode* recBSTRemove(BSTNode* tree, DataObject* elem) {
 
 DataObject* recBSTGetMin(BSTNode* tree) {
     if(tree->left == NULL) {
-        return tree->key;
+        return adtClone(tree->key);
     } else {
         return recBSTGetMin(tree->left);
     }
@@ -158,10 +162,10 @@ DataObject* recBSTGetMax(BSTNode* tree) {
     }
 }
 
-BSTNode* recBSTGetNRemoveMax(BSTNode* tree, DataObject** min) {
+BSTNode* recBSTGetNRemoveMax(BSTNode* tree, DataObject** max) {
     if (tree != NULL) {
         if (tree->right == NULL) {
-            *min = tree->key;
+            *max = tree->key;
 
             BSTNode *tmp = tree;
             tree = tree->left;
@@ -169,7 +173,7 @@ BSTNode* recBSTGetNRemoveMax(BSTNode* tree, DataObject** min) {
 
             return tree;
         } else {
-            tree->right = recBSTGetNRemoveMax(tree->right, &(*min));
+            tree->right = recBSTGetNRemoveMax(tree->right, &(*max));
         }
     }
     return tree;
@@ -191,6 +195,11 @@ BSTNode* recBSTRemoveMax(BSTNode* tree) {
     }
     return tree;
 }
+
+DataObject* recBSTGetPrecedessor(BSTNode* tree, DataObject* elem) {
+
+}
+
 
 void recBSTPreOrderMap(BSTNode* tree, MapFun mapFunction, void* parameter) {
     if (tree != NULL) {
@@ -262,7 +271,7 @@ BSTType* ConstructBSTRecursive() {
     type->getNRemoveMax = recBSTGetNRemoveMax;
     type->removeMax = recBSTRemoveMax;
 
-    //type->getPredecessor = recBSTGetPrecedessor;
+    type->getPredecessor = recBSTGetPrecedessor;
     //type->getNRemovePredecessor = recBSTGetNRemovePredecessor;
     //type->removePredecessor = recBSTRemovePredecessor;
     //type->getSuccessor = recBSTGetSuccessor;

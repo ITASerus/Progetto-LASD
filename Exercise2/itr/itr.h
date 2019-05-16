@@ -8,37 +8,43 @@
 
 /* ************************************************************************** */
 
-// typedef type (*ITRConstruct)(arguments);
-// typedef type (*ITRDestruct)(arguments);
+typedef void* (*ITRConstruct)(void*, void*);
+typedef void (*ITRDestruct)(void*);
 
-// typedef type (*ITRTerminated)(arguments);
+typedef bool (*ITRTerminated)(void*);
 
-// typedef type (*ITRElement)(arguments);
+typedef void* (*ITRElement)(void*);
 
-// typedef type (*ITRSuccessor)(arguments);
+typedef void (*ITRSuccessor)(void*);
 
 /* ************************************************************************** */
 
-typedef struct ITRType
-{
-  // Struct da completare!
+typedef struct ITRType {
+    ITRConstruct construct;
+    ITRDestruct destruct;
+
+    ITRTerminated terminated;
+
+    ITRElement getElement;
+
+    ITRSuccessor successor;
 } ITRType;
 
-typedef struct ITRObject
-{
-  // Struct da completare!
+typedef struct ITRObject {
+    ITRType* type;
+    void* iterator;
 } ITRObject;
 
 /* ************************************************************************** */
 
-// type itrConstruct(arguments);
-// type itrDestruct(arguments);
+ITRObject* itrConstruct(ITRType* type, void* tree);
+void itrDestruct(ITRObject* iterator);
 
-// type itrTerminated(arguments);
+bool itrTerminated(ITRObject* iterator);
 
-// type itrElement(arguments);
+void* itrElement(ITRObject* iterator);
 
-// type itrSuccessor(arguments);
+void itrSuccessor(ITRObject* iterator);
 
 /* ************************************************************************** */
 

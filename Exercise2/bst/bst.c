@@ -56,8 +56,11 @@ bool bstExists(BSTObject* tree, DataObject* keyToFind) {
 
 
 void bstInsert(BSTObject* tree, DataObject* newKey) {
-    tree->type->insert(&(tree->root), newKey);
-    tree->numberOfNodes++;
+    if(tree->type->insert(&(tree->root), newKey)) {
+        tree->numberOfNodes++;
+    } else {
+        printf("Il valore è già presente nell'albero!\n");
+    }
 }
 
 void bstRemove(BSTObject* tree, DataObject* keyToRemove) {
@@ -68,7 +71,7 @@ void bstRemove(BSTObject* tree, DataObject* keyToRemove) {
 }
 
 DataObject* bstGetMin(BSTObject* tree) {
-    return adtClone(tree->type->getMin(tree->root));
+    return tree->type->getMin(tree->root);
 }
 
 DataObject* bstGetNRemoveMin(BSTObject* tree) {
