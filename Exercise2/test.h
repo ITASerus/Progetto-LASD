@@ -20,6 +20,6 @@
 
 /* ************************************************************************** */
 
-void testMain();
+void testStacQueue();
 
 #endif //EXERCISE2_TEST_H

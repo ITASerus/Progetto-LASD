@@ -46,6 +46,7 @@ CMakeFiles/Exercise2.dir/bst/bstitrbreadth.c.o: ../queue/vec/queuevec.h
 CMakeFiles/Exercise2.dir/bst/bstitrbreadth.c.o: ../utility.h
 
 CMakeFiles/Exercise2.dir/bst/bstitrinord.c.o: ../adt/adt.h
+CMakeFiles/Exercise2.dir/bst/bstitrinord.c.o: ../adt/ptr/adtptr.h
 CMakeFiles/Exercise2.dir/bst/bstitrinord.c.o: ../bst/bst.h
 CMakeFiles/Exercise2.dir/bst/bstitrinord.c.o: ../bst/bstitrinord.c
 CMakeFiles/Exercise2.dir/bst/bstitrinord.c.o: ../bst/bstitrinord.h
@@ -55,6 +56,7 @@ CMakeFiles/Exercise2.dir/bst/bstitrinord.c.o: ../stack/vec/stackvec.h
 CMakeFiles/Exercise2.dir/bst/bstitrinord.c.o: ../utility.h
 
 CMakeFiles/Exercise2.dir/bst/bstitrpostord.c.o: ../adt/adt.h
+CMakeFiles/Exercise2.dir/bst/bstitrpostord.c.o: ../adt/ptr/adtptr.h
 CMakeFiles/Exercise2.dir/bst/bstitrpostord.c.o: ../bst/bst.h
 CMakeFiles/Exercise2.dir/bst/bstitrpostord.c.o: ../bst/bstitrpostord.c
 CMakeFiles/Exercise2.dir/bst/bstitrpostord.c.o: ../bst/bstitrpostord.h
@@ -64,6 +66,7 @@ CMakeFiles/Exercise2.dir/bst/bstitrpostord.c.o: ../stack/vec/stackvec.h
 CMakeFiles/Exercise2.dir/bst/bstitrpostord.c.o: ../utility.h
 
 CMakeFiles/Exercise2.dir/bst/bstitrpreord.c.o: ../adt/adt.h
+CMakeFiles/Exercise2.dir/bst/bstitrpreord.c.o: ../adt/ptr/adtptr.h
 CMakeFiles/Exercise2.dir/bst/bstitrpreord.c.o: ../bst/bst.h
 CMakeFiles/Exercise2.dir/bst/bstitrpreord.c.o: ../bst/bstitrpreord.c
 CMakeFiles/Exercise2.dir/bst/bstitrpreord.c.o: ../bst/bstitrpreord.h
@@ -88,9 +91,12 @@ CMakeFiles/Exercise2.dir/bst/itr/bstitr.c.o: ../stack/vec/stackvec.h
 CMakeFiles/Exercise2.dir/bst/itr/bstitr.c.o: ../utility.h
 
 CMakeFiles/Exercise2.dir/bst/rec/bstrec.c.o: ../adt/adt.h
+CMakeFiles/Exercise2.dir/bst/rec/bstrec.c.o: ../adt/ptr/adtptr.h
 CMakeFiles/Exercise2.dir/bst/rec/bstrec.c.o: ../bst/bst.h
 CMakeFiles/Exercise2.dir/bst/rec/bstrec.c.o: ../bst/rec/bstrec.c
 CMakeFiles/Exercise2.dir/bst/rec/bstrec.c.o: ../bst/rec/bstrec.h
+CMakeFiles/Exercise2.dir/bst/rec/bstrec.c.o: ../queue/queue.h
+CMakeFiles/Exercise2.dir/bst/rec/bstrec.c.o: ../queue/vec/queuevec.h
 CMakeFiles/Exercise2.dir/bst/rec/bstrec.c.o: ../utility.h
 
 CMakeFiles/Exercise2.dir/itr/itr.c.o: .././adt/adt.h
@@ -173,6 +179,7 @@ CMakeFiles/Exercise2.dir/testBST.c.o: ../adt/int/adtint.h
 CMakeFiles/Exercise2.dir/testBST.c.o: ../adt/rec/adtrec.h
 CMakeFiles/Exercise2.dir/testBST.c.o: ../adt/str/adtstr.h
 CMakeFiles/Exercise2.dir/testBST.c.o: ../bst/bst.h
+CMakeFiles/Exercise2.dir/testBST.c.o: ../bst/itr/bstitr.h
 CMakeFiles/Exercise2.dir/testBST.c.o: ../bst/rec/bstrec.h
 CMakeFiles/Exercise2.dir/testBST.c.o: ../testBST.c
 CMakeFiles/Exercise2.dir/testBST.c.o: ../testBST.h

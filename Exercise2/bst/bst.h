@@ -30,21 +30,21 @@ typedef bool (*BSTEqual)(BSTNode* firstTree, BSTNode* secondTree);
 typedef bool (*BSTExists)(BSTNode* tree, DataObject* elem);
 
 typedef bool (*BSTInsert)(BSTNode** tree, DataObject* elem);
-typedef BSTNode* (*BSTRemove)(BSTNode* tree, DataObject* elem);
+typedef bool (*BSTRemove)(BSTNode** tree, DataObject* elem);
 
 typedef DataObject* (*BSTGetMin)(BSTNode* tree);
-typedef BSTNode* (*BSTGetNRemoveMin)(BSTNode* tree, DataObject** elem);
-typedef BSTNode* (*BSTRemoveMin)(BSTNode* tree);
+typedef DataObject* (*BSTGetNRemoveMin)(BSTNode** tree);
+typedef bool (*BSTRemoveMin)(BSTNode** tree);
 typedef DataObject* (*BSTGetMax)(BSTNode* tree);
-typedef BSTNode* (*BSTGetNRemoveMax)(BSTNode* tree, DataObject** elem);
-typedef BSTNode* (*BSTRemoveMax)(BSTNode* tree);
+typedef DataObject* (*BSTGetNRemoveMax)(BSTNode** tree);
+typedef bool (*BSTRemoveMax)(BSTNode** tree);
 
 typedef DataObject* (*BSTGetPredecessor)(BSTNode* tree, DataObject* elem);
-typedef void* (*BSTGetNRemovePredecessor)(void*, DataObject*);
-typedef void (*BSTRemovePredecessor)(void*, DataObject*);
-typedef void* (*BSTGetSuccessor)(void*, DataObject*);
-typedef void* (*BSTGetNRemoveSuccessor)(void*, DataObject*);
-typedef void (*BSTRemoveSuccessor)(void*, DataObject*);
+typedef DataObject* (*BSTGetNRemovePredecessor)(BSTNode** tree, DataObject* elem);
+typedef bool (*BSTRemovePredecessor)(BSTNode** tree, DataObject* elem);
+typedef DataObject* (*BSTGetSuccessor)(BSTNode* tree, DataObject* elem);
+typedef DataObject* (*BSTGetNRemoveSuccessor)(BSTNode** tree, DataObject* elem);
+typedef bool (*BSTRemoveSuccessor)(BSTNode** tree, DataObject* elem);
 
 typedef void (*BSTPreOrderMap)(BSTNode* tree, MapFun mapFunction, void* parameter);
 typedef void (*BSTInOrderMap)(BSTNode* tree, MapFun mapFunction, void* parameter);

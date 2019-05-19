@@ -12,6 +12,7 @@
 
 #include "bst/bst.h"
 #include "bst/rec/bstrec.h"
+#include "bst/itr/bstitr.h"
 
 /* ************************************************************************** */
 

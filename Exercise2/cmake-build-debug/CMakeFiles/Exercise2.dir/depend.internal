@@ -47,6 +47,7 @@ CMakeFiles/Exercise2.dir/bst/bstitrbreadth.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 CMakeFiles/Exercise2.dir/bst/bstitrinord.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/adt.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/ptr/adtptr.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bstitrinord.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bstitrinord.h
@@ -56,6 +57,7 @@ CMakeFiles/Exercise2.dir/bst/bstitrinord.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 CMakeFiles/Exercise2.dir/bst/bstitrpostord.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/adt.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/ptr/adtptr.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bstitrpostord.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bstitrpostord.h
@@ -65,6 +67,7 @@ CMakeFiles/Exercise2.dir/bst/bstitrpostord.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 CMakeFiles/Exercise2.dir/bst/bstitrpreord.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/adt.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/ptr/adtptr.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bstitrpreord.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bstitrpreord.h
@@ -89,9 +92,12 @@ CMakeFiles/Exercise2.dir/bst/itr/bstitr.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 CMakeFiles/Exercise2.dir/bst/rec/bstrec.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/adt.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/ptr/adtptr.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/rec/bstrec.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/rec/bstrec.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/queue/queue.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/queue/vec/queuevec.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 CMakeFiles/Exercise2.dir/itr/itr.c.o
  .././adt/adt.h
@@ -174,6 +180,7 @@ CMakeFiles/Exercise2.dir/testBST.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/rec/adtrec.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/str/adtstr.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/itr/bstitr.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/rec/bstrec.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/testBST.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/testBST.h

@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Exercise2.dir/adt/int/adtint.c.o"
   "CMakeFiles/Exercise2.dir/adt/rec/adtrec.c.o"
   "CMakeFiles/Exercise2.dir/adt/str/adtstr.c.o"
+  "CMakeFiles/Exercise2.dir/adt/ptr/adtptr.c.o"
   "CMakeFiles/Exercise2.dir/adt/adt.c.o"
   "CMakeFiles/Exercise2.dir/bst/itr/bstitr.c.o"
   "CMakeFiles/Exercise2.dir/bst/rec/bstrec.c.o"
@@ -22,7 +23,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Exercise2.dir/utility.c.o"
   "CMakeFiles/Exercise2.dir/test.c.o"
   "CMakeFiles/Exercise2.dir/testBST.c.o"
-  "CMakeFiles/Exercise2.dir/adt/ptr/adtptr.c.o"
   "Exercise2.pdb"
   "Exercise2"
 )

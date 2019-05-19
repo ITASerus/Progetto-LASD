@@ -29,6 +29,8 @@ add_executable(Exercise2
         adt/rec/adtrec.h
         adt/str/adtstr.c
         adt/str/adtstr.h
+        adt/ptr/adtptr.c
+        adt/ptr/adtptr.h
         adt/adt.c
         adt/adt.h
         bst/itr/bstitr.c
@@ -61,4 +63,8 @@ add_executable(Exercise2
         stack/stack.h
         main.c
         utility.c
-        utility.h test.c test.h testBST.c testBST.h adt/ptr/adtptr.c adt/ptr/adtptr.h)
+        utility.h
+        test.c
+        test.h
+        testBST.c
+        testBST.h)

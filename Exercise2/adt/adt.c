@@ -24,7 +24,7 @@ void* adtGetValue(DataObject* object) {
 }
 
 void adtSetValue(DataObject* object, void* elem) {
-    object->type->setValue(object->value, elem);
+    object->type->setValue(&object->value, elem);
 }
 
 void adtRandomValue(DataObject* object) {

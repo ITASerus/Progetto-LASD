@@ -9,20 +9,20 @@ ITRObject* itrConstruct(ITRType* type, void* tree) {
 }
 
 void itrDestruct(ITRObject* iterator) {
-    iterator->type->destruct(iterator);
+    iterator->type->destruct(iterator->iterator);
 }
 
 
 bool itrTerminated(ITRObject* iterator) {
-    return iterator->type->terminated(iterator);
+    return iterator->type->terminated(iterator->iterator);
 }
 
 
 void* itrElement(ITRObject* iterator) {
-    return iterator->type->getElement(iterator);
+    return iterator->type->getElement(iterator->iterator);
 }
 
 
 void itrSuccessor(ITRObject* iterator) {
-    return iterator->type->successor(iterator);
+    return iterator->type->successor(iterator->iterator);
 }

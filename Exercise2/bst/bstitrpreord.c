@@ -2,14 +2,16 @@
 #include "bstitrpreord.h"
 
 #include "../stack/vec/stackvec.h"
+#include "../adt/ptr/adtptr.h"
 
 /* ************************************************************************** */
 
 void* itrPreOrderConstruct(void* type, void* tree) {
     ITRObject* iterator = (ITRObject*)malloc(sizeof(ITRObject));
 
-    iterator->type = (ITRType*) type;
+    iterator->type = (ITRType*)type;
     iterator->iterator = (BSTPreOrderIterator*)malloc(sizeof(BSTPreOrderIterator));
+
     ((BSTPreOrderIterator*)iterator->iterator)->stack = stkConstruct(ConstructStackVecType());
     ((BSTPreOrderIterator*)iterator->iterator)->element = (BSTNode*) tree;
 
@@ -22,15 +24,30 @@ void itrPreOrderDestruct(void* iterator) {
 }
 
 bool itrPreOrderTerminated(void* iterator) {
-    return ((BSTPreOrderIterator*)((ITRObject*)iterator)->iterator)->element == NULL ? true : false;
+    return ((BSTPreOrderIterator*)iterator)->element == NULL ? true : false;
 }
 
 void* itrPreOrderGetElement(void* iterator) {
-    return ((BSTPreOrderIterator*)((ITRObject*)iterator)->iterator)->element;
+    return ((BSTPreOrderIterator*)iterator)->element;
 }
 
 void itrPreOrderSuccessor(void* iterator) {
-    //stkPush(((BSTPreOrderIterator*)((ITRObject*)iterator)->iterator)->stack, ((BSTPreOrderIterator*)((ITRObject*)iterator)->iterator)->element->key);
+    BSTPreOrderIterator *itr = (BSTPreOrderIterator*)iterator;
+
+    if (itr->element != NULL) {
+        DataObject *node = adtConstruct(ConstructPointerDataType());
+        adtSetValue(node, itr->element);
+        stkPush(itr->stack, node);
+
+        itr->element = (itr->element)->left;
+
+        while (itr->element == NULL && !stkEmpty(itr->stack)) {
+            itr->element = (BSTNode*)adtGetValue(stkTopNPop(itr->stack));
+
+            itr->element = (itr->element)->right;
+        }
+        adtDestruct(node);
+    }
 }
 
 ITRType* ConstructBSTPreOrderIterator() {

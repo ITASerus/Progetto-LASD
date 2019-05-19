@@ -17,8 +17,8 @@ void* floatGetValue(void* value) {
     return valueCopy;
 }
 
-void floatSetValue(void* value, void* newValue) {
-    *(float*)value = *(float*)newValue;
+void floatSetValue(void** value, void* newValue) {
+    *((float*) *value) = *(float*)newValue;
 }
 
 void* floatRandomValue() {

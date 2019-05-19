@@ -10,22 +10,70 @@
 
 /* ************************************************************************** */
 
-void itrBSTDestruct(BSTObject* tree) { //TODO: Sostituire BSTObject con BSTNode
+BSTNode* _itrCreateNode(DataObject* elem) {
+    BSTNode *newNode = (BSTNode*)malloc(sizeof(BSTNode));
+    newNode->key = adtClone(elem);
+    newNode->left = NULL;
+    newNode->right = NULL;
+    return newNode;
+}
+
+BSTNode *_itrBSTUnplugMin(BSTNode* tree, BSTNode* father) {
+    if(tree != NULL) {
+        while (tree->left != NULL) {
+            father = tree;
+            tree = tree->left;
+        }
+
+        if (father->left == tree) {
+            father->left = tree->right;
+        } else {
+            father->right = tree->right;
+        }
+    }
+    return tree;
+}
+
+BSTNode *_itrBSTDeleteRoot(BSTNode* tree) {
+    if (tree != NULL) {
+        BSTNode *temp = NULL;
+
+        if (tree->left == NULL || tree->right == NULL) {
+            if (tree->left == NULL) {
+                temp = tree->right;
+            } else {
+                temp = tree->left;
+            }
+
+            adtDestruct(tree->key);
+            free(tree);
+            tree = temp;
+        } else {
+            temp = _itrBSTUnplugMin(tree->right, tree);
+            tree->key = adtClone(temp->key);
+            adtDestruct(temp->key);
+            free(temp);
+        }
+    }
+    return tree;
+}
+
+
+void itrBSTDestruct(BSTNode* tree) {
     ITRType* itrType = ConstructBSTPostOrderIterator();
-    ITRObject* iterator = itrConstruct(itrType, tree->root);
+    ITRObject* iterator = itrConstruct(itrType, tree);
     BSTNode* curr;
 
     while(!itrTerminated(iterator)) {
         curr = (BSTNode*)itrElement(iterator);
-        adtDestruct(curr->key); //TODO: Sostituire tutto con una macrofunzione?
+        adtDestruct(curr->key);
         free(curr);
         itrSuccessor(iterator);
     }
     DestructBSTPostOrderIterator(itrType);
     itrDestruct(iterator);
-
-    free(tree); //TODO: Controlla che non si debba liberare anche l'albero manualmente. E' stato già liberato nel while però non ne sei sicuro
 }
+
 
 BSTNode* itrBSTClone(BSTNode* tree) {
     BSTNode *ret = NULL, *clonedTree = NULL;
@@ -52,6 +100,7 @@ BSTNode* itrBSTClone(BSTNode* tree) {
         } else {
             curr = (BSTNode*)adtGetValue(stkTop(stack));
             clonedTree = (BSTNode*)adtGetValue(stkTop(stackClonedTree));
+
             if (curr->right && last != (curr->right)) {
                 clonedTree->left = ret;
                 curr = curr->right;
@@ -77,18 +126,21 @@ BSTNode* itrBSTClone(BSTNode* tree) {
     adtDestruct(elem);
     DestructStackVecType(stktype);
     stkDestruct(stack);
-    stkDestruct(stackClonedTree);
+    //stkDestruct(stackClonedTree);
+    //printf("2 STACK DEALL\n"); //TODO: BUG
 
     return clonedTree;
 }
+
 
 bool itrBSTEqual(BSTNode* firstTree, BSTNode* secondTree) {
     if (firstTree == NULL && secondTree == NULL) {
         return true;
     } else if (firstTree != NULL && secondTree != NULL) {
-        ITRType *itrType = ConstructBSTPostOrderIterator();
-        ITRObject *itrFirstTree = itrConstruct(itrType, firstTree);
-        ITRObject *itrSecondTree = itrConstruct(itrType, secondTree);
+        ITRType* itrType = ConstructBSTPostOrderIterator();
+
+        ITRObject* itrFirstTree = itrConstruct(itrType, firstTree);
+        ITRObject* itrSecondTree = itrConstruct(itrType, secondTree);
 
         BSTNode* currFirstTree = (BSTNode*)itrElement(itrFirstTree);
         BSTNode* currSecondTree = (BSTNode*)itrElement(itrSecondTree);
@@ -96,12 +148,11 @@ bool itrBSTEqual(BSTNode* firstTree, BSTNode* secondTree) {
         while (!(itrTerminated(itrFirstTree) && itrTerminated(itrSecondTree)) && (adtCompare(currFirstTree->key, currSecondTree->key) == 0) ) {
             itrSuccessor(itrFirstTree);
             currFirstTree = (BSTNode*)itrElement(itrFirstTree);
-
-            currSecondTree = (BSTNode*)itrElement(itrSecondTree);
             itrSuccessor(itrSecondTree);
+            currSecondTree = (BSTNode*)itrElement(itrSecondTree);
         }
 
-        DestructBSTPostOrderIterator(itrType);
+        //DestructBSTPostOrderIterator(itrType); //todo: tolto anche qua
         itrDestruct(itrFirstTree);
         itrDestruct(itrSecondTree);
 
@@ -111,30 +162,33 @@ bool itrBSTEqual(BSTNode* firstTree, BSTNode* secondTree) {
     }
 }
 
-bool itrBSTExists(BSTNode *tree, DataObject *elem) { //TODO: Tolto clone radice...
-    while (tree != NULL && adtCompare(tree->key, elem) != 0) {
-        if (adtCompare(tree->key, elem) < 0) {
-            tree = tree->right;
-        } else if (adtCompare(tree->key, elem) > 0) {
-            tree = tree->left;
-        } else {
-            return true;
-        }
-    }
 
+bool itrBSTExists(BSTNode* tree, DataObject* elem) {
+    if(tree != NULL) {
+        BSTNode *curr = tree;
+
+        while (curr != NULL && (adtCompare(curr->key, elem) != 0)) {
+
+            printf("Confronto ");
+            adtWriteToMonitor(curr->key);
+            printf(" con ");
+            adtWriteToMonitor(elem);
+            printf("\n");
+
+            if (adtCompare(curr->key, elem) < 0) {
+                curr = curr->right;
+            } else {
+                curr = curr->left;
+            }
+        }
+        return curr != NULL;
+    }
     return false;
 }
 
-BSTNode* _itrCreateNode(DataObject *elem) {
-    BSTNode *newNode = (BSTNode*)malloc(sizeof(BSTNode));
-    newNode->key = adtClone(elem);
-    newNode->left = NULL;
-    newNode->right = NULL;
-    return newNode;
-}
 
-bool itrBSTInsert(BSTNode** tree, DataObject *elem) {
-    if (*tree != NULL) { //L'albero è vuoto, il nodo viene inserito come radice
+bool itrBSTInsert(BSTNode** tree, DataObject* elem) {
+    if (*tree == NULL) { //L'albero è vuoto, il nodo viene inserito come radice
         *tree = _itrCreateNode(elem);
         return true;
     } else {
@@ -161,8 +215,40 @@ bool itrBSTInsert(BSTNode** tree, DataObject *elem) {
     }
 }
 
-DataObject* itrBSTGetMin(BSTNode* tree) {
+bool itrBSTRemove(BSTNode** tree, DataObject* elem){
+        if (tree != NULL) {
+            BSTNode *curr = *tree, *last = NULL;
 
+            while (curr && adtCompare(curr->key, elem) != 0) {
+                last = curr;
+                if (adtCompare(curr->key, elem) < 0) {
+                    curr = curr->right;
+                } else {
+                    curr = curr->left;
+                }
+            }
+
+            if (curr) {
+                if (last) {
+                    if (curr == last->right) {
+                        curr = _itrBSTDeleteRoot(curr);
+                        last->right = curr;
+                    } else {
+                        curr = _itrBSTDeleteRoot(curr);
+                        last->left = curr;
+                    }
+                } else {
+                    *tree = _itrBSTDeleteRoot(*tree);
+                }
+                return true;
+            }
+        }
+
+        return false;
+}
+
+
+DataObject* itrBSTGetMin(BSTNode* tree) {
     if(tree != NULL) {
         while (tree->left != NULL) {
             tree = tree->left;
@@ -173,8 +259,37 @@ DataObject* itrBSTGetMin(BSTNode* tree) {
     }
 }
 
-DataObject* itrBSTGetMax(BSTNode* tree) {
+DataObject* itrBSTGetNRemoveMin(BSTNode** tree) {
+    if (*tree != NULL) {
+        BSTNode* curr = *tree;
 
+        while (curr->left != NULL) {
+            curr = curr->left;
+        }
+
+        DataObject* min = adtClone(curr->key);
+        //curr = _itrBSTUnplugMin(curr->right, curr);
+        itrBSTRemove(&(*tree), min); //TODO: Ottimizza
+        return min;
+    } else {
+        return NULL;
+    }
+}
+
+bool itrBSTRemoveMin(BSTNode** tree) {
+    if (*tree) {
+        BSTNode *curr = *tree; //TODO: Si può evitare? probabilmente sì
+
+        while(curr->left != NULL) {
+            curr = curr->left;
+        }
+        itrBSTRemove(&(*tree), curr->key);  //TODO: Ottimizzaù
+        return true;
+    }
+    return false;
+}
+
+DataObject* itrBSTGetMax(BSTNode* tree) {
     if(tree != NULL) {
         while (tree->right != NULL) {
             tree = tree->right;
@@ -185,17 +300,238 @@ DataObject* itrBSTGetMax(BSTNode* tree) {
     }
 }
 
+DataObject* itrBSTGetNRemoveMax(BSTNode** tree) {
+    if (*tree != NULL) {
+        BSTNode* curr = *tree;
 
-//TODO: Rivedile perchè non sono convito che si facciano così
+        while (curr->right != NULL) {
+            curr = curr->right;
+        }
+
+        DataObject* max = adtClone(curr->key);
+        //curr = _itrBSTUnplugMin(curr->right, curr);
+        itrBSTRemove(&(*tree), max); //TODO: Ottimizza
+        return max;
+    } else {
+        return NULL;
+    }
+}
+
+bool itrBSTRemoveMax(BSTNode** tree) {
+    if (*tree != NULL) {
+        BSTNode *curr = *tree;
+
+        while (curr->right != NULL) {
+            curr = curr->right;
+        }
+        itrBSTRemove(&(*tree), curr->key);
+        return true;
+    }
+    return false;
+}
+
+
+DataObject* itrBSTGetPrecedessor(BSTNode* tree, DataObject* elem) {
+    DataObject *pred = NULL;
+
+    if (tree != NULL) {
+        BSTNode *curr = tree, *cand = NULL;
+
+        while (curr != NULL && adtCompare(curr->key, elem) != 0) {
+            if (adtCompare(curr->key, elem) < 0) {
+                cand = curr;
+                curr = curr->right;
+            } else {
+                curr = curr->left;
+            }
+        }
+        if (curr != NULL && curr->left != NULL) {
+            curr = curr->left;
+
+            while (curr->right != NULL) {
+                curr = curr->right;
+            }
+
+            pred = adtClone(curr->key);
+        } else {
+            if (cand != NULL) {
+                pred = adtClone(cand->key);
+            }
+        }
+    }
+    return pred;
+}
+
+DataObject* itrBSTGetNRemovePredecessor(BSTNode** tree, DataObject* elem) {
+    DataObject *pred = NULL;
+
+    if (tree != NULL) {
+        BSTNode *curr = *tree, *cand = NULL;
+
+        while (curr != NULL && adtCompare(curr->key, elem) != 0) {
+            if (adtCompare(curr->key, elem) < 0) {
+                cand = curr;
+                curr = curr->right;
+            } else {
+                curr = curr->left;
+            }
+        }
+        if (curr != NULL && curr->left != NULL) {
+            curr = curr->left;
+
+            while (curr->right) {
+                curr = curr->right;
+            }
+
+            pred = adtClone(curr->key);
+            itrBSTRemove(&(*tree), curr->key); //TODO: Si può togliere?
+        } else {
+            if (cand) {
+                pred = adtClone(cand->key);
+                itrBSTRemove(&(*tree), cand->key);
+            }
+        }
+    }
+    return pred;
+}
+
+bool itrBSTRemovePredecessor(BSTNode** tree, DataObject* elem) {
+    if (*tree != NULL) {
+        BSTNode *curr = *tree, *cand = NULL;
+
+        while (curr != NULL && adtCompare(curr->key, elem) != 0) {
+            if (adtCompare(curr->key, elem) < 0) {
+                cand = curr;
+                curr = curr->right;
+            } else {
+                curr = curr->left;
+            }
+        }
+        if (curr != NULL && curr->left != NULL) {
+            curr = curr->left;
+
+            while (curr->right) {
+                curr = curr->right;
+            }
+
+            itrBSTRemove(&(*tree), curr->key); //TODO: Ottimizza
+            return true;
+        } else {
+            if (cand != NULL) {
+                itrBSTRemove(&(*tree), cand->key);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+DataObject* itrBSTGetSuccessor(BSTNode* tree, DataObject* elem) {
+    DataObject *succ = NULL;
+
+    if (tree != NULL) {
+        BSTNode *curr = tree, *cand = NULL;
+
+        while (curr != NULL && adtCompare(curr->key, elem) != 0) {
+            if (adtCompare(curr->key, elem) < 0) {
+                curr = curr->right;
+            } else {
+                cand = curr;
+                curr = curr->left;
+            }
+        }
+        if (curr != NULL && curr->right != NULL) {
+            curr = curr->right;
+
+            while (curr->left != NULL) {
+                curr = curr->left;
+            }
+
+            succ = adtClone(curr->key);
+        } else {
+            if (cand != NULL) {
+                succ = adtClone(cand->key);
+            }
+        }
+    }
+    return succ;
+}
+
+DataObject* itrBSTGetNRemoveSuccessor(BSTNode** tree, DataObject* elem) {
+    DataObject *succ = NULL;
+
+    if (tree != NULL) {
+        BSTNode *curr = *tree, *cand = NULL;
+
+        while (curr != NULL && adtCompare(curr->key, elem) != 0) {
+            if (adtCompare(curr->key, elem) < 0) {
+                curr = curr->right;
+            } else {
+                cand = curr;
+                curr = curr->left;
+            }
+        }
+        if (curr && curr->right) {
+            curr = curr->right;
+
+            while (curr->left) {
+                curr = curr->left;
+            }
+
+            succ = adtClone(curr->key);
+            itrBSTRemove(&(*tree), curr->key); //TODO: Ottimizza
+        } else {
+            if (cand) {
+                succ = adtClone(cand->key);
+                itrBSTRemove(&(*tree), cand->key);
+            }
+        }
+    }
+    return succ;
+}
+
+bool itrBSTRemoveSuccessor(BSTNode** tree, DataObject* elem) {
+    if (*tree != NULL) {
+        BSTNode *curr = *tree, *cand = NULL;
+
+        while (curr != NULL && adtCompare(curr->key, elem) != 0) {
+            if (adtCompare(curr->key, elem) < 0) {
+                curr = curr->right;
+            } else {
+                cand = curr;
+                curr = curr->left;
+            }
+        }
+        if (curr != NULL && curr->right != NULL) {
+            curr = curr->right;
+            while (curr->left != NULL) {
+                curr = curr->left;
+            }
+            itrBSTRemove(&(*tree), curr->key);
+            return true;
+        } else {
+            if (cand) {
+                itrBSTRemove(&(*tree), cand->key);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+
 void itrBSTPreOrderMap(BSTNode* tree, MapFun mapFunction, void* parameter) {
     ITRType *itrType = ConstructBSTPreOrderIterator();
     ITRObject *iterator = itrConstruct(itrType, tree);
 
+    BSTNode* curr;
     while (!itrTerminated(iterator)) {
-        tree = (BSTNode*)itrElement(iterator);
-        mapFunction(tree->key, parameter);
+        curr = (BSTNode*)itrElement(iterator);
+
+        mapFunction(curr->key, parameter);
         itrSuccessor(iterator);
     }
+
     DestructBSTPreOrderIterator(itrType);
     itrDestruct(iterator);
 }
@@ -204,11 +540,14 @@ void itrBSTInOrderMap(BSTNode* tree, MapFun mapFunction, void* parameter) {
     ITRType *itrType = ConstructBSTInOrderIterator();
     ITRObject *iterator = itrConstruct(itrType, tree);
 
+    BSTNode* curr;
     while (!itrTerminated(iterator)) {
-        tree = (BSTNode*)itrElement(iterator);
-        mapFunction(tree->key, parameter);
+        curr = (BSTNode*)itrElement(iterator);
+
+        mapFunction(curr->key, parameter);
         itrSuccessor(iterator);
     }
+
     DestructBSTInOrderIterator(itrType);
     itrDestruct(iterator);
 }
@@ -217,11 +556,14 @@ void itrBSTPostOrderMap(BSTNode* tree, MapFun mapFunction, void* parameter) {
     ITRType *itrType = ConstructBSTPostOrderIterator();
     ITRObject *iterator = itrConstruct(itrType, tree);
 
+    BSTNode* curr;
     while (!itrTerminated(iterator)) {
-        tree = (BSTNode*)itrElement(iterator);
-        mapFunction(tree->key, parameter);
+        curr = (BSTNode*)itrElement(iterator);
+
+        mapFunction(curr->key, parameter);
         itrSuccessor(iterator);
     }
+
     DestructBSTPostOrderIterator(itrType);
     itrDestruct(iterator);
 }
@@ -230,9 +572,11 @@ void itrBSTBreadthMap(BSTNode* tree, MapFun mapFunction, void* parameter) {
     ITRType *itrType = ConstructBSTBreadthIterator();
     ITRObject *iterator = itrConstruct(itrType, tree);
 
+    BSTNode* curr;
     while (!itrTerminated(iterator)) {
-        tree = (BSTNode*)itrElement(iterator);
-        mapFunction(tree->key, parameter);
+        curr = (BSTNode*)itrElement(iterator);
+
+        mapFunction(curr->key, parameter);
         itrSuccessor(iterator);
     }
     DestructBSTBreadthIterator(itrType);
@@ -291,10 +635,11 @@ void itrBSTBreadthFold(BSTNode* tree, FoldFun foldFunction, void* accumulator, v
     itrDestruct(iterator);
 }
 
+
 BSTType* ConstructBSTIterative() {
     BSTType* type = (BSTType*)malloc(sizeof(BSTType));
 
-    //type->destruct = itrBSTDestruct;
+    type->destruct = itrBSTDestruct;
 
     type->clone = itrBSTClone;
 
@@ -303,21 +648,21 @@ BSTType* ConstructBSTIterative() {
     type->exists = itrBSTExists;
 
     type->insert = itrBSTInsert;
-    //type->remove = itrBSTRemove;
+    type->remove = itrBSTRemove;
 
     type->getMin = itrBSTGetMin;
-    //type->getNRemoveMin = itrBSTGetNRemoveMin;
-    //type->removeMin = itrBSTRemoveMin;
+    type->getNRemoveMin = itrBSTGetNRemoveMin;
+    type->removeMin = itrBSTRemoveMin;
     type->getMax = itrBSTGetMax;
-    //type->getNRemoveMax = itrBSTGetNRemoveMax;
-    //type->removeMax = itrBSTRemoveMax;
+    type->getNRemoveMax = itrBSTGetNRemoveMax;
+    type->removeMax = itrBSTRemoveMax;
 
-    //type->getPredecessor = itrBSTGetPrecedessor;
-    //type->getNRemovePredecessor = itrBSTGetNRemovePredecessor;
-    //type->removePredecessor = itrBSTRemovePredecessor;
-    //type->getSuccessor = itrBSTGetSuccessor;
-    //type->getNRemoveSuccessor = itrBSTGetNRemoveSuccessor;
-    //type-> removeSuccessor = itrBSTRemoveSuccessor;
+    type->getPredecessor = itrBSTGetPrecedessor;
+    type->getNRemovePredecessor = itrBSTGetNRemovePredecessor;
+    type->removePredecessor = itrBSTRemovePredecessor;
+    type->getSuccessor = itrBSTGetSuccessor;
+    type->getNRemoveSuccessor = itrBSTGetNRemoveSuccessor;
+    type->removeSuccessor = itrBSTRemoveSuccessor;
 
     type->preOrderMap = itrBSTPreOrderMap;
     type->inOrderMap = itrBSTInOrderMap;

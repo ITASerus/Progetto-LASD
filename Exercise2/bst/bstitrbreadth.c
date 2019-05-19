@@ -11,8 +11,9 @@ void* itrBreadthConstruct(void* type, void* tree) {
 
     iterator->type = (ITRType*) type;
     iterator->iterator = (BSTBreadthIterator*)malloc(sizeof(BSTBreadthIterator));
+
     ((BSTBreadthIterator*)iterator->iterator)->queue = queConstruct(ConstructQueueVecType());
-    ((BSTBreadthIterator*)iterator->iterator)->element = (BSTNode*) tree;
+    ((BSTBreadthIterator*)iterator->iterator)->element = (BSTNode*)tree;
 
     return iterator;
 }
@@ -24,15 +25,16 @@ void itrBreadthDestruct(void* iterator) {
 
 
 bool itrBreadthTerminated(void* iterator) {
-    return ((BSTBreadthIterator*)((ITRObject*)iterator)->iterator)->element == NULL ? true : false;
+    return ((BSTBreadthIterator*)iterator)->element == NULL ? true : false;
 }
 
 void* itrBreadthGetElement(void* iterator) {
-    return ((BSTBreadthIterator*)((ITRObject*)iterator)->iterator)->element;
+    return ((BSTBreadthIterator*)iterator)->element;
 }
 
+//TODO: Ogni tanto crasha
 void itrBreadthSuccessor(void* iterator) {
-    BSTBreadthIterator *itr = (BSTBreadthIterator*)((ITRObject*)iterator)->iterator;
+    BSTBreadthIterator *itr = (BSTBreadthIterator*)iterator;
 
     if(itr->element != NULL) {
         if(itr->element->left != NULL) {

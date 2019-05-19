@@ -2,149 +2,363 @@
 #include "testBST.h"
 
 void printStructBST(DataObject* dat, void* _) {
-    printf("> ");
     adtWriteToMonitor(dat);
-    printf("\n");
+    printf(" | ");
 }
 
 void testBST() {
-    BSTType* bstTyp = ConstructBSTRecursive();
-    DataType* dataType = ConstructIntDataType();
+    BSTType* bstTyp = ConstructBSTIterative();
+    DataType* dataType = NULL;
+
+    int scelta, number, tipoScelto; //Todo: traduci
+
+    printf("Inserire tipologia di albero da utilizzare\n(1) Ricorsivo\n(2) Iterativo\n");
+    do {
+        printf("Scelta: ");
+        scanf("%d", &scelta);
+        switch (scelta) {
+            case 1: {
+                bstTyp = ConstructBSTRecursive();
+                break;
+            }
+            case 2: {
+                bstTyp = ConstructBSTIterative();
+                break;
+            }
+            default: {
+                printf("Opzione non valida.\nOpzioni possibili:\n(1) Ricorsivo\n(2) Iterativo\n");
+                break;
+            }
+        }
+    } while (scelta != 1 && scelta != 2);
+
+    printf("Inserire tipologia di dato da gestire\n(1) Intero\n(2) Float\n(3) Stringhe\n(4) Record\n");
+    do {
+        printf("Scelta: ");
+        scanf("%d", &tipoScelto);
+        switch (tipoScelto) {
+            case 1: {
+                dataType = ConstructIntDataType();
+                break;
+            }
+            case 2: {
+                dataType = ConstructFloatDataType();
+                break;
+            }
+            case 3: {
+                dataType = ConstructStringDataType();
+                break;
+            }
+            case 4: {
+                dataType = ConstructRecordDataType();
+                break;
+            }
+            default: {
+                printf("Opzione non valida.\nOpzioni possibili:\n(1) Intero\n(2) Float\n(3) Stringhe\n(4) Record\n");
+                break;
+            }
+        }
+    } while( (tipoScelto<1) || (tipoScelto >4));
+
 
     BSTObject* bst = bstConstruct(bstTyp);
-    DataObject* dataPtr = adtConstruct(dataType);
+    DataObject* dataPtr;
 
+    do {
+        printf("\n***********************************************************************************************\n\n");
+        printf("Menu':\n"
+               "(1) Popolamento randomico dell'albero con N elementi\n"
+               "\n"
+               "(2) Visualizzazione del contenuto dell'albero Pre-Order\n"
+               "(3) Visualizzazione del contenuto dell'albero In-Order\n"
+               "(4) Visualizzazione del contenuto dell'albero Post-Order\n"
+               "(5) Visualizzazione del contenuto dell'albero in ampiezza\n"
+               "\n"
+               "(6) Inserimento manuale di un elemento\n"
+               "\n"
+               "(7) Rimozione di un elemento\n"
+               "\n"
+               "(8) Lettura dell'elemento minimo\n"
+               "(9) Rimozione dell'elemento minimo\n"
+               "(10) Lettura e rimozione dell'elemento minimo\n"
+               "\n"
+               "(11) Lettura dell'elemento massimo\n"
+               "(12) Rimozione dell'elemento massimo\n"
+               "(13) Lettura e rimozione dell'elemento massimo\n"
+               "\n"
+               "(14) Lettura del predecessore di un elemento\n"
+               "(15) Rimozione del predecessore di un elemento\n"
+               "(16) Lettura e rimozione del predecessore di un elemento\n"
+               "(17) Lettura del successore di un elemento\n"
+               "(18) Rimozione del successore di un elemento\n"
+               "(19) Lettura e rimozione del successore di un elemento\n"
+               "\n"
+               "(20) Controllo vuotezza dell'albero\n"
+               "(21) Numero di nodi contenuti nell'albero\n"
+               "(22) Svuotamento dell'albero\n"
+               "(23) Ricerca di un elemento nell'albero\n"
+               "(24) Creazione e stampa di un clone dell'albero e\n"
+               "     controllo uguaglianza con l'albero principale\n"
+               "\n"
+               "(0) Deallocazione della stuttura ed uscita dal programma\n"
+               "Scelta: ");
 
-    int number;
-    printf("\n\nNumero di elementi da inserire nell'albero: ");
-    scanf("%d", &number);
+        dataPtr = adtConstruct(dataType);
 
-    for(int i = 0; i < number; i++) {
-        adtRandomValue(dataPtr);
-        bstInsert(bst, dataPtr);
-    }
-    printf("Elementi inseriti!\n\n");
+        scanf("%d", &scelta);
+        switch (scelta) {
+            case 1: {
+                printf("Numero di elementi da inserire nell'albero: ");
+                scanf("%d", &number);
 
-    bstPreOrderMap(bst, printStructBST, NULL);
+                for(int i = 0; i < number; i++) {
+                    adtRandomValue(dataPtr);
+                    bstInsert(bst, dataPtr);
+                }
 
-    printf("\n************************************\n\n");
+                printf("Elementi inseriti!\n");
+                break;
+            }
 
-    printf("Inserisco due volte lo stesso elemento\n");
-    int* valore = malloc(sizeof(int));
-    *valore = 8;
-    adtSetValue(dataPtr,valore);
-    bstInsert(bst, dataPtr);
-    bstInsert(bst, dataPtr);
-    printf("\n");
-    bstPreOrderMap(bst, printStructBST, NULL);
+            case 2: {
+                if(bstSize(bst) > 0) {
+                    bstPreOrderMap(bst, printStructBST, NULL);
+                } else {
+                    printf("L'albero è vuoto!\n");
+                }
+                break;
+            }
+            case 3: {
+                if(bstSize(bst) > 0) {
+                    bstInOrderMap(bst, printStructBST, NULL);
+                } else {
+                    printf("L'albero è vuoto!\n");
+                }
+                break;
+            }
+            case 4: {
+                if(bstSize(bst) > 0) {
+                    bstPostOrderMap(bst, printStructBST, NULL);
+                } else {
+                    printf("L'albero è vuoto!\n");
+                }
+                break;
+            }
+            case 5: {
+                if(bstSize(bst) > 0) {
+                    bstBreadthMap(bst, printStructBST, NULL);
+                } else {
+                    printf("L'albero è vuoto!\n");
+                }
+                break;
+            }
 
-    printf("\n************************************\n\n");
+            case 6: {
+                printf("Valore da inserire: ");
+                adtReadFromKeyboard(dataPtr);
+                bstInsert(bst, dataPtr);
+                printf("Valore inserito!\n");
+                break;
+            }
 
-    *valore = 4;
-    adtSetValue(dataPtr,valore);
-    adtWriteToMonitor(dataPtr);
-    if(bstExists(bst, dataPtr)) {
-        printf(" - Il valore esiste nell'albero\n");
-    } else {
-        printf(" - Il valore NON esiste nell'albero\n");
-    }
+            case 7: {
+                printf("Valore da rimuovere: ");
+                adtReadFromKeyboard(dataPtr);
+                bstRemove(bst, dataPtr);
+                printf("Valore rimosso!");
+                break;
+            }
 
-    printf("\n************************************\n\n");
+            case 8: {
+                if((dataPtr = bstGetMin(bst)) != NULL) {
+                    printf("Elemento minimo nell'albero: ");
+                    adtWriteToMonitor(dataPtr);
+                } else {
+                    printf("\nL'albero è vuoto!\n");
+                }
+                break;
+            }
+            case 9: {
+                if(bstSize(bst) > 0) {
+                    bstRemoveMin(bst);
+                    printf("\nElemento minimo rimosso!\n");
+                } else {
+                    printf("\nL'albero è vuoto!\n");
+                }
+                break;
+            }
+            case 10: {
+                if((dataPtr = bstGetNRemoveMin(bst)) != NULL) {
+                    printf("Elemento minimo nell'albero: ");
+                    adtWriteToMonitor(dataPtr);
+                    printf("\nElemento rimosso.\n");
+                } else {
+                    printf("\nL'albero è vuoto!\n");
+                }
+                break;
+            }
 
-    BSTObject* bst2;
-    printf("Albero clonato:\n");
-    bst2 = bstClone(bst);
-    bstPreOrderMap(bst2, printStructBST, NULL);
+            case 11: {
+                if((dataPtr = bstGetMax(bst)) != NULL) {
+                    printf("Elemento massimo nell'albero: ");
+                    adtWriteToMonitor(dataPtr);
+                } else {
+                    printf("\nL'albero è vuoto!\n");
+                }
+                break;
+            }
+            case 12: {
+                if(bstSize(bst) > 0) {
+                    bstRemoveMax(bst);
+                    printf("\nElemento massimo rimosso!\n");
+                } else {
+                    printf("\nL'albero è vuoto!\n");
+                }
+                break;
+            }
+            case 13: {
+                if((dataPtr = bstGetNRemoveMax(bst)) != NULL) {
+                    printf("Elemento massimo nell'albero: ");
+                    adtWriteToMonitor(dataPtr);
+                    printf("\nElemento rimosso.\n");
+                } else {
+                    printf("\nL'albero è vuoto!\n");
+                }
+                break;
+            }
 
-    if(bstEqual(bst, bst2)) {
-        printf("\nGli alberi sono uguali\n");
-    } else {
-        printf("\nGli alberi NON sono uguali\n");
-    }
+            case 14: {
+                printf("Elemento di cui si vuole sapere il predecessore: ");
+                adtReadFromKeyboard(dataPtr);
+                if((dataPtr = bstGetPredecessor(bst, dataPtr))) {
+                    printf("Il predecessore è ");
+                    adtWriteToMonitor(dataPtr);
+                    printf("\n");
+                } else {
+                    printf("Non esiste predecessore\n");
+                }
+                break;
+            }
+            case 15: {
+                if(bstSize(bst) > 0) {
+                    printf("Elemento di cui si vuole rimuovere il predecessore: ");
+                    adtReadFromKeyboard(dataPtr);
+                    bstRemovePredecessor(bst, dataPtr);
+                    printf("\nPredecessore rimosso!\n");
+                } else {
+                    printf("\nL'albero è vuoto!\n");
+                }
+                break;
+            }
+            case 16: {
+                printf("Elemento di cui si vuole sapere il predecessore: ");
+                adtReadFromKeyboard(dataPtr);
+                if((dataPtr = bstGetNRemovePredecessor(bst, dataPtr))) {
+                    printf("Il predecessore è ");
+                    adtWriteToMonitor(dataPtr);
+                    printf("\nElemento rimosso\n");
+                } else {
+                    printf("Non esiste predecessore\n");
+                }
+                break;
+            }
+            case 17: {
+                printf("Elemento di cui si vuole sapere il successore: ");
+                adtReadFromKeyboard(dataPtr);
+                if((dataPtr = bstGetSuccessor(bst, dataPtr))) {
+                    printf("Il successore è ");
+                    adtWriteToMonitor(dataPtr);
+                    printf("\n");
+                } else {
+                    printf("Non esiste successore\n");
+                }
+                break;
+            }
+            case 18: {
+                if(bstSize(bst) > 0) {
+                    printf("Elemento di cui si vuole rimuovere il successore: ");
+                    adtReadFromKeyboard(dataPtr);
+                    bstRemoveSuccessor(bst, dataPtr);
+                    printf("\nSuccessore rimosso!\n");
+                } else {
+                    printf("\nL'albero è vuoto!\n");
+                }
+                break;
+            }
+            case 19: {
+                printf("Elemento di cui si vuole sapere il successore: ");
+                adtReadFromKeyboard(dataPtr);
+                if((dataPtr = bstGetNRemoveSuccessor(bst, dataPtr))) {
+                    printf("Il successore è ");
+                    adtWriteToMonitor(dataPtr);
+                    printf("\nElemento rimosso\n");
+                } else {
+                    printf("Non esiste successore\n");
+                }
+                break;
+            }
 
-    printf("\n************************************\n\n");
+            case 20: {
+                if(bstEmpty(bst)) {
+                    printf("L'albero è vuoto\n");
+                } else {
+                    printf("L'albero NON è vuoto\n");
+                }
+                break;
+            }
+            case 21: {
+                printf("Il numero di nodi contenuti nell'albero è: %d\n", bstSize(bst));
+                break;
+            }
+            case 22: {
+                bstClear(bst);
+                printf("Albero svuotato!\n");
+                break;
+            }
+            case 23: {
+                printf("Inserire valore da cercare: ");
+                adtReadFromKeyboard(dataPtr);
 
-    adtWriteToMonitor(dataPtr);
-    bstInsert(bst2, dataPtr);
-    printf(" - Aggiunto l'elemento all'albero clone\n");
-    printf("BST:\n");
-    bstPreOrderMap(bst, printStructBST, NULL);
-    printf("BST CLONE:\n");
-    bstPreOrderMap(bst2, printStructBST, NULL);
-    if(bstEqual(bst, bst2)) {
-        printf("Gli alberi sono uguali\n");
-    } else {
-        printf("Gli alberi NON sono uguali\n");
-    }
+                if(bstExists(bst, dataPtr)) {
+                    printf("Il valore è presente nell'albero\n");
+                } else {
+                    printf("Il valore NON è presente nell'albero\n");
+                }
+                break;
+            }
+            case 24: {
+                BSTObject* clone = bstClone(bst);
+                bstPreOrderMap(clone, printStructBST, NULL);
+                printf("\nControllo di uguaglianza tra il clone dell'albero e l'albero principale: ");
+                if(bstEqual(clone, bst)) {
+                    printf("VERO\n");
+                } else {
+                    printf("FALSO\n");
+                }
 
-    printf("\n************************************\n");
+                printf("\nAggiunta di un ulteriore elemento al clone\n");
+                adtRandomValue(dataPtr);
+                bstInsert(clone, dataPtr);
+                bstPreOrderMap(clone, printStructBST, NULL);
 
-    printf("\nNodo con valore minimo: ");
-    adtWriteToMonitor(bstGetMin(bst));
-    printf("\nNodo con valore massimo: ");
-    adtWriteToMonitor(bstGetMax(bst));
+                printf("\nControllo di uguaglianza tra il clone dell'albero e l'albero principale: ");
+                if(bstEqual(clone, bst)) {
+                    printf("VERO\n");
+                } else {
+                    printf("FALSO\n");
+                }
 
-    printf("\n\n************************************\n");
-
-    printf("\nRimuovo il nodo ");
-    adtWriteToMonitor(bstGetMin(bst));
-    printf(":\nPRIMA:\n");
-    bstPreOrderMap(bst, printStructBST, NULL);
-    bstRemove(bst, bstGetMin(bst));
-    printf("DOPO:\n");
-    bstPreOrderMap(bst, printStructBST, NULL);
-
-    printf("\n************************************\n");
-    printf("\nAlbero:\n");
-    bstPreOrderMap(bst, printStructBST, NULL);
-
-    printf("\nCerco, restituisco e rimuovo il minimo.\n");
-    if((dataPtr = bstGetNRemoveMin(bst)) != NULL) {
-        printf("Minimo: ");
-        adtWriteToMonitor(dataPtr);
-
-        printf("\nAlbero dopo la getNRemoveMin:\n");
-        bstPreOrderMap(bst, printStructBST, NULL);
-    } else {
-        printf("L'albero è vuoto!\n");
-    }
-
-    printf("\n************************************\n");
-    printf("\nAlbero:\n");
-    bstPreOrderMap(bst, printStructBST, NULL);
-
-    printf("\nCerco, restituisco e rimuovo il massimo.\n");
-    if((dataPtr = bstGetNRemoveMax(bst)) != NULL) {
-        printf("Massimo: ");
-        adtWriteToMonitor(dataPtr);
-
-        printf("\nAlbero dopo la getNRemoveMax:\n");
-        bstPreOrderMap(bst, printStructBST, NULL);
-    } else {
-        printf("L'albero è vuoto!\n");
-    }
-
-    printf("\n************************************\n");
-    printf("\nAlbero:\n");
-    bstPreOrderMap(bst, printStructBST, NULL);
-
-    printf("\nCerco e rimuovo il minimo.\n");
-    bstRemoveMin(bst);
-
-    printf("\nAlbero dopo la removeMin:\n");
-    bstPreOrderMap(bst, printStructBST, NULL);
-
-    printf("\n************************************\n");
-    printf("\nAlbero:\n");
-    bstPreOrderMap(bst, printStructBST, NULL);
-
-    printf("\nCerco e rimuovo il massimo.\n");
-    bstRemoveMax(bst);
-
-    printf("\nAlbero dopo la removeMax:\n");
-    bstPreOrderMap(bst, printStructBST, NULL);
-
-
-    bstDestruct(bst);
-    bstDestruct(bst2);
+                bstDestruct(clone);
+                break;
+            }
+            case 0: {
+                bstDestruct(bst);
+                break;
+            }
+            default: {
+                printf("Opzione non valida!\n");
+                break;
+            }
+        }
+    } while (scelta != 0);
 }

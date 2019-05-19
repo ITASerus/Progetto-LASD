@@ -327,8 +327,8 @@ void testStack() {
                 adtRandomValue(dataPtr);
                 stkPush(stackClone, dataPtr);
                 stkMap(stackClone, printStruct, NULL);
-
-                printf("Controllo di uguaglianza tra il clone della queue e la queue principale: ");
+//TODO: RILEGGI STRINGHE
+                printf("Controllo di uguaglianza tra il clone dello stack e lo stack principale: ");
                 if(stkEqual(stackClone, stack)) {
                     printf("VERO\n");
                 } else {
@@ -683,7 +683,7 @@ void testQueue() {
     }
 }
 
-void testMain() {
+void testStackQueue() {
     int scelta;
     printf("Inserire tipologia di struttra da utilizzare\n(1) Pila\n(2) Coda\n");
     do {

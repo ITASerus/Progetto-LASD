@@ -1,41 +1,39 @@
-
 #include "adtptr.h"
 
-void* ptrConstruct() {
-    void* pointer = NULL;
-    return pointer;
+/* ************************************************************************** */
+
+void* adtConstructPtr() {
+    void* ptr = NULL;
+    return ptr;
 }
 
-void ptrDestruct(void* value) {
-   //NIENTE
+void adtDestructPtr(void* value) {
+    //Niente, non si può deallocare un puntatore
 }
 
-void* ptrGetValue(void* value) {
+void* adtGetValuePtr(void* value) {
     return value;
 }
 
-void ptrSetValue(void** value, void* newValue) {
-    *value = newValue;
+void adtSetValuePtr(void** oldValue, void* newValue) {
+    *oldValue = newValue;
 }
 
-void* ptrClone(void* value) {
+void* adtClonePtr(void* value) {
     return value;
 }
 
 DataType* ConstructPointerDataType() {
-    DataType* type = (DataType*)malloc(sizeof(DataType));
+    DataType* type = (DataType*) malloc(sizeof(DataType));
 
-    type->construct = ptrConstruct;
-    type->destruct = ptrDestruct;
-
-    type->getValue = ptrGetValue;
-    //type->setValue = ptrSetValue;
-
+    type->construct = adtConstructPtr;
+    type->destruct = adtDestructPtr;
+    type->getValue = adtGetValuePtr;
+    type->setValue = adtSetValuePtr;
     type->randomValue = NULL;
     type->readFromKeyboard = NULL;
     type->writeToMonitor = NULL;
-
-    type->clone = ptrClone;
+    type->clone = adtClonePtr;
     type->compare = NULL;
 
     return type;

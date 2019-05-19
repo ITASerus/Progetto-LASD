@@ -10,15 +10,37 @@
 ../utility.h
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.c
-bst.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/ptr/adtptr.h
+../adt.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/adt.h
 
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.h
 ../utility.h
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 ../adt/adt.h
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/adt.h
+
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/rec/bstrec.c
+bstrec.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/rec/bstrec.h
+../../adt/ptr/adtptr.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/ptr/adtptr.h
+../../queue/vec/queuevec.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/queue/vec/queuevec.h
+
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/rec/bstrec.h
+../bst.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/bst/bst.h
+
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/queue/queue.h
+../utility.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
+../adt/adt.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/adt/adt.h
+
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/queue/vec/queuevec.h
+../queue.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/queue/queue.h
 
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise2/utility.h
 assert.h

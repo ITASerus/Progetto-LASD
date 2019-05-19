@@ -31,25 +31,21 @@ void* recordGetValue(void* value) {
     return recordCopy;
 }
 
-void recordSetValue(void* value, void* newValue) {
-    printf("(SetValue)\n");
-
-    if( (((Record*)value)->name) != NULL && (((Record*)value)->surname) != NULL) {
-        if (strlen((((Record *) value)->name)) != strlen((((Record *) newValue)->name))) {
-            ((Record *) value)->name = realloc((((Record *) value)->name), sizeof(char) * (strlen((((Record *) newValue)->name)) + 1));
+void recordSetValue(void** value, void* newValue) {
+    if( (((Record*) *value)->name) != NULL && (((Record*) *value)->surname) != NULL) {
+        if (strlen((((Record *) *value)->name)) != strlen((((Record *) newValue)->name))) {
+            ((Record *) *value)->name = realloc((((Record *) *value)->name), sizeof(char) * (strlen((((Record *) newValue)->name)) + 1));
         }
-        if (strlen((((Record *) value)->surname)) != strlen((((Record *) newValue)->surname))) {
-            ((Record *) value)->surname = realloc((((Record *) value)->surname), sizeof(char) * (strlen((((Record *) newValue)->surname)) + 1));
+        if (strlen((((Record *) *value)->surname)) != strlen((((Record *) newValue)->surname))) {
+            ((Record *) *value)->surname = realloc((((Record *) *value)->surname), sizeof(char) * (strlen((((Record *) newValue)->surname)) + 1));
         }
     } else {
-        (((Record*)value)->name) = (char*)malloc(sizeof(char)*strlen((((Record*)newValue)->name))+1);
-        (((Record*)value)->surname) = (char*)malloc(sizeof(char)*strlen((((Record*)newValue)->surname))+1);
+        (((Record*) *value)->name) = (char*)malloc(sizeof(char)*strlen((((Record*)newValue)->name))+1);
+        (((Record*) *value)->surname) = (char*)malloc(sizeof(char)*strlen((((Record*)newValue)->surname))+1);
     }
 
-    strcpy(((Record *) value)->name, ((Record *) newValue)->name);
-    strcpy(((Record *) value)->surname, ((Record *) newValue)->surname);
-
-    printf("(Fine)\n");
+    strcpy(((Record *) *value)->name, ((Record *) newValue)->name);
+    strcpy(((Record *) *value)->surname, ((Record *) newValue)->surname);
 }
 
 void* recordRandomValue() {

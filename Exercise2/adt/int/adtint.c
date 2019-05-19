@@ -17,8 +17,8 @@ void* intGetValue(void* value) {
     return valueCopy;
 }
 
-void intSetValue(void* value, void* newValue) {
-    *(int*)value = *(int*)newValue;
+void intSetValue(void** value, void* newValue) {
+    *((int*) *value)  = *(int*)newValue;
 }
 
 void* intRandomValue() {

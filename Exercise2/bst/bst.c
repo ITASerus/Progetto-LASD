@@ -13,6 +13,7 @@ BSTObject* bstConstruct(BSTType* bstType) {
     return newTree;
 }
 
+
 void bstDestruct(BSTObject* tree) {
     tree->type->destruct(tree->root);
     free(tree);
@@ -30,7 +31,9 @@ int bstSize(BSTObject* tree) {
 
 
 void bstClear(BSTObject* tree) {
-    printf("TODO");
+    tree->type->destruct(tree->root);
+    tree->root = NULL;
+    tree->numberOfNodes = 0;
 }
 
 
@@ -58,15 +61,14 @@ bool bstExists(BSTObject* tree, DataObject* keyToFind) {
 void bstInsert(BSTObject* tree, DataObject* newKey) {
     if(tree->type->insert(&(tree->root), newKey)) {
         tree->numberOfNodes++;
-    } else {
-        printf("Il valore è già presente nell'albero!\n");
     }
 }
 
 void bstRemove(BSTObject* tree, DataObject* keyToRemove) {
     if(tree->numberOfNodes > 0) {
-        tree->root = tree->type->remove(tree->root, keyToRemove); //TODO: Fare remove in bst di tipo booleano che restituisce true se lo ha rimosso e false alltrimenti?
-        tree->numberOfNodes--;
+        if(tree->type->remove(&(tree->root), keyToRemove)) {
+            tree->numberOfNodes--;
+        }
     }
 }
 
@@ -75,41 +77,35 @@ DataObject* bstGetMin(BSTObject* tree) {
 }
 
 DataObject* bstGetNRemoveMin(BSTObject* tree) {
-    if(tree->numberOfNodes > 0) {
+    DataObject* minValue = tree->type->getNRemoveMin(&(tree->root));
+
+    if(minValue != NULL) {
         tree->numberOfNodes--;
-        DataObject* minValue = NULL;
-        tree->root = tree->type->getNRemoveMin(tree->root, &minValue);
-        return minValue;
-    } else {
-        return NULL;
     }
+    return minValue;
 }
 
 void bstRemoveMin(BSTObject* tree) {
-    if(tree->numberOfNodes > 0){
-        tree->root = tree->type->removeMin(tree->root);
+    if(tree->type->removeMin(&tree->root)){
         tree->numberOfNodes--;
     }
 }
 
 DataObject* bstGetMax(BSTObject* tree) {
-    return adtClone(tree->type->getMax(tree->root));
+    return tree->type->getMax(tree->root);
 }
 
 DataObject* bstGetNRemoveMax(BSTObject* tree) {
-    if(tree->numberOfNodes > 0) {
+    DataObject* maxValue = tree->type->getNRemoveMax(&(tree->root));
+
+    if(maxValue != NULL) {
         tree->numberOfNodes--;
-        DataObject* maxValue = NULL;
-        tree->root = tree->type->getNRemoveMax(tree->root, &maxValue);
-        return maxValue;
-    } else {
-        return NULL;
     }
+    return maxValue;
 }
 
 void bstRemoveMax(BSTObject* tree) {
-    if(tree->numberOfNodes > 0) {
-        tree->root = tree->type->removeMax(tree->root);
+    if(tree->type->removeMax(&tree->root)){
         tree->numberOfNodes--;
     }
 }
@@ -120,17 +116,16 @@ DataObject* bstGetPredecessor(BSTObject* tree, DataObject* key) {
 }
 
 DataObject* bstGetNRemovePredecessor(BSTObject* tree, DataObject* key) {
-    if(tree->numberOfNodes > 0) {
+    DataObject* predecessor = tree->type->getNRemovePredecessor(&tree->root, key);
+
+    if(predecessor != NULL) {
         tree->numberOfNodes--;
-        return tree->type->getNRemovePredecessor(tree->root, key);
-    } else {
-        return NULL;
     }
+    return predecessor;
 }
 
 void bstRemovePredecessor(BSTObject* tree, DataObject* key) {
-    if(tree->numberOfNodes > 1){ //TODO: Sbagliato
-        tree->type->removePredecessor(tree->root, key);
+    if(tree->type->removePredecessor(&tree->root, key)){
         tree->numberOfNodes--;
     }
 }
@@ -140,17 +135,16 @@ DataObject* bstGetSuccessor(BSTObject* tree, DataObject* key) {
 }
 
 DataObject* bstGetNRemoveSuccessor(BSTObject* tree, DataObject* key) {
-    if(tree->numberOfNodes > 0) {
+    DataObject* successor = tree->type->getNRemoveSuccessor(&tree->root, key);
+
+    if(successor != NULL) {
         tree->numberOfNodes--;
-        return tree->type->getNRemoveSuccessor(tree->root, key);
-    } else {
-        return NULL;
     }
+    return successor;
 }
 
 void bstRemoveSuccessor(BSTObject* tree, DataObject* key) {
-    if(tree->numberOfNodes > 1){
-        tree->type->removeSuccessor(tree->root, key);
+    if(tree->type->removeSuccessor(&tree->root, key)){
         tree->numberOfNodes--;
     }
 }

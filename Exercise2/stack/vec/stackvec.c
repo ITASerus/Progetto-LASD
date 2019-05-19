@@ -61,13 +61,13 @@ void stkVecPop(void* stack) {
         stackVector->elements[stackVector->index - 1] = NULL; //Per precauzione assegno la posizione non più utilizzata a NULL
 
         stackVector->index--;
-
+/*
         if(stackVector->index < stackVector->size/4) { //Lo stack ha troppa memoria libera
             stackVector->size /= 2;
             stackVector->elements = realloc(stackVector->elements, sizeof(DataObject*) * stackVector->size); //Rimuovo la memoria in eccesso
 
             assert(stackVector->elements != NULL);
-        }
+        }*/
     }
 }
 

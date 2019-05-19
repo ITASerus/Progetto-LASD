@@ -9,17 +9,17 @@
 /* ************************************************************************** */
 
 typedef void* (*ADTConstruct)();
-typedef void (*ADTDestruct)(void*);
+typedef void (*ADTDestruct)(void* value);
 
-typedef void* (*ADTGetValue)(void*);
-typedef void (*ADTSetValue)(void*, void*);
+typedef void* (*ADTGetValue)(void* value);
+typedef void (*ADTSetValue)(void** value, void* newValue);
 
 typedef void* (*ADTRandomValue)();
 typedef void* (*ADTReadFromKeyboard)();
-typedef void (*ADTWriteToMonitor)(void*);
+typedef void (*ADTWriteToMonitor)(void* value);
 
-typedef void* (*ADTClone)(void*);
-typedef int (*ADTCompare)(void*, void*);
+typedef void* (*ADTClone)(void* value);
+typedef int (*ADTCompare)(void* firstValue, void* seconValue);
 
 /* ************************************************************************** */
 
