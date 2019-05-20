@@ -285,6 +285,7 @@ bool itrBSTRemoveMin(BSTNode** tree) {
     return false;
 }
 
+
 DataObject* itrBSTGetMax(BSTNode* tree) {
     if(tree != NULL) {
         while (tree->right != NULL) {
@@ -421,6 +422,7 @@ bool itrBSTRemovePredecessor(BSTNode** tree, DataObject* elem) {
     }
     return false;
 }
+
 
 DataObject* itrBSTGetSuccessor(BSTNode* tree, DataObject* elem) {
     DataObject *succ = NULL;
@@ -579,6 +581,7 @@ void itrBSTBreadthMap(BSTNode* tree, MapFun mapFunction, void* parameter) {
     itrDestruct(iterator);
 }
 
+
 void itrBSTPreOrderFold(BSTNode* tree, FoldFun foldFunction, void* accumulator, void* parameter) {
     ITRType *itrType = ConstructBSTPreOrderIterator();
     ITRObject *iterator = itrConstruct(itrType, tree);
@@ -649,6 +652,7 @@ BSTType* ConstructBSTIterative() {
     type->getMin = itrBSTGetMin;
     type->getNRemoveMin = itrBSTGetNRemoveMin;
     type->removeMin = itrBSTRemoveMin;
+
     type->getMax = itrBSTGetMax;
     type->getNRemoveMax = itrBSTGetNRemoveMax;
     type->removeMax = itrBSTRemoveMax;
@@ -656,6 +660,7 @@ BSTType* ConstructBSTIterative() {
     type->getPredecessor = itrBSTGetPrecedessor;
     type->getNRemovePredecessor = itrBSTGetNRemovePredecessor;
     type->removePredecessor = itrBSTRemovePredecessor;
+
     type->getSuccessor = itrBSTGetSuccessor;
     type->getNRemoveSuccessor = itrBSTGetNRemoveSuccessor;
     type->removeSuccessor = itrBSTRemoveSuccessor;
@@ -664,6 +669,7 @@ BSTType* ConstructBSTIterative() {
     type->inOrderMap = itrBSTInOrderMap;
     type->postOrderMap = itrBSTPostOrderMap;
     type->breadthMap = itrBSTBreadthMap;
+
     type->preOrderFold = itrBSTPreOrderFold;
     type->inOrderFold = itrBSTInOrderFold;
     type->postOrderFold = itrBSTPostOrderFold;

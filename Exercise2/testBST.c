@@ -89,6 +89,7 @@ void testBST() {
                "(14) Lettura del predecessore di un elemento\n"
                "(15) Rimozione del predecessore di un elemento\n"
                "(16) Lettura e rimozione del predecessore di un elemento\n"
+               "\n"
                "(17) Lettura del successore di un elemento\n"
                "(18) Rimozione del successore di un elemento\n"
                "(19) Lettura e rimozione del successore di un elemento\n"
