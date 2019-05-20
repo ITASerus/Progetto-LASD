@@ -82,5 +82,5 @@ ITRType* ConstructBSTInOrderIterator() {
 }
 
 void DestructBSTInOrderIterator(ITRType* type) {
-    free(type); //TODO: Per ogni chiamata di free, aggiungere = NULL?
+    free(type);
 }

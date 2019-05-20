@@ -65,6 +65,6 @@ ITRType* ConstructBSTPreOrderIterator() {
     return type;
 }
 
-void DestructBSTPreOrderIterator(ITRType* type) { //TODO: Aggiungi controlli?
-    free(type); //TODO: Per ogni chiamata di free, aggiungere = NULL?
+void DestructBSTPreOrderIterator(ITRType* type) {
+    free(type);
 }

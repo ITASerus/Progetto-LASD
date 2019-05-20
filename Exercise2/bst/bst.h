@@ -20,7 +20,6 @@ struct BSTNode {
 
 /* ************************************************************************** */
 
-//TODO: Metti nomi attributi
 typedef void (*BSTDestruct)(BSTNode* tree);
 
 typedef BSTNode* (*BSTClone)(BSTNode* tree);

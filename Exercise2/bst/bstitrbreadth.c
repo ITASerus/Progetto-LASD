@@ -32,7 +32,6 @@ void* itrBreadthGetElement(void* iterator) {
     return ((BSTBreadthIterator*)iterator)->element;
 }
 
-//TODO: Ogni tanto crasha
 void itrBreadthSuccessor(void* iterator) {
     BSTBreadthIterator *itr = (BSTBreadthIterator*)iterator;
 

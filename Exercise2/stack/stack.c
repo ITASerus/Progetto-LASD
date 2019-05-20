@@ -95,5 +95,5 @@ bool stkExists(StackObject* stack, DataObject* object) {
     bool* result = (bool*)malloc(sizeof(bool));
     *result = false;
     stkFold(stack, existElem, result, object);
-    return *result; //TODO: Dealloca il result?
+    return *result;
 }

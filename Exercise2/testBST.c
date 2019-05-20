@@ -10,7 +10,7 @@ void testBST() {
     BSTType* bstTyp = ConstructBSTIterative();
     DataType* dataType = NULL;
 
-    int scelta, number, tipoScelto; //Todo: traduci
+    int scelta, number, tipoScelto;
 
     printf("Inserire tipologia di albero da utilizzare\n(1) Ricorsivo\n(2) Iterativo\n");
     do {

@@ -21,7 +21,7 @@ DataObject* recBSTGetNRemovePrecedessor(BSTNode** tree, DataObject* elem);
 bool recBSTRemovePredecessor(BSTNode** tree, DataObject* elem);
 DataObject* recBSTGetSuccessor(BSTNode* tree, DataObject* elem);
 DataObject* recBSTGetNRemoveSuccessor(BSTNode** tree, DataObject* elem);
-bool itrBSTRemoveSuccessor(BSTNode** tree, DataObject* elem);
+bool recBSTRemoveSuccessor(BSTNode** tree, DataObject* elem);
 void recBSTPreOrderMap(BSTNode* tree, MapFun mapFunction, void* parameter);
 void recBSTInOrderMap(BSTNode* tree, MapFun mapFunction, void* parameter);
 void recBSTPostOrderMap(BSTNode* tree, MapFun mapFunction, void* parameter);
@@ -164,7 +164,7 @@ bool recBSTRemoveMin(BSTNode** tree) {
 DataObject* recBSTGetMax(BSTNode* tree) {
     if(tree != NULL) {
         if (tree->right == NULL) {
-            return tree->key; //TODO: Aggiungere qua adtClone?
+            return tree->key;
         } else {
             return recBSTGetMax(tree->right);
         }
@@ -180,7 +180,7 @@ DataObject* recBSTGetNRemoveMax(BSTNode** tree) {
 
             BSTNode *tmp = *tree;
             *tree = (*tree)->left;
-            free(tmp); //TODO: DELETE NODE
+            free(tmp);
 
             return max;
         } else {
@@ -207,6 +207,10 @@ bool recBSTRemoveMax(BSTNode** tree) {
     return false;
 }
 
+
+DataObject* recBSTGetPrecedessor(BSTNode* tree, DataObject* elem){
+    printf("Da implementare.\n");
+}
 
 DataObject* _recBSTGetPredecessor(BSTNode* tree, DataObject* elem, BSTNode* father) {
     if(tree != NULL) {

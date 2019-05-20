@@ -49,7 +49,7 @@ BSTObject* bstClone(BSTObject* tree) {
 
 
 bool bstEqual(BSTObject* firstTree, BSTObject* secondTree) {
-    return firstTree->type->equal(firstTree->root, secondTree->root); //TODO: Rivedi confronto tipi
+    return firstTree->type->equal(firstTree->root, secondTree->root);
 }
 
 

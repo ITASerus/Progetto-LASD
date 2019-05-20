@@ -66,7 +66,7 @@ void foldConcatLessOrEqThanN(DataObject * dat, void *val, void *n) {
 
 void testStack() {
     StackType* stkTyp = NULL;
-    DataType* datatype = NULL; //TODO: Rinomina datatype in dataType
+    DataType* datatype = NULL;
 
     int scelta, number;
     printf("Inserire tipologia di implementazione della pila da utilizzare\n(1) Vettore\n(2) Lista\n");
@@ -208,7 +208,7 @@ void testStack() {
                         break;
                     }
                     case 3: {
-                        char* value = (char*)malloc(sizeof(char)); //TODO: Ogni tanto crasha
+                        char* value = (char*)malloc(sizeof(char));
                         strcpy(value, "");
                         int* n = (int*)malloc(sizeof(int));
 
@@ -327,7 +327,7 @@ void testStack() {
                 adtRandomValue(dataPtr);
                 stkPush(stackClone, dataPtr);
                 stkMap(stackClone, printStruct, NULL);
-//TODO: RILEGGI STRINGHE
+
                 printf("Controllo di uguaglianza tra il clone dello stack e lo stack principale: ");
                 if(stkEqual(stackClone, stack)) {
                     printf("VERO\n");
@@ -516,7 +516,7 @@ void testQueue() {
                         break;
                     }
                     case 3: {
-                        char* value = (char*)malloc(sizeof(char)); //TODO: Ogni tanto crasha
+                        char* value = (char*)malloc(sizeof(char));
                         strcpy(value, "");
                         int* n = (int*)malloc(sizeof(int));
 

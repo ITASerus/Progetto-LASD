@@ -126,8 +126,6 @@ BSTNode* itrBSTClone(BSTNode* tree) {
     adtDestruct(elem);
     DestructStackVecType(stktype);
     stkDestruct(stack);
-    //stkDestruct(stackClonedTree);
-    //printf("2 STACK DEALL\n"); //TODO: BUG
 
     return clonedTree;
 }
@@ -152,7 +150,6 @@ bool itrBSTEqual(BSTNode* firstTree, BSTNode* secondTree) {
             currSecondTree = (BSTNode*)itrElement(itrSecondTree);
         }
 
-        //DestructBSTPostOrderIterator(itrType); //todo: tolto anche qua
         itrDestruct(itrFirstTree);
         itrDestruct(itrSecondTree);
 
@@ -192,7 +189,7 @@ bool itrBSTInsert(BSTNode** tree, DataObject* elem) {
         *tree = _itrCreateNode(elem);
         return true;
     } else {
-        BSTNode* curr = *tree, *last = curr; //TODO: Serve last? no
+        BSTNode* curr = *tree, *last = curr;
         while (curr != NULL && adtCompare(curr->key, elem) != 0) {
             last = curr;
             if (adtCompare(curr->key, elem) < 0) {
@@ -268,8 +265,7 @@ DataObject* itrBSTGetNRemoveMin(BSTNode** tree) {
         }
 
         DataObject* min = adtClone(curr->key);
-        //curr = _itrBSTUnplugMin(curr->right, curr);
-        itrBSTRemove(&(*tree), min); //TODO: Ottimizza
+        itrBSTRemove(&(*tree), min);
         return min;
     } else {
         return NULL;
@@ -278,12 +274,12 @@ DataObject* itrBSTGetNRemoveMin(BSTNode** tree) {
 
 bool itrBSTRemoveMin(BSTNode** tree) {
     if (*tree) {
-        BSTNode *curr = *tree; //TODO: Si può evitare? probabilmente sì
+        BSTNode *curr = *tree;
 
         while(curr->left != NULL) {
             curr = curr->left;
         }
-        itrBSTRemove(&(*tree), curr->key);  //TODO: Ottimizzaù
+        itrBSTRemove(&(*tree), curr->key);
         return true;
     }
     return false;
@@ -309,8 +305,8 @@ DataObject* itrBSTGetNRemoveMax(BSTNode** tree) {
         }
 
         DataObject* max = adtClone(curr->key);
-        //curr = _itrBSTUnplugMin(curr->right, curr);
-        itrBSTRemove(&(*tree), max); //TODO: Ottimizza
+
+        itrBSTRemove(&(*tree), max);
         return max;
     } else {
         return NULL;
@@ -384,7 +380,7 @@ DataObject* itrBSTGetNRemovePredecessor(BSTNode** tree, DataObject* elem) {
             }
 
             pred = adtClone(curr->key);
-            itrBSTRemove(&(*tree), curr->key); //TODO: Si può togliere?
+            itrBSTRemove(&(*tree), curr->key);
         } else {
             if (cand) {
                 pred = adtClone(cand->key);
@@ -414,7 +410,7 @@ bool itrBSTRemovePredecessor(BSTNode** tree, DataObject* elem) {
                 curr = curr->right;
             }
 
-            itrBSTRemove(&(*tree), curr->key); //TODO: Ottimizza
+            itrBSTRemove(&(*tree), curr->key);
             return true;
         } else {
             if (cand != NULL) {
@@ -479,7 +475,7 @@ DataObject* itrBSTGetNRemoveSuccessor(BSTNode** tree, DataObject* elem) {
             }
 
             succ = adtClone(curr->key);
-            itrBSTRemove(&(*tree), curr->key); //TODO: Ottimizza
+            itrBSTRemove(&(*tree), curr->key);
         } else {
             if (cand) {
                 succ = adtClone(cand->key);
