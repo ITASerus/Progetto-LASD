@@ -455,7 +455,7 @@ DataObject* itrBSTGetSuccessor(BSTNode* tree, DataObject* elem) {
     return succ;
 }
 
-DataObject* itrBSTGetNRemoveSuccessor(BSTNode** tree, DataObject* elem) {
+DataObject* itrBSTGetNRemoveSuccessor(BSTNode** tree, DataObject* elem) { //TODO: Ottimizza assolutamente, complessità quadratica
     DataObject *succ = NULL;
 
     if (tree != NULL) {

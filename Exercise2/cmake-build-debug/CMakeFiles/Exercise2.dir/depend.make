@@ -41,6 +41,7 @@ CMakeFiles/Exercise2.dir/bst/bstitrbreadth.c.o: ../bst/bst.h
 CMakeFiles/Exercise2.dir/bst/bstitrbreadth.c.o: ../bst/bstitrbreadth.c
 CMakeFiles/Exercise2.dir/bst/bstitrbreadth.c.o: ../bst/bstitrbreadth.h
 CMakeFiles/Exercise2.dir/bst/bstitrbreadth.c.o: ../itr/itr.h
+CMakeFiles/Exercise2.dir/bst/bstitrbreadth.c.o: ../queue/lst/queuelst.h
 CMakeFiles/Exercise2.dir/bst/bstitrbreadth.c.o: ../queue/queue.h
 CMakeFiles/Exercise2.dir/bst/bstitrbreadth.c.o: ../queue/vec/queuevec.h
 CMakeFiles/Exercise2.dir/bst/bstitrbreadth.c.o: ../utility.h

@@ -2,8 +2,9 @@
 #include "testBST.h"
 
 void printStructBST(DataObject* dat, void* _) {
+    printf("> ");
     adtWriteToMonitor(dat);
-    printf(" | ");
+    printf("\n");
 }
 
 void testBST() {

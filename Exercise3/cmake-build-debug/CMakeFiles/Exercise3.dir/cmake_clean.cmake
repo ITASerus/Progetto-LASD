@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/Exercise3.dir/adt/flt/adtflt.c.o"
+  "CMakeFiles/Exercise3.dir/adt/int/adtint.c.o"
+  "CMakeFiles/Exercise3.dir/adt/rec/adtrec.c.o"
+  "CMakeFiles/Exercise3.dir/adt/str/adtstr.c.o"
+  "CMakeFiles/Exercise3.dir/adt/adt.c.o"
+  "CMakeFiles/Exercise3.dir/bst/itr/bstitr.c.o"
+  "CMakeFiles/Exercise3.dir/bst/rec/bstrec.c.o"
+  "CMakeFiles/Exercise3.dir/bst/bst.c.o"
+  "CMakeFiles/Exercise3.dir/bst/bstitrbreadth.c.o"
+  "CMakeFiles/Exercise3.dir/bst/bstitrinord.c.o"
+  "CMakeFiles/Exercise3.dir/bst/bstitrpostord.c.o"
+  "CMakeFiles/Exercise3.dir/bst/bstitrpreord.c.o"
+  "CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o"
+  "CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o"
+  "CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o"
+  "CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o"
+  "CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o"
+  "CMakeFiles/Exercise3.dir/graph/graph.c.o"
+  "CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.o"
+  "CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.o"
+  "CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o"
+  "CMakeFiles/Exercise3.dir/itr/itr.c.o"
+  "CMakeFiles/Exercise3.dir/queue/lst/queuelst.c.o"
+  "CMakeFiles/Exercise3.dir/queue/vec/queuevec.c.o"
+  "CMakeFiles/Exercise3.dir/queue/queue.c.o"
+  "CMakeFiles/Exercise3.dir/stack/lst/stacklst.c.o"
+  "CMakeFiles/Exercise3.dir/stack/vec/stackvec.c.o"
+  "CMakeFiles/Exercise3.dir/stack/stack.c.o"
+  "CMakeFiles/Exercise3.dir/main.c.o"
+  "CMakeFiles/Exercise3.dir/utility.c.o"
+  "CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o"
+  "CMakeFiles/Exercise3.dir/testBST.c.o"
+  "CMakeFiles/Exercise3.dir/testGraph.c.o"
+  "Exercise3.pdb"
+  "Exercise3"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/Exercise3.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

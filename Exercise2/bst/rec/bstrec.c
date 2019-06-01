@@ -228,7 +228,7 @@ DataObject* _recBSTGetPredecessor(BSTNode* tree, DataObject* elem, BSTNode* fath
         return NULL;
     }
 }
-18
+
 DataObject* recBSTGetPredecessor(BSTNode* tree, DataObject* elem) {
     return _recBSTGetPredecessor(tree, elem, NULL);
 }
@@ -245,19 +245,24 @@ bool recBSTRemovePredecessor(BSTNode** tree, DataObject* elem) {
 DataObject* _recBSTGetSuccessor(BSTNode* tree, DataObject* elem, BSTNode* father) {
     if(tree != NULL) {
         if(adtCompare(elem, tree->key) > 0) {
-            return _recBSTGetSuccessor(tree->left, elem, father);
+            printf("DX\n");
+            return _recBSTGetSuccessor(tree->right, elem, father);
         } else if(adtCompare(elem, tree->key) < 0) {
-            return _recBSTGetSuccessor(tree->right, elem, tree);
+            printf("SX\n");
+            return _recBSTGetSuccessor(tree->left, elem, tree);
         } else {
             if(tree->right != NULL) {
+                printf("DX\n");
                 return recBSTGetMin(tree->right);
             }
         }
     }
 
     if(father != NULL) {
+        printf("Found\n");
         return father->key;
     } else {
+        printf("not found\n");
         return NULL;
     }
 }

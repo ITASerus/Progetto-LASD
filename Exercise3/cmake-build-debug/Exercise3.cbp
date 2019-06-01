@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Exercise3"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Exercise3">
+				<Option output="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Exercise3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/."/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/flt"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/int"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/rec"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/str"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/itr"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/rec"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/itr"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rec"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/lst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/vec"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/lst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/vec"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 Exercise3"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Exercise3/fast">
+				<Option output="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Exercise3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/."/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/flt"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/int"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/rec"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/str"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/itr"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/rec"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/itr"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rec"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/lst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/vec"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/lst"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/vec"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 Exercise3/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/flt/adtflt.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/flt/adtflt.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/int/adtint.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/int/adtint.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/rec/adtrec.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/rec/adtrec.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/str/adtstr.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/str/adtstr.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bst.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bst.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrbreadth.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrbreadth.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrinord.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrinord.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrpostord.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrpostord.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrpreord.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrpreord.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/itr/bstitr.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/itr/bstitr.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrbreadth.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrbreadth.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrpostord.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrpostord.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrpreord.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrpreord.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/itr/graphitr.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/itr/graphitr.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rec/graphrec.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rec/graphrec.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbst.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbst.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlst.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlst.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmat.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmat.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/main.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/lst/queuelst.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/lst/queuelst.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/queue.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/queue.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/vec/queuevec.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/vec/queuevec.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/lst/stacklst.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/lst/stacklst.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/stack.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/stack.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/vec/stackvec.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/vec/stackvec.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/testBST.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/testBST.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/testGraph.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/testGraph.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
