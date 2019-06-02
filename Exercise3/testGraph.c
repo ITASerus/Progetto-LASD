@@ -2,11 +2,13 @@
 #include "testGraph.h"
 
 void printGraphLst(GraphObject* graphObject) {
-    GraphLst* tmp = ((GraphLst*)graphObject->graph);
-    while(tmp->vertexInfo != NULL) {
+    printf("GRAFO:\n");
+    VertexLst* tmp = ((GraphLst*)graphObject->graph)->vertexLst;
+    while(tmp != NULL) {
+        printf("Nome: %d Etichetta: ", tmp->vertexInfo->name);
         adtWriteToMonitor(tmp->vertexInfo->label);
         printf("\n");
-        tmp = tmp->next;
+        tmp = tmp->nextVertex;
     }
 }
 
@@ -27,14 +29,21 @@ void testGraph() {
         printf("false\n");
     }
 
-    graphInsertVertex(graphObject, 2, dataPtr);
-    adtRandomValue(dataPtr);
-    graphInsertVertex(graphObject, 5, dataPtr);
-    adtRandomValue(dataPtr);
     graphInsertVertex(graphObject, 8, dataPtr);
 
-    printGraphLst(graphObject);
-/*
+    adtRandomValue(dataPtr);
+    graphInsertVertex(graphObject, 5, dataPtr);
+
+    adtRandomValue(dataPtr);
+    graphInsertVertex(graphObject, 3, dataPtr);
+
+    adtRandomValue(dataPtr);
+    graphInsertVertex(graphObject, 2, dataPtr);
+
+    adtRandomValue(dataPtr);
+    graphInsertVertex(graphObject, 0, dataPtr);
+
+
     printf("Grafo vuoto?: ");
     if (graphEmpty(graphObject)) {
         printf("true\n");
@@ -42,6 +51,8 @@ void testGraph() {
         printf("false\n");
     }
 
+    printGraphLst(graphObject);
+/*
     printf("*****************************************************************\n");
 
     printf("VERIFICA ESISTENZA VERTICE 2: ");

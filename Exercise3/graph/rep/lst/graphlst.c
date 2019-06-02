@@ -4,79 +4,89 @@
 /* ************************************************************************** */
 
 void* lstGraphConstruct() {
-    GraphLst* newVertex = (GraphLst*)malloc(sizeof(GraphLst));
+    GraphLst* newGraphLst = (GraphLst*)malloc(sizeof(GraphLst));
 
-    newVertex->vertexInfo = NULL;
-    newVertex->adjacentLst = NULL;
+    newGraphLst->vertexLst = NULL;
+    newGraphLst->adjacentVertexLst = NULL;
 
-    newVertex->next = NULL;
-
-    return newVertex;
+    return newGraphLst;
 }
 
-void lstGraphInsertVertex(void* graph, int name, DataObject* label) { //TODO: Ottimizzare, complessità lineare
+Vertex* createVertex(int name, DataObject* label) {
     Vertex* newVertex = (Vertex*)malloc(sizeof(Vertex));
 
     newVertex->name = name;
     newVertex->label = adtClone(label);
 
-    GraphLst* graphLstElem = graph;
-    while(graphLstElem->vertexInfo != NULL) {
-        graphLstElem = graphLstElem->next;
-    }
-
-    graphLstElem->vertexInfo = newVertex;
-    graphLstElem->adjacentLst = NULL;
-    graphLstElem->next = lstGraphConstruct();
+    return newVertex;
 }
 
-void lstGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) {
-    GraphLst* graphLstElem = graph;
-    while(graphLstElem->vertexInfo != NULL && graphLstElem->vertexInfo->name != fromVertexName) {
-        graphLstElem = graphLstElem->next;
-    }
+VertexLst* createVertexLstElement(Vertex* vertexInfo, VertexLst* next) {
+    VertexLst *newVertexLstElement = (VertexLst *) malloc(sizeof(VertexLst));
 
-    if(graphLstElem->vertexInfo->name == fromVertexName) {
-        GraphLst* tmp = graph;
-        while(tmp->vertexInfo != NULL && tmp->vertexInfo->name != toVertexName) {
-            tmp = tmp->next;
-        }
-        if(tmp != NULL) {
-            AdjacentVertex* newAdjacentVertex = (AdjacentVertex*)malloc(sizeof(AdjacentVertex));
+    newVertexLstElement->vertexInfo = vertexInfo;
+    newVertexLstElement->nextVertex = next;
 
-            newAdjacentVertex->vertexPointer = tmp;
-            newAdjacentVertex->next = graphLstElem->adjacentLst;
-
-            graphLstElem->adjacentLst = newAdjacentVertex;
-        } else {
-            printf("Vertice destinazione non trovato\n");
-            return;
-        }
-    } else {
-        printf("Vertice non trovato\n");
-    }
+    return newVertexLstElement;
 }
 
-bool lstGraphExistsVertex(void* graph, int name) {
-    GraphLst* graphLstElem = graph;
+void lstGraphInsertVertex(void* graph, int name, DataObject* label) {
+    GraphLst* graphLst = graph;
 
-    while(graphLstElem->vertexInfo != NULL && (graphLstElem->vertexInfo->name != name)) {
-        graphLstElem = graphLstElem->next;
-    }
+    if(graphLst->vertexLst == NULL || graphLst->vertexLst->vertexInfo->name > name) { //Il grafo è vuoto
 
-    if(graphLstElem->vertexInfo == NULL) {
-        return false;
-    } else {
-        return true;
+        //Creazione del nuovo vertice
+        Vertex* newVertex = createVertex(name, label);
+
+        /*VertexLst* newVertexLstElement = (VertexLst*)malloc(sizeof(VertexLst));
+        newVertexLstElement->vertexInfo = newVertex;
+
+        //Inserimento del vertice nella lista di vertici
+        newVertexLstElement->nextVertex = graphLst->vertexLst;
+        graphLst->vertexLst = newVertexLstElement;*/
+        VertexLst* newVertexLstElement = createVertexLstElement(newVertex, graphLst->vertexLst);
+        graphLst->vertexLst = newVertexLstElement;
+
+        //Creazione della lista dei vertici adiacenti del nuovo nodo
+        AdjacenLst* newAjdacentVertexLst = (AdjacenLst*)malloc(sizeof(AdjacenLst));
+        newAjdacentVertexLst->vertexPointer = newVertex;
+        newAjdacentVertexLst->nextVertex = NULL;
+        newAjdacentVertexLst->nextAdjacent = NULL;
+
+        //Inserimento della nuova lista di adiacenti nella lista di liste di adiacenti
+        graphLst->adjacentVertexLst = newAjdacentVertexLst;
+    } else { //Il gravo ha almeno un vertice
+        VertexLst* currentVertexLstElem = graphLst->vertexLst;
+        AdjacenLst* currentAdjacentLstElem = graphLst->adjacentVertexLst;
+
+        //Localizzazione del vertice che si trova prima del punto di inserimento
+        while(currentVertexLstElem->nextVertex != NULL && currentVertexLstElem->nextVertex->vertexInfo->name < name) {
+            currentVertexLstElem = currentVertexLstElem->nextVertex;
+            currentAdjacentLstElem = currentAdjacentLstElem->nextVertex;
+        }
+
+        //Creazione del nuovo vertice
+        Vertex* newVertex = createVertex(name, label);
+
+        VertexLst* newVertexLstElement = (VertexLst*)malloc(sizeof(VertexLst));
+        newVertexLstElement->vertexInfo = newVertex;
+
+        //Inserimento del vertice nella lista di vertici
+        newVertexLstElement->nextVertex = currentVertexLstElem->nextVertex;
+        currentVertexLstElem->nextVertex = newVertexLstElement;
+
+        //Creazione della lista dei vertici adiacenti del nuovo nodo
+        AdjacenLst* newAjdacentLstElem = (AdjacenLst*)malloc(sizeof(AdjacenLst));
+        newAjdacentLstElem->vertexPointer = newVertex;
+
+        //Inserimento della lista dei vertici adiacenti del nuovo nodo
+        newAjdacentLstElem->nextVertex = currentAdjacentLstElem->nextVertex;
+        newAjdacentLstElem->nextVertex = currentAdjacentLstElem;
     }
 }
 
 bool lstGraphEmpty(void* graph) {
-    if(((GraphLst*)graph)->vertexInfo == NULL) {
-        return true;
-    } else {
-        return false;
-    }
+    return ((GraphLst*)graph)->vertexLst == NULL;
 }
 
 GraphRepresentation* ConstructGraphLst() {
@@ -84,10 +94,9 @@ GraphRepresentation* ConstructGraphLst() {
 
     type->graphConstruct = lstGraphConstruct;
     type->graphInsertVertex = lstGraphInsertVertex;
-    type->graphExistsVertex = lstGraphExistsVertex;
-    type->graphInsertEdge = lstGraphInsertEdge;
+    //type->graphExistsVertex = lstGraphExistsVertex;
+    //type->graphInsertEdge = lstGraphInsertEdge;
     type->graphEmpty = lstGraphEmpty;
-
 
     return type;
 }
