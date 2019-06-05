@@ -21,12 +21,12 @@ typedef void* (*GraphClone)(void*);
 // typedef type (*GraphTranspose)(arguments);
 
 typedef void (*GraphInsertVertex)(void* graph, int name, DataObject* label);
-typedef void (*GraphRemoveVertex)(void*, void*);
+typedef void (*GraphRemoveVertex)(void* graph, int name);
 typedef void (*GraphInsertEdge)(void* graph, int fromVertexName, int toVertexName);
-//typedef type (*GraphRemoveEdge)(arguments);
+typedef void (*GraphRemoveEdge)(void* graph, int fromVertexName, int toVertexName);
 
 typedef bool (*GraphExistsVertex)(void* graph, int name);
-typedef bool (*GraphExistsEdge)(void* graph, void* firstVertex, void* secondVertex);
+typedef bool (*GraphExistsEdge)(void* graph, int fromVertexName, int toVertexName);
 
 // typedef type (*GraphGetVertexData)(arguments);
 // typedef type (*GraphSetVertexData)(arguments);
@@ -64,10 +64,10 @@ typedef struct GraphRepresentation {
   GraphEmpty graphEmpty;
   //GraphClone graphClone;
   GraphInsertVertex graphInsertVertex;
-  //GraphRemoveVertex graphRemoveVertex;
+  GraphRemoveVertex graphRemoveVertex;
   GraphInsertEdge  graphInsertEdge;
   GraphExistsVertex graphExistsVertex;
-  //GraphExistsEdge graphExistsEdge;
+  GraphExistsEdge graphExistsEdge;
 } GraphRepresentation;
 
 typedef struct GraphType { //void* puntatore alla rappresentazione + graphrapresentation*
@@ -100,12 +100,12 @@ GraphObject* graphClone(GraphObject* graphObject);
 // type graphTranspose(arguments);
 
 void graphInsertVertex(GraphObject* graphObject, int name, DataObject* label); //TODO: Bool?
-// type graphRemoveVertex(arguments);
+void graphRemoveVertex(GraphObject* graphObject, int name);
 void graphInsertEdge(GraphObject* graphObject, int fromVertexName, int toVertexName);
-// type graphRemoveEdge(arguments);
+void graphRemoveEdge(GraphObject* graphObject, int fromVertexName, int toVertexName);
 
 bool graphExistsVertex(GraphObject* graphObject, int name); //TODO: prende solo nome o anche dataobject?
-// type graphExistsEdge(arguments);
+bool graphExistsEdge(GraphObject* graphObject, int fromVertexName, int toVertexName);
 
 // type graphGetVertexData(arguments);
 // type graphSetVertexData(arguments);

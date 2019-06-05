@@ -20,10 +20,18 @@ void graphInsertVertex(GraphObject* graphObject, int name, DataObject* label) {
     graphObject->type->graphRep->graphInsertVertex(graphObject->graph, name, label);
 }
 
-bool graphExistsVertex(GraphObject* graphObject, int name) {
-    return graphObject->type->graphRep->graphExistsVertex(graphObject->graph, name);
+void graphRemoveVertex(GraphObject* graphObject, int name) {
+    graphObject->type->graphRep->graphRemoveVertex(graphObject->graph, name);
 }
 
 void graphInsertEdge(GraphObject* graphObject, int fromVertexName, int toVertexName) {
     graphObject->type->graphRep->graphInsertEdge(graphObject->graph, fromVertexName, toVertexName);
+}
+
+bool graphExistsVertex(GraphObject* graphObject, int name) {
+    return graphObject->type->graphRep->graphExistsVertex(graphObject->graph, name);
+}
+
+bool graphExistsEdge(GraphObject* graphObject, int fromVertexName, int toVertexName) {
+    return graphObject->type->graphRep->graphExistsEdge(graphObject->graph, fromVertexName, toVertexName);
 }
