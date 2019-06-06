@@ -13,12 +13,12 @@
 /* ************************************************************************** */
 
 typedef void* (*GraphConstruct)(void*);
-typedef void (*GraphDestruct)(void*);
+typedef void (*GraphDestruct)(void* graph);
 
-typedef bool (*GraphEmpty)(void*);
+typedef bool (*GraphEmpty)(void* graph);
 
-typedef void* (*GraphClone)(void*);
-// typedef type (*GraphTranspose)(arguments);
+typedef void* (*GraphClone)(void* graph);
+typedef void* (*GraphTranspose)(void* graph);
 
 typedef void (*GraphInsertVertex)(void* graph, int name, DataObject* label);
 typedef void (*GraphRemoveVertex)(void* graph, int name);
@@ -28,8 +28,8 @@ typedef void (*GraphRemoveEdge)(void* graph, int fromVertexName, int toVertexNam
 typedef bool (*GraphExistsVertex)(void* graph, int name);
 typedef bool (*GraphExistsEdge)(void* graph, int fromVertexName, int toVertexName);
 
-// typedef type (*GraphGetVertexData)(arguments);
-// typedef type (*GraphSetVertexData)(arguments);
+typedef DataObject* (*GraphGetVertexData)(void* graph, int name);
+typedef void (*GraphSetVertexData)(void* graph, int name, DataObject* newValue);
 
 // typedef type (*GraphVertexFromPointer)(arguments); //restituisce nome del nodo puntato
 
@@ -60,14 +60,24 @@ typedef void* (*GraphMaximalReachableSubgraph)(void*);// Restituisce grafo nuovo
 
 typedef struct GraphRepresentation {
   GraphConstruct graphConstruct;
-  //GraphDestruct graphDestruct;
+  GraphDestruct graphDestruct;
+
   GraphEmpty graphEmpty;
-  //GraphClone graphClone;
+
+  GraphClone graphClone;
+  GraphTranspose graphTranspose;
+
   GraphInsertVertex graphInsertVertex;
   GraphRemoveVertex graphRemoveVertex;
   GraphInsertEdge  graphInsertEdge;
+  GraphRemoveEdge  graphRemoveEdge;
+
   GraphExistsVertex graphExistsVertex;
   GraphExistsEdge graphExistsEdge;
+
+  GraphGetVertexData graphGetVertexData;
+  GraphSetVertexData  graphSetVertexData;
+
 } GraphRepresentation;
 
 typedef struct GraphType { //void* puntatore alla rappresentazione + graphrapresentation*
@@ -97,7 +107,7 @@ void graphClear(GraphObject* graphObject);
 
 GraphObject* graphClone(GraphObject* graphObject);
 
-// type graphTranspose(arguments);
+GraphObject* graphTranspose(GraphObject* graphObject);
 
 void graphInsertVertex(GraphObject* graphObject, int name, DataObject* label); //TODO: Bool?
 void graphRemoveVertex(GraphObject* graphObject, int name);
@@ -107,8 +117,8 @@ void graphRemoveEdge(GraphObject* graphObject, int fromVertexName, int toVertexN
 bool graphExistsVertex(GraphObject* graphObject, int name); //TODO: prende solo nome o anche dataobject?
 bool graphExistsEdge(GraphObject* graphObject, int fromVertexName, int toVertexName);
 
-// type graphGetVertexData(arguments);
-// type graphSetVertexData(arguments);
+DataObject* graphGetVertexData(GraphObject* graphObject, int name);
+void graphSetVertexData(GraphObject* graphObject, int name, DataObject* newValue);
 
 // type graphVertexFromPointer(arguments);
 

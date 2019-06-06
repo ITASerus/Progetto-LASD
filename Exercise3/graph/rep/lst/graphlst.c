@@ -1,6 +1,31 @@
 
 #include "graphlst.h"
 
+/* *************************** FUNZIONI PRINCIPALI **************************** */
+
+void* lstGraphConstruct();
+void lstGraphDestruct(void* graph);
+
+bool lstGraphEmpty(void* graph);
+
+void* lstGraphClone(void* graph);
+
+void* lstGraphTranspose(void* graph);
+
+void lstGraphInsertVertex(void* graph, int name, DataObject* label);
+void lstGraphRemoveVertex(void* graph, int name);
+
+void lstGraphInsertEdge(void* graph, int fromVertexName, int toVertexName);
+void lstGraphRemoveEdge(void* graph, int fromVertexName, int toVertexName);
+
+bool lstGraphExistsVertex(void* graph, int name);
+bool lstGraphExistsEdge(void* graph, int fromVertexName, int toVertexName);
+
+DataObject* lstGraphGetVertexData(void* graph, int name);
+void lstGraphSetVertexData(void* graph, int name, DataObject* newValue);
+
+/* *************************** FUNZIONI AUSILIARIE **************************** */
+
 Vertex* createVertex(int name, DataObject* label);
 VertexLst* createVertexLstElement(Vertex* vertexInfo, VertexLst* next);
 AdjacentLst* createAdjacentLstElement(Vertex* vertexPointer, AdjacentLst* nextVertex, AdjacentLst* nextAdjacent);
@@ -17,6 +42,94 @@ void* lstGraphConstruct() {
     newGraphLst->adjacentVertexLst = NULL;
 
     return newGraphLst;
+}
+
+void lstGraphDestruct(void* graph) {
+    GraphLst* graphLst = (GraphLst*)graph;
+
+    VertexLst* vertexRef;
+    AdjacentLst* adjacentRef;
+    while(graphLst->vertexLst != NULL) {
+        vertexRef = graphLst->vertexLst;
+        adjacentRef = graphLst->adjacentVertexLst;
+
+        graphLst->vertexLst = graphLst->vertexLst->nextVertex;
+        graphLst->adjacentVertexLst = graphLst->adjacentVertexLst->nextVertex;
+
+        deleteVertexLstElem(vertexRef);
+        deleteAdjacentLst(adjacentRef);
+    }
+}
+
+bool lstGraphEmpty(void* graph) {
+    return ((GraphLst*)graph)->vertexLst == NULL;
+}
+
+void* lstGraphClone(void* graph) {
+    GraphLst* newGraph = lstGraphConstruct();
+
+    //Copio i vertici appartenenti al grafo da copiare
+    VertexLst* vertexLstToClone = ((GraphLst*)graph)->vertexLst;
+    if(vertexLstToClone != NULL) { //Il grafo da clonare ha almeno un vertice
+        Vertex* newVertex = createVertex(vertexLstToClone->vertexInfo->name, vertexLstToClone->vertexInfo->label);
+        newGraph->vertexLst = createVertexLstElement(newVertex, NULL);
+        newGraph->adjacentVertexLst = createAdjacentLstElement(newVertex, NULL, NULL);
+
+        vertexLstToClone = vertexLstToClone->nextVertex;
+
+        VertexLst* newGraphVertexLst = newGraph->vertexLst;
+        AdjacentLst* newGraphAdjacentLst = newGraph->adjacentVertexLst;
+        while(vertexLstToClone != NULL) {
+            newVertex = createVertex(vertexLstToClone->vertexInfo->name, vertexLstToClone->vertexInfo->label);
+            newGraphVertexLst->nextVertex = createVertexLstElement(newVertex, NULL);
+            newGraphAdjacentLst->nextVertex = createAdjacentLstElement(newVertex, NULL, NULL);
+
+            newGraphVertexLst = newGraphVertexLst->nextVertex;
+            newGraphAdjacentLst = newGraphAdjacentLst->nextVertex;
+            vertexLstToClone = vertexLstToClone->nextVertex;
+        }
+    }
+
+    //Copio gli adiacenti dei vertici
+    AdjacentLst* adjacentLstToClone = ((GraphLst*)graph)->adjacentVertexLst;
+    while(adjacentLstToClone != NULL) {
+        AdjacentLst* currentAdjacent = adjacentLstToClone->nextAdjacent;
+
+        while(currentAdjacent != NULL) {
+            lstGraphInsertEdge(newGraph, adjacentLstToClone->vertexPointer->name, currentAdjacent->vertexPointer->name);
+            currentAdjacent = currentAdjacent->nextAdjacent;
+        }
+        adjacentLstToClone = adjacentLstToClone->nextVertex;
+    }
+
+    return newGraph;
+}
+
+void* lstGraphTranspose(void* graph) {
+    GraphLst* newGraph = lstGraphConstruct();
+
+    //Cloonazione dei vertici presenti nel grafo
+    VertexLst* graphVertexLst = ((GraphLst*)graph)->vertexLst;
+    if(graphVertexLst != NULL) { //Il grafo da clonare ha almeno un vertice
+        newGraph->vertexLst = createVertexLstElement(graphVertexLst->vertexInfo, NULL);
+        newGraph->adjacentVertexLst = createAdjacentLstElement(newGraph->vertexLst->vertexInfo, NULL, NULL);
+
+        graphVertexLst = graphVertexLst->nextVertex;
+
+        VertexLst* newGraphVertex = newGraph->vertexLst;
+        AdjacentLst* newGraphAdjacent = newGraph->adjacentVertexLst;
+        while(graphVertexLst != NULL) {
+            newGraphVertex->nextVertex = createVertexLstElement(graphVertexLst->vertexInfo, NULL);
+            newGraphAdjacent->nextAdjacent = createAdjacentLstElement(newGraphVertex->vertexInfo, NULL, NULL);
+
+            newGraphVertex = newGraphVertex->nextVertex;
+            newGraphAdjacent = newGraphAdjacent->nextVertex;
+
+            graphVertexLst = graphVertexLst->nextVertex;
+        }
+    }
+
+    return newGraph;
 }
 
 void lstGraphInsertVertex(void* graph, int name, DataObject* label) {
@@ -53,8 +166,8 @@ void lstGraphInsertVertex(void* graph, int name, DataObject* label) {
 
         Vertex* newVertex = createVertex(name, label);
 
-        VertexLst* newVertexLstElement = createVertexLstElement(newVertex, currentVertexLstElem->nextVertex);
-        currentVertexLstElem->nextVertex = newVertexLstElement;
+        VertexLst* newVertexLstElem = createVertexLstElement(newVertex, currentVertexLstElem->nextVertex);
+        currentVertexLstElem->nextVertex = newVertexLstElem;
 
         AdjacentLst* newAjdacentLstElem = createAdjacentLstElement(newVertex, currentAdjacentLstElem->nextVertex, NULL);
         currentAdjacentLstElem->nextVertex = newAjdacentLstElem;
@@ -63,9 +176,9 @@ void lstGraphInsertVertex(void* graph, int name, DataObject* label) {
 
 void lstGraphRemoveVertex(void* graph, int name) {
 
-    if( ((GraphLst*)graph)->vertexLst != NULL) {
+    if( ((GraphLst*)graph)->vertexLst != NULL) { //TODO: Implementare limitazione ricerca in base al nome
 
-        if( ((GraphLst*)graph)->vertexLst->vertexInfo->name == name) { //Il vertice da rimuovere si trova in cima alla lista
+        if(((GraphLst*)graph)->vertexLst->vertexInfo->name == name) { //Il vertice da rimuovere si trova in cima alla lista
             //Rimozione vertice
             VertexLst* vertexLstElemToRemove = ((GraphLst*)graph)->vertexLst;
             ((GraphLst*)graph)->vertexLst = ((GraphLst*)graph)->vertexLst->nextVertex;
@@ -81,12 +194,14 @@ void lstGraphRemoveVertex(void* graph, int name) {
             AdjacentLst* adjacentLst = ((GraphLst*)graph)->adjacentVertexLst;
 
             //Ricerca del vertice da rimuovere e della rispettiva lista di adiacenza
-            while(vertexLst->nextVertex != NULL && vertexLst->nextVertex->vertexInfo->name != name) {
-                vertexLst = vertexLst->nextVertex;
-                adjacentLst = adjacentLst->nextVertex;
+            if(vertexLst->nextVertex != NULL && vertexLst->nextVertex->vertexInfo->name != name) {
+                do {
+                    vertexLst = vertexLst->nextVertex;
+                    adjacentLst = adjacentLst->nextVertex;
+                } while (vertexLst->nextVertex != NULL && vertexLst->nextVertex->vertexInfo->name < name);
             }
 
-            if(vertexLst->nextVertex != NULL) { //Il vertice da rimuovere esiste
+            if(vertexLst->nextVertex != NULL && vertexLst->nextVertex->vertexInfo->name == name) { //Il vertice da rimuovere esiste
                 //Rimozione vertice
                 VertexLst* vertexLstElemToRemove = vertexLst->nextVertex;
                 vertexLst->nextVertex = vertexLst->nextVertex->nextVertex;
@@ -139,14 +254,47 @@ void lstGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) {
     }
 }
 
+void lstGraphRemoveEdge(void* graph, int fromVertexName, int toVertexName) {
+    if(((GraphLst*)graph)->vertexLst != NULL) { //Nel grafo c'è almeno un vertice
+        AdjacentLst* adjacentLstElem = ((GraphLst *) graph)->adjacentVertexLst;
+
+        if(adjacentLstElem->vertexPointer->name != fromVertexName) {
+            do {
+                adjacentLstElem = adjacentLstElem->nextVertex;
+            } while (adjacentLstElem != NULL && adjacentLstElem->vertexPointer->name < fromVertexName);
+        }
+
+        if(adjacentLstElem != NULL && adjacentLstElem->vertexPointer->name == fromVertexName) { //Il vertice da cui parte l'arco esiste
+
+            if(adjacentLstElem->nextAdjacent != NULL && adjacentLstElem->nextAdjacent->vertexPointer->name != toVertexName) {
+                do {
+                    adjacentLstElem = adjacentLstElem->nextAdjacent;
+                } while(adjacentLstElem->nextAdjacent != NULL && adjacentLstElem->nextAdjacent->vertexPointer->name < toVertexName);
+            }
+
+            if (adjacentLstElem->nextAdjacent != NULL && adjacentLstElem->nextAdjacent->vertexPointer->name == toVertexName) { //L'arco da eliminare esiste
+                AdjacentLst *adjacentElemToRemove = adjacentLstElem->nextAdjacent;
+                adjacentLstElem->nextAdjacent = adjacentLstElem->nextAdjacent->nextAdjacent;
+                free(adjacentElemToRemove);
+            } else {
+                printf("\nVertice di arrivo non presente\n");
+            }
+        } else {
+            printf("\nVertice di partenza non presente\n");
+        }
+    }
+}
+
 bool lstGraphExistsVertex(void* graph, int name) {
     VertexLst* currentVertexLstElem = ((GraphLst*)graph)->vertexLst;
 
-    while(currentVertexLstElem != NULL && currentVertexLstElem->vertexInfo->name != name) {
-        currentVertexLstElem = currentVertexLstElem->nextVertex;
+    if(currentVertexLstElem->vertexInfo->name != name) {
+        do {
+            currentVertexLstElem = currentVertexLstElem->nextVertex;
+        } while(currentVertexLstElem != NULL && currentVertexLstElem->vertexInfo->name < name);
     }
 
-    if(currentVertexLstElem != NULL) {
+    if(currentVertexLstElem != NULL && currentVertexLstElem->vertexInfo->name == name) {
         return true;
     } else {
         return false;
@@ -174,22 +322,57 @@ bool lstGraphExistsEdge(void* graph, int fromVertexName, int toVertexName) {
     return false;
 }
 
-bool lstGraphEmpty(void* graph) {
-    return ((GraphLst*)graph)->vertexLst == NULL;
+DataObject* lstGraphGetVertexData(void* graph, int name) {
+    VertexLst* currentVertex = ((GraphLst*)graph)->vertexLst;
+
+    while(currentVertex != NULL && currentVertex->vertexInfo->name < name){
+        currentVertex = currentVertex->nextVertex;
+    }
+
+    if(currentVertex != NULL && currentVertex->vertexInfo->name == name) {
+        DataObject* vertexData = adtClone(currentVertex->vertexInfo->label);
+        return vertexData;
+    } else {
+        return NULL;
+    }
+}
+
+void lstGraphSetVertexData(void* graph, int name, DataObject* newValue) {
+    VertexLst* currentVertex = ((GraphLst*)graph)->vertexLst;
+
+    while(currentVertex != NULL && currentVertex->vertexInfo->name < name){
+        currentVertex = currentVertex->nextVertex;
+    }
+
+    if(currentVertex != NULL && currentVertex->vertexInfo->name == name) {
+        adtSetValue(currentVertex->vertexInfo->label, newValue->value); //TODO: Si usa così setValue
+    } else {
+        printf("Vertice %d non presente\n", name);
+    }
 }
 
 GraphRepresentation* ConstructGraphLst() {
     GraphRepresentation* type = (GraphRepresentation*)malloc(sizeof(GraphRepresentation));
 
     type->graphConstruct = lstGraphConstruct;
-    type->graphInsertVertex = lstGraphInsertVertex;
-    type->graphRemoveVertex = lstGraphRemoveVertex;
-    type->graphInsertEdge = lstGraphInsertEdge;
-    type->graphExistsVertex = lstGraphExistsVertex;
-    type->graphExistsEdge = lstGraphExistsEdge;
+    type->graphDestruct = lstGraphDestruct;
 
     type->graphEmpty = lstGraphEmpty;
 
+    type->graphTranspose = lstGraphTranspose;
+
+    type->graphClone = lstGraphClone;
+
+    type->graphInsertVertex = lstGraphInsertVertex;
+    type->graphRemoveVertex = lstGraphRemoveVertex;
+    type->graphInsertEdge = lstGraphInsertEdge;
+    type->graphRemoveEdge = lstGraphRemoveEdge;
+
+    type->graphExistsVertex = lstGraphExistsVertex;
+    type->graphExistsEdge = lstGraphExistsEdge;
+
+    type->graphGetVertexData = lstGraphGetVertexData;
+    type->graphSetVertexData = lstGraphSetVertexData;
 
     return type;
 }
@@ -227,8 +410,6 @@ AdjacentLst* createAdjacentLstElement(Vertex* vertexPointer, AdjacentLst* nextVe
 
     return newAjdacentVertexLst;
 }
-
-
 
 
 void deleteVertexLstElem(VertexLst* vertexLstElem){
