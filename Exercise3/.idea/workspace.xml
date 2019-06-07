@@ -21,14 +21,48 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.40013823">
+    <splitter split-orientation="horizontal" split-proportion="0.76226157">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlst.c">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/graph/graph.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="22" selection-start-line="22" selection-end-line="22" />
+                <state relative-caret-position="721">
+                  <caret line="167" selection-start-line="167" selection-end-line="167" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmat.c">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="162">
+                  <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+                  <folding>
+                    <element signature="e#24#370#0" />
+                    <element signature="e#376#3404#0" />
+                    <element signature="e#3265#3346#0" />
+                    <element signature="e#3158#3237#0" />
+                    <element signature="e#4349#4424#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/testGraph.c">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1567">
+                  <caret line="1113" column="6" selection-start-line="1113" selection-start-column="6" selection-end-line="1113" selection-end-column="6" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/graph/graph.c">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="433">
+                  <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
                 </state>
               </provider>
             </entry>
@@ -38,33 +72,10 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlst.c">
+            <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmat.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-549">
-                  <caret line="4" selection-start-line="4" selection-end-line="4" />
-                  <folding>
-                    <element signature="e#1154#1434#0" />
-                    <element signature="e#1436#1937#0" />
-                    <element signature="e#1943#2024#0" />
-                    <element signature="e#1939#3460#0" />
-                    <element signature="e#4092#6315#0" />
-                    <element signature="e#6317#8417#0" />
-                    <element signature="e#8419#10886#0" />
-                    <element signature="e#10888#12460#0" />
-                    <element signature="e#12466#12977#0" />
-                    <element signature="e#12983#13658#0" />
-                    <element signature="e#13747#14223#0" />
-                    <element signature="e#14225#14743#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/testGraph.c">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="619">
-                  <caret line="794" column="35" lean-forward="true" selection-start-line="794" selection-start-column="35" selection-end-line="794" selection-end-column="35" />
+                <state relative-caret-position="216">
+                  <caret line="12" column="6" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -73,11 +84,14 @@
       </split-second>
     </splitter>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>true</find>
+    </findStrings>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/adt/int/adtint.h" />
-        <option value="$PROJECT_DIR$/adt/rec/adtrec.c" />
         <option value="$PROJECT_DIR$/adt/rec/adtrec.h" />
         <option value="$PROJECT_DIR$/adt/str/adtstr.c" />
         <option value="$PROJECT_DIR$/adt/str/adtstr.h" />
@@ -121,16 +135,18 @@
         <option value="$PROJECT_DIR$/graph/rec/graphrec.h" />
         <option value="$PROJECT_DIR$/graph/rec/graphrec.c" />
         <option value="$PROJECT_DIR$/graph/rep/bst/graphbst.h" />
-        <option value="$PROJECT_DIR$/graph/rep/lst/graphlst.h" />
         <option value="$PROJECT_DIR$/graph/graphitrpreord.h" />
-        <option value="$PROJECT_DIR$/graph/graph.c" />
         <option value="$PROJECT_DIR$/graph/graph.h" />
-        <option value="$PROJECT_DIR$/testGraph.c" />
+        <option value="$PROJECT_DIR$/graph/graph.c" />
+        <option value="$PROJECT_DIR$/graph/rep/lst/graphlst.h" />
+        <option value="$PROJECT_DIR$/graph/rep/mat/graphmat.h" />
         <option value="$PROJECT_DIR$/graph/rep/lst/graphlst.c" />
+        <option value="$PROJECT_DIR$/testGraph.c" />
+        <option value="$PROJECT_DIR$/graph/rep/mat/graphmat.c" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1680" />
     <option name="height" value="1050" />
   </component>
@@ -139,7 +155,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -151,23 +166,6 @@
               <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
               <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
               <item name="adt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
-              <item name="adt" type="462c0819:PsiDirectoryNode" />
-              <item name="rec" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
-              <item name="bst" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
-              <item name="bst" type="462c0819:PsiDirectoryNode" />
-              <item name="rec" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
@@ -190,13 +188,24 @@
             <path>
               <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
               <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
+              <item name="graph" type="462c0819:PsiDirectoryNode" />
+              <item name="rep" type="462c0819:PsiDirectoryNode" />
+              <item name="mat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
               <item name="stack" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -234,33 +243,34 @@
       <workItem from="1559485252480" duration="12012000" />
       <workItem from="1559550157232" duration="8368000" />
       <workItem from="1559720913144" duration="22488000" />
-      <workItem from="1559803890984" duration="17738000" />
+      <workItem from="1559803890984" duration="43749000" />
+      <workItem from="1559921345035" duration="5085000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93564000" />
+    <option name="totallyTimeSpent" value="124660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12778783" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12619048" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1734694" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.31428573" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28171828" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3136863" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Statistic" order="7" weight="0.18571429" />
+      <window_info anchor="bottom" id="Statistic" order="7" weight="0.20510204" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32959184" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.33966035" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -431,13 +441,6 @@
     <entry file="file://$PROJECT_DIR$/utility.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/adt/int/adtint.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -540,16 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmat.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmat.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="579">
@@ -616,77 +609,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adt/adt.c">
+    <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlst.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="162">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/adt/int/adtint.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="249">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graph/graph.h">
+    <entry file="file://$PROJECT_DIR$/adt/adt.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlst.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-89">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/graph.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="e#21#324#0" />
-            <element signature="e#326#379#0" />
-            <element signature="e#330#443#0" />
-            <element signature="e#613#753#0" />
-            <element signature="e#755#943#0" />
-            <element signature="e#945#1133#0" />
-            <element signature="e#1139#1282#0" />
-            <element signature="e#1288#1479#0" />
-            <element signature="e#1481#1637#0" />
-            <element signature="e#1639#1813#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testGraph.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="794" column="35" lean-forward="true" selection-start-line="794" selection-start-column="35" selection-end-line="794" selection-end-column="35" />
+        <state relative-caret-position="487">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlst.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-549">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="294">
+          <caret line="350" column="3" lean-forward="true" selection-start-line="350" selection-end-line="351" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/graph.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="167" selection-start-line="167" selection-end-line="167" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/graph.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmat.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testGraph.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1567">
+          <caret line="1113" column="6" selection-start-line="1113" selection-start-column="6" selection-end-line="1113" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmat.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
           <folding>
-            <element signature="e#1154#1434#0" />
-            <element signature="e#1436#1937#0" />
-            <element signature="e#1943#2024#0" />
-            <element signature="e#1939#3460#0" />
-            <element signature="e#4092#6315#0" />
-            <element signature="e#6317#8417#0" />
-            <element signature="e#8419#10886#0" />
-            <element signature="e#10888#12460#0" />
-            <element signature="e#12466#12977#0" />
-            <element signature="e#12983#13658#0" />
-            <element signature="e#13747#14223#0" />
-            <element signature="e#14225#14743#0" />
+            <element signature="e#24#370#0" />
+            <element signature="e#376#3404#0" />
+            <element signature="e#3265#3346#0" />
+            <element signature="e#3158#3237#0" />
+            <element signature="e#4349#4424#0" />
           </folding>
         </state>
       </provider>

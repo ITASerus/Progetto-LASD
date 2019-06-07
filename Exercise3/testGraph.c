@@ -1,7 +1,7 @@
 
 #include "testGraph.h"
 
-void printGraphLst(GraphObject* graphObject) {
+void printGraphLst(GraphObject* graphObject) { //TODO: Evita di stampare il primo nodo della lista di adiacenza
     printf("\nGRAFO:\n");
     VertexLst* tmp = ((GraphLst*)graphObject->graph)->vertexLst;
     AdjacentLst* tmpAdjacentLstVertex = ((GraphLst*)graphObject->graph)->adjacentVertexLst;
@@ -23,7 +23,34 @@ void printGraphLst(GraphObject* graphObject) {
     }
 }
 
-void testGraph() {
+void printGraphMat(GraphObject* graphObject) {
+    printf("\nGRAFO:\n");
+    VertexLst* tmp = ((GraphMat*)graphObject->graph)->vertexLst;
+
+    int index = 0;
+    while(tmp != NULL) {
+        printf("Nome: %d Etichetta: ", tmp->vertexInfo->name);
+        adtWriteToMonitor(tmp->vertexInfo->label);
+
+        printf(" ADIACENTI:");
+        bool** matrix = ((GraphMat*)graphObject->graph)->adjacentMatrix;
+        for(int i = 0; i < ((GraphMat*)graphObject->graph)->numVertex; i++) {
+            if(matrix[index][i]) {
+                VertexLst* currentVertex = ((GraphMat*)graphObject->graph)->vertexLst;
+                for(int j = 0; j < i; j++) {
+                    currentVertex = currentVertex->nextVertex;
+                }
+                printf(" %d |", currentVertex->vertexInfo->name);
+            }
+        }
+        tmp = tmp->nextVertex;
+
+        index++;
+        printf("\n");
+    }
+}
+
+void testList() {
     GraphType *graphTyp = (GraphType *) malloc(sizeof(GraphType));
     graphTyp->graphRep = ConstructGraphLst();
 
@@ -119,6 +146,8 @@ void testGraph() {
     }
 
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("*****************************************************************\n");
 
@@ -240,8 +269,17 @@ void testGraph() {
     graphInsertEdge(graphObject, 9, 9);
 
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("*****************************************************************\n");
+
+    printf("VERIFICA ESISTENZA ARCO TRA 200 e 300: ");
+    if(graphExistsEdge(graphObject, 200, 300)) {
+        printf("true\n");
+    } else {
+        printf("false\n");
+    }
 
     printf("VERIFICA ESISTENZA ARCO TRA 9 e 0: ");
     if(graphExistsEdge(graphObject, 9, 0)) {
@@ -347,11 +385,16 @@ void testGraph() {
     graphRemoveVertex(graphObject, 0);
     printGraphLst(graphObject);
 
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
+
     printf("*****************************************************************\n");
 
     printf("\nINSERIMENTO VERTICE 7");
     graphInsertVertex(graphObject, 7, dataPtr);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("*****************************************************************\n");
 
@@ -392,6 +435,8 @@ void testGraph() {
     graphInsertVertex(graphObject, 15, dataPtr);
 
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("*****************************************************************\n");
 
@@ -465,6 +510,8 @@ void testGraph() {
     graphInsertEdge(graphObject, 9, 9);
 
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("*****************************************************************\n");
     printGraphLst(graphObject);
@@ -472,38 +519,56 @@ void testGraph() {
     printf("\nRIMOZIONE ARCO TRA 1 e 3");
     graphRemoveEdge(graphObject, 1, 3);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("\nRIMOZIONE ARCO TRA 7 e 11");
     graphRemoveEdge(graphObject, 7, 11);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("\nRIMOZIONE ARCO TRA 7 e 12");
     graphRemoveEdge(graphObject, 7, 12);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("\nRIMOZIONE ARCO TRA 7 e 7");
     graphRemoveEdge(graphObject, 7, 7);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("\nRIMOZIONE ARCO TRA 8 e 0");
     graphRemoveEdge(graphObject, 8, 0);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("\nRIMOZIONE ARCO TRA 8 e 8");
     graphRemoveEdge(graphObject, 8, 8);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("\nRIMOZIONE ARCO TRA 2 e 8");
     graphRemoveEdge(graphObject, 2, 8);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("\nRIMOZIONE ARCO TRA 7 e 7");
     graphRemoveEdge(graphObject, 7, 7);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("\nRIMOZIONE ARCO TRA 7 e 5");
     graphRemoveEdge(graphObject, 7, 5);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("\nRIMOZIONE ARCO TRA 7 e 8");
     graphRemoveEdge(graphObject, 7, 8);
@@ -512,18 +577,26 @@ void testGraph() {
     printf("\nRIMOZIONE ARCO TRA 3 e 3");
     graphRemoveEdge(graphObject, 3, 3);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("\nRIMOZIONE ARCO TRA 7 e 15");
     graphRemoveEdge(graphObject, 7, 15);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("\nRIMOZIONE ARCO TRA 7 e 0");
     graphRemoveEdge(graphObject, 7, 0);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("\nRIMOZIONE ARCO TRA 0 e 0");
     graphRemoveEdge(graphObject, 0, 0);
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("*****************************************************************\n");
 
@@ -555,6 +628,8 @@ void testGraph() {
     graphRemoveVertex(graphObject, 15);
 
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("*****************************************************************\n");
 
@@ -578,6 +653,8 @@ void testGraph() {
     graphInsertVertex(graphObject, 10, dataPtr);
 
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("*****************************************************************\n");
 
@@ -687,12 +764,16 @@ void testGraph() {
     graphSetVertexData(graphObject, -1, dataPtr);
 
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("*****************************************************************\n");
 
     graphDestruct(graphObject);
 
     printGraphLst(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("*****************************************************************\n");
 
@@ -762,8 +843,6 @@ void testGraph() {
     graphRemoveEdge(graphObject, 5, 3);
     graphRemoveEdge(graphObject, 5, 1);
     graphRemoveEdge(graphObject, 5, 2);
-    graphRemoveVertex(graphObject, 2);
-    ((GraphLst*)graphObject->graph)->vertexLst->vertexInfo->name = 999;
 
     adtRandomValue(dataPtr);
     graphSetVertexData(clonedGraph, 1, dataPtr);
@@ -794,4 +873,244 @@ void testGraph() {
     GraphObject* transposedGraph = graphTranspose(graphObject);
     printGraphLst(transposedGraph);
 
+    graphDestruct(transposedGraph);
+    printf("*****************************************************************\n");
+
+    printf("\nNUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
+
+    graphDestruct(graphObject);
+    printf("*****************************************************************\n");
+
+    printf("\nTEST TRANSPOSEDGRAPH:\n");
+
+    graphObject = graphConstruct(graphTyp);
+    transposedGraph = graphTranspose(graphObject);
+
+    printGraphLst(graphObject);
+    printGraphLst(transposedGraph);
+
+    graphInsertVertex(graphObject, 8, dataPtr);
+    transposedGraph = graphTranspose(graphObject);
+    printGraphLst(graphObject);
+    printGraphLst(transposedGraph);
+
+    graphInsertVertex(graphObject, 7, dataPtr);
+    transposedGraph = graphTranspose(graphObject);
+    printGraphLst(graphObject);
+    printGraphLst(transposedGraph);
+
+    graphInsertEdge(graphObject, 7, 8);
+    transposedGraph = graphTranspose(graphObject);
+    printGraphLst(graphObject);
+    printGraphLst(transposedGraph);
+
+    graphInsertEdge(graphObject, 8, 7);
+    transposedGraph = graphTranspose(graphObject);
+    printGraphLst(graphObject);
+    printGraphLst(transposedGraph);
+
+    graphInsertEdge(graphObject, 7, 7);
+    transposedGraph = graphTranspose(graphObject);
+    printGraphLst(graphObject);
+    printGraphLst(transposedGraph);
+
+    graphInsertVertex(graphObject, 10, dataPtr);
+    transposedGraph = graphTranspose(graphObject);
+    printGraphLst(graphObject);
+    printGraphLst(transposedGraph);
+
+    adtRandomValue(dataPtr);
+    graphSetVertexData(transposedGraph, 10, dataPtr);
+    printGraphLst(graphObject);
+    printGraphLst(transposedGraph);
+
+    ((GraphLst*)transposedGraph->graph)->vertexLst->vertexInfo->name = 90;
+    printGraphLst(graphObject);
+    printGraphLst(transposedGraph);
+
+    graphDestruct(transposedGraph);
+
+    printf("*****************************************************************\n");
+
+}
+
+void testMat() {
+    GraphType *graphTyp = (GraphType*)malloc(sizeof(GraphType));
+    graphTyp->graphRep = ConstructGraphMat();
+
+    GraphObject *graphObject = graphConstruct(graphTyp);
+
+    DataType *dataTyp = ConstructIntDataType();
+    DataObject *dataPtr = adtConstruct(dataTyp);
+
+
+    printf("Grafo vuoto?: ");
+    if (graphEmpty(graphObject)) {
+        printf("true\n");
+    } else {
+        printf("false\n");
+    }
+
+    printf("\n\n");
+
+    adtRandomValue(dataPtr);
+    printf("INSERIMENTO VERTICE 8\n");
+    graphInsertVertex(graphObject, 8, dataPtr);
+
+    adtRandomValue(dataPtr);
+    printf("INSERIMENTO VERTICE 9\n");
+    graphInsertVertex(graphObject, 9, dataPtr);
+
+    adtRandomValue(dataPtr);
+    printf("INSERIMENTO VERTICE 10\n");
+    graphInsertVertex(graphObject, 10, dataPtr);
+
+    adtRandomValue(dataPtr);
+    printf("INSERIMENTO VERTICE 11\n");
+    graphInsertVertex(graphObject, 11, dataPtr);
+
+    printGraphMat(graphObject);
+
+    printf("*****************************************************************\n");
+
+    printf("INSERIMENTO ARCHI\n");
+
+    graphInsertEdge(graphObject, 8, 9);
+    graphInsertEdge(graphObject, 9, 8);
+    graphInsertEdge(graphObject, 8, 8);
+    graphInsertEdge(graphObject, 10, 11);
+    graphInsertEdge(graphObject, 11, 11);
+    graphInsertEdge(graphObject, 11, 8);
+    graphInsertEdge(graphObject, 11, 9);
+    graphInsertEdge(graphObject, 11, 10);
+
+    printGraphMat(graphObject);
+
+    printf("*****************************************************************\n");
+
+    printf("VERIFICA ESISTENZA ARCO TRA 8 E 9: ");
+    if(graphExistsEdge(graphObject, 8, 9)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 9 E 8: ");
+    if(graphExistsEdge(graphObject, 9, 8)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 8 E 8: ");
+    if(graphExistsEdge(graphObject, 8, 8)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 10 E 11: ");
+    if(graphExistsEdge(graphObject, 10, 11)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 11 E 11: ");
+    if(graphExistsEdge(graphObject, 11, 11)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 11 E 8: ");
+    if(graphExistsEdge(graphObject, 11, 8)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 11 E 9: ");
+    if(graphExistsEdge(graphObject, 11, 9)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 11 E 10: ");
+    if(graphExistsEdge(graphObject, 11, 10)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 10 E 10: ");
+    if(graphExistsEdge(graphObject, 10, 10)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 1 E 1: ");
+    if(graphExistsEdge(graphObject, 1, 1)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 1 E 2: ");
+    if(graphExistsEdge(graphObject, 1, 2)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA -1 E 200: ");
+    if(graphExistsEdge(graphObject, -1, 200)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 200 E 300: ");
+    if(graphExistsEdge(graphObject, 200, 300)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 10 E 100: ");
+    if(graphExistsEdge(graphObject, 10, 100)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 100 E 10: ");
+    if(graphExistsEdge(graphObject, 10, 10)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 9 E 100: ");
+    if(graphExistsEdge(graphObject, 9, 100)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+    printf("VERIFICA ESISTENZA ARCO TRA 7 E 9: ");
+    if(graphExistsEdge(graphObject, 7, 9)) {
+        printf("TRUE\n");
+    } else {
+        printf("FALSE\n");
+    }
+
+}
+
+void testGraph() {
+    //testList();
+    testMat();
 }

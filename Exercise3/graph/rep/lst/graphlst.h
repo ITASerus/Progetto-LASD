@@ -8,25 +8,12 @@
 
 /* ************************************************************************** */
 
-//Struttura che rappresenta le informazioni di un vertice del grafo
-typedef struct Vertex {
-    int name;
-    DataObject* label;
-} Vertex;
-
 //Struttura che rappresenta un nodo della lista dei vertici adiacenti al vertce puntato da vertexPoiner
 typedef struct AdjacentLst AdjacentLst;
 struct AdjacentLst {
     Vertex* vertexPointer;
     AdjacentLst* nextAdjacent;
     AdjacentLst* nextVertex;
-};
-
-//Struttura che rappresenta la lista dei vertici presenti nel grafo
-typedef struct VertexLst VertexLst;
-struct VertexLst {
-    Vertex* vertexInfo;
-    VertexLst* nextVertex;
 };
 
 //Struttura che rappresenta l'intero grafo rappresentato sottoforma di lista di adiacenza

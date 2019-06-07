@@ -12,7 +12,7 @@
 
 /* ************************************************************************** */
 
-typedef void* (*GraphConstruct)(void*);
+typedef void* (*GraphConstruct)(void* type);
 typedef void (*GraphDestruct)(void* graph);
 
 typedef bool (*GraphEmpty)(void* graph);
@@ -20,10 +20,10 @@ typedef bool (*GraphEmpty)(void* graph);
 typedef void* (*GraphClone)(void* graph);
 typedef void* (*GraphTranspose)(void* graph);
 
-typedef void (*GraphInsertVertex)(void* graph, int name, DataObject* label);
-typedef void (*GraphRemoveVertex)(void* graph, int name);
-typedef void (*GraphInsertEdge)(void* graph, int fromVertexName, int toVertexName);
-typedef void (*GraphRemoveEdge)(void* graph, int fromVertexName, int toVertexName);
+typedef bool (*GraphInsertVertex)(void* graph, int name, DataObject* label);
+typedef int (*GraphRemoveVertex)(void* graph, int name);
+typedef bool (*GraphInsertEdge)(void* graph, int fromVertexName, int toVertexName);
+typedef bool (*GraphRemoveEdge)(void* graph, int fromVertexName, int toVertexName);
 
 typedef bool (*GraphExistsVertex)(void* graph, int name);
 typedef bool (*GraphExistsEdge)(void* graph, int fromVertexName, int toVertexName);
@@ -40,7 +40,7 @@ typedef void (*GraphSetVertexData)(void* graph, int name, DataObject* newValue);
 
 typedef bool (*GraphEqual)(void* firstGraph, void* secondGraph);
 
-typedef int (*GraphShortestPath)(void*, void*); //Lunghezza Se tra due nodi non esiste un percorso, restituisco -1
+typedef int (*GraphShortestPath)(void*, void*); //Lunghezza, Se tra due nodi non esiste un percorso, restituisco -1
 
 // typedef type (*GraphIsAcyclic)(arguments);
 // typedef type (*GraphTopologicalOrder)(arguments); Restituisce iteratore
@@ -57,6 +57,19 @@ typedef void* (*GraphMaximalReachableSubgraph)(void*);// Restituisce grafo nuovo
 // typedef type (*GraphBreadthFold)(arguments);
 
 /* ************************************************************************** */
+
+//Struttura che rappresenta le informazioni di un vertice del grafo
+typedef struct Vertex {
+    int name;
+    DataObject* label;
+} Vertex;
+
+//Struttura che rappresenta la lista dei vertici presenti nel grafo
+typedef struct VertexLst VertexLst;
+struct VertexLst {
+    Vertex* vertexInfo;
+    VertexLst* nextVertex;
+};
 
 typedef struct GraphRepresentation {
   GraphConstruct graphConstruct;
@@ -87,9 +100,11 @@ typedef struct GraphType { //void* puntatore alla rappresentazione + graphrapres
 
 typedef struct GraphObject
 {
-  // Struct da completare! void* matrice, lista e albero
   GraphType* type;
   void* graph;
+
+  int numVertex;
+  int numEdge;
 
 } GraphObject;
 
@@ -100,8 +115,8 @@ void graphDestruct(GraphObject* graphObject);
 
 bool graphEmpty(GraphObject* graphObject);
 
-// type graphVertexNumber(arguments);
-// type graphEdgeNumber(arguments);
+int graphVertexNumber(GraphObject* graphObject);
+int graphEdgeNumber(GraphObject* graphObject);
 
 void graphClear(GraphObject* graphObject);
 
@@ -146,5 +161,9 @@ void graphSetVertexData(GraphObject* graphObject, int name, DataObject* newValue
 // type graphBreadthFold(arguments);
 
 /* ************************************************************************** */
+
+Vertex* createVertex(int name, DataObject* label);
+VertexLst* createVertexLstElement(Vertex* vertexInfo, VertexLst* next);
+void deleteVertexLstElem(VertexLst* vertexLstElem);
 
 #endif

@@ -8,15 +8,18 @@
 
 /* ************************************************************************** */
 
-typedef struct GraphMat
-{
-  // Struct da completare!
+typedef struct GraphMat {
+  VertexLst* vertexLst;
+  bool** adjacentMatrix;
+
+  int slotAllocated;
+  int numVertex;
 } GraphMat;
 
 /* ************************************************************************** */
 
-// type ConstructGraphMat(arguments); popola la parte relativa alla rappresentazione. Non ha argomenti Popola i puntatori a funzione
-// type DestructGraphMat(arguments);
+GraphRepresentation* ConstructGraphMat();
+void DestructGraphMat(GraphRepresentation* type);
 
 /* ************************************************************************** */
 
