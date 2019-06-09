@@ -50,6 +50,32 @@ void printGraphMat(GraphObject* graphObject) {
     }
 }
 
+void printGraphMatValue(GraphObject* graphObject) {
+    printf("\nGRAFO:\n");
+    VertexLst* tmp = ((GraphMat*)graphObject->graph)->vertexLst;
+
+    int index = 0;
+    while(tmp != NULL) {
+        printf("Nome: %d Etichetta: ", tmp->vertexInfo->name);
+        adtWriteToMonitor(tmp->vertexInfo->label);
+
+        printf(" ADIACENTI: ");
+        bool** matrix = ((GraphMat*)graphObject->graph)->adjacentMatrix;
+        for(int i = 0; i < ((GraphMat*)graphObject->graph)->numVertex; i++) {
+            if(matrix[index][i]) {
+                printf("T | ");
+            }
+            else {
+                printf("F | ");
+            }
+        }
+
+        tmp = tmp->nextVertex;
+        index++;
+        printf("\n");
+    }
+}
+
 void testList() {
     GraphType *graphTyp = (GraphType *) malloc(sizeof(GraphType));
     graphTyp->graphRep = ConstructGraphLst();
@@ -932,7 +958,6 @@ void testList() {
     graphDestruct(transposedGraph);
 
     printf("*****************************************************************\n");
-
 }
 
 void testMat() {
@@ -955,159 +980,8 @@ void testMat() {
     printf("\n\n");
 
     adtRandomValue(dataPtr);
-    printf("INSERIMENTO VERTICE 8\n");
-    graphInsertVertex(graphObject, 8, dataPtr);
-
-    adtRandomValue(dataPtr);
-    printf("INSERIMENTO VERTICE 9\n");
-    graphInsertVertex(graphObject, 9, dataPtr);
-
-    adtRandomValue(dataPtr);
-    printf("INSERIMENTO VERTICE 10\n");
-    graphInsertVertex(graphObject, 10, dataPtr);
-
-    adtRandomValue(dataPtr);
-    printf("INSERIMENTO VERTICE 11\n");
-    graphInsertVertex(graphObject, 11, dataPtr);
-
-    printGraphMat(graphObject);
-
-    printf("*****************************************************************\n");
-
-    printf("INSERIMENTO ARCHI\n");
-
-    graphInsertEdge(graphObject, 8, 9);
-    graphInsertEdge(graphObject, 9, 8);
-    graphInsertEdge(graphObject, 8, 8);
-    graphInsertEdge(graphObject, 10, 11);
-    graphInsertEdge(graphObject, 11, 11);
-    graphInsertEdge(graphObject, 11, 8);
-    graphInsertEdge(graphObject, 11, 9);
-    graphInsertEdge(graphObject, 11, 10);
-
-    printGraphMat(graphObject);
-
-    printf("*****************************************************************\n");
-
-    printf("VERIFICA ESISTENZA ARCO TRA 8 E 9: ");
-    if(graphExistsEdge(graphObject, 8, 9)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 9 E 8: ");
-    if(graphExistsEdge(graphObject, 9, 8)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 8 E 8: ");
-    if(graphExistsEdge(graphObject, 8, 8)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 10 E 11: ");
-    if(graphExistsEdge(graphObject, 10, 11)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 11 E 11: ");
-    if(graphExistsEdge(graphObject, 11, 11)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 11 E 8: ");
-    if(graphExistsEdge(graphObject, 11, 8)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 11 E 9: ");
-    if(graphExistsEdge(graphObject, 11, 9)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 11 E 10: ");
-    if(graphExistsEdge(graphObject, 11, 10)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 10 E 10: ");
-    if(graphExistsEdge(graphObject, 10, 10)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 1 E 1: ");
-    if(graphExistsEdge(graphObject, 1, 1)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 1 E 2: ");
-    if(graphExistsEdge(graphObject, 1, 2)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA -1 E 200: ");
-    if(graphExistsEdge(graphObject, -1, 200)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 200 E 300: ");
-    if(graphExistsEdge(graphObject, 200, 300)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 10 E 100: ");
-    if(graphExistsEdge(graphObject, 10, 100)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 100 E 10: ");
-    if(graphExistsEdge(graphObject, 10, 10)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 9 E 100: ");
-    if(graphExistsEdge(graphObject, 9, 100)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
-    printf("VERIFICA ESISTENZA ARCO TRA 7 E 9: ");
-    if(graphExistsEdge(graphObject, 7, 9)) {
-        printf("TRUE\n");
-    } else {
-        printf("FALSE\n");
-    }
-
+    printf("INSERIMENTO VERTICE 1\n");
+    graphInsertVertex(graphObject, 1, dataPtr);
 }
 
 void testGraph() {

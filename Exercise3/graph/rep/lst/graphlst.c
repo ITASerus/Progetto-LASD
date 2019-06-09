@@ -101,7 +101,7 @@ void* lstGraphClone(void* graph) {
     return newGraph;
 }
 
-void* lstGraphTranspose(void* graph) {
+void* lstGraphTranspose(void* graph) { //TODO: Rivedi struttura. Forse si può spostare la parte degli adiacenti nell'if iniziale
     GraphLst* newGraph = lstGraphConstruct();
 
     //Copio i vertici appartenenti al grafo da copiare

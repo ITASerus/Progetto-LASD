@@ -10,9 +10,10 @@
 
 typedef struct GraphMat {
   VertexLst* vertexLst;
-  bool** adjacentMatrix;
 
+  bool** adjacentMatrix;
   int slotAllocated;
+
   int numVertex;
 } GraphMat;
 
