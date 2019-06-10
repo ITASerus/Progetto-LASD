@@ -186,7 +186,7 @@ bool lstGraphInsertVertex(void* graph, int name, DataObject* label) {
 }
 
 int lstGraphRemoveVertex(void* graph, int name) {
-    if( ((GraphLst*)graph)->vertexLst != NULL) {
+    if(((GraphLst*)graph)->vertexLst != NULL) {
         int adjacentRemoved = 0;
 
         if(((GraphLst*)graph)->vertexLst->vertexInfo->name == name) { //Il vertice da rimuovere si trova in cima alla lista
@@ -252,7 +252,7 @@ int lstGraphRemoveVertex(void* graph, int name) {
         return adjacentRemoved;
     }
 
-    return -1;
+    return -1; //Vertice non presente
 }
 
 bool lstGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) {

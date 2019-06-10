@@ -56,8 +56,7 @@ void printGraphMatValue(GraphObject* graphObject) {
 
     int index = 0;
     while(tmp != NULL) {
-        printf("Nome: %d Etichetta: ", tmp->vertexInfo->name);
-        adtWriteToMonitor(tmp->vertexInfo->label);
+        printf("Nome: %d ", tmp->vertexInfo->name);
 
         printf(" ADIACENTI: ");
         bool** matrix = ((GraphMat*)graphObject->graph)->adjacentMatrix;
@@ -980,8 +979,176 @@ void testMat() {
     printf("\n\n");
 
     adtRandomValue(dataPtr);
-    printf("INSERIMENTO VERTICE 1\n");
+    printf("INSERIMENTO VERTICE 5");
+    graphInsertVertex(graphObject, 5, dataPtr);
+    printGraphMatValue(graphObject);
+
+    graphInsertEdge(graphObject, 5, 5);
+
+    printf("INSERIMENTO VERTICE 4");
+    graphInsertVertex(graphObject, 4, dataPtr);
+    printGraphMatValue(graphObject);
+
+    printf("INSERIMENTO VERTICE 6");
+    graphInsertVertex(graphObject, 6, dataPtr);
+    printGraphMatValue(graphObject);
+
+    printf("INSERIMENTO VERTICE 3");
+    graphInsertVertex(graphObject, 3, dataPtr);
+    printGraphMatValue(graphObject);
+
+    printf("INSERIMENTO VERTICE 7");
+    graphInsertVertex(graphObject, 7, dataPtr);
+    printGraphMatValue(graphObject);
+
+    graphInsertEdge(graphObject, 3, 3);
+    graphInsertEdge(graphObject, 3, 4);
+    graphInsertEdge(graphObject, 3, 5);
+    graphInsertEdge(graphObject, 3, 6);
+    graphInsertEdge(graphObject, 3, 7);
+    graphInsertEdge(graphObject, 4, 3);
+    graphInsertEdge(graphObject, 5, 3);
+    graphInsertEdge(graphObject, 6, 3);
+    graphInsertEdge(graphObject, 7, 3);
+    graphInsertEdge(graphObject, 7, 4);
+    graphInsertEdge(graphObject, 7, 5);
+    graphInsertEdge(graphObject, 7, 6);
+    graphInsertEdge(graphObject, 7, 7);
+    graphInsertEdge(graphObject, 3, 7);
+    graphInsertEdge(graphObject, 4, 7);
+    graphInsertEdge(graphObject, 5, 7);
+    graphInsertEdge(graphObject, 6, 7);
+
+    printGraphMatValue(graphObject);
+
+    printf("INSERIMENTO VERTICE 2");
+    graphInsertVertex(graphObject, 2, dataPtr);
+    printGraphMatValue(graphObject);
+
+    printf("INSERIMENTO VERTICE 8");
+    graphInsertVertex(graphObject, 8, dataPtr);
+    printGraphMatValue(graphObject);
+
+    printGraphMatValue(graphObject);
+
+    printf("INSERIMENTO VERTICE 1");
     graphInsertVertex(graphObject, 1, dataPtr);
+    printGraphMatValue(graphObject);
+
+    printf("INSERIMENTO VERTICE 9");
+    graphInsertVertex(graphObject, 9, dataPtr);
+    printGraphMatValue(graphObject);
+
+    graphInsertEdge(graphObject, 1, 1);
+    graphInsertEdge(graphObject, 1, 2);
+    graphInsertEdge(graphObject, 1, 3);
+    graphInsertEdge(graphObject, 1, 4);
+    graphInsertEdge(graphObject, 1, 5);
+    graphInsertEdge(graphObject, 1, 6);
+    graphInsertEdge(graphObject, 1, 7);
+    graphInsertEdge(graphObject, 1, 8);
+    graphInsertEdge(graphObject, 1, 9);
+    graphInsertEdge(graphObject, 9, 1);
+    graphInsertEdge(graphObject, 9, 2);
+    graphInsertEdge(graphObject, 9, 3);
+    graphInsertEdge(graphObject, 9, 4);
+    graphInsertEdge(graphObject, 9, 5);
+    graphInsertEdge(graphObject, 9, 6);
+    graphInsertEdge(graphObject, 9, 7);
+    graphInsertEdge(graphObject, 9, 8);
+    graphInsertEdge(graphObject, 9, 9);
+    graphInsertEdge(graphObject, 2, 1);
+    graphInsertEdge(graphObject, 3, 1);
+    graphInsertEdge(graphObject, 4, 1);
+    graphInsertEdge(graphObject, 5, 1);
+    graphInsertEdge(graphObject, 6, 1);
+    graphInsertEdge(graphObject, 7, 1);
+    graphInsertEdge(graphObject, 8, 1);
+    graphInsertEdge(graphObject, 2, 9);
+    graphInsertEdge(graphObject, 3, 9);
+    graphInsertEdge(graphObject, 4, 9);
+    graphInsertEdge(graphObject, 5, 9);
+    graphInsertEdge(graphObject, 6, 9);
+    graphInsertEdge(graphObject, 7, 9);
+    graphInsertEdge(graphObject, 8, 9);
+
+    printGraphMat(graphObject);
+    printGraphMatValue(graphObject);
+
+    printf("*****************************************************************\n");
+
+    GraphObject* transposedGraph = graphTranspose(graphObject);
+
+    printGraphMatValue(transposedGraph);
+
+    printGraphMat(transposedGraph);
+
+    graphRemoveEdge(transposedGraph, 5, 1);
+    graphRemoveEdge(transposedGraph, 5, 2);
+    graphRemoveEdge(transposedGraph, 5, 3);
+    graphRemoveEdge(transposedGraph, 5, 4);
+    graphRemoveEdge(transposedGraph, 5, 5);
+    graphRemoveEdge(transposedGraph, 5, 6);
+    graphRemoveEdge(transposedGraph, 5, 7);
+    graphRemoveEdge(transposedGraph, 5, 8);
+    graphRemoveEdge(transposedGraph, 5, 9);
+
+    printGraphMatValue(transposedGraph);
+
+    graphObject = graphTranspose(transposedGraph);
+
+    printGraphMatValue(graphObject);
+
+    printf("*****************************************************************\n");
+
+    printGraphMatValue(graphObject);
+
+    graphRemoveVertex(graphObject, 1);
+    printGraphMatValue(graphObject);
+
+    graphRemoveVertex(graphObject, 9);
+    printGraphMatValue(graphObject);
+
+    graphRemoveVertex(graphObject, 5);
+    printGraphMatValue(graphObject);
+
+    graphRemoveVertex(graphObject, 7);
+    printGraphMatValue(graphObject);
+
+    graphRemoveVertex(graphObject, 3);
+    printGraphMatValue(graphObject);
+
+    graphInsertEdge(graphObject, 4, 4);
+    graphInsertEdge(graphObject, 4, 6);
+    graphInsertEdge(graphObject, 6, 4);
+    graphInsertEdge(graphObject, 6, 6);
+
+    printGraphMatValue(graphObject);
+
+    graphRemoveVertex(graphObject, 2);
+    printGraphMatValue(graphObject);
+
+    graphRemoveVertex(graphObject, 6);
+    printGraphMatValue(graphObject);
+
+    graphRemoveVertex(graphObject, 8);
+    printGraphMatValue(graphObject);
+
+    graphRemoveVertex(graphObject, 4);
+    printGraphMatValue(graphObject);
+
+    graphInsertVertex(graphObject, 2, dataPtr);
+    printGraphMatValue(graphObject);
+
+    graphInsertVertex(graphObject, 4, dataPtr);
+    printGraphMatValue(graphObject);
+
+    graphInsertVertex(graphObject, 3, dataPtr);
+    printGraphMatValue(graphObject);
+
+    graphInsertEdge(graphObject, 3, 3);
+    printGraphMatValue(graphObject);
+
 }
 
 void testGraph() {
