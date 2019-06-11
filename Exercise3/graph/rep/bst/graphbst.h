@@ -10,8 +10,16 @@
 
 /* ************************************************************************** */
 
-typedef struct GraphBST {
+typedef struct AdjacentBSTLst AdjacentBSTLst;
+struct AdjacentBSTLst {
+    Vertex* vertexPointer;
+    BSTObject* adjacentTree;
+    AdjacentBSTLst* nextVertex;
+};
 
+typedef struct GraphBST {
+    VertexLst* vertexLst;
+    AdjacentBSTLst* adjacentBSTLst;
 } GraphBST;
 
 /* ************************************************************************** */

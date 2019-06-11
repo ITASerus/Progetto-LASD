@@ -151,11 +151,12 @@ bool lstGraphInsertVertex(void* graph, int name, DataObject* label) {
             return false;
         }
 
+        //Creazione vertice
         Vertex* newVertex = createVertex(name, label);
-
         VertexLst* newVertexLstElement = createVertexLstElement(newVertex, graphLst->vertexLst);
         graphLst->vertexLst = newVertexLstElement;
 
+        //Creazione rispettiva lista di adiacenza
         AdjacentLst* newAjdacentVertexLst = createAdjacentLstElement(newVertex, graphLst->adjacentVertexLst, NULL);
         graphLst->adjacentVertexLst = newAjdacentVertexLst;
     } else { //Il grafo ha almeno un vertice
@@ -173,11 +174,12 @@ bool lstGraphInsertVertex(void* graph, int name, DataObject* label) {
             return false;
         }
 
+        //Creazione vertice
         Vertex* newVertex = createVertex(name, label);
-
         VertexLst* newVertexLstElem = createVertexLstElement(newVertex, currentVertexLstElem->nextVertex);
         currentVertexLstElem->nextVertex = newVertexLstElem;
 
+        //Creazione rispettiva lista di adiacenza
         AdjacentLst* newAjdacentLstElem = createAdjacentLstElement(newVertex, currentAdjacentLstElem->nextVertex, NULL);
         currentAdjacentLstElem->nextVertex = newAjdacentLstElem;
     }

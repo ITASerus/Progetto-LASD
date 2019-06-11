@@ -37,6 +37,7 @@ void matGraphDestruct(void* graph) {
 
 bool matGraphInsertVertex(void* graph, int name, DataObject* label) {
     GraphMat* graphMat = graph;
+    printf("DIMENSIONE ATTUALE MATRICE %dx%d\n", graphMat->slotAllocated, graphMat->slotAllocated);
 
     if(graphMat->vertexLst == NULL) { //Il grafo è vuoto
         //Creazione del nuovo vertice
@@ -92,18 +93,10 @@ bool matGraphInsertVertex(void* graph, int name, DataObject* label) {
             }
 
             //Popolamento della rispettiva zona della  matrice di adiacenza
-            if(graphMat->numVertex > graphMat->slotAllocated) {//La matrice di adiacenza va ingrandita
-
-                /*graphMat->slotAllocated *= 2;
-                printf("NUOVA DIMENSIONE: %d\n", graphMat->slotAllocated);
-
-                graphMat->adjacentMatrix = (bool**)realloc(graphMat->adjacentMatrix, sizeof(bool*) * graphMat->slotAllocated);
-                for(int i = 0; i < graphMat->slotAllocated; i++) {
-                    printf("RIGA %d\n", i);
-                    graphMat->adjacentMatrix[i] = (bool*)realloc(graphMat->adjacentMatrix[i], sizeof(bool) * graphMat->slotAllocated);
-                }*/
-
+            if(graphMat->numVertex > graphMat->slotAllocated) { //La matrice di adiacenza va ingrandita
+                printf("RIALLOCO MATRICE\n ----------------------");
                 int newDimension = graphMat->slotAllocated*2;
+
                 //Aumento il numero di righe
                 bool** tmp = realloc(graphMat->adjacentMatrix, sizeof(*graphMat->adjacentMatrix) * newDimension); //Aumento il numero di righe
                 if(tmp) {
@@ -129,8 +122,8 @@ bool matGraphInsertVertex(void* graph, int name, DataObject* label) {
                 for (int j = graphMat->numVertex - 1; j >= 0; j--) {
                     if (i == newVertexPosition || j == newVertexPosition) { //Nuova riga/colonna
                         graphMat->adjacentMatrix[i][j] = false;
-                    } else if ((i > newVertexPosition || j > newVertexPosition) && i - 1 >= 0 && j - 1 >= 0) {
-                        graphMat->adjacentMatrix[i][j] = graphMat->adjacentMatrix[i - 1][j - 1];
+                    } else if ((i > newVertexPosition || j > newVertexPosition) && i-1 >= 0 && j-1 >= 0) {
+                        graphMat->adjacentMatrix[i][j] = graphMat->adjacentMatrix[i-1][j-1];
                     }
                 }
             }
@@ -150,8 +143,9 @@ int matGraphRemoveVertex(void* graph, int name) {
             ((GraphMat*)graph)->vertexLst = ((GraphMat*)graph)->vertexLst->nextVertex;
             deleteVertexLstElem(vertexLstElemToRemove);
 
-            //Rimozione adiacent
+            //Rimozione adiacenti
             adjacentRemoved = deleteAdjacentRowColumn(graph, 0);
+            printf("Adiacenti rimossi: %d\n", adjacentRemoved);
             ((GraphMat*)graph)->numVertex--;
 
             return adjacentRemoved;
@@ -177,10 +171,6 @@ int matGraphRemoveVertex(void* graph, int name) {
                 adjacentRemoved = deleteAdjacentRowColumn(graph, vertexPosition);
                 ((GraphMat*)graph)->numVertex--;
 
-                /*if(((GraphMat*)graph)->numVertex == 0) {
-                    ((GraphMat*)graph)->adjacentMatrix = NULL;
-                }*/
-
                 return adjacentRemoved;
             } else {
                 return -1;
@@ -190,7 +180,6 @@ int matGraphRemoveVertex(void* graph, int name) {
 
     return -1; //Vertice non presente
 }
-
 
 bool matGraphEmpty(void* graph) {
     return ((GraphMat*)graph)->vertexLst == NULL;
@@ -286,8 +275,10 @@ bool matGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) { //T
             toVertexPos++;
         }
         if(vertexLst != NULL && vertexLst->vertexInfo->name == toVertexName) { //Il vertice di arrivo esiste
-            ((GraphMat*)graph)->adjacentMatrix[fromVertexPos][toVertexPos] = true;
-            return true;
+            if(((GraphMat*)graph)->adjacentMatrix[fromVertexPos][toVertexPos] != true) {
+                ((GraphMat*)graph)->adjacentMatrix[fromVertexPos][toVertexPos] = true;
+                return true;
+            }
         }
     }
 
@@ -356,7 +347,7 @@ bool matGraphExistsEdge(void* graph, int fromVertexName, int toVertexName) {
     }
 
     return false;
-}
+} //TODO: Forse puoi sfruttare l'inizializzazione della matrice per ritornare direttavemnte il valore della matrice contenuto alle coordinate passate come parametro
 
 DataObject* matGraphGetVertexData(void* graph, int name) {
     VertexLst* currentVertex = ((GraphMat*)graph)->vertexLst;
@@ -391,7 +382,7 @@ GraphRepresentation* ConstructGraphMat() {
     GraphRepresentation* type = (GraphRepresentation*)malloc(sizeof(GraphRepresentation));
 
     type->graphConstruct = matGraphConstruct;
-    //type->graphDestruct = matGraphDestruct;
+    type->graphDestruct = matGraphDestruct;
 
     type->graphEmpty = matGraphEmpty;
 
@@ -425,6 +416,7 @@ int deleteAdjacentRowColumn(GraphMat* graphMat, int vertexPosition) {
     for(int i = 0; i < graphMat->numVertex; i++) {
         for(int j = 0; j < graphMat->numVertex; j++) {
             if((i == vertexPosition || j == vertexPosition) && graphMat->adjacentMatrix[i][j] == true) { //Riga o colonna appartenente al vertice da rimuovere
+                printf("VERTICE RIMOSSO (%i, %d)\n", i, j);
                 numAdjacentRemoved++;
             } else if (i < vertexPosition && j > vertexPosition) { //Zona della matrice a destra della colonna e sopra la riga del vertice da rimuovere
                 graphMat->adjacentMatrix[i][j-1] = graphMat->adjacentMatrix[i][j];
@@ -432,6 +424,11 @@ int deleteAdjacentRowColumn(GraphMat* graphMat, int vertexPosition) {
                 graphMat->adjacentMatrix[i-1][j] = graphMat->adjacentMatrix[i][j];
             } else if(i > vertexPosition && j > vertexPosition) { //Zona della matrice a destra della colonna e sotto la riga del vertice da rimuovere
                 graphMat->adjacentMatrix[i-1][j-1] = graphMat->adjacentMatrix[i][j];
+            }
+
+            if(i == graphMat->numVertex-1 || j == graphMat->numVertex-1) { //Riga rimossa della matrice
+                printf("ULTIMA RIGA O COLONNA\n");
+                graphMat->adjacentMatrix[i][j] = false;
             }
         }
     }

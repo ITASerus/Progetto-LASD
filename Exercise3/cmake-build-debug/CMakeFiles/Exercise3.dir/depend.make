@@ -147,13 +147,17 @@ CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o: ../graph/rec/graphrec.h
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o: ../itr/itr.h
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o: ../utility.h
 
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../adt/adt.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././adt/adt.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././adt/int/adtint.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././bst/bst.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././utility.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../bst/bst.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../bst/rec/bstrec.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../bst/bst.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../graph/rep/bst/graphbst.c
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../graph/rep/bst/graphbst.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../itr/itr.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../utility.h
 
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../adt/adt.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../graph/graph.h

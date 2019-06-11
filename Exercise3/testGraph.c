@@ -23,6 +23,7 @@ void printGraphLst(GraphObject* graphObject) { //TODO: Evita di stampare il prim
     }
 }
 
+
 void printGraphMat(GraphObject* graphObject) {
     printf("\nGRAFO:\n");
     VertexLst* tmp = ((GraphMat*)graphObject->graph)->vertexLst;
@@ -71,6 +72,34 @@ void printGraphMatValue(GraphObject* graphObject) {
 
         tmp = tmp->nextVertex;
         index++;
+        printf("\n");
+    }
+}
+
+
+void printBSTElem(DataObject* dat, void* _) {
+    printf(" | ");
+    adtWriteToMonitor(dat);
+}
+
+void printGraphBST(GraphObject* graphObject) {
+    printf("\nGRAFO:\n");
+    VertexLst* tmp = ((GraphLst*)graphObject->graph)->vertexLst;
+    AdjacentBSTLst* tmpAdjacentBSTLstVertex = ((GraphBST*)graphObject->graph)->adjacentBSTLst;
+    while(tmp != NULL && tmpAdjacentBSTLstVertex != NULL) {
+        printf("Nome: %d Etichetta: ", tmp->vertexInfo->name);
+        adtWriteToMonitor(tmp->vertexInfo->label);
+
+        printf(" ADIACENTI:");
+        if(!bstEmpty(tmpAdjacentBSTLstVertex->adjacentTree)) {
+            bstPreOrderMap(tmpAdjacentBSTLstVertex->adjacentTree, printBSTElem, NULL);
+        } else {
+            printf(" Nessuno");
+        }
+
+        tmp = tmp->nextVertex;
+        tmpAdjacentBSTLstVertex = tmpAdjacentBSTLstVertex->nextVertex;
+
         printf("\n");
     }
 }
@@ -976,14 +1005,23 @@ void testMat() {
         printf("false\n");
     }
 
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     printf("\n\n");
 
     adtRandomValue(dataPtr);
     printf("INSERIMENTO VERTICE 5");
     graphInsertVertex(graphObject, 5, dataPtr);
+
     printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
 
     graphInsertEdge(graphObject, 5, 5);
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("INSERIMENTO VERTICE 4");
     graphInsertVertex(graphObject, 4, dataPtr);
@@ -999,27 +1037,118 @@ void testMat() {
 
     printf("INSERIMENTO VERTICE 7");
     graphInsertVertex(graphObject, 7, dataPtr);
+
     printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
 
     graphInsertEdge(graphObject, 3, 3);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 3, 4);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 3, 5);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 3, 6);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 3, 7);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 4, 3);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 5, 3);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 6, 3);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 7, 3);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 7, 4);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 7, 5);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 7, 6);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 7, 7);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 3, 7);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 4, 7);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 5, 7);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertEdge(graphObject, 6, 7);
 
     printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
+    printGraphMatValue(graphObject);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("INSERIMENTO VERTICE 2");
     graphInsertVertex(graphObject, 2, dataPtr);
@@ -1030,6 +1159,8 @@ void testMat() {
     printGraphMatValue(graphObject);
 
     printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
 
     printf("INSERIMENTO VERTICE 1");
     graphInsertVertex(graphObject, 1, dataPtr);
@@ -1038,6 +1169,9 @@ void testMat() {
     printf("INSERIMENTO VERTICE 9");
     graphInsertVertex(graphObject, 9, dataPtr);
     printGraphMatValue(graphObject);
+
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
 
     graphInsertEdge(graphObject, 1, 1);
     graphInsertEdge(graphObject, 1, 2);
@@ -1072,39 +1206,42 @@ void testMat() {
     graphInsertEdge(graphObject, 7, 9);
     graphInsertEdge(graphObject, 8, 9);
 
-    printGraphMat(graphObject);
     printGraphMatValue(graphObject);
-
-    printf("*****************************************************************\n");
-
-    GraphObject* transposedGraph = graphTranspose(graphObject);
-
-    printGraphMatValue(transposedGraph);
-
-    printGraphMat(transposedGraph);
-
-    graphRemoveEdge(transposedGraph, 5, 1);
-    graphRemoveEdge(transposedGraph, 5, 2);
-    graphRemoveEdge(transposedGraph, 5, 3);
-    graphRemoveEdge(transposedGraph, 5, 4);
-    graphRemoveEdge(transposedGraph, 5, 5);
-    graphRemoveEdge(transposedGraph, 5, 6);
-    graphRemoveEdge(transposedGraph, 5, 7);
-    graphRemoveEdge(transposedGraph, 5, 8);
-    graphRemoveEdge(transposedGraph, 5, 9);
-
-    printGraphMatValue(transposedGraph);
-
-    graphObject = graphTranspose(transposedGraph);
-
-    printGraphMatValue(graphObject);
-
-    printf("*****************************************************************\n");
-
-    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
 
     graphRemoveVertex(graphObject, 1);
     printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
+    graphInsertVertex(graphObject, 1, dataPtr);
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
+    graphInsertEdge(graphObject, 1, 1);
+    graphInsertEdge(graphObject, 1, 2);
+    graphInsertEdge(graphObject, 1, 3);
+    graphInsertEdge(graphObject, 1, 4);
+    graphInsertEdge(graphObject, 1, 5);
+    graphInsertEdge(graphObject, 1, 6);
+    graphInsertEdge(graphObject, 1, 7);
+    graphInsertEdge(graphObject, 1, 8);
+    graphInsertEdge(graphObject, 1, 9);
+    graphInsertEdge(graphObject, 1, 1);
+    graphInsertEdge(graphObject, 2, 1);
+    graphInsertEdge(graphObject, 3, 1);
+    graphInsertEdge(graphObject, 4, 1);
+    graphInsertEdge(graphObject, 5, 1);
+    graphInsertEdge(graphObject, 6, 1);
+    graphInsertEdge(graphObject, 7, 1);
+    graphInsertEdge(graphObject, 8, 1);
+    graphInsertEdge(graphObject, 9, 1);
+
+    printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
 
     graphRemoveVertex(graphObject, 9);
     printGraphMatValue(graphObject);
@@ -1116,7 +1253,10 @@ void testMat() {
     printGraphMatValue(graphObject);
 
     graphRemoveVertex(graphObject, 3);
+
     printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
 
     graphInsertEdge(graphObject, 4, 4);
     graphInsertEdge(graphObject, 4, 6);
@@ -1124,6 +1264,9 @@ void testMat() {
     graphInsertEdge(graphObject, 6, 6);
 
     printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
 
     graphRemoveVertex(graphObject, 2);
     printGraphMatValue(graphObject);
@@ -1137,21 +1280,128 @@ void testMat() {
     graphRemoveVertex(graphObject, 4);
     printGraphMatValue(graphObject);
 
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertVertex(graphObject, 2, dataPtr);
     printGraphMatValue(graphObject);
+
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
 
     graphInsertVertex(graphObject, 4, dataPtr);
     printGraphMatValue(graphObject);
 
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
     graphInsertVertex(graphObject, 3, dataPtr);
     printGraphMatValue(graphObject);
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
 
-    graphInsertEdge(graphObject, 3, 3);
+    graphInsertVertex(graphObject, 1, dataPtr);
     printGraphMatValue(graphObject);
 
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
+    graphInsertVertex(graphObject, 5, dataPtr);
+    printGraphMatValue(graphObject);
+
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
+    graphInsertEdge(graphObject, 1, 1);
+    graphInsertEdge(graphObject, 1, 3);
+    graphInsertEdge(graphObject, 1, 5);
+
+    graphInsertEdge(graphObject, 2, 2);
+    graphInsertEdge(graphObject, 2, 4);
+
+    graphInsertEdge(graphObject, 3, 1);
+    graphInsertEdge(graphObject, 3, 3);
+    graphInsertEdge(graphObject, 3, 5);
+
+    graphInsertEdge(graphObject, 4, 2);
+    graphInsertEdge(graphObject, 4, 4);
+
+    graphInsertEdge(graphObject, 5, 1);
+    graphInsertEdge(graphObject, 5, 3);
+    graphInsertEdge(graphObject, 5, 5);
+
+    printGraphMatValue(graphObject);
+
+    printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
+
+    graphDestruct(graphObject);
+
+    printf("*****************************************************************\n");
+
+    graphObject = graphConstruct(graphTyp);
+
+    graphInsertVertex(graphObject, 9, dataPtr);
+    graphInsertVertex(graphObject, 3, dataPtr);
+    graphInsertVertex(graphObject, 1, dataPtr);
+
+    printGraphMatValue(graphObject);
+
+    graphInsertEdge(graphObject, 1, 3);
+    graphInsertEdge(graphObject, 3, 3);
+    graphInsertEdge(graphObject, 9, 1);
+    graphInsertEdge(graphObject, 9, 3);
+
+    printGraphMatValue(graphObject);
+
+    GraphObject* trans = graphTranspose(graphObject);
+    printGraphMatValue(trans);
+
+    GraphObject* clone = graphClone(trans);
+    printGraphMatValue(clone);
+}
+
+void testBSTgraph() {
+    GraphType *graphTyp = (GraphType *) malloc(sizeof(GraphType));
+    graphTyp->graphRep = ConstructGraphBST();
+
+    GraphObject *graphObject = graphConstruct(graphTyp);
+
+    DataType *dataTyp = ConstructIntDataType();
+    DataObject *dataPtr = adtConstruct(dataTyp);
+    adtRandomValue(dataPtr);
+
+    printf("Grafo vuoto?: ");
+    if (graphEmpty(graphObject)) {
+        printf("true\n");
+    } else {
+        printf("false\n");
+    }
+
+    printf("*****************************************************************\n");
+
+    printf("Inserimento vertice 3\n");
+    graphInsertVertex(graphObject, 3, dataPtr);
+
+    printf("Inserimento vertice 6\n");
+    graphInsertVertex(graphObject, 6, dataPtr);
+
+    printf("Inserimento vertice 9\n");
+    graphInsertVertex(graphObject, 9, dataPtr);
+
+    printGraphBST(graphObject);
+
+    printf("Inserimento arco tra 3 e 9\n");
+    graphInsertEdge(graphObject, 3, 9);
+
+    printf("Inserimento arco tra 3 e 3\n");
+    graphInsertEdge(graphObject, 3, 3);
+
+    printGraphBST(graphObject);
 }
 
 void testGraph() {
     //testList();
-    testMat();
+    //testMat();
+    testBSTgraph();
 }
