@@ -69,7 +69,6 @@ void graphRemoveVertex(GraphObject* graphObject, int name) {
 
     if(adjacentRemoved != -1) {
         graphObject->numVertex--;
-        printf("%d - %d = %d\n", graphObject->numEdge, adjacentRemoved, (graphObject->numEdge)-adjacentRemoved);
         graphObject->numEdge -= adjacentRemoved;
     }
 

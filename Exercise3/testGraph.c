@@ -92,7 +92,7 @@ void printGraphBST(GraphObject* graphObject) {
 
         printf(" ADIACENTI:");
         if(!bstEmpty(tmpAdjacentBSTLstVertex->adjacentTree)) {
-            bstPreOrderMap(tmpAdjacentBSTLstVertex->adjacentTree, printBSTElem, NULL);
+            bstInOrderMap(tmpAdjacentBSTLstVertex->adjacentTree, printBSTElem, NULL);
         } else {
             printf(" Nessuno");
         }
@@ -1364,7 +1364,6 @@ void testMat() {
 void testBSTgraph() {
     GraphType *graphTyp = (GraphType *) malloc(sizeof(GraphType));
     graphTyp->graphRep = ConstructGraphBST();
-
     GraphObject *graphObject = graphConstruct(graphTyp);
 
     DataType *dataTyp = ConstructIntDataType();
@@ -1378,26 +1377,126 @@ void testBSTgraph() {
         printf("false\n");
     }
 
-    printf("*****************************************************************\n");
+    printf("Numero di vertici: %d\n", graphVertexNumber(graphObject));
+    printf("Numero di archi: %d\n", graphEdgeNumber(graphObject));
+
+    printf("\n*****************************************************************\n\n");
+
+    printf("Inserimento vertice 1\n");
+    graphInsertVertex(graphObject, 1, dataPtr);
+
+    printf("Inserimento vertice 2\n");
+    graphInsertVertex(graphObject, 2, dataPtr);
 
     printf("Inserimento vertice 3\n");
     graphInsertVertex(graphObject, 3, dataPtr);
 
+    printf("Inserimento vertice 4\n");
+    graphInsertVertex(graphObject, 4, dataPtr);
+
+    printf("Inserimento vertice 5\n");
+    graphInsertVertex(graphObject, 5, dataPtr);
+
     printf("Inserimento vertice 6\n");
     graphInsertVertex(graphObject, 6, dataPtr);
 
-    printf("Inserimento vertice 9\n");
-    graphInsertVertex(graphObject, 9, dataPtr);
+    printf("Inserimento vertice 7\n");
+    graphInsertVertex(graphObject, 7, dataPtr);
 
     printGraphBST(graphObject);
+    printf("Numero di vertici: %d\n", graphVertexNumber(graphObject));
+    printf("Numero di archi: %d\n", graphEdgeNumber(graphObject));
 
-    printf("Inserimento arco tra 3 e 9\n");
-    graphInsertEdge(graphObject, 3, 9);
+    printf("\n*****************************************************************\n\n");
 
-    printf("Inserimento arco tra 3 e 3\n");
+    /*printf("Inserimento arco tra 3 e 3\n");
     graphInsertEdge(graphObject, 3, 3);
 
+    printf("Inserimento arco tra 3 e 2\n");
+    graphInsertEdge(graphObject, 3, 2);
+
+    printf("Inserimento arco tra 1 e 1\n");
+    graphInsertEdge(graphObject, 1, 1);
+
+    printf("Inserimento arco tra 1 e 2\n");
+    graphInsertEdge(graphObject, 1, 2);
+
+    printf("Inserimento arco tra 1 e 3\n");
+    graphInsertEdge(graphObject, 1, 3);
+
+    printf("Inserimento arco tra 1 e 4\n");
+    graphInsertEdge(graphObject, 1, 4);
+
+    printf("Inserimento arco tra 1 e 5\n");
+    graphInsertEdge(graphObject, 1, 5);*/
+
+    printf("Inserimento arco tra 7 e 1\n");
+    graphInsertEdge(graphObject, 7, 1);
+
+    printf("Inserimento arco tra 7 e 2\n");
+    graphInsertEdge(graphObject, 7, 2);
+
+    printf("Inserimento arco tra 7 e 4\n");
+    graphInsertEdge(graphObject, 7, 4);
+
+    printf("Inserimento arco tra 7 e 5\n");
+    graphInsertEdge(graphObject, 7, 5);
+
+    printf("Inserimento arco tra 7 e 6\n");
+    graphInsertEdge(graphObject, 7, 6);
+
+    printf("Inserimento arco tra 7 e 7\n");
+    graphInsertEdge(graphObject, 7, 7);
+
+    printf("Inserimento arco tra 7 e 8\n");
+    graphInsertEdge(graphObject, 7, 8);
+
+    printf("Inserimento arco tra 7 e 2\n");
+    graphInsertEdge(graphObject, 7, 2);
+
+    printf("Inserimento arco tra 7 e 2\n");
+    graphInsertEdge(graphObject, 7, 2);
+
     printGraphBST(graphObject);
+    printf("Numero di vertici: %d\n", graphVertexNumber(graphObject));
+    printf("Numero di archi: %d\n", graphEdgeNumber(graphObject));
+/*
+    printf("\n*****************************************************************\n\n");
+
+    printf("Rimozione arco tra 1 e 5\n");
+    graphRemoveEdge(graphObject, 1, 5);
+
+    printf("Rimozione arco tra 1 e 1\n");
+    graphRemoveEdge(graphObject, 1, 1);
+
+    printf("Rimozione arco tra 9 e 7\n");
+    graphRemoveEdge(graphObject, 9, 7);
+
+    printf("Rimozione arco tra 7 e 9\n");
+    graphRemoveEdge(graphObject, 7, 9);
+
+    printf("Rimozione arco tra 7 e 7\n");
+    graphRemoveEdge(graphObject, 7, 7);
+
+    printGraphBST(graphObject);
+    printf("Numero di vertici: %d\n", graphVertexNumber(graphObject));
+    printf("Numero di archi: %d\n", graphEdgeNumber(graphObject));
+
+    printf("\n*****************************************************************\n\n");
+
+    printf("Rimozione vertice 1");
+    graphRemoveVertex(graphObject, 1);
+
+    printGraphBST(graphObject);
+    printf("Numero di vertici: %d\n", graphVertexNumber(graphObject));
+    printf("Numero di archi: %d\n", graphEdgeNumber(graphObject));
+
+    printf("\n\nRimozione vertice 7");
+    graphRemoveVertex(graphObject, 7);
+
+    printGraphBST(graphObject);
+    printf("Numero di vertici: %d\n", graphVertexNumber(graphObject));
+    printf("Numero di archi: %d\n", graphEdgeNumber(graphObject));*/
 }
 
 void testGraph() {

@@ -53,9 +53,9 @@ DataObject* adtClone(DataObject* object) {
 }
 
 int adtCompare(DataObject* firstObject, DataObject* secondObject) {
-    if(firstObject->type == secondObject->type) {
+    //if(firstObject->type == secondObject->type) { //TODO: Se vengono utilizzati due constructInt, ad esempio, il type sarà diverso, quindi questo controllo è pericoloso
         return firstObject->type->compare(firstObject->value, secondObject->value);
-    } else {
-        return 0; //Gli oggetti passati come parametro sono di tipo diverso, di conseguenza hanno anche valore diverso (il valore interno potrebbe essere lo stesso ma il loro "significato" è diverso)
-    }
+    //} else {
+     //   return 0; //Gli oggetti passati come parametro sono di tipo diverso, di conseguenza hanno anche valore diverso (il valore interno potrebbe essere lo stesso ma il loro "significato" è diverso)
+    //}
 }

@@ -84,18 +84,24 @@ bool recBSTExists(BSTNode* tree, DataObject* elem) {
 
 bool recBSTInsert(BSTNode** tree, DataObject* elem) {
     if (*tree != NULL) {
+        printf("Confronto %d con %d\n", *((int*)(*tree)->key->value), *(int*)elem->value);
         if (adtCompare(elem, (*tree)->key) < 0) {
-            recBSTInsert(&(*tree)->left, elem);
+            printf("SX\n");
+            return recBSTInsert(&(*tree)->left, elem);
         } else if (adtCompare(elem, (*tree)->key) > 0) {
-            recBSTInsert(&(*tree)->right, elem);
+            printf("DX\n");
+            return recBSTInsert(&(*tree)->right, elem);
         } else {
+            printf("GIA PRESENTE\n");
             return false;
         }
     } else {
+        printf("INSERISCO\n");
         *tree = (BSTNode*)malloc(sizeof(BSTNode));
         (*tree)->right = (*tree)->left = NULL;
         (*tree)->key = adtClone(elem);
     }
+    printf("TRUE\n");
     return true;
 }
 

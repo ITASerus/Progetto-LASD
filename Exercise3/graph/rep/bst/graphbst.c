@@ -1,7 +1,7 @@
 
 #include "graphbst.h"
 #include "bst/bst.h"
-#include "rec/bstrec.h"
+#include "bst/rec/bstrec.h"
 #include "adt/int/adtint.h"
 
 AdjacentBSTLst* createAdjacentBSTLstElem(Vertex* vertexPointer, AdjacentBSTLst* nexVertex);
@@ -68,6 +68,78 @@ bool bstGraphInsertVertex(void* graph, int name, DataObject* label) {
     return true;
 }
 
+int bstGraphRemoveVertex(void* graph, int name) {
+    if(((GraphBST*)graph)->vertexLst != NULL) {
+        int adjacentRemoved = 0;
+
+        if(((GraphBST*)graph)->vertexLst->vertexInfo->name == name) { //Il vertice da rimuovere si trova in cima alla lista
+            //Rimozione vertice
+            VertexLst* vertexLstElemToRemove = ((GraphBST*)graph)->vertexLst;
+            ((GraphBST*)graph)->vertexLst = ((GraphBST*)graph)->vertexLst->nextVertex;
+            deleteVertexLstElem(vertexLstElemToRemove);
+
+            //Rimozione albero di adiacenza
+            AdjacentBSTLst* adjacentLstToRemove = ((GraphBST*)graph)->adjacentBSTLst;
+
+            adjacentRemoved = adjacentLstToRemove->adjacentTree->numberOfNodes;
+            bstDestruct(adjacentLstToRemove->adjacentTree);
+            free(adjacentLstToRemove->vertexPointer);
+
+            ((GraphBST*)graph)->adjacentBSTLst = ((GraphBST*)graph)->adjacentBSTLst->nextVertex;
+        } else {
+            VertexLst* vertexLst = ((GraphBST*)graph)->vertexLst;
+            AdjacentBSTLst* adjacentLst = ((GraphBST*)graph)->adjacentBSTLst;
+
+            //Ricerca del vertice da rimuovere e del rispettivo albero di adiacenza
+            if(vertexLst->nextVertex != NULL && vertexLst->nextVertex->vertexInfo->name != name) {
+                do {
+                    vertexLst = vertexLst->nextVertex;
+                    adjacentLst = adjacentLst->nextVertex;
+                } while (vertexLst->nextVertex != NULL && vertexLst->nextVertex->vertexInfo->name < name);
+            }
+
+            if(vertexLst->nextVertex != NULL && vertexLst->nextVertex->vertexInfo->name == name) { //Il vertice da rimuovere esiste
+                //Rimozione vertice
+                VertexLst* vertexLstElemToRemove = vertexLst->nextVertex;
+                vertexLst->nextVertex = vertexLst->nextVertex->nextVertex;
+                deleteVertexLstElem(vertexLstElemToRemove);
+
+                //Rimozione albero di adiacenza
+                AdjacentBSTLst* adjacentLstToRemove = adjacentLst->nextVertex;
+                adjacentRemoved = adjacentLstToRemove->adjacentTree->numberOfNodes;
+                bstDestruct(adjacentLstToRemove->adjacentTree);
+                free(adjacentLstToRemove->vertexPointer);
+
+                adjacentLst->nextVertex = adjacentLst->nextVertex->nextVertex;
+            } else {
+                return -1;
+            }
+        }
+
+        //Rimuovo il resto degli archi
+        if(adjacentRemoved > 0) { //Il vertice era presente nell'albero quindi è possibile che qualche altro vertice si riferisse ad esso
+            AdjacentBSTLst* adjacentBSTLstIndex = ((GraphBST*)graph)->adjacentBSTLst;
+
+            while(adjacentBSTLstIndex != NULL) {
+                DataObject* nameToDelete = adtConstruct(ConstructIntDataType()); //TODO: Cercare di evitare di creare un constructInt ogni volta?
+                adtSetValue(nameToDelete, &name);
+
+                int numVer = adjacentBSTLstIndex->adjacentTree->numberOfNodes;
+                bstRemove(adjacentBSTLstIndex->adjacentTree, nameToDelete);
+                if(adjacentBSTLstIndex->adjacentTree->numberOfNodes < numVer) {
+                    adjacentRemoved+= 1;
+                }
+
+                adjacentBSTLstIndex = adjacentBSTLstIndex->nextVertex;
+            }
+        }
+
+        return adjacentRemoved;
+    }
+
+    return -1; //Vertice non presente
+}
+
 bool bstGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) {
 
     //Ricerca del nodo da cui parte l'arco
@@ -84,14 +156,45 @@ bool bstGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) {
         }
 
         if(toVertexReference != NULL) { //Il vertice verso cui inserire l'arco è presente nel grafo
-            DataObject* newName = adtConstruct(ConstructIntDataType());
+            DataObject* newName = adtConstruct(ConstructIntDataType()); //TODO: Cercare di evitare di creare un constructInt ogni volta?
             adtSetValue(newName, &toVertexName);
-            return recBSTInsert(&fromVertexReference->adjacentTree->root, newName);
+
+            //TODO: Cerca di utilizzare direttamente recBSTInsert
+            int numVer = fromVertexReference->adjacentTree->numberOfNodes;
+            bstInsert(fromVertexReference->adjacentTree, newName);
+            if(fromVertexReference->adjacentTree->numberOfNodes > numVer) {
+                return true;
+            }
         }
     }
 
     return false;
 }
+
+bool bstGraphRemoveEdge(void* graph, int fromVertexName, int toVertexName) {
+    if(((GraphBST*)graph)->vertexLst != NULL) { //Nel grafo c'è almeno un vertice
+        AdjacentBSTLst* adjacentBSTLstElem = ((GraphBST*) graph)->adjacentBSTLst;
+
+        if(adjacentBSTLstElem->vertexPointer->name != fromVertexName) {
+            do {
+                adjacentBSTLstElem = adjacentBSTLstElem->nextVertex;
+            } while (adjacentBSTLstElem != NULL && adjacentBSTLstElem->vertexPointer->name < fromVertexName);
+        }
+
+        if(adjacentBSTLstElem != NULL && adjacentBSTLstElem->vertexPointer->name == fromVertexName) { //Il vertice da cui parte l'arco esiste
+            DataObject* nameToDelete = adtConstruct(ConstructIntDataType()); //TODO: Cercare di evitare di creare un constructInt ogni volta?
+            adtSetValue(nameToDelete, &toVertexName);
+
+            int numVer = adjacentBSTLstElem->adjacentTree->numberOfNodes;
+            bstRemove(adjacentBSTLstElem->adjacentTree, nameToDelete);
+            if(adjacentBSTLstElem->adjacentTree->numberOfNodes < numVer) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 
 GraphRepresentation* ConstructGraphBST() {
     GraphRepresentation* type = (GraphRepresentation*)malloc(sizeof(GraphRepresentation));
@@ -106,9 +209,9 @@ GraphRepresentation* ConstructGraphBST() {
     //type->graphClone = bstGraphClone;
 
     type->graphInsertVertex = bstGraphInsertVertex;
-    //type->graphRemoveVertex = bstGraphRemoveVertex;
+    type->graphRemoveVertex = bstGraphRemoveVertex;
     type->graphInsertEdge = bstGraphInsertEdge;
-    //type->graphRemoveEdge = bstGraphRemoveEdge;
+    type->graphRemoveEdge = bstGraphRemoveEdge;
 
     //type->graphExistsVertex = bstGraphExistsVertex;
     //type->graphExistsEdge = bstGraphExistsEdge;

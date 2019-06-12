@@ -55,6 +55,8 @@ void lstGraphDestruct(void* graph) {
         deleteVertexLstElem(vertexRef);
         deleteAdjacentLst(adjacentRef);
     }
+
+    //TODO: Aggiungere free vertexRef e freeAdhacentRef?
 }
 
 bool lstGraphEmpty(void* graph) {
@@ -201,7 +203,7 @@ int lstGraphRemoveVertex(void* graph, int name) {
             AdjacentLst* adjacentLstElemToRemove = ((GraphLst*)graph)->adjacentVertexLst;
             ((GraphLst*)graph)->adjacentVertexLst = ((GraphLst*)graph)->adjacentVertexLst->nextVertex;
 
-            adjacentRemoved += deleteAdjacentLst(adjacentLstElemToRemove);
+            adjacentRemoved += deleteAdjacentLst(adjacentLstElemToRemove); //TODO: Togliere il +? (inutile)
         } else {
             VertexLst* vertexLst = ((GraphLst*)graph)->vertexLst;
             AdjacentLst* adjacentLst = ((GraphLst*)graph)->adjacentVertexLst;
@@ -224,7 +226,7 @@ int lstGraphRemoveVertex(void* graph, int name) {
                 AdjacentLst* adjacentLstToRemove = adjacentLst->nextVertex;
                 adjacentLst->nextVertex = adjacentLst->nextVertex->nextVertex;
 
-                adjacentRemoved += deleteAdjacentLst(adjacentLstToRemove);
+                adjacentRemoved += deleteAdjacentLst(adjacentLstToRemove); //TODO: Togliere il +? (inutile)
             } else {
                 return -1;
             }
