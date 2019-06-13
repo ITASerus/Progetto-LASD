@@ -8,13 +8,22 @@
 
 /* ************************************************************************** */
 
+typedef struct Matrix{
+    bool** adjacentMatrix;
+    int slotAllocated;
+
+    int numVertex;
+} Matrix;
+
 typedef struct GraphMat {
   VertexLst* vertexLst;
+  Matrix* adjacentMatrix;
 
+  /*
   bool** adjacentMatrix;
   int slotAllocated;
 
-  int numVertex;
+  int numVertex;*/
 } GraphMat;
 
 /* ************************************************************************** */

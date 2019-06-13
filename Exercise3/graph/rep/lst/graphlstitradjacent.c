@@ -1,5 +1,5 @@
 
-#include "graplstitradjacent.h"
+#include "graphlstitradjacent.h"
 
 /* ************************************************************************** */
 
