@@ -101,9 +101,11 @@ void* lstGraphClone(void* graph) {
     }
 
     return newGraph;
+
+    /**** NOTA: Copio prima la lista di liste di adiacenza e poi gli adiacenti veri e propri perchè la lista di adiacenza contiene riferimenti ai nodi e, in mancanza di essi, non possono essere creati gli archi ***/
 }
 
-void* lstGraphTranspose(void* graph) { //TODO: Rivedi struttura. Forse si può spostare la parte degli adiacenti nell'if iniziale
+void* lstGraphTranspose(void* graph) { //TODO: Rivedi struttura
     GraphLst* newGraph = lstGraphConstruct();
 
     //Copio i vertici appartenenti al grafo da copiare
@@ -396,7 +398,7 @@ void lstGraphSetVertexData(void* graph, int name, DataObject* newValue) {
     }
 
     if(currentVertex != NULL && currentVertex->vertexInfo->name == name) {
-        adtSetValue(currentVertex->vertexInfo->label, newValue->value); //TODO: Si usa così setValue
+        adtSetValue(currentVertex->vertexInfo->label, newValue->value);
     } else {
         printf("Vertice %d non presente\n", name);
     }

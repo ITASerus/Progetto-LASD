@@ -133,6 +133,13 @@ CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o: ../stack/stack.h
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o: ../stack/vec/stackvec.h
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o: ../utility.h
 
+CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../adt/adt.h
+CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../graph/graph.h
+CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../graph/graphitrvertex.c
+CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../graph/graphitrvertex.h
+CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../itr/itr.h
+CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../utility.h
+
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../adt/adt.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../graph/itr/graphitr.c
@@ -259,6 +266,7 @@ CMakeFiles/Exercise3.dir/testGraph.c.o: ../bst/bst.h
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../bst/itr/bstitr.h
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../bst/rec/bstrec.h
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/graph.h
+CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/graphitrvertex.h
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/itr/graphitr.h
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/rec/graphrec.h
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/rep/bst/graphbst.h

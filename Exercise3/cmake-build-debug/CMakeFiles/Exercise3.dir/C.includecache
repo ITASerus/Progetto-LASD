@@ -10,37 +10,25 @@
 ../utility.h
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.h
-../adt.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
-
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bst.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.h
 ../utility.h
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 ../adt/adt.h
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
+../itr/itr.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.c
-bstrec.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.h
-../../adt/ptr/adtptr.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.h
-../../queue/vec/queuevec.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/vec/queuevec.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.c
+graphitrvertex.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.h
-../bst.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bst.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.h
+graph.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/queue.h
+/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
 ../utility.h
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
-../adt/adt.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
-
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/vec/queuevec.h
-../queue.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/queue.h
 
 /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 assert.h

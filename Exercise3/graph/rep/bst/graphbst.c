@@ -17,8 +17,64 @@ void* bstGraphConstruct() {
     return newGraphBST;
 }
 
+void bstGraphDestruct(void* graph) {
+    GraphBST* graphBST = (GraphBST*)graph;
+
+    VertexLst* vertexRef;
+    AdjacentBSTLst* adjacentRef;
+    while(graphBST->vertexLst != NULL) {
+        vertexRef = graphBST->vertexLst;
+        adjacentRef = graphBST->adjacentBSTLst;
+
+        graphBST->vertexLst = graphBST->vertexLst->nextVertex;
+        graphBST->adjacentBSTLst = graphBST->adjacentBSTLst->nextVertex;
+
+        deleteVertexLstElem(vertexRef);
+        bstDestruct(adjacentRef->adjacentTree);
+        free(adjacentRef->vertexPointer);
+        //TODO: Aggiungere free vertexRef e freeAdhacentRef?
+    }
+}
+
 bool bstGraphEmpty(void* graph) {
     return ((GraphBST*)graph)->vertexLst == NULL;
+}
+
+void* bstGraphClone(void* graph) {
+    GraphBST* newGraph = bstGraphConstruct();
+
+    //Copio i vertici appartenenti al grafo da copiare
+    VertexLst* vertexLstToClone = ((GraphBST*)graph)->vertexLst;
+    AdjacentBSTLst* adjacentBstLstToClone = ((GraphBST*)graph)->adjacentBSTLst;
+
+    if(vertexLstToClone != NULL) { //Il grafo da clonare ha almeno un vertice
+        Vertex* newVertex = createVertex(vertexLstToClone->vertexInfo->name, vertexLstToClone->vertexInfo->label);
+        newGraph->vertexLst = createVertexLstElement(newVertex, NULL);
+        newGraph->adjacentBSTLst = createAdjacentBSTLstElem(newVertex, NULL);
+        newGraph->adjacentBSTLst->adjacentTree = bstClone(adjacentBstLstToClone->adjacentTree);
+
+        vertexLstToClone = vertexLstToClone->nextVertex;
+        adjacentBstLstToClone = adjacentBstLstToClone->nextVertex;
+
+        VertexLst* newGraphVertexLst = newGraph->vertexLst;
+        AdjacentBSTLst* newGraphAdjacentBSTLst = newGraph->adjacentBSTLst;
+        while(vertexLstToClone != NULL) {
+            newVertex = createVertex(vertexLstToClone->vertexInfo->name, vertexLstToClone->vertexInfo->label);
+
+            newGraphVertexLst->nextVertex = createVertexLstElement(newVertex, NULL);
+
+            newGraphAdjacentBSTLst->nextVertex = createAdjacentBSTLstElem(newVertex, NULL);
+            newGraphAdjacentBSTLst->nextVertex->adjacentTree= bstClone(adjacentBstLstToClone->adjacentTree);
+
+            newGraphVertexLst = newGraphVertexLst->nextVertex;
+            newGraphAdjacentBSTLst = newGraphAdjacentBSTLst->nextVertex;
+
+            vertexLstToClone = vertexLstToClone->nextVertex;
+            adjacentBstLstToClone = adjacentBstLstToClone->nextVertex;
+        }
+    }
+
+    return newGraph;
 }
 
 bool bstGraphInsertVertex(void* graph, int name, DataObject* label) {
@@ -195,34 +251,95 @@ bool bstGraphRemoveEdge(void* graph, int fromVertexName, int toVertexName) {
     return false;
 }
 
+bool bstGraphExistsVertex(void* graph, int name) {
+    VertexLst* currentVertexLstElem = ((GraphBST*)graph)->vertexLst;
+
+    if(currentVertexLstElem->vertexInfo->name != name) {
+        do {
+            currentVertexLstElem = currentVertexLstElem->nextVertex;
+        } while(currentVertexLstElem != NULL && currentVertexLstElem->vertexInfo->name < name);
+    }
+
+    if(currentVertexLstElem != NULL && currentVertexLstElem->vertexInfo->name == name) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool bstGraphExistsEdge(void* graph, int fromVertexName, int toVertexName) {
+    AdjacentBSTLst* adjacentLst = ((GraphBST*)graph)->adjacentBSTLst;
+
+    while(adjacentLst != NULL && adjacentLst->vertexPointer->name != fromVertexName) { //TODO: Limitare ricerca in base all'ordine
+        adjacentLst = adjacentLst->nextVertex;
+    }
+
+    if(adjacentLst != NULL) { //Il nodo da cui parte l'arco esiste
+        DataObject* nameToFind = adtConstruct(ConstructIntDataType()); //TODO: Cercare di evitare di creare un constructInt ogni volta?
+        adtSetValue(nameToFind, &toVertexName);
+
+        return bstExists(adjacentLst->adjacentTree, nameToFind);
+    }
+
+    return false;
+}
+
+DataObject* bstGraphGetVertexData(void* graph, int name) {
+    VertexLst* currentVertex = ((GraphBST*)graph)->vertexLst;
+
+    while(currentVertex != NULL && currentVertex->vertexInfo->name < name){
+        currentVertex = currentVertex->nextVertex;
+    }
+
+    if(currentVertex != NULL && currentVertex->vertexInfo->name == name) {
+        DataObject* vertexData = adtClone(currentVertex->vertexInfo->label);
+        return vertexData;
+    } else {
+        return NULL;
+    }
+}
+
+void bstGraphSetVertexData(void* graph, int name, DataObject* newValue) {
+    VertexLst* currentVertex = ((GraphBST*)graph)->vertexLst;
+
+    while(currentVertex != NULL && currentVertex->vertexInfo->name < name){
+        currentVertex = currentVertex->nextVertex;
+    }
+
+    if(currentVertex != NULL && currentVertex->vertexInfo->name == name) {
+        adtSetValue(currentVertex->vertexInfo->label, newValue->value); //TODO: Si usa così setValue
+    } else {
+        printf("Vertice %d non presente\n", name);
+    }
+}
 
 GraphRepresentation* ConstructGraphBST() {
     GraphRepresentation* type = (GraphRepresentation*)malloc(sizeof(GraphRepresentation));
 
     type->graphConstruct = bstGraphConstruct;
-    //type->graphDestruct = bstGraphDestruct;
+    type->graphDestruct = bstGraphDestruct;
 
     type->graphEmpty = bstGraphEmpty;
 
-    //type->graphTranspose = bstGraphTranspose;
+    //type->graphTranspose = bstGraphTranspose; //TODO: Da fare
 
-    //type->graphClone = bstGraphClone;
+    type->graphClone = bstGraphClone;
 
     type->graphInsertVertex = bstGraphInsertVertex;
     type->graphRemoveVertex = bstGraphRemoveVertex;
     type->graphInsertEdge = bstGraphInsertEdge;
     type->graphRemoveEdge = bstGraphRemoveEdge;
 
-    //type->graphExistsVertex = bstGraphExistsVertex;
-    //type->graphExistsEdge = bstGraphExistsEdge;
+    type->graphExistsVertex = bstGraphExistsVertex;
+    type->graphExistsEdge = bstGraphExistsEdge;
 
-    //type->graphGetVertexData = bstGraphGetVertexData;
-    //type->graphSetVertexData = bstGraphSetVertexData;
+    type->graphGetVertexData = bstGraphGetVertexData;
+    type->graphSetVertexData = bstGraphSetVertexData;
 
     return type;
 }
 
-void DestructGraphBST(GraphRepresentation* type) {
+void DestructGraphBST(GraphRepresentation* type) {//TODO: Sicuro prenda graphRepresentation?
     free(type);
 }
 

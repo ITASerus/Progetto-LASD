@@ -61,9 +61,6 @@ bool bstExists(BSTObject* tree, DataObject* keyToFind) {
 void bstInsert(BSTObject* tree, DataObject* newKey) {
     if(tree->type->insert(&(tree->root), newKey)) {
         tree->numberOfNodes++;
-        printf("NODO INSERITO\n");
-    } else {
-        printf("NODO NON INSERITO\n");
     }
 }
 

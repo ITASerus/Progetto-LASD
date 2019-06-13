@@ -36,7 +36,7 @@ int graphEdgeNumber(GraphObject* graphObject) {
     return graphObject->numEdge;
 }
 
-GraphObject* graphClone(GraphObject* graphObject) {
+GraphObject* graphClone(GraphObject* graphObject) { //TODO: Assicurati di copiare anche labeò
     GraphObject* clonedGraphObject =(GraphObject*)malloc(sizeof(GraphObject));
     clonedGraphObject->type = graphObject->type;
     clonedGraphObject->graph = graphObject->type->graphRep->graphClone(graphObject->graph);
@@ -47,7 +47,7 @@ GraphObject* graphClone(GraphObject* graphObject) {
     return clonedGraphObject;
 }
 
-GraphObject* graphTranspose(GraphObject* graphObject) {
+GraphObject* graphTranspose(GraphObject* graphObject) { //TODO: Assicurati di copiare anche label
     GraphObject* transposedGraphObject =(GraphObject*)malloc(sizeof(GraphObject));
     transposedGraphObject->type = graphObject->type;
     transposedGraphObject->graph = graphObject->type->graphRep->graphTranspose(graphObject->graph);

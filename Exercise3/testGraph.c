@@ -1,5 +1,6 @@
 
 #include "testGraph.h"
+#include "graph/graphitrvertex.h"
 
 void printGraphLst(GraphObject* graphObject) { //TODO: Evita di stampare il primo nodo della lista di adiacenza
     printf("\nGRAFO:\n");
@@ -1409,7 +1410,7 @@ void testBSTgraph() {
 
     printf("\n*****************************************************************\n\n");
 
-    /*printf("Inserimento arco tra 3 e 3\n");
+    printf("Inserimento arco tra 3 e 3\n");
     graphInsertEdge(graphObject, 3, 3);
 
     printf("Inserimento arco tra 3 e 2\n");
@@ -1428,7 +1429,7 @@ void testBSTgraph() {
     graphInsertEdge(graphObject, 1, 4);
 
     printf("Inserimento arco tra 1 e 5\n");
-    graphInsertEdge(graphObject, 1, 5);*/
+    graphInsertEdge(graphObject, 1, 5);
 
     printf("Inserimento arco tra 7 e 1\n");
     graphInsertEdge(graphObject, 7, 1);
@@ -1460,7 +1461,7 @@ void testBSTgraph() {
     printGraphBST(graphObject);
     printf("Numero di vertici: %d\n", graphVertexNumber(graphObject));
     printf("Numero di archi: %d\n", graphEdgeNumber(graphObject));
-/*
+
     printf("\n*****************************************************************\n\n");
 
     printf("Rimozione arco tra 1 e 5\n");
@@ -1487,16 +1488,90 @@ void testBSTgraph() {
     printf("Rimozione vertice 1");
     graphRemoveVertex(graphObject, 1);
 
+    printf("\n\nRimozione vertice 7");
+    graphRemoveVertex(graphObject, 7);
+
+    printf("\n\nRimozione vertice 5");
+    graphRemoveVertex(graphObject, 5);
+
+    printf("\n\nRimozione vertice 6");
+    graphRemoveVertex(graphObject, 6);
+
     printGraphBST(graphObject);
     printf("Numero di vertici: %d\n", graphVertexNumber(graphObject));
     printf("Numero di archi: %d\n", graphEdgeNumber(graphObject));
 
-    printf("\n\nRimozione vertice 7");
-    graphRemoveVertex(graphObject, 7);
+    printf("\n*****************************************************************\n\n");
 
     printGraphBST(graphObject);
-    printf("Numero di vertici: %d\n", graphVertexNumber(graphObject));
-    printf("Numero di archi: %d\n", graphEdgeNumber(graphObject));*/
+
+    printf("\nEsistenza vertice %d: %d\n", 1, graphExistsVertex(graphObject, 1));
+    printf("Esistenza vertice %d: %d\n", 2, graphExistsVertex(graphObject, 2));
+    printf("Esistenza vertice %d: %d\n", 3, graphExistsVertex(graphObject, 3));
+    printf("Esistenza vertice %d: %d\n", 4, graphExistsVertex(graphObject, 4));
+    printf("Esistenza vertice %d: %d\n", 5, graphExistsVertex(graphObject, 5));
+    printf("Esistenza arto tra %d e %d: %d\n", 5, 6, graphExistsEdge(graphObject, 5, 6));
+    printf("Esistenza arto tra %d e %d: %d\n", 2, 3, graphExistsEdge(graphObject, 2, 3));
+    printf("Esistenza arto tra %d e %d: %d\n", 3, 2, graphExistsEdge(graphObject, 3, 2));
+    printf("Esistenza arto tra %d e %d: %d\n", 3, 3, graphExistsEdge(graphObject, 3, 3));
+    printf("Esistenza arto tra %d e %d: %d\n", 3, 4, graphExistsEdge(graphObject, 3, 4));
+    printf("Esistenza arto tra %d e %d: %d\n", 2, 5, graphExistsEdge(graphObject, 2, 5));
+
+    printf("\n*****************************************************************\n\n");
+
+    printf("Distruzione graphObject\n");
+
+    graphDestruct(graphObject);
+
+    printf("\n*****************************************************************\n\n");
+
+    graphObject = graphConstruct(graphTyp);
+
+    printf("Grafo vuoto?: ");
+    if (graphEmpty(graphObject)) {
+        printf("true\n");
+    } else {
+        printf("false\n");
+    }
+
+    printf("\nCopia grafo vuoto");
+    GraphObject* clonedGraph = graphClone(graphObject);
+    printGraphBST(clonedGraph);
+
+    graphInsertVertex(graphObject, 4, dataPtr);
+    graphInsertVertex(graphObject, 3, dataPtr);
+    graphInsertVertex(graphObject, 2, dataPtr);
+    graphInsertVertex(graphObject, 1, dataPtr);
+
+    printf("\nCopia grafo pieno ma senza archi");
+    clonedGraph = graphClone(graphObject);
+    printGraphBST(clonedGraph);
+
+    graphInsertEdge(graphObject, 1, 1);
+    graphInsertEdge(graphObject, 1, 2);
+    graphInsertEdge(graphObject, 1, 3);
+    graphInsertEdge(graphObject, 1, 4);
+    graphInsertEdge(graphObject, 2, 2);
+    graphInsertEdge(graphObject, 4, 3);
+    graphInsertEdge(graphObject, 4, 1);
+
+    printf("\nCopia grafo pieno con archi");
+    clonedGraph = graphClone(graphObject);
+    printGraphBST(clonedGraph);
+
+    printf("\n*****************************************************************\n\n");
+
+    printf("Grafo da iterare:");
+    printGraphBST(graphObject);
+
+    ITRType* iterType = ConstructVertexIterator();
+    ITRObject* iterator = itrConstruct(iterType, ((GraphBST*)graphObject->graph)->vertexLst);
+
+    while(!itrTerminated(iterator)) {
+        printf("%d - ", ((VertexLst*)itrElement(iterator))->vertexInfo->name);
+
+        itrSuccessor(iterator);
+    }
 }
 
 void testGraph() {

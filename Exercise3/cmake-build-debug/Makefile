@@ -582,6 +582,33 @@ graph/graphitrpreord.c.s:
 	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.s
 .PHONY : graph/graphitrpreord.c.s
 
+graph/graphitrvertex.o: graph/graphitrvertex.c.o
+
+.PHONY : graph/graphitrvertex.o
+
+# target to build an object file
+graph/graphitrvertex.c.o:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o
+.PHONY : graph/graphitrvertex.c.o
+
+graph/graphitrvertex.i: graph/graphitrvertex.c.i
+
+.PHONY : graph/graphitrvertex.i
+
+# target to preprocess a source file
+graph/graphitrvertex.c.i:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.i
+.PHONY : graph/graphitrvertex.c.i
+
+graph/graphitrvertex.s: graph/graphitrvertex.c.s
+
+.PHONY : graph/graphitrvertex.s
+
+# target to generate assembly for a file
+graph/graphitrvertex.c.s:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.s
+.PHONY : graph/graphitrvertex.c.s
+
 graph/itr/graphitr.o: graph/itr/graphitr.c.o
 
 .PHONY : graph/itr/graphitr.o
@@ -690,6 +717,33 @@ graph/rep/lst/graphlst.c.s:
 	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.s
 .PHONY : graph/rep/lst/graphlst.c.s
 
+graph/rep/lst/graplstitradjacent.o: graph/rep/lst/graplstitradjacent.c.o
+
+.PHONY : graph/rep/lst/graplstitradjacent.o
+
+# target to build an object file
+graph/rep/lst/graplstitradjacent.c.o:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/lst/graplstitradjacent.c.o
+.PHONY : graph/rep/lst/graplstitradjacent.c.o
+
+graph/rep/lst/graplstitradjacent.i: graph/rep/lst/graplstitradjacent.c.i
+
+.PHONY : graph/rep/lst/graplstitradjacent.i
+
+# target to preprocess a source file
+graph/rep/lst/graplstitradjacent.c.i:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/lst/graplstitradjacent.c.i
+.PHONY : graph/rep/lst/graplstitradjacent.c.i
+
+graph/rep/lst/graplstitradjacent.s: graph/rep/lst/graplstitradjacent.c.s
+
+.PHONY : graph/rep/lst/graplstitradjacent.s
+
+# target to generate assembly for a file
+graph/rep/lst/graplstitradjacent.c.s:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/lst/graplstitradjacent.c.s
+.PHONY : graph/rep/lst/graplstitradjacent.c.s
+
 graph/rep/mat/graphmat.o: graph/rep/mat/graphmat.c.o
 
 .PHONY : graph/rep/mat/graphmat.o
@@ -716,6 +770,33 @@ graph/rep/mat/graphmat.s: graph/rep/mat/graphmat.c.s
 graph/rep/mat/graphmat.c.s:
 	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.s
 .PHONY : graph/rep/mat/graphmat.c.s
+
+graph/rep/mat/graphmatitradjacent.o: graph/rep/mat/graphmatitradjacent.c.o
+
+.PHONY : graph/rep/mat/graphmatitradjacent.o
+
+# target to build an object file
+graph/rep/mat/graphmatitradjacent.c.o:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o
+.PHONY : graph/rep/mat/graphmatitradjacent.c.o
+
+graph/rep/mat/graphmatitradjacent.i: graph/rep/mat/graphmatitradjacent.c.i
+
+.PHONY : graph/rep/mat/graphmatitradjacent.i
+
+# target to preprocess a source file
+graph/rep/mat/graphmatitradjacent.c.i:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.i
+.PHONY : graph/rep/mat/graphmatitradjacent.c.i
+
+graph/rep/mat/graphmatitradjacent.s: graph/rep/mat/graphmatitradjacent.c.s
+
+.PHONY : graph/rep/mat/graphmatitradjacent.s
+
+# target to generate assembly for a file
+graph/rep/mat/graphmatitradjacent.c.s:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.s
+.PHONY : graph/rep/mat/graphmatitradjacent.c.s
 
 itr/itr.o: itr/itr.c.o
 
@@ -1074,6 +1155,9 @@ help:
 	@echo "... graph/graphitrpreord.o"
 	@echo "... graph/graphitrpreord.i"
 	@echo "... graph/graphitrpreord.s"
+	@echo "... graph/graphitrvertex.o"
+	@echo "... graph/graphitrvertex.i"
+	@echo "... graph/graphitrvertex.s"
 	@echo "... graph/itr/graphitr.o"
 	@echo "... graph/itr/graphitr.i"
 	@echo "... graph/itr/graphitr.s"
@@ -1086,9 +1170,15 @@ help:
 	@echo "... graph/rep/lst/graphlst.o"
 	@echo "... graph/rep/lst/graphlst.i"
 	@echo "... graph/rep/lst/graphlst.s"
+	@echo "... graph/rep/lst/graplstitradjacent.o"
+	@echo "... graph/rep/lst/graplstitradjacent.i"
+	@echo "... graph/rep/lst/graplstitradjacent.s"
 	@echo "... graph/rep/mat/graphmat.o"
 	@echo "... graph/rep/mat/graphmat.i"
 	@echo "... graph/rep/mat/graphmat.s"
+	@echo "... graph/rep/mat/graphmatitradjacent.o"
+	@echo "... graph/rep/mat/graphmatitradjacent.i"
+	@echo "... graph/rep/mat/graphmatitradjacent.s"
 	@echo "... itr/itr.o"
 	@echo "... itr/itr.i"
 	@echo "... itr/itr.s"

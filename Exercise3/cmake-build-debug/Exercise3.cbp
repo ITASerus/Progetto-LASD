@@ -224,6 +224,12 @@
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrpreord.h">
 			<Option target="Exercise3"/>
 		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.h">
+			<Option target="Exercise3"/>
+		</Unit>
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/itr/graphitr.c">
 			<Option target="Exercise3"/>
 		</Unit>
@@ -248,10 +254,22 @@
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlst.h">
 			<Option target="Exercise3"/>
 		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graplstitradjacent.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graplstitradjacent.h">
+			<Option target="Exercise3"/>
+		</Unit>
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmat.c">
 			<Option target="Exercise3"/>
 		</Unit>
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmat.h">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmatitradjacent.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmatitradjacent.h">
 			<Option target="Exercise3"/>
 		</Unit>
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.c">

@@ -85,4 +85,4 @@ add_executable(Exercise3
         stack/stack.h
         main.c
         utility.c
-        utility.h adt/ptr/adtptr.c adt/ptr/adtptr.h testBST.c testBST.h testGraph.c testGraph.h)
+        utility.h adt/ptr/adtptr.c adt/ptr/adtptr.h testBST.c testBST.h testGraph.c testGraph.h graph/graphitrvertex.c graph/graphitrvertex.h graph/rep/lst/graplstitradjacent.c graph/rep/lst/graplstitradjacent.h graph/rep/mat/graphmatitradjacent.c graph/rep/mat/graphmatitradjacent.h)

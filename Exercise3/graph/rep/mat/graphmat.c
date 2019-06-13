@@ -50,7 +50,7 @@ bool matGraphInsertVertex(void* graph, int name, DataObject* label) {
         graphMat->slotAllocated = 2;
         bool** newAdjacentMatrix = (bool**)malloc(sizeof(bool*) * graphMat->slotAllocated);
         for(int i = 0; i < graphMat->slotAllocated; i++) {
-            newAdjacentMatrix[i] = (bool*)malloc(sizeof(bool) * graphMat->slotAllocated); //TODO: Sostiuire con calloc
+            newAdjacentMatrix[i] = (bool*)malloc(sizeof(bool) * graphMat->slotAllocated);
             for(int j = 0; j < graphMat->slotAllocated; j++) {
                 newAdjacentMatrix[i][j] = false; //Inizializzo la matrice a false per ogni campo
             }
@@ -211,7 +211,7 @@ void* matGraphClone(void* graph) {
     newGraph->slotAllocated = ((GraphMat*)graph)->slotAllocated;
     bool** newAdjacentMatrix = (bool**)malloc(sizeof(bool*) * newGraph->slotAllocated); //Alloco il vettore di puntatori ai vettori che comporranno la matrice
     for(int i = 0; i < newGraph->slotAllocated; i++) {
-        newAdjacentMatrix[i] = malloc(sizeof(bool) * newGraph->slotAllocated); //Alloco un vettore che conterrà gli archi //TODO: Sostiuire con calloc
+        newAdjacentMatrix[i] = malloc(sizeof(bool) * newGraph->slotAllocated); //Alloco un vettore che conterrà gli archi
         for(int j = 0; j < newGraph->slotAllocated; j++) {
             newAdjacentMatrix[i][j] = ((GraphMat*)graph)->adjacentMatrix[i][j];
         }
@@ -246,7 +246,7 @@ void* matGraphTranspose(void* graph) {
         newGraph->slotAllocated = ((GraphMat*)graph)->slotAllocated;
         bool** newAdjacentMatrix = (bool**)malloc(sizeof(bool*) * newGraph->slotAllocated); //Alloco il vettore di puntatori ai vettori che comporranno la matrice
         for(int i = 0; i < newGraph->slotAllocated; i++) {
-            newAdjacentMatrix[i] = malloc(sizeof(bool) * newGraph->slotAllocated); //Alloco un vettore che conterrà gli archi //TODO: Sostiuire con calloc
+            newAdjacentMatrix[i] = malloc(sizeof(bool) * newGraph->slotAllocated); //Alloco un vettore che conterrà gli archi
             for(int j = 0; j < newGraph->slotAllocated; j++) {
                 newAdjacentMatrix[i][j] = ((GraphMat*)graph)->adjacentMatrix[j][i];
             }
@@ -372,7 +372,7 @@ void matGraphSetVertexData(void* graph, int name, DataObject* newValue) {
     }
 
     if(currentVertex != NULL && currentVertex->vertexInfo->name == name) {
-        adtSetValue(currentVertex->vertexInfo->label, newValue->value); //TODO: Si usa così setValue?
+        adtSetValue(currentVertex->vertexInfo->label, newValue->value);
     } else {
         printf("Vertice %d non presente\n", name);
     }

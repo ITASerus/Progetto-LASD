@@ -129,7 +129,7 @@ void graphRemoveVertex(GraphObject* graphObject, int name);
 void graphInsertEdge(GraphObject* graphObject, int fromVertexName, int toVertexName);
 void graphRemoveEdge(GraphObject* graphObject, int fromVertexName, int toVertexName);
 
-bool graphExistsVertex(GraphObject* graphObject, int name); //TODO: prende solo nome o anche dataobject?
+bool graphExistsVertex(GraphObject* graphObject, int name);
 bool graphExistsEdge(GraphObject* graphObject, int fromVertexName, int toVertexName);
 
 DataObject* graphGetVertexData(GraphObject* graphObject, int name);

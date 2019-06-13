@@ -37,7 +37,7 @@ typedef struct ITRObject {
 
 /* ************************************************************************** */
 
-ITRObject* itrConstruct(ITRType* type, void* tree);
+ITRObject* itrConstruct(ITRType* type, void* source);
 void itrDestruct(ITRObject* iterator);
 
 bool itrTerminated(ITRObject* iterator);
