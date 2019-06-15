@@ -392,6 +392,10 @@ void bstGraphSetVertexData(void* graph, int name, DataObject* newValue) {
     }
 }
 
+int bstGraphVertexFromPointer(Vertex* iterator) {
+    return ((Vertex*)itrElement(iterator))->name;
+}
+
 ITRObject* bstGraphVertices(void* graph) {
     ITRType* iterType = ConstructVertexIterator();
     ITRObject* iterator = itrConstruct(iterType, ((GraphBST*)graph)->vertexLst);
@@ -432,6 +436,8 @@ GraphRepresentation* ConstructGraphBST() {
 
     type->graphGetVertexData = bstGraphGetVertexData;
     type->graphSetVertexData = bstGraphSetVertexData;
+
+    type->graphVertexFromPointer = bstGraphVertexFromPointer;
 
     type->graphVertices = bstGraphVertices;
     type->graphVertexEdges = bstGraphVertexEdges;

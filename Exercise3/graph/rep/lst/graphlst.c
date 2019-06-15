@@ -407,6 +407,10 @@ void lstGraphSetVertexData(void* graph, int name, DataObject* newValue) {
     }
 }
 
+int lstGraphVertexFromPointer(ITRObject* iterator) {
+    return ((Vertex*)itrElement(iterator))->name;
+}
+
 ITRObject* lstGraphVertices(void* graph) {
     ITRType* iterType = ConstructVertexIterator();
     ITRObject* iterator = itrConstruct(iterType, ((GraphLst*)graph)->vertexLst);
@@ -447,6 +451,8 @@ GraphRepresentation* ConstructGraphLst() {
 
     type->graphGetVertexData = lstGraphGetVertexData;
     type->graphSetVertexData = lstGraphSetVertexData;
+
+    type->graphVertexFromPointer = lstGraphVertexFromPointer;
 
     type->graphVertices = lstGraphVertices;
     type->graphVertexEdges = lstGraphVertexEdges;

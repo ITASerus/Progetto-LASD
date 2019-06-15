@@ -386,6 +386,10 @@ void matGraphSetVertexData(void* graph, int name, DataObject* newValue) {
     }
 }
 
+int matGraphVertexFromPointer(ITRObject* iterator) {
+    return ((Vertex*)itrElement(iterator))->name;
+}
+
 ITRObject* matGraphVertices(void* graph) {
     ITRType* iterType = ConstructVertexIterator();
     ITRObject* iterator = itrConstruct(iterType, ((GraphMat*)graph)->vertexLst);
@@ -424,6 +428,8 @@ GraphRepresentation* ConstructGraphMat() {
 
     type->graphGetVertexData = matGraphGetVertexData;
     type->graphSetVertexData = matGraphSetVertexData;
+
+    type->graphVertexFromPointer = matGraphVertexFromPointer;
 
     type->graphVertices = matGraphVertices;
     type->graphVertexEdges = matGraphVertexEdges;

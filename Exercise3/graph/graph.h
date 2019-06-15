@@ -31,7 +31,7 @@ typedef bool (*GraphExistsEdge)(void* graph, int fromVertexName, int toVertexNam
 typedef DataObject* (*GraphGetVertexData)(void* graph, int name);
 typedef void (*GraphSetVertexData)(void* graph, int name, DataObject* newValue);
 
-// typedef type (*GraphVertexFromPointer)(arguments); //restituisce nome del nodo puntato
+typedef int (*GraphVertexFromPointer)(void* iterator);
 
 typedef ITRObject* (*GraphVertices)(void* graph);
 typedef ITRObject* (*GraphVertexEdges)(void* graph, int name);
@@ -90,14 +90,17 @@ typedef struct GraphRepresentation {
   GraphGetVertexData graphGetVertexData;
   GraphSetVertexData  graphSetVertexData;
 
+  GraphVertexFromPointer graphVertexFromPointer;
+
   GraphVertices graphVertices;
   GraphVertexEdges graphVertexEdges;
 
 } GraphRepresentation;
 
-typedef struct GraphType { //void* puntatore alla rappresentazione + graphrapresentation*
+typedef struct GraphType {
   GraphRepresentation* graphRep;
-  //Struct da completare!
+
+  GraphEqual graphEqual;
 } GraphType;
 
 typedef struct GraphObject
@@ -137,12 +140,12 @@ bool graphExistsEdge(GraphObject* graphObject, int fromVertexName, int toVertexN
 DataObject* graphGetVertexData(GraphObject* graphObject, int name);
 void graphSetVertexData(GraphObject* graphObject, int name, DataObject* newValue);
 
-// type graphVertexFromPointer(arguments);
+int graphVertexFromPointer(GraphObject* graphObject, ITRObject* iterator);
 
 ITRObject* graphVertices(GraphObject* graphObject);
 ITRObject* graphVertexEdges(GraphObject* graphObject, int name);
 
-// type graphEqual(arguments);
+bool graphEqual(GraphObject* firstGraphObject, GraphObject* secondGraphObject);
 
 // type graphExistsVertexWithData(arguments);
 

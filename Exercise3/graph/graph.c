@@ -102,12 +102,20 @@ void graphSetVertexData(GraphObject* graphObject, int name, DataObject* newValue
     graphObject->type->graphRep->graphSetVertexData(graphObject->graph, name, newValue);
 }
 
+int graphVertexFromPointer(GraphObject* graphObject, ITRObject* iterator) {
+    return graphObject->type->graphRep->graphVertexFromPointer(iterator);
+}
+
 ITRObject* graphVertices(GraphObject* graphObject) {
     return  graphObject->type->graphRep->graphVertices(graphObject->graph);
 }
 
 ITRObject* graphVertexEdges(GraphObject* graphObject, int name) {
     return  graphObject->type->graphRep->graphVertexEdges(graphObject->graph, name);
+}
+
+bool graphEqual(GraphObject* firstGraphObject, GraphObject* secondGraphObject) {
+    return firstGraphObject->type->graphEqual(firstGraphObject, secondGraphObject);
 }
 
 /* ************************************************************************** */

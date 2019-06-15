@@ -106,7 +106,7 @@ void printGraphBST(GraphObject* graphObject) {
 }
 
 void testList() {
-    GraphType *graphTyp = (GraphType *) malloc(sizeof(GraphType));
+    GraphType *graphTyp = (GraphType*)malloc(sizeof(GraphType));
     graphTyp->graphRep = ConstructGraphLst();
 
     GraphObject *graphObject = graphConstruct(graphTyp);
@@ -1032,7 +1032,69 @@ void testList() {
         itrSuccessor(iter);
     }
 
+    itrDestruct(iter);
 
+    printf("\n*****************************************************************\n");
+
+    printf("TEST Vertex From Pointer\n");
+
+    iter = graphVertices(graphObject);
+
+    int name = graphVertexFromPointer(graphObject, iter);
+    printf("%d\n", name);
+
+    itrSuccessor(iter);
+    name = graphVertexFromPointer(graphObject, iter);
+    printf("%d\n", name);
+
+    itrSuccessor(iter);
+    name = graphVertexFromPointer(graphObject, iter);
+    printf("%d\n", name);
+
+    itrSuccessor(iter);
+    name = graphVertexFromPointer(graphObject, iter);
+    printf("%d\n", name);
+
+    itrSuccessor(iter);
+    name = graphVertexFromPointer(graphObject, iter);
+    printf("%d\n", name);
+
+    printf("\n*****************************************************************\n");
+
+    ConstructGraphRecursive(graphTyp);
+    GraphObject* newGraph = graphConstruct(graphTyp);
+
+    adtRandomValue(dataPtr);
+    graphInsertVertex(newGraph, 1, dataPtr);
+    adtRandomValue(dataPtr);
+    graphInsertVertex(newGraph, 3, dataPtr);
+    adtRandomValue(dataPtr);
+    graphInsertVertex(newGraph, 6, dataPtr);
+    adtRandomValue(dataPtr);
+    graphInsertVertex(newGraph, 9, dataPtr);
+    adtRandomValue(dataPtr);
+    graphInsertVertex(newGraph, 12, dataPtr);
+
+    graphInsertEdge(newGraph, 1, 3);
+    graphInsertEdge(newGraph, 3, 9);
+    graphInsertEdge(newGraph, 9, 12);
+    graphInsertEdge(newGraph, 12, 1);
+    graphInsertEdge(newGraph, 12, 3);
+    graphInsertEdge(newGraph, 9, 3);
+    graphInsertEdge(newGraph, 1, 12);
+    graphInsertEdge(newGraph, 3, 3);
+
+    GraphObject* clone = graphClone(newGraph);
+
+    printGraphLst(newGraph);
+    printGraphLst(clone);
+
+    printf("\n");
+    if(graphEqual(newGraph, clone)) {
+        printf("UGUALI");
+    } else {
+        printf("DIVERSI");
+    }
 }
 
 void testMat() {
@@ -1788,8 +1850,279 @@ void testBSTgraph() {
 
 }
 
+
+void testGraphLst() {
+    GraphType* graphType = (GraphType*)malloc(sizeof(GraphType));
+    graphType->graphRep = ConstructGraphLst();
+
+    DataType* datatype = NULL;
+
+    int scelta, number;
+    printf("Inserire tipologia di implementazione della pila da utilizzare\n(1) Ricorsiva\n(2) Iterativa\n");
+    do {
+        printf("Scelta: ");
+        scanf("%d", &scelta);
+        switch (scelta) {
+            case 1: {
+                ConstructGraphRecursive(graphType);
+                break;
+            }
+            case 2: {
+               // ConstructGraphIterative(graphType);
+                break;
+            }
+            default: {
+                printf("Opzione non valida.\nOpzioni possibili:\n(1) Ricorsiva\n(2) Iterativa\n");
+                break;
+            }
+        }
+    } while (scelta != 1 && scelta != 2);
+
+    int tipoScelto;
+    printf("Inserire tipologia di dato da gestire\n(1) Intero\n(2) Float\n(3) Stringhe\n(4) Record\n");
+    do {
+        printf("Scelta: ");
+        scanf("%d", &tipoScelto);
+        switch (tipoScelto) {
+            case 1: {
+                datatype = ConstructIntDataType();
+                break;
+            }
+            case 2: {
+                datatype = ConstructFloatDataType();
+                break;
+            }
+            case 3: {
+                datatype = ConstructStringDataType();
+                break;
+            }
+            case 4: {
+                datatype = ConstructRecordDataType();
+                break;
+            }
+            default: {
+                printf("Opzione non valida.\nOpzioni possibili:\n(1) Intero\n(2) Float\n(3) Stringhe\n(4) Record\n");
+                break;
+            }
+        }
+    } while( (tipoScelto<1) || (tipoScelto >4));
+
+    GraphObject* graphObject = graphConstruct(graphType);
+    DataObject* dataPtr = adtConstruct(datatype);
+
+    do {
+        printf("\n***********************************************************************************************\n\n");
+        printf("Menu':\n"
+               "(1) Popolamento randomico del grafo con N elementi\n"
+               "\n"
+               "(2) Visualizzazione del contenuto del grafo Pre-Order\n"
+               "(3) Visualizzazione del contenuto del grafo Post-Order\n"
+               "(4) Visualizzazione del contenuto del grafo in ampiezza\n"
+               "\n"
+               "(5) Inserimento manuale di un vertice nel grafo\n"
+               "(6) Rimozione di un vertice dal grafo\n"
+               "(7) Controllo esistenza di un vertice\n"
+               "\n"
+               "(8) Inserimento manuale di un arco tra due vertici presenti nel grafo\n"
+               "(9) Rimozione di un arco dal grafo\n"
+               "(10) Controllo esistenza di un arco tra due vertici presenti nel grafo\n"
+               "\n"
+               "(11) Controllo vuotezza del grafo\n"
+               "(12) Numero di nodi contenuti nel grafo\n"
+               "(13) Numero di archi contenuti nel grafo\n"
+               "(14) Svuotamento del grafo\n"
+               "(15) Creazione e stampa di un clone del grafo e\n"
+               "     controllo uguaglianza con il grafo principale\n"
+               "(16) Creazione e stampa del trasposto del grafo\n"
+               "\n"
+               "(0) Deallocazione della stuttura ed uscita dal programma\n"
+               "Scelta: ");
+        scanf("%d", &scelta);
+        switch (scelta) {
+            case 1: {
+                printf("Numero di vertici da inserire nel grafo: ");
+                scanf("%d", &number);
+
+                for(int i = 0; i < number; i++) {
+                    adtRandomValue(dataPtr);
+                    graphInsertVertex(graphObject, rndNum(-250, 250), dataPtr);
+                }
+
+                printf("Numero di archi da inserire nel grafo: ");
+                scanf("%d", &number);
+
+                for(int i = 0; i < number; i++) {
+                    graphInsertEdge(graphObject, rndNum(-250, 250), rndNum(-250, 250)); //TODO: Generare meglio
+                }
+
+                printf("Elementi inseriti!\n");
+                break;
+            }
+            case 2: {
+                printf("Da implementare\n");
+                break;
+            }
+            case 3: {
+                printf("Da implementare\n");
+                break;
+            }
+            case 4: {
+                printf("Da implementare\n");
+                break;
+            }
+            case 5: {
+                printf("Inserire il nome del nuovo vertice: ");
+                scanf("%d", &number);
+
+                printf("Inserire il valore del nuovo vertice: ");
+                adtReadFromKeyboard(dataPtr);
+
+                graphInsertVertex(graphObject, number, dataPtr);
+                break;
+            }
+            case 6: {
+                printf("Inserire il nome del vertice da rimuovere: ");
+                scanf("%d", &number);
+
+                graphRemoveVertex(graphObject, number);
+                break;
+            }
+            case 7: {
+                printf("Inserire il nome del vertice da ricercare: ");
+                scanf("%d", &number);
+
+                if(graphExistsVertex(graphObject, number)) {
+                    printf("Il vertice è presente nel grafo\n");
+                } else {
+                    printf("Il vertice non è presente nel grafo\n");
+                }
+                break;
+            }
+            case 8: {
+                int fromName, toName;
+
+                printf("Inserire il nome del vertice da cui far partire l'arco: ");
+                scanf("%d", &fromName);
+
+                printf("Inserire il nome del vertice in cui far arrivare l'arco: ");
+                scanf("%d", &toName);
+
+                graphInsertEdge(graphObject, fromName, toName);
+
+                break;
+            }
+            case 9: {
+                int fromName, toName;
+
+                printf("Inserire il nome del vertice da cui parte l'arco che si vuole rimuovere: ");
+                scanf("%d", &fromName);
+
+                printf("Inserire il nome del vertice in cui arriva l'arco che si vuole rimuovere: ");
+                scanf("%d", &toName);
+
+                graphRemoveEdge(graphObject, fromName, toName);
+
+                break;
+            }
+            case 10: {
+                int fromName, toName;
+
+                printf("Inserire il nome del vertice da cui parte l'arco di cui si vuole controllare l'esitenza: ");
+                scanf("%d", &fromName);
+
+                printf("Inserire il nome del vertice in cui arriva l'arco di cui si vuole controllare l'esitenza: ");                scanf("%d", &toName);
+                scanf("%d", &toName);
+
+                if(graphExistsEdge(graphObject, fromName, toName)) {
+                    printf("L'arco è presente nel grafo\n");
+                } else {
+                    printf("L'arco non è presente nel grafo\n");
+                }
+
+                break;
+            }
+            case 11: {
+                if(graphEmpty(graphObject)) {
+                    printf("Il grafo è vuoto\n");
+                } else {
+                    printf("Il grafo non è vuoto\n");
+                }
+
+                break;
+            }
+            case 12: {
+                printf("Il grafo contiene %d nodi\n", graphVertexNumber(graphObject));
+                break;
+            }
+            case 13: {
+                printf("Il grafo contiene %d archi\n", graphEdgeNumber(graphObject));
+                break;
+            }
+            case 14: {
+                printf("Da implementare\n");
+                break;
+            }
+            case 15: {
+                GraphObject* clonedGraph = graphClone(graphObject);
+
+                printf("Da implementare\n");
+
+                graphDestruct(clonedGraph);
+
+                break;
+            }
+            case 16: {
+                GraphObject* transposedGraph = graphTranspose(graphObject);
+
+                printf("Da implementare\n");
+
+                graphDestruct(transposedGraph);
+
+                break;
+            }
+            case 0: {
+                graphDestruct(graphObject);
+
+                printf("Grafo deallocato");
+                break;
+            }
+            default: {
+                printf("Opzione non valida!\n");
+                break;
+            }
+        }
+    } while (scelta != 0);
+}
+
+void test2() {
+    int scelta;
+    printf("Inserire tipologia di struttra da utilizzare\n(1) Liste di adiacenza\n(2) Matrice di Adiacenza\n(3) Alberi di adiacenza");
+    do {
+        printf("Scelta: ");
+        scanf("%d", &scelta);
+        switch (scelta) {
+            case 1: {
+                testGraphLst();
+                break;
+            }
+            case 2: {
+                //testQueue();
+                break;
+            }
+            default: {
+                printf("Opzione non valida.\nOpzioni possibili:\n(1) Liste di adiacenza\n(2) Matrice di Adiacenza\n(3) Alberi di adiacenza");
+                break;
+            }
+        }
+    } while (scelta != 1 && scelta != 2);
+
+}
+
+
+
+
 void testGraph() {
-    //testList();
-    testMat();
+    testList();
+    //testMat();
     //testBSTgraph();
 }
