@@ -248,6 +248,12 @@
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbst.h">
 			<Option target="Exercise3"/>
 		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbstitradjacent.c">
+			<Option target="Exercise3"/>
+		</Unit>
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbstitradjacent.h">
+			<Option target="Exercise3"/>
+		</Unit>
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlst.c">
 			<Option target="Exercise3"/>
 		</Unit>

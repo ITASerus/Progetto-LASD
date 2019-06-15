@@ -3,15 +3,50 @@
 
 /* ************************************************************************** */
 
-void* itrMatAdjacentConstruct(void* type, void* adjacentMatrix) {
+MatItrInterface* initializeMatIterator(int name, void* graphMat) {
+    GraphMat* graph = (GraphMat*)graphMat;
+
+    MatItrInterface* interface = (MatItrInterface*)malloc(sizeof(MatItrInterface));
+
+    interface->vertexName = name;
+    interface->graphMat = (GraphMat*)graphMat;
+    interface->rowVertex = 0;
+
+    VertexLst* index = graph->vertexLst;
+    while(index != NULL && index->vertexInfo->name != interface->vertexName) { //Cerca il primo adiacente nella matrice
+        index = index->nextVertex;
+        interface->rowVertex++;
+    }
+
+    if(index == NULL) { //Il vertice di cui si vuole iterare gli adiacenti non è presente
+        interface->rowVertex = -1;
+    }
+
+    return interface;
+}
+
+void* itrMatAdjacentConstruct(void* type, void* matInterface) {
     ITRObject *iterator = (ITRObject*)malloc(sizeof(ITRObject));
 
     iterator->type = (ITRType*)type;
     iterator->iterator = (GraphMatAdjacentIterator*)malloc(sizeof(GraphMatAdjacentIterator));
 
-    ((GraphMatAdjacentIterator*)iterator->iterator)->adjacentMatrix = ((AdjacentMatrix*)adjacentMatrix);
-    ((GraphMatAdjacentIterator*)iterator->iterator)->currentRow = 0;
-    ((GraphMatAdjacentIterator*)iterator->iterator)->currentColumn = 0;
+    ((GraphMatAdjacentIterator*)iterator->iterator)->matInterface = ((MatItrInterface*)matInterface);
+
+
+    GraphMatAdjacentIterator* itr = (GraphMatAdjacentIterator*)iterator->iterator;
+    if(itr->matInterface->rowVertex != -1) { //Il vertice da iterare esiste
+        itr->currentElement = 0;
+        while(itr->matInterface->graphMat->adjacentMatrix->matrix[itr->matInterface->rowVertex][itr->currentElement] != true) {
+            itr->currentElement++;
+        }
+
+        if(itr->currentElement >= itr->matInterface->graphMat->adjacentMatrix->numVertex) { //Il vertice da iterare non ha adiacenti
+            itr->currentElement = -1;
+        }
+    } else {
+        itr->currentElement = -1; //Il vertice da iterare non esiste
+    }
 
     return iterator;
 }
@@ -22,37 +57,37 @@ void itrMatAdjacentDestruct(void* iterator) {
 
 bool itrMatAdjacentTerminated(void* iterator) {
     GraphMatAdjacentIterator* itr = ((GraphMatAdjacentIterator*)iterator);
-
-    printf("TERMINATO? ");
-    if(itr->currentRow == itr->adjacentMatrix->numVertex && itr->currentRow == itr->adjacentMatrix->numVertex) {
-        printf("SI\n");
-        return true;
-    } else {
-        printf("NO\n");
-        return false;
-    }
+    return itr->currentElement == -1;
 }
 
 void* itrMatAdjacentGetElement(void* iterator) {
     GraphMatAdjacentIterator* itr = ((GraphMatAdjacentIterator*)iterator);
-    printf("ELEMENTO: (%d, %d)", itr->currentRow, itr->currentColumn);
-    if(itr->adjacentMatrix->matrix[itr->currentRow][itr->currentColumn]) {
-        printf(" T ");
-    } else {
-        printf(" F ");
+
+    int index = 0;
+    VertexLst* vertexLst = itr->matInterface->graphMat->vertexLst;
+    while(vertexLst != NULL && index != itr->currentElement) {
+        vertexLst = vertexLst->nextVertex;
+        index++;
     }
 
-    return itr->adjacentMatrix->matrix[itr->currentRow][itr->currentColumn];
+    if(vertexLst != NULL) {
+        return vertexLst->vertexInfo;
+    } else {
+        printf("Vertice non trovato\n");
+    }
+
+    return NULL;
 }
 
 void itrMatAdjacentSuccessor(void *iterator) {
     GraphMatAdjacentIterator *itr = (GraphMatAdjacentIterator*)iterator;
 
-    if (itr->currentColumn < itr->adjacentMatrix->numVertex) {
-        itr->currentColumn += 1;
-    } else if(itr->currentRow < itr->adjacentMatrix->numVertex) {
-        itr->currentRow +=1;
-        itr->currentColumn = 0;
+    do {
+        itr->currentElement++;
+    } while (itr->currentElement < itr->matInterface->graphMat->adjacentMatrix->numVertex && itr->matInterface->graphMat->adjacentMatrix->matrix[itr->matInterface->rowVertex][itr->currentElement] != true);
+
+    if(itr->currentElement >= itr->matInterface->graphMat->adjacentMatrix->numVertex) {
+        itr->currentElement = -1; //Gli adiacenti sono terminati
     }
 }
 

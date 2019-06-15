@@ -167,6 +167,19 @@ CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../graph/rep/bst/graphbst.c
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../graph/rep/bst/graphbst.h
 
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: .././bst/bst.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: .././bst/bstitrinord.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: .././itr/itr.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: .././stack/stack.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../adt/adt.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../graph/graph.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../utility.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../bst/bst.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../graph/graph.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../graph/rep/bst/graphbst.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../graph/rep/bst/graphbstitradjacent.c
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../graph/rep/bst/graphbstitradjacent.h
+
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../adt/adt.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../graph/rep/lst/graphlst.c
@@ -290,6 +303,7 @@ CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/graphitrvertex.h
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/itr/graphitr.h
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/rec/graphrec.h
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/rep/bst/graphbst.h
+CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/rep/bst/graphbstitradjacent.h
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/rep/lst/graphlst.h
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/rep/lst/graphlstitradjacent.h
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../graph/rep/mat/graphmat.h

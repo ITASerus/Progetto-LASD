@@ -240,7 +240,6 @@ int bstGraphRemoveVertex(void* graph, int name) {
                 //Rimozione albero di adiacenza
                 AdjacentBSTLst* adjacentLstToRemove = adjacentLst->nextVertex;
                 adjacentRemoved = adjacentLstToRemove->adjacentTree->numberOfNodes;
-                printf("numero nodi albero: %d\n", adjacentLstToRemove->adjacentTree->numberOfNodes);
                 bstDestruct(adjacentLstToRemove->adjacentTree);
                 free(adjacentLstToRemove->vertexPointer);
 
@@ -251,7 +250,6 @@ int bstGraphRemoveVertex(void* graph, int name) {
         }
 
         //Rimuovo il resto degli archi
-        printf("ADIACENTI RIMOSSI: %d\n", adjacentRemoved);
         AdjacentBSTLst* adjacentBSTLstIndex = ((GraphBST*)graph)->adjacentBSTLst;
 
         while(adjacentBSTLstIndex != NULL) {
@@ -267,7 +265,7 @@ int bstGraphRemoveVertex(void* graph, int name) {
         }
         return adjacentRemoved;
     }
-    
+
     return -1; //Vertice non presente
 }
 

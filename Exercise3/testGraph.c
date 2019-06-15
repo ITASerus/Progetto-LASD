@@ -3,6 +3,7 @@
 #include "graph/graphitrvertex.h"
 #include "graph/rep/mat/graphmatitradjacent.h"
 #include "graph/rep/lst/graphlstitradjacent.h"
+#include "graph/rep/bst/graphbstitradjacent.h"
 
 void printGraphLst(GraphObject* graphObject) { //TODO: Evita di stampare il primo nodo della lista di adiacenza
     printf("\nGRAFO:\n");
@@ -12,7 +13,7 @@ void printGraphLst(GraphObject* graphObject) { //TODO: Evita di stampare il prim
         printf("Nome: %d Etichetta: ", tmp->vertexInfo->name);
         adtWriteToMonitor(tmp->vertexInfo->label);
 
-        AdjacentLst* tmpAdjacentLstAdjacent = tmpAdjacentLstVertex;
+        AdjacentLst* tmpAdjacentLstAdjacent = tmpAdjacentLstVertex->nextAdjacent;
         printf(" ADIACENTI:");
         while(tmpAdjacentLstAdjacent != NULL) {
             printf(" %d |", tmpAdjacentLstAdjacent->vertexPointer->name);
@@ -96,7 +97,6 @@ void printGraphBST(GraphObject* graphObject) {
         printf(" ADIACENTI:");
         if(!bstEmpty(tmpAdjacentBSTLstVertex->adjacentTree)) {
             bstInOrderMap(tmpAdjacentBSTLstVertex->adjacentTree, printBSTElem, NULL);
-            printf(" - Numero nodi: %d", tmpAdjacentBSTLstVertex->adjacentTree->numberOfNodes);
         } else {
             printf(" Nessuno");
         }
@@ -993,6 +993,21 @@ void testList() {
 
     printf("TEST ITERATORE\n");
 
+    printGraphLst(graphObject);
+
+    LstItrInterface* newIterator = initializeLstIterator(7, ((GraphLst*)graphObject->graph)->adjacentVertexLst);
+
+    ITRType* itrType = ConstructLstAdjacentIterator();
+    ITRObject* iterator = itrConstruct(itrType, newIterator);
+
+    while(!itrTerminated(iterator)) {
+        printf("%d\n", ((AdjacentLst*)itrElement(iterator))->vertexPointer->name);
+
+        itrSuccessor(iterator);
+    }
+
+    itrDestruct(iterator);
+    DestructLstAdjacentIterator(itrType);
 }
 
 void testMat() {
@@ -1368,17 +1383,40 @@ void testMat() {
     printGraphMatValue(clone);
 
     printf("*****************************************************************\n");
-    printf("Numero elementi: %d\n", graphVertexNumber(graphObject));
 
-    printf("TEST ITERATORE\n");
-    ITRType* iterType = ConstructMatAdjacentIterator();
-    ITRObject* iterator = itrConstruct(iterType, ((GraphMat*)graphObject->graph)->adjacentMatrix);
+    printf("PULIZIA MEMORIA");
+    graphDestruct(trans);
+    graphDestruct(clone);
+
+    printf("*****************************************************************\n");
+
+    printf("TEST ITERATORE ADIACENTI\n");
+
+    graphInsertVertex(graphObject, 15, dataPtr);
+    graphInsertVertex(graphObject, -1, dataPtr);
+    graphInsertEdge(graphObject, 1, 1);
+    graphInsertEdge(graphObject, 9, 9);
+    graphInsertEdge(graphObject, 15, 15);
+    graphInsertEdge(graphObject, 15, 1);
+    graphInsertEdge(graphObject, 15, -1);
+    graphInsertEdge(graphObject, 15, 9);
+    graphInsertEdge(graphObject, 15, 3);
+    graphInsertEdge(graphObject, 15, 15);
+    printGraphMatValue(graphObject);
+
+    MatItrInterface* newIterator = initializeMatIterator(15, graphObject->graph);
+
+    ITRType* itrType = ConstructMatAdjacentIterator();
+    ITRObject* iterator = itrConstruct(itrType, newIterator);
 
     while(!itrTerminated(iterator)) {
-        itrElement(iterator);
+        printf("%d\n", ((Vertex*)itrElement(iterator))->name);
 
         itrSuccessor(iterator);
     }
+
+    itrDestruct(iterator);
+    DestructLstAdjacentIterator(itrType);
 }
 
 void testBSTgraph() {
@@ -1660,6 +1698,26 @@ void testBSTgraph() {
     printGraphBST(transposedGraph);
     printf("Numero di vertici: %d\n", graphVertexNumber(transposedGraph));
     printf("Numero di archi: %d\n", graphEdgeNumber(transposedGraph));
+
+    printf("*****************************************************************\n");
+
+    printf("TEST ITERATORE\n");
+
+    printGraphBST(graphObject);
+
+    BSTItrInterface* bstInterface = initializeBSTIterator(10, ((GraphBST*)graphObject->graph));
+
+    ITRType* itrType = ConstructBSTAdjacentIterator();
+    iterator = itrConstruct(itrType, bstInterface);
+
+    while(!itrTerminated(iterator)) {
+        printf("%d\n", ((Vertex*)itrElement(iterator))->name);
+
+        itrSuccessor(iterator);
+    }
+
+    itrDestruct(iterator);
+    DestructBSTAdjacentIterator(itrType);
 }
 
 void testGraph() {

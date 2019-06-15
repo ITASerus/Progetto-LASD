@@ -690,6 +690,33 @@ graph/rep/bst/graphbst.c.s:
 	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.s
 .PHONY : graph/rep/bst/graphbst.c.s
 
+graph/rep/bst/graphbstitradjacent.o: graph/rep/bst/graphbstitradjacent.c.o
+
+.PHONY : graph/rep/bst/graphbstitradjacent.o
+
+# target to build an object file
+graph/rep/bst/graphbstitradjacent.c.o:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o
+.PHONY : graph/rep/bst/graphbstitradjacent.c.o
+
+graph/rep/bst/graphbstitradjacent.i: graph/rep/bst/graphbstitradjacent.c.i
+
+.PHONY : graph/rep/bst/graphbstitradjacent.i
+
+# target to preprocess a source file
+graph/rep/bst/graphbstitradjacent.c.i:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.i
+.PHONY : graph/rep/bst/graphbstitradjacent.c.i
+
+graph/rep/bst/graphbstitradjacent.s: graph/rep/bst/graphbstitradjacent.c.s
+
+.PHONY : graph/rep/bst/graphbstitradjacent.s
+
+# target to generate assembly for a file
+graph/rep/bst/graphbstitradjacent.c.s:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.s
+.PHONY : graph/rep/bst/graphbstitradjacent.c.s
+
 graph/rep/lst/graphlst.o: graph/rep/lst/graphlst.c.o
 
 .PHONY : graph/rep/lst/graphlst.o
@@ -1167,6 +1194,9 @@ help:
 	@echo "... graph/rep/bst/graphbst.o"
 	@echo "... graph/rep/bst/graphbst.i"
 	@echo "... graph/rep/bst/graphbst.s"
+	@echo "... graph/rep/bst/graphbstitradjacent.o"
+	@echo "... graph/rep/bst/graphbstitradjacent.i"
+	@echo "... graph/rep/bst/graphbstitradjacent.s"
 	@echo "... graph/rep/lst/graphlst.o"
 	@echo "... graph/rep/lst/graphlst.i"
 	@echo "... graph/rep/lst/graphlst.s"

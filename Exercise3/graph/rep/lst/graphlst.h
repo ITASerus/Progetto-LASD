@@ -16,7 +16,7 @@ struct AdjacentLst {
     AdjacentLst* nextVertex;
 };
 
-//Struttura che rappresenta l'intero grafo rappresentato sottoforma di lista di adiacenza
+//Struttura che rappresenta l'intero grafo sottoforma di lista di adiacenza
 typedef struct GraphLst {
     VertexLst* vertexLst;
     AdjacentLst* adjacentVertexLst;

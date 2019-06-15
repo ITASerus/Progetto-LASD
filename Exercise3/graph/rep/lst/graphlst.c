@@ -459,3 +459,4 @@ int deleteAdjacentLst(AdjacentLst* adjacentLst) {
 
     return numAdjacent-1;
 }
+

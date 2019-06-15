@@ -9,7 +9,9 @@ ITRObject* itrConstruct(ITRType* type, void* source) {
 }
 
 void itrDestruct(ITRObject* iterator) {
-    iterator->type->destruct(iterator->iterator);
+    if(iterator != NULL) {
+        iterator->type->destruct(iterator->iterator);
+    }
 }
 
 

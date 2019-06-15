@@ -3,13 +3,34 @@
 
 /* ************************************************************************** */
 
-void* itrLstAdjacentConstruct(void* type, void* adjacentLst) {
+LstItrInterface* initializeLstIterator(int name, void* adjacentLst) {
+    LstItrInterface* interface = (LstItrInterface*)malloc(sizeof(LstItrInterface));
+
+    interface->vertexName = name;
+
+    AdjacentLst* index = (AdjacentLst*)adjacentLst;
+    while(index != NULL && index->vertexPointer->name != interface->vertexName) {
+        index = index->nextVertex;
+    }
+
+    if(index != NULL) {
+        interface->adjacent = index->nextAdjacent; //Supero il riferimento del vertice di apaprtenenza nella lista
+    } else { //Iteratore vuoto
+        interface->adjacent = NULL;
+    }
+
+    //free(index); //TODO: Serve?
+
+    return interface;
+}
+
+void* itrLstAdjacentConstruct(void* type, void* lstInterface) {
     ITRObject *iterator = (ITRObject*)malloc(sizeof(ITRObject));
 
     iterator->type = (ITRType*)type;
     iterator->iterator = (GraphLstAdjacentIterator*)malloc(sizeof(GraphLstAdjacentIterator));
 
-    ((GraphLstAdjacentIterator*)iterator->iterator)->element = ((AdjacentLst*)adjacentLst)->nextAdjacent; //NextAdjacent per "saltare" il vertice di riferimento
+    ((GraphLstAdjacentIterator*)iterator->iterator)->element = ((LstItrInterface*)lstInterface);
 
     return iterator;
 }
@@ -19,18 +40,18 @@ void itrLstAdjacentDestruct(void* iterator) {
 }
 
 bool itrLstAdjacentTerminated(void* iterator) {
-    return ((GraphLstAdjacentIterator*)iterator)->element == NULL ? true : false;
+    return ((GraphLstAdjacentIterator*)iterator)->element->adjacent == NULL ? true : false;
 }
 
 void* itrLstAdjacentGetElement(void* iterator) {
-    return ((GraphLstAdjacentIterator*)iterator)->element;
+    return ((GraphLstAdjacentIterator*)iterator)->element->adjacent->vertexPointer; //TODO: RIDARE QUESTO ELEMENTO?
 }
 
 void itrLstAdjacentSuccessor(void *iterator) {
     GraphLstAdjacentIterator *itr = (GraphLstAdjacentIterator*)iterator;
 
-    if (itr->element != NULL) {
-        itr->element = itr->element->nextAdjacent;
+    if (itr->element->adjacent != NULL) {
+        itr->element->adjacent = itr->element->adjacent->nextAdjacent;
     }
 }
 

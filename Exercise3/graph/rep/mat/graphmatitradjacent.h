@@ -5,15 +5,19 @@
 /* ************************************************************************** */
 
 #include "graph.h"
-
 #include "graphmat.h"
 
 /* ************************************************************************** */
 
+typedef struct MatItrInterface {
+    int vertexName;
+    int rowVertex;
+    GraphMat* graphMat;
+} MatItrInterface;
+
 typedef struct GraphMatAdjacentIterator {
-    AdjacentMatrix* adjacentMatrix;
-    int currentRow;
-    int currentColumn;
+    MatItrInterface* matInterface; //TODO: rinominare
+    int currentElement;
 } GraphMatAdjacentIterator;
 
 /* ************************************************************************** */
@@ -22,5 +26,7 @@ ITRType* ConstructMatAdjacentIterator();
 void DestructMatAdjacentIterator(ITRType* type);
 
 /* ************************************************************************** */
+
+MatItrInterface* initializeMatIterator(int name, void* adjacentMatrix);
 
 #endif
