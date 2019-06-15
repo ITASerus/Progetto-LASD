@@ -33,10 +33,9 @@ typedef void (*GraphSetVertexData)(void* graph, int name, DataObject* newValue);
 
 // typedef type (*GraphVertexFromPointer)(arguments); //restituisce nome del nodo puntato
 
-// typedef type (*GraphVertices)(arguments); //Restituisce iteratore che  permette di iterare su tutti i nodi. Collegata con GraphVertexFromPointer Deferenzi/referenzi ecc
-// typedef type (*GraphVertexEdges)(arguments); //Restituisce iteratore
+typedef ITRObject* (*GraphVertices)(void* graph);
+typedef ITRObject* (*GraphVertexEdges)(void* graph, int name);
 
-//----
 
 typedef bool (*GraphEqual)(void* firstGraph, void* secondGraph);
 
@@ -91,6 +90,9 @@ typedef struct GraphRepresentation {
   GraphGetVertexData graphGetVertexData;
   GraphSetVertexData  graphSetVertexData;
 
+  GraphVertices graphVertices;
+  GraphVertexEdges graphVertexEdges;
+
 } GraphRepresentation;
 
 typedef struct GraphType { //void* puntatore alla rappresentazione + graphrapresentation*
@@ -137,8 +139,8 @@ void graphSetVertexData(GraphObject* graphObject, int name, DataObject* newValue
 
 // type graphVertexFromPointer(arguments);
 
-// type graphVertices(arguments);
-// type graphVertexEdges(arguments);
+ITRObject* graphVertices(GraphObject* graphObject);
+ITRObject* graphVertexEdges(GraphObject* graphObject, int name);
 
 // type graphEqual(arguments);
 

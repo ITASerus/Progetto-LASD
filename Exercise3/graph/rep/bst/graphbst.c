@@ -1,10 +1,16 @@
 
 #include "graphbst.h"
+
 #include "bst/bst.h"
 #include "bst/rec/bstrec.h"
-#include "adt/int/adtint.h"
-#include "itr/itr.h"
 #include "bst/bstitrpreord.h"
+#include "itr/itr.h"
+#include "adt/int/adtint.h"
+
+#include "graph/graphitrvertex.h"
+#include "graph/rep/bst/graphbstitradjacent.h"
+
+/* ************************************************************************** */
 
 AdjacentBSTLst* createAdjacentBSTLstElem(Vertex* vertexPointer, AdjacentBSTLst* nextVertex);
 
@@ -386,6 +392,24 @@ void bstGraphSetVertexData(void* graph, int name, DataObject* newValue) {
     }
 }
 
+ITRObject* bstGraphVertices(void* graph) {
+    ITRType* iterType = ConstructVertexIterator();
+    ITRObject* iterator = itrConstruct(iterType, ((GraphBST*)graph)->vertexLst);
+
+    return iterator;
+}
+
+ITRObject* bstGraphVertexEdges(void* graph, int name) {
+    BSTItrInterface* bstInterface = initializeBSTIterator(name, graph);
+
+    ITRType* itrType = ConstructBSTAdjacentIterator();
+    ITRObject* iterator = itrConstruct(itrType, bstInterface);
+
+    //free(bstInterface); //TODO: SE DECOMMENTO CRASHA
+
+    return iterator;
+}
+
 GraphRepresentation* ConstructGraphBST() {
     GraphRepresentation* type = (GraphRepresentation*)malloc(sizeof(GraphRepresentation));
 
@@ -408,6 +432,9 @@ GraphRepresentation* ConstructGraphBST() {
 
     type->graphGetVertexData = bstGraphGetVertexData;
     type->graphSetVertexData = bstGraphSetVertexData;
+
+    type->graphVertices = bstGraphVertices;
+    type->graphVertexEdges = bstGraphVertexEdges;
 
     return type;
 }

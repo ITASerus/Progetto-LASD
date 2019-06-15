@@ -23,7 +23,7 @@ bool itrVertexTerminated(void* iterator) {
 }
 
 void* itrVertexGetElement(void* iterator) {
-    return ((GraphVertexIterator*)iterator)->element;
+    return ((GraphVertexIterator*)iterator)->element->vertexInfo;
 }
 
 void itrVertexSuccessor(void *iterator) {

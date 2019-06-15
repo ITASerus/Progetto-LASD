@@ -1,6 +1,9 @@
 
 #include "graphlst.h"
 
+#include "graph/graphitrvertex.h"
+#include "graph/rep/lst/graphlstitradjacent.h"
+
 /* *************************** FUNZIONI PRINCIPALI **************************** */
 
 void* lstGraphConstruct();
@@ -404,6 +407,24 @@ void lstGraphSetVertexData(void* graph, int name, DataObject* newValue) {
     }
 }
 
+ITRObject* lstGraphVertices(void* graph) {
+    ITRType* iterType = ConstructVertexIterator();
+    ITRObject* iterator = itrConstruct(iterType, ((GraphLst*)graph)->vertexLst);
+
+    return iterator;
+}
+
+ITRObject* lstGraphVertexEdges(void* graph, int name) {
+    LstItrInterface* lstInterface = initializeLstIterator(name, ((GraphLst*)graph)->adjacentVertexLst);
+
+    ITRType* itrType = ConstructLstAdjacentIterator();
+    ITRObject* iterator = itrConstruct(itrType, lstInterface);
+
+    free(lstInterface); //TODO: Serve? devo deallocare qualcosa?
+
+    return iterator;
+}
+
 GraphRepresentation* ConstructGraphLst() {
     GraphRepresentation* type = (GraphRepresentation*)malloc(sizeof(GraphRepresentation));
 
@@ -426,6 +447,9 @@ GraphRepresentation* ConstructGraphLst() {
 
     type->graphGetVertexData = lstGraphGetVertexData;
     type->graphSetVertexData = lstGraphSetVertexData;
+
+    type->graphVertices = lstGraphVertices;
+    type->graphVertexEdges = lstGraphVertexEdges;
 
     return type;
 }

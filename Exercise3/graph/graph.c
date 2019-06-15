@@ -102,6 +102,14 @@ void graphSetVertexData(GraphObject* graphObject, int name, DataObject* newValue
     graphObject->type->graphRep->graphSetVertexData(graphObject->graph, name, newValue);
 }
 
+ITRObject* graphVertices(GraphObject* graphObject) {
+    return  graphObject->type->graphRep->graphVertices(graphObject->graph);
+}
+
+ITRObject* graphVertexEdges(GraphObject* graphObject, int name) {
+    return  graphObject->type->graphRep->graphVertexEdges(graphObject->graph, name);
+}
+
 /* ************************************************************************** */
 
 Vertex* createVertex(int name, DataObject* label) {

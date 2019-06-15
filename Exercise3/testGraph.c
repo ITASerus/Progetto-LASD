@@ -1,9 +1,5 @@
 
 #include "testGraph.h"
-#include "graph/graphitrvertex.h"
-#include "graph/rep/mat/graphmatitradjacent.h"
-#include "graph/rep/lst/graphlstitradjacent.h"
-#include "graph/rep/bst/graphbstitradjacent.h"
 
 void printGraphLst(GraphObject* graphObject) { //TODO: Evita di stampare il primo nodo della lista di adiacenza
     printf("\nGRAFO:\n");
@@ -16,7 +12,8 @@ void printGraphLst(GraphObject* graphObject) { //TODO: Evita di stampare il prim
         AdjacentLst* tmpAdjacentLstAdjacent = tmpAdjacentLstVertex->nextAdjacent;
         printf(" ADIACENTI:");
         while(tmpAdjacentLstAdjacent != NULL) {
-            printf(" %d |", tmpAdjacentLstAdjacent->vertexPointer->name);
+            printf(" (%d, ", tmpAdjacentLstAdjacent->vertexPointer->name);
+            printf("%d) |", *(int*)tmpAdjacentLstAdjacent->vertexPointer->label->value);
             tmpAdjacentLstAdjacent = tmpAdjacentLstAdjacent->nextAdjacent;
         }
 
@@ -991,23 +988,51 @@ void testList() {
 
     printf("*****************************************************************\n");
 
-    printf("TEST ITERATORE\n");
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 8, dataPtr);
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 10, dataPtr);
+    adtRandomValue(dataPtr);
+    graphInsertVertex(graphObject, 15, dataPtr);
+    adtRandomValue(dataPtr);
+    graphInsertVertex(graphObject, 2, dataPtr);
+    adtRandomValue(dataPtr);
+    graphInsertVertex(graphObject, 7, dataPtr);
+    graphInsertEdge(graphObject, 2, 15);
+    graphInsertEdge(graphObject, 10, 2);
+    graphInsertEdge(graphObject, 10, 7);
+    graphInsertEdge(graphObject, 10, 8);
+    graphInsertEdge(graphObject, 10, 10);
+    graphInsertEdge(graphObject, 10, 15);
 
     printGraphLst(graphObject);
 
-    LstItrInterface* newIterator = initializeLstIterator(7, ((GraphLst*)graphObject->graph)->adjacentVertexLst);
+    printf("*****************************************************************\n");
 
-    ITRType* itrType = ConstructLstAdjacentIterator();
-    ITRObject* iterator = itrConstruct(itrType, newIterator);
+    printf("\nTEST ITERATORE VERTICI\n");
+    ITRObject* iter = graphVertices(graphObject);
 
-    while(!itrTerminated(iterator)) {
-        printf("%d\n", ((AdjacentLst*)itrElement(iterator))->vertexPointer->name);
-
-        itrSuccessor(iterator);
+    while(!itrTerminated(iter)) {
+        printf("Nome: %d - Label: ", ((Vertex*)itrElement(iter))->name);
+        adtWriteToMonitor(((Vertex*)itrElement(iter))->label);
+        printf("\n");
+        itrSuccessor(iter);
     }
 
-    itrDestruct(iterator);
-    DestructLstAdjacentIterator(itrType);
+    printf("\n*****************************************************************\n");
+
+    printf("\nTEST ITERATORE ADIACENTI\n");
+
+    iter = graphVertexEdges(graphObject, 10);
+
+    while(!itrTerminated(iter)) {
+        printf("Nome: %d - Label: ", ((Vertex*)itrElement(iter))->name);
+        adtWriteToMonitor(((Vertex*)itrElement(iter))->label);
+        printf("\n");
+        itrSuccessor(iter);
+    }
+
+
 }
 
 void testMat() {
@@ -1382,18 +1407,28 @@ void testMat() {
     GraphObject* clone = graphClone(trans);
     printGraphMatValue(clone);
 
-    printf("*****************************************************************\n");
+    printf("\n*****************************************************************\n");
 
     printf("PULIZIA MEMORIA");
     graphDestruct(trans);
     graphDestruct(clone);
 
-    printf("*****************************************************************\n");
+    printf("\n*****************************************************************\n");
 
-    printf("TEST ITERATORE ADIACENTI\n");
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, -1, dataPtr);
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 1, dataPtr);
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 3, dataPtr);
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 9, dataPtr);
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 15, dataPtr);
 
     graphInsertVertex(graphObject, 15, dataPtr);
     graphInsertVertex(graphObject, -1, dataPtr);
+
     graphInsertEdge(graphObject, 1, 1);
     graphInsertEdge(graphObject, 9, 9);
     graphInsertEdge(graphObject, 15, 15);
@@ -1404,19 +1439,28 @@ void testMat() {
     graphInsertEdge(graphObject, 15, 15);
     printGraphMatValue(graphObject);
 
-    MatItrInterface* newIterator = initializeMatIterator(15, graphObject->graph);
+    printf("\nTEST ITERATORE VERTICI\n");
+    ITRObject* iter = graphVertices(graphObject);
 
-    ITRType* itrType = ConstructMatAdjacentIterator();
-    ITRObject* iterator = itrConstruct(itrType, newIterator);
-
-    while(!itrTerminated(iterator)) {
-        printf("%d\n", ((Vertex*)itrElement(iterator))->name);
-
-        itrSuccessor(iterator);
+    while(!itrTerminated(iter)) {
+        printf("Nome: %d - Label: ", ((Vertex*)itrElement(iter))->name);
+        adtWriteToMonitor(((Vertex*)itrElement(iter))->label);
+        printf("\n");
+        itrSuccessor(iter);
     }
 
-    itrDestruct(iterator);
-    DestructLstAdjacentIterator(itrType);
+    printf("\n*****************************************************************\n");
+
+    printf("\nTEST ITERATORE ADIACENTI\n");
+
+    iter = graphVertexEdges(graphObject, 1);
+
+    while(!itrTerminated(iter)) {
+        printf("Nome: %d - Label: ", ((Vertex*)itrElement(iter))->name);
+        adtWriteToMonitor(((Vertex*)itrElement(iter))->label);
+        printf("\n");
+        itrSuccessor(iter);
+    }
 }
 
 void testBSTgraph() {
@@ -1618,20 +1662,6 @@ void testBSTgraph() {
 
     printf("\n*****************************************************************\n\n");
 
-    printf("Grafo da iterare:");
-    printGraphBST(graphObject);
-
-    ITRType* iterType = ConstructVertexIterator();
-    ITRObject* iterator = itrConstruct(iterType, ((GraphBST*)graphObject->graph)->vertexLst);
-
-    while(!itrTerminated(iterator)) {
-        printf("%d - ", ((VertexLst*)itrElement(iterator))->vertexInfo->name);
-
-        itrSuccessor(iterator);
-    }
-
-    printf("\n*****************************************************************\n\n");
-
     printf("Test trasposta: \n");
 
     printGraphBST(clonedGraph);
@@ -1701,27 +1731,65 @@ void testBSTgraph() {
 
     printf("*****************************************************************\n");
 
-    printf("TEST ITERATORE\n");
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 1, dataPtr);
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 2, dataPtr);
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 3, dataPtr);
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 4, dataPtr);
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 5, dataPtr);
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 6, dataPtr);
+    adtRandomValue(dataPtr);
+    graphSetVertexData(graphObject, 10, dataPtr);
+    adtRandomValue(dataPtr);
+    graphInsertVertex(graphObject, 15, dataPtr);
+    adtRandomValue(dataPtr);
+    graphInsertVertex(graphObject, 2, dataPtr);
+    adtRandomValue(dataPtr);
+    graphInsertVertex(graphObject, 7, dataPtr);
+    graphInsertEdge(graphObject, 2, 15);
+    graphInsertEdge(graphObject, 10, 2);
+    graphInsertEdge(graphObject, 10, 7);
+    graphInsertEdge(graphObject, 10, 8);
+    graphInsertEdge(graphObject, 10, 10);
+    graphInsertEdge(graphObject, 10, 15);
+
+    printf("*****************************************************************\n");
 
     printGraphBST(graphObject);
 
-    BSTItrInterface* bstInterface = initializeBSTIterator(10, ((GraphBST*)graphObject->graph));
+    printf("\nTEST ITERATORE VERTICI\n");
+    ITRObject* iter = graphVertices(graphObject);
 
-    ITRType* itrType = ConstructBSTAdjacentIterator();
-    iterator = itrConstruct(itrType, bstInterface);
-
-    while(!itrTerminated(iterator)) {
-        printf("%d\n", ((Vertex*)itrElement(iterator))->name);
-
-        itrSuccessor(iterator);
+    while(!itrTerminated(iter)) {
+        printf("Nome: %d - Label: ", ((Vertex*)itrElement(iter))->name);
+        adtWriteToMonitor(((Vertex*)itrElement(iter))->label);
+        printf("\n");
+        itrSuccessor(iter);
     }
 
-    itrDestruct(iterator);
-    DestructBSTAdjacentIterator(itrType);
+    printf("\n*****************************************************************\n");
+
+    printf("\nTEST ITERATORE ADIACENTI\n");
+
+    iter = graphVertexEdges(graphObject, 2);
+
+    while(!itrTerminated(iter)) {
+        printf("Nome: %d - Label: ", ((Vertex*)itrElement(iter))->name);
+        adtWriteToMonitor(((Vertex*)itrElement(iter))->label);
+        printf("\n");
+
+        itrSuccessor(iter);
+    }
+
 }
 
 void testGraph() {
     //testList();
-    //testMat();
-    testBSTgraph();
+    testMat();
+    //testBSTgraph();
 }

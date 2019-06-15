@@ -1,7 +1,12 @@
 
 #include "graphmat.h"
 
-int deleteAdjacentRowColumn(AdjacentMatrix* graphMat, int vertexPosition);
+#include "graph/graphitrvertex.h"
+#include "graph/rep/mat/graphmatitradjacent.h"
+
+/* ************************************************************************** */
+
+int deleteAdjacentRowColumn(AdjacentMatrix* adjacentMatrix, int vertexPosition);
 
 /* ************************************************************************** */
 
@@ -381,6 +386,22 @@ void matGraphSetVertexData(void* graph, int name, DataObject* newValue) {
     }
 }
 
+ITRObject* matGraphVertices(void* graph) {
+    ITRType* iterType = ConstructVertexIterator();
+    ITRObject* iterator = itrConstruct(iterType, ((GraphMat*)graph)->vertexLst);
+
+    return iterator;
+}
+
+ITRObject* matGraphVertexEdges(void* graph, int name) {
+    MatItrInterface* newIterator = initializeMatIterator(name, graph);
+
+    ITRType* itrType = ConstructMatAdjacentIterator();
+    ITRObject* iterator = itrConstruct(itrType, newIterator);
+
+    return iterator;
+}
+
 GraphRepresentation* ConstructGraphMat() {
     GraphRepresentation* type = (GraphRepresentation*)malloc(sizeof(GraphRepresentation));
 
@@ -403,6 +424,10 @@ GraphRepresentation* ConstructGraphMat() {
 
     type->graphGetVertexData = matGraphGetVertexData;
     type->graphSetVertexData = matGraphSetVertexData;
+
+    type->graphVertices = matGraphVertices;
+    type->graphVertexEdges = matGraphVertexEdges;
+
 
     return type;
 }
