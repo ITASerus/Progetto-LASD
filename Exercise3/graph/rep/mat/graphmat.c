@@ -1,7 +1,7 @@
 
 #include "graphmat.h"
 
-int deleteAdjacentRowColumn(GraphMat* graphMat, int vertexPosition);
+int deleteAdjacentRowColumn(AdjacentMatrix* graphMat, int vertexPosition);
 
 /* ************************************************************************** */
 
@@ -11,15 +11,13 @@ void* matGraphConstruct() {
     newGraphMat->vertexLst = NULL;
     newGraphMat->adjacentMatrix = NULL;
 
-    newGraphMat->slotAllocated = 0;
-    newGraphMat->numVertex = 0;
-
     return newGraphMat;
 }
 
 void matGraphDestruct(void* graph) {
     GraphMat* graphMat = (GraphMat*)graph;
 
+    //Rimozione lista di vertici
     VertexLst* vertexRef;
     while(graphMat->vertexLst != NULL) {
         vertexRef = graphMat->vertexLst;
@@ -29,34 +27,38 @@ void matGraphDestruct(void* graph) {
         deleteVertexLstElem(vertexRef);
     }
 
-    for(int i = 0; i < graphMat->slotAllocated; i++) {
-        free(graphMat->adjacentMatrix[i]);
+    //Rimozione matrice di adiacenza
+    for(int i = 0; i < graphMat->adjacentMatrix->slotAllocated; i++) {
+        free(graphMat->adjacentMatrix->matrix[i]);
     }
+    free(graphMat->adjacentMatrix->matrix);
     free(graphMat->adjacentMatrix);
 }
 
 bool matGraphInsertVertex(void* graph, int name, DataObject* label) {
     GraphMat* graphMat = graph;
-    printf("DIMENSIONE ATTUALE MATRICE %dx%d\n", graphMat->slotAllocated, graphMat->slotAllocated);
 
     if(graphMat->vertexLst == NULL) { //Il grafo è vuoto
         //Creazione del nuovo vertice
         Vertex* newVertex = createVertex(name, label);
         VertexLst* newVertexLstElement = createVertexLstElement(newVertex, graphMat->vertexLst);
         graphMat->vertexLst = newVertexLstElement;
-        graphMat->numVertex++;
 
         //Allocazione matrice di adiacenza
-        graphMat->slotAllocated = 2;
-        bool** newAdjacentMatrix = (bool**)malloc(sizeof(bool*) * graphMat->slotAllocated);
-        for(int i = 0; i < graphMat->slotAllocated; i++) {
-            newAdjacentMatrix[i] = (bool*)malloc(sizeof(bool) * graphMat->slotAllocated);
-            for(int j = 0; j < graphMat->slotAllocated; j++) {
+        graphMat->adjacentMatrix = (AdjacentMatrix*)malloc(sizeof(AdjacentMatrix));
+        AdjacentMatrix* adjacentMatrix = graphMat->adjacentMatrix;
+        adjacentMatrix->numVertex = 1;
+
+        adjacentMatrix->slotAllocated = 2; //TODO: Rivedi dimensione di allocazione
+        bool** newAdjacentMatrix = (bool**)malloc(sizeof(bool*) * adjacentMatrix->slotAllocated);
+        for(int i = 0; i < adjacentMatrix->slotAllocated; i++) {
+            newAdjacentMatrix[i] = (bool*)malloc(sizeof(bool) * adjacentMatrix->slotAllocated);
+            for(int j = 0; j < adjacentMatrix->slotAllocated; j++) {
                 newAdjacentMatrix[i][j] = false; //Inizializzo la matrice a false per ogni campo
             }
         }
 
-        graphMat->adjacentMatrix = newAdjacentMatrix;
+        graphMat->adjacentMatrix->matrix = newAdjacentMatrix;
     } else {
         if(graphMat->vertexLst->vertexInfo->name == name) { //Il vertice da inserire è già presente in testa
             printf("Vertice già presente (%d - %d)\n", graphMat->vertexLst->vertexInfo->name, name);
@@ -70,7 +72,6 @@ bool matGraphInsertVertex(void* graph, int name, DataObject* label) {
                 newVertex = createVertex(name, label);
                 newVertexLstElem = createVertexLstElement(newVertex, graphMat->vertexLst);
                 graphMat->vertexLst = newVertexLstElem;
-                graphMat->numVertex++;
             } else { //Localizzazione del vertice che si trova prima del punto di inserimento
                 VertexLst* currentVertexLstElem = graphMat->vertexLst;
 
@@ -89,41 +90,41 @@ bool matGraphInsertVertex(void* graph, int name, DataObject* label) {
                 newVertex = createVertex(name, label);
                 newVertexLstElem = createVertexLstElement(newVertex, currentVertexLstElem->nextVertex);
                 currentVertexLstElem->nextVertex = newVertexLstElem;
-                graphMat->numVertex++;
             }
 
             //Popolamento della rispettiva zona della  matrice di adiacenza
-            if(graphMat->numVertex > graphMat->slotAllocated) { //La matrice di adiacenza va ingrandita
-                printf("RIALLOCO MATRICE\n ----------------------");
-                int newDimension = graphMat->slotAllocated*2;
+            AdjacentMatrix* adjacentMatrix = graphMat->adjacentMatrix;
+            adjacentMatrix->numVertex++;
+
+            if(adjacentMatrix->numVertex > adjacentMatrix->slotAllocated) { //La matrice di adiacenza va ingrandita
+                int newDimension = adjacentMatrix->slotAllocated*2; //TODO: Rivedi dimensione riallocazione
 
                 //Aumento il numero di righe
-                bool** tmp = realloc(graphMat->adjacentMatrix, sizeof(*graphMat->adjacentMatrix) * newDimension); //Aumento il numero di righe
+                bool** tmp = realloc(graphMat->adjacentMatrix->matrix, sizeof(*graphMat->adjacentMatrix->matrix) * newDimension); //Aumento il numero di righe
                 if(tmp) {
-                    graphMat->adjacentMatrix = tmp;
-                    for(int i = 0; i < graphMat->slotAllocated; i++) {
-                        graphMat->adjacentMatrix[graphMat->slotAllocated+i] = malloc(sizeof(*graphMat->adjacentMatrix[graphMat->slotAllocated+i]) * graphMat->slotAllocated); //Per ogni nuova riga, alloco un vettore con newDimension spazi
+                    graphMat->adjacentMatrix->matrix = tmp;
+                    for(int i = 0; i < adjacentMatrix->slotAllocated; i++) {
+                        adjacentMatrix->matrix[adjacentMatrix->slotAllocated+i] = malloc(sizeof(*adjacentMatrix->matrix[adjacentMatrix->slotAllocated+i]) * adjacentMatrix->slotAllocated); //Per ogni nuova riga, alloco un vettore con newDimension spazi
                     }
                 }
 
                 //Aumento il numero di colonne
                 for(int i = 0; i < newDimension; i++) {
-                    bool* tmp = realloc(graphMat->adjacentMatrix[i], sizeof(*graphMat->adjacentMatrix) * newDimension); //Per ogni nuova riga, rialloco un vettore con il nuovo numero di locazioni
+                    bool* tmp = realloc(adjacentMatrix->matrix[i], sizeof(*graphMat->adjacentMatrix->matrix) * newDimension); //Per ogni nuova riga, rialloco un vettore con il nuovo numero di locazioni
                     if(tmp) {
-                        graphMat->adjacentMatrix[i] = tmp;
+                        adjacentMatrix->matrix[i] = tmp;
                     }
                 }
-
-                graphMat->slotAllocated = newDimension;
+                adjacentMatrix->slotAllocated = newDimension;
             }
 
             //Shift dei valori della matrice
-            for (int i = graphMat->numVertex - 1; i >= 0; i--) {
-                for (int j = graphMat->numVertex - 1; j >= 0; j--) {
+            for (int i = adjacentMatrix->numVertex - 1; i >= 0; i--) {
+                for (int j = adjacentMatrix->numVertex - 1; j >= 0; j--) {
                     if (i == newVertexPosition || j == newVertexPosition) { //Nuova riga/colonna
-                        graphMat->adjacentMatrix[i][j] = false;
+                        adjacentMatrix->matrix[i][j] = false;
                     } else if ((i > newVertexPosition || j > newVertexPosition) && i-1 >= 0 && j-1 >= 0) {
-                        graphMat->adjacentMatrix[i][j] = graphMat->adjacentMatrix[i-1][j-1];
+                        adjacentMatrix->matrix[i][j] = adjacentMatrix->matrix[i-1][j-1];
                     }
                 }
             }
@@ -144,9 +145,8 @@ int matGraphRemoveVertex(void* graph, int name) {
             deleteVertexLstElem(vertexLstElemToRemove);
 
             //Rimozione adiacenti
-            adjacentRemoved = deleteAdjacentRowColumn(graph, 0);
+            adjacentRemoved = deleteAdjacentRowColumn(((GraphMat*)graph)->adjacentMatrix, 0);
             printf("Adiacenti rimossi: %d\n", adjacentRemoved);
-            ((GraphMat*)graph)->numVertex--;
 
             return adjacentRemoved;
         } else {
@@ -168,8 +168,7 @@ int matGraphRemoveVertex(void* graph, int name) {
                 deleteVertexLstElem(vertexLstElemToRemove);
 
                 //Rimozione adiacenti
-                adjacentRemoved = deleteAdjacentRowColumn(graph, vertexPosition);
-                ((GraphMat*)graph)->numVertex--;
+                adjacentRemoved = deleteAdjacentRowColumn(((GraphMat*)graph)->adjacentMatrix, vertexPosition);
 
                 return adjacentRemoved;
             } else {
@@ -190,6 +189,7 @@ void* matGraphClone(void* graph) {
 
     //Copio i vertici appartenenti al grafo da copiare
     VertexLst* vertexLstToClone = ((GraphMat*)graph)->vertexLst;
+
     if(vertexLstToClone != NULL) { //Il grafo da clonare ha almeno un vertice
         Vertex* newVertex = createVertex(vertexLstToClone->vertexInfo->name, vertexLstToClone->vertexInfo->label);
         newGraph->vertexLst = createVertexLstElement(newVertex, NULL);
@@ -205,15 +205,17 @@ void* matGraphClone(void* graph) {
             vertexLstToClone = vertexLstToClone->nextVertex;
         }
     }
-    newGraph->numVertex = ((GraphMat*)graph)->numVertex;
 
     //Copio la matrice di adiacenza
-    newGraph->slotAllocated = ((GraphMat*)graph)->slotAllocated;
-    bool** newAdjacentMatrix = (bool**)malloc(sizeof(bool*) * newGraph->slotAllocated); //Alloco il vettore di puntatori ai vettori che comporranno la matrice
-    for(int i = 0; i < newGraph->slotAllocated; i++) {
-        newAdjacentMatrix[i] = malloc(sizeof(bool) * newGraph->slotAllocated); //Alloco un vettore che conterrà gli archi
-        for(int j = 0; j < newGraph->slotAllocated; j++) {
-            newAdjacentMatrix[i][j] = ((GraphMat*)graph)->adjacentMatrix[i][j];
+    AdjacentMatrix* newAdjacentMatrix = (AdjacentMatrix*)malloc(sizeof(AdjacentMatrix));
+    newAdjacentMatrix->numVertex = ((GraphMat*)graph)->adjacentMatrix->numVertex;
+    newAdjacentMatrix->slotAllocated = ((GraphMat*)graph)->adjacentMatrix->slotAllocated;
+
+    newAdjacentMatrix->matrix = (bool**)malloc(sizeof(bool*) * newAdjacentMatrix->slotAllocated); //Alloco il vettore di puntatori ai vettori che comporranno la matrice
+    for(int i = 0; i < newAdjacentMatrix->slotAllocated; i++) {
+        newAdjacentMatrix->matrix[i] = malloc(sizeof(bool) * newAdjacentMatrix->slotAllocated); //Alloco un vettore che conterrà gli archi
+        for(int j = 0; j < newAdjacentMatrix->slotAllocated; j++) {
+            newAdjacentMatrix->matrix[i][j] = ((GraphMat*)graph)->adjacentMatrix->matrix[i][j];
         }
     }
     newGraph->adjacentMatrix = newAdjacentMatrix;
@@ -240,18 +242,19 @@ void* matGraphTranspose(void* graph) {
             newGraphVertexLst = newGraphVertexLst->nextVertex;
             vertexLstToClone = vertexLstToClone->nextVertex;
         }
-        newGraph->numVertex = ((GraphMat*)graph)->numVertex;
 
         //Copio la matrice di adiacenza
-        newGraph->slotAllocated = ((GraphMat*)graph)->slotAllocated;
-        bool** newAdjacentMatrix = (bool**)malloc(sizeof(bool*) * newGraph->slotAllocated); //Alloco il vettore di puntatori ai vettori che comporranno la matrice
-        for(int i = 0; i < newGraph->slotAllocated; i++) {
-            newAdjacentMatrix[i] = malloc(sizeof(bool) * newGraph->slotAllocated); //Alloco un vettore che conterrà gli archi
-            for(int j = 0; j < newGraph->slotAllocated; j++) {
-                newAdjacentMatrix[i][j] = ((GraphMat*)graph)->adjacentMatrix[j][i];
+        AdjacentMatrix* newAdjacentMatrix = (AdjacentMatrix*)malloc(sizeof(AdjacentMatrix));
+        newAdjacentMatrix->numVertex = ((GraphMat*)graph)->adjacentMatrix->numVertex;
+        newAdjacentMatrix->slotAllocated = ((GraphMat*)graph)->adjacentMatrix->slotAllocated;
+
+        newAdjacentMatrix->matrix = (bool**)malloc(sizeof(bool*) * newAdjacentMatrix->slotAllocated); //Alloco il vettore di puntatori ai vettori che comporranno la matrice
+        for(int i = 0; i < newAdjacentMatrix->slotAllocated; i++) {
+            newAdjacentMatrix->matrix[i] = malloc(sizeof(bool) * newAdjacentMatrix->slotAllocated); //Alloco un vettore che conterrà gli archi
+            for(int j = 0; j < newAdjacentMatrix->slotAllocated; j++) {
+                newAdjacentMatrix->matrix[i][j] = ((GraphMat*)graph)->adjacentMatrix->matrix[j][i];
             }
         }
-
         newGraph->adjacentMatrix = newAdjacentMatrix;
     }
 
@@ -275,8 +278,8 @@ bool matGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) { //T
             toVertexPos++;
         }
         if(vertexLst != NULL && vertexLst->vertexInfo->name == toVertexName) { //Il vertice di arrivo esiste
-            if(((GraphMat*)graph)->adjacentMatrix[fromVertexPos][toVertexPos] != true) {
-                ((GraphMat*)graph)->adjacentMatrix[fromVertexPos][toVertexPos] = true;
+            if(((GraphMat*)graph)->adjacentMatrix->matrix[fromVertexPos][toVertexPos] != true) {
+                ((GraphMat*)graph)->adjacentMatrix->matrix[fromVertexPos][toVertexPos] = true;
                 return true;
             }
         }
@@ -302,7 +305,7 @@ bool matGraphRemoveEdge(void* graph, int fromVertexName, int toVertexName) {
             toVertexPos++;
         }
         if(vertexLst != NULL && vertexLst->vertexInfo->name == toVertexName) { //Il vertice di arrivo esiste
-            ((GraphMat*)graph)->adjacentMatrix[fromVertexPos][toVertexPos] = false;
+            ((GraphMat*)graph)->adjacentMatrix->matrix[fromVertexPos][toVertexPos] = false;
             return true;
         }
     }
@@ -343,7 +346,7 @@ bool matGraphExistsEdge(void* graph, int fromVertexName, int toVertexName) {
             toVertexPos++;
         }
 
-        return ((GraphMat*)graph)->adjacentMatrix[fromVertexPos][toVertexPos];
+        return ((GraphMat*)graph)->adjacentMatrix->matrix[fromVertexPos][toVertexPos];
     }
 
     return false;
@@ -410,28 +413,28 @@ void DestructGraphMat(GraphRepresentation* type) {
 
 /* ************************************************************************** */
 
-int deleteAdjacentRowColumn(GraphMat* graphMat, int vertexPosition) {
+int deleteAdjacentRowColumn(AdjacentMatrix* adjacentMatrix, int vertexPosition) {
     int numAdjacentRemoved = 0;
 
-    for(int i = 0; i < graphMat->numVertex; i++) {
-        for(int j = 0; j < graphMat->numVertex; j++) {
-            if((i == vertexPosition || j == vertexPosition) && graphMat->adjacentMatrix[i][j] == true) { //Riga o colonna appartenente al vertice da rimuovere
-                printf("VERTICE RIMOSSO (%i, %d)\n", i, j);
+    for(int i = 0; i < adjacentMatrix->numVertex; i++) {
+        for(int j = 0; j < adjacentMatrix->numVertex; j++) {
+            if((i == vertexPosition || j == vertexPosition) && adjacentMatrix->matrix[i][j] == true) { //Riga o colonna appartenente al vertice da rimuovere
                 numAdjacentRemoved++;
             } else if (i < vertexPosition && j > vertexPosition) { //Zona della matrice a destra della colonna e sopra la riga del vertice da rimuovere
-                graphMat->adjacentMatrix[i][j-1] = graphMat->adjacentMatrix[i][j];
+                adjacentMatrix->matrix[i][j-1] = adjacentMatrix->matrix[i][j];
             } else if(i > vertexPosition && j < vertexPosition) { //Zona della matrice  a sinistra della colonna e sotto la riga del vertice da rimuovere
-                graphMat->adjacentMatrix[i-1][j] = graphMat->adjacentMatrix[i][j];
+                adjacentMatrix->matrix[i-1][j] = adjacentMatrix->matrix[i][j];
             } else if(i > vertexPosition && j > vertexPosition) { //Zona della matrice a destra della colonna e sotto la riga del vertice da rimuovere
-                graphMat->adjacentMatrix[i-1][j-1] = graphMat->adjacentMatrix[i][j];
+                adjacentMatrix->matrix[i-1][j-1] = adjacentMatrix->matrix[i][j];
             }
 
-            if(i == graphMat->numVertex-1 || j == graphMat->numVertex-1) { //Riga rimossa della matrice
-                printf("ULTIMA RIGA O COLONNA\n");
-                graphMat->adjacentMatrix[i][j] = false;
+            if(i == adjacentMatrix->numVertex-1 || j == adjacentMatrix->numVertex-1) { //Riga rimossa della matrice
+                adjacentMatrix->matrix[i][j] = false;
             }
         }
     }
+
+    adjacentMatrix->numVertex--;
 
     return numAdjacentRemoved;
 }

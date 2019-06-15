@@ -3,8 +3,10 @@
 #include "bst/bst.h"
 #include "bst/rec/bstrec.h"
 #include "adt/int/adtint.h"
+#include "itr/itr.h"
+#include "bst/bstitrpreord.h"
 
-AdjacentBSTLst* createAdjacentBSTLstElem(Vertex* vertexPointer, AdjacentBSTLst* nexVertex);
+AdjacentBSTLst* createAdjacentBSTLstElem(Vertex* vertexPointer, AdjacentBSTLst* nextVertex);
 
 /* ************************************************************************** */
 
@@ -40,14 +42,89 @@ bool bstGraphEmpty(void* graph) {
     return ((GraphBST*)graph)->vertexLst == NULL;
 }
 
+void* bstGraphTranspose(void* graph) {
+    GraphBST* newGraph = bstGraphConstruct();
+
+    VertexLst* vertexLstToClone = ((GraphBST*)graph)->vertexLst;
+    AdjacentBSTLst* adjacentBstLstToClone = ((GraphBST*)graph)->adjacentBSTLst;
+
+    if(vertexLstToClone != NULL) { //Il grafo da trasporre ha almeno un vertice
+        //Clono il primo vertice
+        Vertex* newVertex = createVertex(vertexLstToClone->vertexInfo->name, vertexLstToClone->vertexInfo->label);
+        newGraph->vertexLst = createVertexLstElement(newVertex, NULL);
+        newGraph->adjacentBSTLst = createAdjacentBSTLstElem(newVertex, NULL);
+
+        vertexLstToClone = vertexLstToClone->nextVertex;
+        adjacentBstLstToClone = adjacentBstLstToClone->nextVertex;
+
+        //Clono il resto dei vertici
+        VertexLst* newGraphVertexLst = newGraph->vertexLst;
+        AdjacentBSTLst* newGraphAdjacentBSTLst = newGraph->adjacentBSTLst;
+        while(vertexLstToClone != NULL) {
+            newVertex = createVertex(vertexLstToClone->vertexInfo->name, vertexLstToClone->vertexInfo->label);
+            newGraphVertexLst->nextVertex = createVertexLstElement(newVertex, NULL);
+
+            newGraphAdjacentBSTLst->nextVertex = createAdjacentBSTLstElem(newVertex, NULL);
+
+            newGraphVertexLst = newGraphVertexLst->nextVertex;
+            newGraphAdjacentBSTLst = newGraphAdjacentBSTLst->nextVertex;
+
+            vertexLstToClone = vertexLstToClone->nextVertex;
+            adjacentBstLstToClone = adjacentBstLstToClone->nextVertex;
+        }
+
+        //Traspongo gli adiacenti
+        adjacentBstLstToClone = ((GraphBST*)graph)->adjacentBSTLst; //Reinizializzo l'indice della lista di alberi del grafo di partenza
+        newGraphAdjacentBSTLst = newGraph->adjacentBSTLst;  //Reinizializzo l'indice della lista di alberi del grafo trasposto
+
+        ITRType* itrType;
+        ITRObject* treeIterator;
+        AdjacentBSTLst* index;
+        DataObject* newAdjacent;
+        DataType* intType = ConstructIntDataType();
+
+        while(adjacentBstLstToClone != NULL) {
+            itrType = ConstructBSTPreOrderIterator();
+            treeIterator = itrConstruct(itrType, adjacentBstLstToClone->adjacentTree->root);
+
+            while(!itrTerminated(treeIterator)) {
+                int name = *(int*)((BSTNode*)itrElement(treeIterator))->key->value;
+
+                index = newGraph->adjacentBSTLst; //Indice che scorre tutti gli elementi della lista di alberi per trovare quello in cui mettere il nuovo arco
+                while(index != NULL && index->vertexPointer->name != name) {
+                    index = index->nextVertex;
+                }
+
+                if(index != NULL) {
+                    newAdjacent = adtConstruct(intType);
+                    adtSetValue(newAdjacent, &adjacentBstLstToClone->vertexPointer->name);
+                    bstInsert(index->adjacentTree, newAdjacent);
+                    adtDestruct(newAdjacent);
+                }
+
+                itrSuccessor(treeIterator);
+            }
+
+            itrDestruct(treeIterator);
+            DestructBSTPreOrderIterator(itrType);
+
+            adjacentBstLstToClone = adjacentBstLstToClone->nextVertex;
+            newGraphAdjacentBSTLst = newGraphAdjacentBSTLst->nextVertex;
+        }
+        DestructIntDataType(intType);
+    }
+
+    return newGraph;
+}
+
 void* bstGraphClone(void* graph) {
     GraphBST* newGraph = bstGraphConstruct();
 
-    //Copio i vertici appartenenti al grafo da copiare
     VertexLst* vertexLstToClone = ((GraphBST*)graph)->vertexLst;
     AdjacentBSTLst* adjacentBstLstToClone = ((GraphBST*)graph)->adjacentBSTLst;
 
     if(vertexLstToClone != NULL) { //Il grafo da clonare ha almeno un vertice
+        //Clono il primo vertice
         Vertex* newVertex = createVertex(vertexLstToClone->vertexInfo->name, vertexLstToClone->vertexInfo->label);
         newGraph->vertexLst = createVertexLstElement(newVertex, NULL);
         newGraph->adjacentBSTLst = createAdjacentBSTLstElem(newVertex, NULL);
@@ -56,11 +133,11 @@ void* bstGraphClone(void* graph) {
         vertexLstToClone = vertexLstToClone->nextVertex;
         adjacentBstLstToClone = adjacentBstLstToClone->nextVertex;
 
+        //Clono il resto dei vertici
         VertexLst* newGraphVertexLst = newGraph->vertexLst;
         AdjacentBSTLst* newGraphAdjacentBSTLst = newGraph->adjacentBSTLst;
         while(vertexLstToClone != NULL) {
             newVertex = createVertex(vertexLstToClone->vertexInfo->name, vertexLstToClone->vertexInfo->label);
-
             newGraphVertexLst->nextVertex = createVertexLstElement(newVertex, NULL);
 
             newGraphAdjacentBSTLst->nextVertex = createAdjacentBSTLstElem(newVertex, NULL);
@@ -163,6 +240,7 @@ int bstGraphRemoveVertex(void* graph, int name) {
                 //Rimozione albero di adiacenza
                 AdjacentBSTLst* adjacentLstToRemove = adjacentLst->nextVertex;
                 adjacentRemoved = adjacentLstToRemove->adjacentTree->numberOfNodes;
+                printf("numero nodi albero: %d\n", adjacentLstToRemove->adjacentTree->numberOfNodes);
                 bstDestruct(adjacentLstToRemove->adjacentTree);
                 free(adjacentLstToRemove->vertexPointer);
 
@@ -173,26 +251,23 @@ int bstGraphRemoveVertex(void* graph, int name) {
         }
 
         //Rimuovo il resto degli archi
-        if(adjacentRemoved > 0) { //Il vertice era presente nell'albero quindi è possibile che qualche altro vertice si riferisse ad esso
-            AdjacentBSTLst* adjacentBSTLstIndex = ((GraphBST*)graph)->adjacentBSTLst;
+        printf("ADIACENTI RIMOSSI: %d\n", adjacentRemoved);
+        AdjacentBSTLst* adjacentBSTLstIndex = ((GraphBST*)graph)->adjacentBSTLst;
 
-            while(adjacentBSTLstIndex != NULL) {
-                DataObject* nameToDelete = adtConstruct(ConstructIntDataType()); //TODO: Cercare di evitare di creare un constructInt ogni volta?
-                adtSetValue(nameToDelete, &name);
+        while(adjacentBSTLstIndex != NULL) {
+            DataObject* nameToDelete = adtConstruct(ConstructIntDataType()); //TODO: Cercare di evitare di creare un constructInt ogni volta?
+            adtSetValue(nameToDelete, &name);
 
-                int numVer = adjacentBSTLstIndex->adjacentTree->numberOfNodes;
-                bstRemove(adjacentBSTLstIndex->adjacentTree, nameToDelete);
-                if(adjacentBSTLstIndex->adjacentTree->numberOfNodes < numVer) {
-                    adjacentRemoved+= 1;
-                }
-
-                adjacentBSTLstIndex = adjacentBSTLstIndex->nextVertex;
+            int numVer = adjacentBSTLstIndex->adjacentTree->numberOfNodes;
+            bstRemove(adjacentBSTLstIndex->adjacentTree, nameToDelete);
+            if(adjacentBSTLstIndex->adjacentTree->numberOfNodes < numVer) {
+                adjacentRemoved+= 1;
             }
+            adjacentBSTLstIndex = adjacentBSTLstIndex->nextVertex;
         }
-
         return adjacentRemoved;
     }
-
+    
     return -1; //Vertice non presente
 }
 
@@ -321,7 +396,7 @@ GraphRepresentation* ConstructGraphBST() {
 
     type->graphEmpty = bstGraphEmpty;
 
-    //type->graphTranspose = bstGraphTranspose; //TODO: Da fare
+    type->graphTranspose = bstGraphTranspose;
 
     type->graphClone = bstGraphClone;
 
@@ -345,12 +420,12 @@ void DestructGraphBST(GraphRepresentation* type) {//TODO: Sicuro prenda graphRep
 
 /* ************************************************************************** */
 
-AdjacentBSTLst* createAdjacentBSTLstElem(Vertex* vertexPointer, AdjacentBSTLst* nexVertex) {
+AdjacentBSTLst* createAdjacentBSTLstElem(Vertex* vertexPointer, AdjacentBSTLst* nextVertex) {
     AdjacentBSTLst* newAdjacentBSTLst = (AdjacentBSTLst*)malloc(sizeof(AdjacentBSTLst));
 
     newAdjacentBSTLst->vertexPointer = vertexPointer;
     newAdjacentBSTLst->adjacentTree = bstConstruct(ConstructBSTRecursive());
-    newAdjacentBSTLst->nextVertex = nexVertex;
+    newAdjacentBSTLst->nextVertex = nextVertex;
 
     return newAdjacentBSTLst;
 }

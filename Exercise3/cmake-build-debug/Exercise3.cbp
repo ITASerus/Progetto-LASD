@@ -254,10 +254,10 @@
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlst.h">
 			<Option target="Exercise3"/>
 		</Unit>
-		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graplstitradjacent.c">
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlstitradjacent.c">
 			<Option target="Exercise3"/>
 		</Unit>
-		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graplstitradjacent.h">
+		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlstitradjacent.h">
 			<Option target="Exercise3"/>
 		</Unit>
 		<Unit filename="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmat.c">

@@ -717,32 +717,32 @@ graph/rep/lst/graphlst.c.s:
 	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.s
 .PHONY : graph/rep/lst/graphlst.c.s
 
-graph/rep/lst/graplstitradjacent.o: graph/rep/lst/graplstitradjacent.c.o
+graph/rep/lst/graphlstitradjacent.o: graph/rep/lst/graphlstitradjacent.c.o
 
-.PHONY : graph/rep/lst/graplstitradjacent.o
+.PHONY : graph/rep/lst/graphlstitradjacent.o
 
 # target to build an object file
-graph/rep/lst/graplstitradjacent.c.o:
-	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/lst/graplstitradjacent.c.o
-.PHONY : graph/rep/lst/graplstitradjacent.c.o
+graph/rep/lst/graphlstitradjacent.c.o:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o
+.PHONY : graph/rep/lst/graphlstitradjacent.c.o
 
-graph/rep/lst/graplstitradjacent.i: graph/rep/lst/graplstitradjacent.c.i
+graph/rep/lst/graphlstitradjacent.i: graph/rep/lst/graphlstitradjacent.c.i
 
-.PHONY : graph/rep/lst/graplstitradjacent.i
+.PHONY : graph/rep/lst/graphlstitradjacent.i
 
 # target to preprocess a source file
-graph/rep/lst/graplstitradjacent.c.i:
-	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/lst/graplstitradjacent.c.i
-.PHONY : graph/rep/lst/graplstitradjacent.c.i
+graph/rep/lst/graphlstitradjacent.c.i:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.i
+.PHONY : graph/rep/lst/graphlstitradjacent.c.i
 
-graph/rep/lst/graplstitradjacent.s: graph/rep/lst/graplstitradjacent.c.s
+graph/rep/lst/graphlstitradjacent.s: graph/rep/lst/graphlstitradjacent.c.s
 
-.PHONY : graph/rep/lst/graplstitradjacent.s
+.PHONY : graph/rep/lst/graphlstitradjacent.s
 
 # target to generate assembly for a file
-graph/rep/lst/graplstitradjacent.c.s:
-	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/lst/graplstitradjacent.c.s
-.PHONY : graph/rep/lst/graplstitradjacent.c.s
+graph/rep/lst/graphlstitradjacent.c.s:
+	$(MAKE) -f CMakeFiles/Exercise3.dir/build.make CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.s
+.PHONY : graph/rep/lst/graphlstitradjacent.c.s
 
 graph/rep/mat/graphmat.o: graph/rep/mat/graphmat.c.o
 
@@ -1170,9 +1170,9 @@ help:
 	@echo "... graph/rep/lst/graphlst.o"
 	@echo "... graph/rep/lst/graphlst.i"
 	@echo "... graph/rep/lst/graphlst.s"
-	@echo "... graph/rep/lst/graplstitradjacent.o"
-	@echo "... graph/rep/lst/graplstitradjacent.i"
-	@echo "... graph/rep/lst/graplstitradjacent.s"
+	@echo "... graph/rep/lst/graphlstitradjacent.o"
+	@echo "... graph/rep/lst/graphlstitradjacent.i"
+	@echo "... graph/rep/lst/graphlstitradjacent.s"
 	@echo "... graph/rep/mat/graphmat.o"
 	@echo "... graph/rep/mat/graphmat.i"
 	@echo "... graph/rep/mat/graphmat.s"

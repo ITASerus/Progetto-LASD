@@ -33,7 +33,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Exercise3.dir/testBST.c.o"
   "CMakeFiles/Exercise3.dir/testGraph.c.o"
   "CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o"
-  "CMakeFiles/Exercise3.dir/graph/rep/lst/graplstitradjacent.c.o"
+  "CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o"
   "CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o"
   "Exercise3.pdb"
   "Exercise3"

@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 typedef struct GraphMatAdjacentIterator {
-    bool** element;
-    int numVertex;
+    AdjacentMatrix* adjacentMatrix;
+    int currentRow;
+    int currentColumn;
 } GraphMatAdjacentIterator;
 
 /* ************************************************************************** */

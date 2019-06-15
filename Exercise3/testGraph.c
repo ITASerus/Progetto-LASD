@@ -1,6 +1,8 @@
 
 #include "testGraph.h"
 #include "graph/graphitrvertex.h"
+#include "graph/rep/mat/graphmatitradjacent.h"
+#include "graph/rep/lst/graphlstitradjacent.h"
 
 void printGraphLst(GraphObject* graphObject) { //TODO: Evita di stampare il primo nodo della lista di adiacenza
     printf("\nGRAFO:\n");
@@ -35,8 +37,8 @@ void printGraphMat(GraphObject* graphObject) {
         adtWriteToMonitor(tmp->vertexInfo->label);
 
         printf(" ADIACENTI:");
-        bool** matrix = ((GraphMat*)graphObject->graph)->adjacentMatrix;
-        for(int i = 0; i < ((GraphMat*)graphObject->graph)->numVertex; i++) {
+        bool** matrix = ((GraphMat*)graphObject->graph)->adjacentMatrix->matrix;
+        for(int i = 0; i < ((GraphMat*)graphObject->graph)->adjacentMatrix->numVertex; i++) {
             if(matrix[index][i]) {
                 VertexLst* currentVertex = ((GraphMat*)graphObject->graph)->vertexLst;
                 for(int j = 0; j < i; j++) {
@@ -61,8 +63,8 @@ void printGraphMatValue(GraphObject* graphObject) {
         printf("Nome: %d ", tmp->vertexInfo->name);
 
         printf(" ADIACENTI: ");
-        bool** matrix = ((GraphMat*)graphObject->graph)->adjacentMatrix;
-        for(int i = 0; i < ((GraphMat*)graphObject->graph)->numVertex; i++) {
+        bool** matrix = ((GraphMat*)graphObject->graph)->adjacentMatrix->matrix;
+        for(int i = 0; i < ((GraphMat*)graphObject->graph)->adjacentMatrix->numVertex; i++) {
             if(matrix[index][i]) {
                 printf("T | ");
             }
@@ -84,9 +86,9 @@ void printBSTElem(DataObject* dat, void* _) {
 }
 
 void printGraphBST(GraphObject* graphObject) {
-    printf("\nGRAFO:\n");
     VertexLst* tmp = ((GraphLst*)graphObject->graph)->vertexLst;
     AdjacentBSTLst* tmpAdjacentBSTLstVertex = ((GraphBST*)graphObject->graph)->adjacentBSTLst;
+    printf("\n");
     while(tmp != NULL && tmpAdjacentBSTLstVertex != NULL) {
         printf("Nome: %d Etichetta: ", tmp->vertexInfo->name);
         adtWriteToMonitor(tmp->vertexInfo->label);
@@ -94,6 +96,7 @@ void printGraphBST(GraphObject* graphObject) {
         printf(" ADIACENTI:");
         if(!bstEmpty(tmpAdjacentBSTLstVertex->adjacentTree)) {
             bstInOrderMap(tmpAdjacentBSTLstVertex->adjacentTree, printBSTElem, NULL);
+            printf(" - Numero nodi: %d", tmpAdjacentBSTLstVertex->adjacentTree->numberOfNodes);
         } else {
             printf(" Nessuno");
         }
@@ -987,6 +990,9 @@ void testList() {
     graphDestruct(transposedGraph);
 
     printf("*****************************************************************\n");
+
+    printf("TEST ITERATORE\n");
+
 }
 
 void testMat() {
@@ -1009,7 +1015,7 @@ void testMat() {
     printf("NUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
     printf("NUMERO DI ARCHI GRAPHOBHECT: %d\n\n", graphEdgeNumber(graphObject));
 
-    printf("\n\n");
+    printf("*****************************************************************\n\n");
 
     adtRandomValue(dataPtr);
     printf("INSERIMENTO VERTICE 5");
@@ -1360,6 +1366,19 @@ void testMat() {
 
     GraphObject* clone = graphClone(trans);
     printGraphMatValue(clone);
+
+    printf("*****************************************************************\n");
+    printf("Numero elementi: %d\n", graphVertexNumber(graphObject));
+
+    printf("TEST ITERATORE\n");
+    ITRType* iterType = ConstructMatAdjacentIterator();
+    ITRObject* iterator = itrConstruct(iterType, ((GraphMat*)graphObject->graph)->adjacentMatrix);
+
+    while(!itrTerminated(iterator)) {
+        itrElement(iterator);
+
+        itrSuccessor(iterator);
+    }
 }
 
 void testBSTgraph() {
@@ -1572,6 +1591,75 @@ void testBSTgraph() {
 
         itrSuccessor(iterator);
     }
+
+    printf("\n*****************************************************************\n\n");
+
+    printf("Test trasposta: \n");
+
+    printGraphBST(clonedGraph);
+
+    GraphObject* transposedGraph = graphTranspose(clonedGraph);
+    printGraphBST(transposedGraph);
+
+    graphDestruct(graphObject);
+    graphDestruct(clonedGraph);
+    graphDestruct(transposedGraph);
+
+    graphObject = graphConstruct(graphTyp);
+
+    printf("\nGRAPH VUOTO");
+    printGraphBST(graphObject);
+    transposedGraph = graphTranspose(graphObject);
+    printGraphBST(transposedGraph);
+
+    printf("\nGRAPH CON UN VERTICE");
+    graphInsertVertex(graphObject, 1, dataPtr);
+    printGraphBST(graphObject);
+    transposedGraph = graphTranspose(graphObject);
+    printGraphBST(transposedGraph);
+
+    printf("\nGRAPH CON DUE VERTICI E UN ARCO");
+    graphInsertVertex(graphObject, 10, dataPtr);
+    graphInsertEdge(graphObject, 1, 10);
+    printGraphBST(graphObject);
+    transposedGraph = graphTranspose(graphObject);
+    printGraphBST(transposedGraph);
+
+    printf("\nGRAPH CON DUE VERTICI E DUE ARCHI");
+    graphInsertEdge(graphObject, 10, 1);
+    printGraphBST(graphObject);
+    transposedGraph = graphTranspose(graphObject);
+    printGraphBST(transposedGraph);
+
+    printf("\nGRAPH CON VARI VERTICI E VARI ARCHI");
+    graphInsertVertex(graphObject, 2, dataPtr);
+    graphInsertVertex(graphObject, 3, dataPtr);
+    graphInsertVertex(graphObject, 4, dataPtr);
+    graphInsertVertex(graphObject, 5, dataPtr);
+    graphInsertVertex(graphObject, 6, dataPtr);
+    graphInsertEdge(graphObject, 2, 2);
+    graphInsertEdge(graphObject, 2, 3);
+    graphInsertEdge(graphObject, 3, 6);
+    graphInsertEdge(graphObject, 4, 4);
+    graphInsertEdge(graphObject, 4, 1);
+    graphInsertEdge(graphObject, 5, 4);
+    graphInsertEdge(graphObject, 5, 6);
+    graphInsertEdge(graphObject, 5, 2);
+    graphInsertEdge(graphObject, 10, 6);
+
+    printGraphBST(graphObject);
+    printf("Numero di vertici: %d\n", graphVertexNumber(graphObject));
+    printf("Numero di archi: %d\n", graphEdgeNumber(graphObject));
+
+    transposedGraph = graphTranspose(graphObject);
+    printGraphBST(transposedGraph);
+    printf("Numero di vertici: %d\n", graphVertexNumber(transposedGraph));
+    printf("Numero di archi: %d\n", graphEdgeNumber(transposedGraph));
+
+    graphRemoveVertex(transposedGraph, 5);
+    printGraphBST(transposedGraph);
+    printf("Numero di vertici: %d\n", graphVertexNumber(transposedGraph));
+    printf("Numero di archi: %d\n", graphEdgeNumber(transposedGraph));
 }
 
 void testGraph() {
