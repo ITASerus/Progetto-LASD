@@ -27,12 +27,6 @@ void* stringGetValue(void* value) {
 }
 
 void stringSetValue(void** value, void* newValue) {
-    if (strlen((char*) newValue) > strlen(*value)) {
-        *value = (char *)realloc(value, sizeof(char) * (strlen((char *) newValue) + 1));
-        assert(value != NULL);
-
-        strcpy(*value, "");
-    }
     strcpy((char*) *value, (char*) newValue);
 }
 

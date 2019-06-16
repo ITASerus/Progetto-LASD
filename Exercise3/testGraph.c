@@ -110,9 +110,8 @@ void testGraph() {
         printf("Menu':\n"
                "(1) Popolamento randomico del grafo con N elementi\n"
                "\n"
-               "(2) Visualizzazione del contenuto del grafo Pre-Order\n"
-               "(3) Visualizzazione del contenuto del grafo Post-Order\n"
-               "(4) Visualizzazione del contenuto del grafo in ampiezza\n"
+               "(2) Visualizzazione dei vertici contenuti nel grafo\n"
+               "(3) Visualizzazione del grafo e degli adiacente di ogni vertice\n"
                "\n"
                "(5) Inserimento manuale di un vertice nel grafo\n"
                "(6) Rimozione di un vertice dal grafo\n"
@@ -120,36 +119,38 @@ void testGraph() {
                "\n"
                "(8) Inserimento manuale di un arco tra due vertici presenti nel grafo\n"
                "(9) Rimozione di un arco dal grafo\n"
-               "(10) Controllo esistenza di un arco tra due vertici presenti nel grafo\n");
+               "(10) Controllo esistenza di un arco tra due vertici presenti nel grafo\n"
+               "\n(11) Etichetta di un vertice dato il nome\n"
+               "(12) Modifica dell'etichetta di un vertice dato il nome\n");
         switch (tipoDatoScelto) {
             case 1: { //Interi
-                printf("\n(11) Prodotto di ogni elemento minore di N\n"
-                       "(12) Applicazione 2n per ogni elemento\n");
+                printf("\n(13) Prodotto di ogni elemento minore di N\n"
+                       "(14) Applicazione 2n per ogni elemento\n");
                 break;
             }
             case 2: { //Float
-                printf("\n(11) Somma valori maggiori di N\n"
-                       "(12) Applicazione n^2 per ogni elemento\n");
+                printf("\n(13) Somma valori maggiori di N\n"
+                       "(14) Applicazione n^2 per ogni elemento\n");
                 break;
             }
             case 3: { //Stringhe
-                printf("\n(11) Concatenazione dei valori di lunghezza minore o uguale a N\n"
-                       "(12) Applicazione funzione uppercase/lowercase per ogni elemento\n");
+                printf("\n(13) Concatenazione dei valori di lunghezza minore o uguale a N\n"
+                       "(14) Applicazione funzione uppercase/lowercase per ogni elemento\n");
                 break;
             }
             default: { //Record
-                printf("\n(11) N/A\n"
-                       "(12) N/A\n");
+                printf("\n(13) N/A\n"
+                       "(14) N/A\n");
                 break;
             }
         }
-        printf("\n(13) Controllo vuotezza del grafo\n"
-               "(14) Numero di nodi contenuti nel grafo\n"
-               "(15) Numero di archi contenuti nel grafo\n"
-               "(16) Svuotamento del grafo\n"
-               "(17) Creazione e stampa di un clone del grafo e\n"
+        printf("\n(15) Controllo vuotezza del grafo\n"
+               "(16) Numero di nodi contenuti nel grafo\n"
+               "(17) Numero di archi contenuti nel grafo\n"
+               "(18) Svuotamento del grafo\n"
+               "(19) Creazione e stampa di un clone del grafo e\n"
                "     controllo uguaglianza con il grafo principale\n"
-               "(18) Creazione e stampa del trasposto del grafo\n"
+               "(20) Creazione e stampa del trasposto del grafo\n"
                "\n"
                "(0) Deallocazione della stuttura ed uscita dal programma\n"
                "Scelta: ");
@@ -191,11 +192,49 @@ void testGraph() {
                 break;
             }
             case 2: {
-                printf("Da implementare\n");
+                ITRObject* vertexIterator = graphVertices(graphObject);
+
+                if(itrTerminated(vertexIterator)) {
+                    printf("Grafo vuoto!\n");
+                } else {
+                    while(!itrTerminated(vertexIterator)) {
+                        printf("Nome Vertice: %d\n", ((Vertex*)itrElement(vertexIterator))->name);
+                        itrSuccessor(vertexIterator);
+                    }
+                }
+
+                itrDestruct(vertexIterator);
+
                 break;
             }
             case 3: {
-                printf("Da implementare\n");
+                ITRObject* vertexIterator = graphVertices(graphObject);
+
+                if(itrTerminated(vertexIterator)) {
+                    printf("Grafo vuoto!\n");
+                } else {
+                    while(!itrTerminated(vertexIterator)) {
+                        int name = ((Vertex*)itrElement(vertexIterator))->name;
+                        DataObject* label = ((Vertex*)itrElement(vertexIterator))->label;
+                        printf("Nome: %d, Etichetta: ", name);
+                        adtWriteToMonitor(label);
+
+                        printf(" - Adiacenti: ");
+                        ITRObject* adjacentIterator = graphVertexEdges(graphObject, name);
+
+                        while(!itrTerminated(adjacentIterator)) {
+                            printf("%d, ", ((Vertex*)itrElement(adjacentIterator))->name);
+                            itrSuccessor(adjacentIterator);
+                        }
+
+                        itrDestruct(adjacentIterator);
+
+                        itrSuccessor(vertexIterator);
+                        printf("\n");
+                    }
+                }
+
+                itrDestruct(vertexIterator);
                 break;
             }
             case 4: {
@@ -324,6 +363,47 @@ void testGraph() {
                 break;
             }
             case 11: {
+                printf("Inserire il nome del vertice di cui si vuole sapere l'etichetta: ");
+                getStr(buffer, MaxStrLen);
+                number = strtol(buffer, NULL, 10);
+
+                if (graphExistsVertex(graphObject, number)) {
+                    DataObject *data = graphGetVertexData(graphObject, number);
+
+                    printf("Il valore dell'etichetta del vertice %d è: ", number);
+                    adtWriteToMonitor(data);
+
+                    adtDestruct(data);
+                } else {
+                    printf("Vertice non presente nel grafo!\n");
+                }
+
+                break;
+            }
+            case 12: {
+                printf("Inserire il nome del vertice di cui si vuole modificare l'etichetta: ");
+                getStr(buffer, MaxStrLen);
+                number = strtol(buffer, NULL, 10);
+
+                if (graphExistsVertex(graphObject, number)) {
+                    DataObject *data = adtConstruct(datatype);
+
+                    printf("Inserire il nuovo valore dell'etichetta del vertice %d: ", number);
+                    adtReadFromKeyboard(data);
+
+                    graphSetVertexData(graphObject, number, data);
+
+                    printf("Il valore dell'etichetta del vertice %d è stato modificato!\n", number);
+
+                    adtDestruct(data);
+                } else {
+                    printf("Vertice non presente nel grafo!\n");
+                }
+
+                break;
+
+            }
+            case 13: {
                 switch (tipoDatoScelto) {
                     case 1: { //Int
                         int* value = (int*)malloc(sizeof(int));
@@ -385,7 +465,7 @@ void testGraph() {
 
                 break;
             }
-            case 12: {
+            case 14: {
                 switch (tipoDatoScelto) {
                     case 1: { //Int
                         graphPreOrderMap(graphObject, mapSquareInteger, NULL);
@@ -424,7 +504,7 @@ void testGraph() {
 
                 break;
             }
-            case 13: {
+            case 15: {
                 if(graphEmpty(graphObject)) {
                     printf("Il grafo è vuoto!\n");
                 } else {
@@ -433,20 +513,20 @@ void testGraph() {
 
                 break;
             }
-            case 14: {
+            case 16: {
                 printf("Il grafo contiene %d nodi.\n", graphVertexNumber(graphObject));
                 break;
             }
-            case 15: {
+            case 17: {
                 printf("Il grafo contiene %d archi.\n", graphEdgeNumber(graphObject));
                 break;
             }
-            case 16: {
+            case 18: {
                 graphClear(graphObject);
                 printf("Il grafo è stato svuotato!\n");
                 break;
             }
-            case 17: {
+            case 19: {
                 GraphObject* clonedGraph = graphClone(graphObject);
 
                 ITRObject* vertexIterator = graphVertices(clonedGraph);
@@ -468,13 +548,6 @@ void testGraph() {
                             itrSuccessor(adjacentIterator);
                         }
 
-                        printf("I grafi sono uguali?: ");
-                        if(graphEqual(graphObject, clonedGraph)) {
-                            printf("Sì!\n");
-                        } else {
-                            printf("No!\n"); //Condizione che non si verificherà mai. Inserita a puro scopo di verifica didattica
-                        }
-
                         itrDestruct(adjacentIterator);
 
                         itrSuccessor(vertexIterator);
@@ -483,11 +556,19 @@ void testGraph() {
                 }
 
                 itrDestruct(vertexIterator);
+
+                printf("I grafi sono uguali?: ");
+                if(graphEqual(graphObject, clonedGraph)) {
+                    printf("Sì!\n");
+                } else {
+                    printf("No!\n"); //Condizione che non si verificherà mai. Inserita a puro scopo di verifica didattica
+                }
+
                 graphDestruct(clonedGraph);
 
                 break;
             }
-            case 18: {
+            case 20: {
                 GraphObject* transposedGraph = graphTranspose(graphObject);
 
                 ITRObject* vertexIterator = graphVertices(transposedGraph);
