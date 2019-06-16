@@ -36,17 +36,16 @@ typedef int (*GraphVertexFromPointer)(void* iterator);
 typedef ITRObject* (*GraphVertices)(void* graph);
 typedef ITRObject* (*GraphVertexEdges)(void* graph, int name);
 
+typedef bool (*GraphEqual)(void* firstGraph, void* firstGraphRepresentation, void* secondGraph, void* secondGraphRepresentation);
 
-typedef bool (*GraphEqual)(void* firstGraph, void* secondGraph);
-
-typedef int (*GraphShortestPath)(void*, void*); //Lunghezza, Se tra due nodi non esiste un percorso, restituisco -1
+typedef int (*GraphShortestPath)(void* graph, int numVertex, void* graphRepresentation, int firstName, int secondName);
 
 // typedef type (*GraphIsAcyclic)(arguments);
-// typedef type (*GraphTopologicalOrder)(arguments); Restituisce iteratore
+// typedef type (*GraphTopologicalOrder)(arguments);
 
-typedef void* (*GraphMaximalReachableSubgraph)(void*);// Restituisce grafo nuovo, separato e e riallocato
+//typedef void* (*GraphMaximalReachableSubgraph)(void*);
 
-// typedef type (*GraphSCCGraph)(arguments); Grafo delle componenti fortemente connesse. I dati sono il nome di uno dei vertici (DatObject Intero)a cui la componente fa riferimento
+// typedef type (*GraphSCCGraph)(arguments);
 
 // typedef type (*GraphPreOrderMap)(arguments);
 // typedef type (*GraphPostOrderMap)(arguments);
@@ -101,6 +100,8 @@ typedef struct GraphType {
   GraphRepresentation* graphRep;
 
   GraphEqual graphEqual;
+
+  GraphShortestPath graphShortestPath;
 } GraphType;
 
 typedef struct GraphObject
@@ -129,7 +130,7 @@ GraphObject* graphClone(GraphObject* graphObject);
 
 GraphObject* graphTranspose(GraphObject* graphObject);
 
-void graphInsertVertex(GraphObject* graphObject, int name, DataObject* label); //TODO: Bool?
+void graphInsertVertex(GraphObject* graphObject, int name, DataObject* label);
 void graphRemoveVertex(GraphObject* graphObject, int name);
 void graphInsertEdge(GraphObject* graphObject, int fromVertexName, int toVertexName);
 void graphRemoveEdge(GraphObject* graphObject, int fromVertexName, int toVertexName);
@@ -149,7 +150,7 @@ bool graphEqual(GraphObject* firstGraphObject, GraphObject* secondGraphObject);
 
 // type graphExistsVertexWithData(arguments);
 
-// type graphShortestPath(arguments);
+int graphShortestPath(GraphObject* graphObject, int firstName, int secondName);
 
 // type graphIsAcyclic(arguments);
 // type graphTopologicalOrder(arguments);

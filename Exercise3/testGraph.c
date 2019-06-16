@@ -12,8 +12,8 @@ void printGraphLst(GraphObject* graphObject) { //TODO: Evita di stampare il prim
         AdjacentLst* tmpAdjacentLstAdjacent = tmpAdjacentLstVertex->nextAdjacent;
         printf(" ADIACENTI:");
         while(tmpAdjacentLstAdjacent != NULL) {
-            printf(" (%d, ", tmpAdjacentLstAdjacent->vertexPointer->name);
-            printf("%d) |", *(int*)tmpAdjacentLstAdjacent->vertexPointer->label->value);
+            printf(" %d |", tmpAdjacentLstAdjacent->vertexPointer->name);
+            //printf("%d) |", *(int*)tmpAdjacentLstAdjacent->vertexPointer->label->value);
             tmpAdjacentLstAdjacent = tmpAdjacentLstAdjacent->nextAdjacent;
         }
 
@@ -1061,7 +1061,7 @@ void testList() {
 
     printf("\n*****************************************************************\n");
 
-    ConstructGraphRecursive(graphTyp);
+    ConstructGraphIterative(graphTyp);
     GraphObject* newGraph = graphConstruct(graphTyp);
 
     adtRandomValue(dataPtr);
@@ -1086,15 +1086,62 @@ void testList() {
 
     GraphObject* clone = graphClone(newGraph);
 
+    printf("\nNEW GRAPH:");
     printGraphLst(newGraph);
+
+    graphInsertVertex(clone, 5, dataPtr);
+    graphInsertEdge(clone, 1, 1);
+    printf("\nCLONE:");
     printGraphLst(clone);
 
     printf("\n");
     if(graphEqual(newGraph, clone)) {
-        printf("UGUALI");
+        printf("UGUALI\n");
     } else {
-        printf("DIVERSI");
+        printf("DIVERSI\n");
     }
+
+    printf("\n*****************************************************************\n");
+
+    printf("TEST CLEAR\n");
+
+    printGraphLst(graphObject);
+
+    graphClear(graphObject);
+
+    printGraphLst(graphObject);
+
+    printf("\nNUMERO DI VERTICI GRAPHOBJECT: %d\n", graphVertexNumber(graphObject));
+    printf("NUMERO DI ARCHI GRAPHOBJECT: %d\n\n", graphEdgeNumber(graphObject));
+
+    graphInsertVertex(graphObject, 3, dataPtr);
+
+    printGraphLst(graphObject);
+
+    printf("\n*****************************************************************\n");
+
+    /*
+
+    graphRemoveVertex(newGraph, 6);
+    graphRemoveVertex(newGraph, 9);
+    graphRemoveVertex(newGraph, 12);
+    graphInsertVertex(newGraph, 2, dataPtr);
+    graphInsertVertex(newGraph, 0, dataPtr);
+    graphRemoveEdge(newGraph, 1, 3);
+    graphRemoveEdge(newGraph, 3, 3);
+
+    graphInsertEdge(newGraph, 1, 0);
+    graphInsertEdge(newGraph, 2, 1);
+    graphInsertEdge(newGraph, 2, 2);
+    graphInsertEdge(newGraph, 2, 3);
+    graphInsertEdge(newGraph, 3, 1);
+
+    printGraphLst(newGraph);
+
+    printf("TEST SHORTEST PATH\n\n");
+    int n = graphShortestPath(newGraph, 3, 0);
+    printf("Percorso minimo tra 3 e 0 è: %d\n", n);*/
+
 }
 
 void testMat() {
@@ -2030,7 +2077,7 @@ void testGraphLst() {
                 printf("Inserire il nome del vertice da cui parte l'arco di cui si vuole controllare l'esitenza: ");
                 scanf("%d", &fromName);
 
-                printf("Inserire il nome del vertice in cui arriva l'arco di cui si vuole controllare l'esitenza: ");                scanf("%d", &toName);
+                printf("Inserire il nome del vertice in cui arriva l'arco di cui si vuole controllare l'esitenza: ");
                 scanf("%d", &toName);
 
                 if(graphExistsEdge(graphObject, fromName, toName)) {
@@ -2059,7 +2106,8 @@ void testGraphLst() {
                 break;
             }
             case 14: {
-                printf("Da implementare\n");
+                graphClear(graphObject);
+                printf("Il grafo è stato svuotato\n");
                 break;
             }
             case 15: {

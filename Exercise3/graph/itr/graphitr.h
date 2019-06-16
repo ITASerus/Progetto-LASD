@@ -8,8 +8,8 @@
 
 /* ************************************************************************** */
 
-// type ConstructGraphIterative(arguments);
-// type DestructGraphIterative(arguments);
+void ConstructGraphIterative(GraphType* type);
+void DestructGraphIterative();
 
 /* ************************************************************************** */
 

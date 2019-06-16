@@ -424,7 +424,7 @@ ITRObject* lstGraphVertexEdges(void* graph, int name) {
     ITRType* itrType = ConstructLstAdjacentIterator();
     ITRObject* iterator = itrConstruct(itrType, lstInterface);
 
-    free(lstInterface); //TODO: Serve? devo deallocare qualcosa?
+    //free(lstInterface); //TODO: Se decommento, ho il problema in graphEqual e chissà dove altro
 
     return iterator;
 }

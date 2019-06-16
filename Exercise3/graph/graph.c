@@ -36,6 +36,27 @@ int graphEdgeNumber(GraphObject* graphObject) {
     return graphObject->numEdge;
 }
 
+void graphClear(GraphObject* graphObject) {
+    ITRObject* vertexIterator = graphVertices(graphObject);
+
+    while(!itrTerminated(vertexIterator)) {
+        ITRObject* adjacentIterator = graphVertexEdges(graphObject, ((Vertex*)itrElement(vertexIterator))->name);
+
+        while(!itrTerminated(adjacentIterator)) {
+            int adjacent = ((Vertex*)itrElement(adjacentIterator))->name;
+            itrSuccessor(adjacentIterator);
+            graphRemoveEdge(graphObject, ((Vertex*)itrElement(vertexIterator))->name, adjacent);
+        }
+        int vertex =  ((Vertex*)itrElement(vertexIterator))->name;
+        itrSuccessor(vertexIterator);
+        graphRemoveVertex(graphObject, vertex);
+
+        itrDestruct(adjacentIterator);
+    }
+
+    itrDestruct(vertexIterator);
+}
+
 GraphObject* graphClone(GraphObject* graphObject) { //TODO: Assicurati di copiare anche labeò
     GraphObject* clonedGraphObject =(GraphObject*)malloc(sizeof(GraphObject));
     clonedGraphObject->type = graphObject->type;
@@ -115,7 +136,11 @@ ITRObject* graphVertexEdges(GraphObject* graphObject, int name) {
 }
 
 bool graphEqual(GraphObject* firstGraphObject, GraphObject* secondGraphObject) {
-    return firstGraphObject->type->graphEqual(firstGraphObject, secondGraphObject);
+    return firstGraphObject->type->graphEqual(firstGraphObject->graph, firstGraphObject->type->graphRep, secondGraphObject->graph, secondGraphObject->type->graphRep);
+}
+
+int graphShortestPath(GraphObject* graphObject, int firstName, int secondName) {
+    return graphObject->type->graphShortestPath(graphObject->graph, graphObject->numVertex, graphObject->type->graphRep, firstName, secondName);
 }
 
 /* ************************************************************************** */

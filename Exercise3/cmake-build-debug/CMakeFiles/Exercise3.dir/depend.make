@@ -140,12 +140,17 @@ CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../graph/graphitrvertex.h
 CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../itr/itr.h
 CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../utility.h
 
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: .././adt/adt.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: .././bst/bst.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: .././utility.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../adt/adt.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../adt/int/adtint.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../queue/queue.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../queue/vec/queuevec.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../graph/itr/graphitr.c
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../graph/itr/graphitr.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../itr/itr.h
-CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../utility.h
 
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o: ../adt/adt.h
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o: ../graph/graph.h
