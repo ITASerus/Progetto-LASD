@@ -143,6 +143,14 @@ int graphShortestPath(GraphObject* graphObject, int firstName, int secondName) {
     return graphObject->type->graphShortestPath(graphObject->graph, graphObject->numVertex, graphObject->type->graphRep, firstName, secondName);
 }
 
+void graphPreOrderMap(GraphObject* graphObject, MapFun mapFunction, void* parameter) {
+    graphObject->type->graphPreOrderMap(graphObject->graph, graphObject->type->graphRep, mapFunction, parameter);
+}
+
+void graphPostOrderMap(GraphObject* graphObject, MapFun mapFunction, void* parameter) {
+    graphObject->type->graphPostOrderMap(graphObject->graph, graphObject->type->graphRep, mapFunction, parameter);
+}
+
 /* ************************************************************************** */
 
 Vertex* createVertex(int name, DataObject* label) {

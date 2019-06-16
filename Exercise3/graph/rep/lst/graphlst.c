@@ -344,7 +344,7 @@ bool lstGraphRemoveEdge(void* graph, int fromVertexName, int toVertexName) {
 bool lstGraphExistsVertex(void* graph, int name) {
     VertexLst* currentVertexLstElem = ((GraphLst*)graph)->vertexLst;
 
-    if(currentVertexLstElem->vertexInfo->name != name) {
+    if(currentVertexLstElem != NULL && currentVertexLstElem->vertexInfo->name != name) {
         do {
             currentVertexLstElem = currentVertexLstElem->nextVertex;
         } while(currentVertexLstElem != NULL && currentVertexLstElem->vertexInfo->name < name);

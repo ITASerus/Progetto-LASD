@@ -64,8 +64,50 @@ bool recGraphEqual(void* firstGraph, void* firstGraphRepresentation, void* secon
     return result;
 }
 
+int recGraphShortestPath(void* graph, int numVertex, void* graphRepresentation, int firstName, int secondName) {
+    printf("Da implementare");
+    return 0;
+}
+
+void _recGraphPreOrderMap(ITRObject* iterator, MapFun mapFunction, void* parameter) {
+    if(!itrTerminated(iterator)) {
+        mapFunction(((Vertex*)itrElement(iterator))->label, parameter);
+        itrSuccessor(iterator);
+        _recGraphPreOrderMap(iterator, mapFunction, parameter);
+    }
+}
+
+void recGraphPreOrderMap(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter) {
+    ITRObject* vertexIterator = ((GraphRepresentation*)graphRepresentation)->graphVertices(graph);
+
+    _recGraphPreOrderMap(vertexIterator, mapFunction, parameter);
+
+    itrDestruct(vertexIterator);
+}
+
+void _recGraphPostOrderMap(ITRObject* iterator, MapFun mapFunction, void* parameter) {
+    if(!itrTerminated(iterator)) {
+        itrSuccessor(iterator);
+        _recGraphPreOrderMap(iterator, mapFunction, parameter);
+        mapFunction(((Vertex*)itrElement(iterator))->label, parameter);
+    }
+}
+
+void recGraphPostOrderMap(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter) {
+    ITRObject* vertexIterator = ((GraphRepresentation*)graphRepresentation)->graphVertices(graph);
+
+    _recGraphPostOrderMap(vertexIterator, mapFunction, parameter);
+
+    itrDestruct(vertexIterator);
+}
+
 void ConstructGraphRecursive(GraphType* type) {
     type->graphEqual = recGraphEqual;
+
+    type->graphShortestPath = recGraphShortestPath;
+
+    type->graphPreOrderMap = recGraphPreOrderMap;
+    type->graphPostOrderMap = recGraphPostOrderMap;
 }
 
 void DestructGraphRecursive() { //TODO: dA IMPLEMENTARE

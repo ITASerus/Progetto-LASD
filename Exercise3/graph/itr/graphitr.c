@@ -57,7 +57,7 @@ bool itrGraphEqual(void* firstGraph, void* firstGraphRepresentation, void* secon
     return true;
 }
 
-int itrShortestPath(void* graph, int numVertex, void* graphRepresentation, int firstName, int secondName) {
+int itrGraphShortestPath(void* graph, int numVertex, void* graphRepresentation, int firstName, int secondName) {
 
     //Inizializzo strutture di supporto
     int shortestPath = -1;
@@ -132,9 +132,22 @@ int itrShortestPath(void* graph, int numVertex, void* graphRepresentation, int f
     return shortestPath;
 }
 
+
+void itrGraphPreOrderMap(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter) {
+    printf("Da implementare\n");
+}
+
+void itrGraphPostOrderMap(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter) {
+    printf("Da implementare\n");
+}
+
 void ConstructGraphIterative(GraphType* type) {
     type->graphEqual = itrGraphEqual;
-    type->graphShortestPath = itrShortestPath;
+
+    type->graphShortestPath = itrGraphShortestPath;
+
+    type->graphPreOrderMap = itrGraphPreOrderMap;
+    type->graphPostOrderMap = itrGraphPostOrderMap;
 }
 
 void DestructGraphIterative() {

@@ -47,8 +47,8 @@ typedef int (*GraphShortestPath)(void* graph, int numVertex, void* graphRepresen
 
 // typedef type (*GraphSCCGraph)(arguments);
 
-// typedef type (*GraphPreOrderMap)(arguments);
-// typedef type (*GraphPostOrderMap)(arguments);
+typedef void (*GraphPreOrderMap)(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter);
+typedef void (*GraphPostOrderMap)(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter);
 // typedef type (*GraphBreadthMap)(arguments);
 // typedef type (*GraphPreOrderFold)(arguments);
 // typedef type (*GraphPostOrderFold)(arguments);
@@ -102,6 +102,10 @@ typedef struct GraphType {
   GraphEqual graphEqual;
 
   GraphShortestPath graphShortestPath;
+
+  GraphPreOrderMap graphPreOrderMap;
+  GraphPostOrderMap graphPostOrderMap;
+
 } GraphType;
 
 typedef struct GraphObject
@@ -159,8 +163,8 @@ int graphShortestPath(GraphObject* graphObject, int firstName, int secondName);
 
 // type graphSCCGraph(arguments);
 
-// type graphPreOrderMap(arguments);
-// type graphPostOrderMap(arguments);
+void graphPreOrderMap(GraphObject* graphObject, MapFun mapFunction, void* parameter);
+void graphPostOrderMap(GraphObject* graphObject, MapFun mapFunction, void* parameter);
 // type graphBreadthMap(arguments);
 // type graphPreOrderFold(arguments);
 // type graphPostOrderFold(arguments);
