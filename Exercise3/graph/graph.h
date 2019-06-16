@@ -49,10 +49,10 @@ typedef int (*GraphShortestPath)(void* graph, int numVertex, void* graphRepresen
 
 typedef void (*GraphPreOrderMap)(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter);
 typedef void (*GraphPostOrderMap)(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter);
-// typedef type (*GraphBreadthMap)(arguments);
-// typedef type (*GraphPreOrderFold)(arguments);
-// typedef type (*GraphPostOrderFold)(arguments);
-// typedef type (*GraphBreadthFold)(arguments);
+typedef void (*GraphBreadthMap)(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter);
+typedef void (*GraphPreOrderFold)(void* graph, void* graphRepresentation, FoldFun forFunction, void* accumulator, void* paramenter);
+typedef void (*GraphPostOrderFold)(void* graph, void* graphRepresentation, FoldFun forFunction, void* accumulator, void* paramenter);
+typedef void (*GraphBreadthFold)(void* graph, void* graphRepresentation, FoldFun forFunction, void* accumulator, void* paramenter);
 
 /* ************************************************************************** */
 
@@ -105,6 +105,11 @@ typedef struct GraphType {
 
   GraphPreOrderMap graphPreOrderMap;
   GraphPostOrderMap graphPostOrderMap;
+  GraphBreadthMap graphBreadthMap;
+
+  GraphPreOrderFold graphPreOrderFold;
+  GraphPostOrderFold graphPostOrderFold;
+  GraphBreadthFold graphBreadthFold;
 
 } GraphType;
 
@@ -163,12 +168,13 @@ int graphShortestPath(GraphObject* graphObject, int firstName, int secondName);
 
 // type graphSCCGraph(arguments);
 
+
 void graphPreOrderMap(GraphObject* graphObject, MapFun mapFunction, void* parameter);
 void graphPostOrderMap(GraphObject* graphObject, MapFun mapFunction, void* parameter);
-// type graphBreadthMap(arguments);
-// type graphPreOrderFold(arguments);
-// type graphPostOrderFold(arguments);
-// type graphBreadthFold(arguments);
+void graphBreadthMap(GraphObject* graphObject, MapFun mapFunction, void* parameter);
+void graphPreOrderFold(GraphObject* graphObject, FoldFun foldFunction, void* accumulator, void* parameter);
+void graphPostOrderFold(GraphObject* graphObject, FoldFun foldFunction, void* accumulator, void* parameter);
+void graphBreadthFold(GraphObject* graphObject, FoldFun foldFunction, void* accumulator, void* parameter);
 
 /* ************************************************************************** */
 

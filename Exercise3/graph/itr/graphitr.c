@@ -141,6 +141,24 @@ void itrGraphPostOrderMap(void* graph, void* graphRepresentation, MapFun mapFunc
     printf("Da implementare\n");
 }
 
+void itrGraphBreadthMap(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter) {
+    printf("Da implementare\n");
+}
+
+
+void itrGraphPreOrderFold(void* graph, void* graphRepresentation, FoldFun foldFunction, void* accumulator, void* parameter) {
+    printf("Da implementare\n");
+}
+
+void itrGraphPostOrderFold(void* graph, void* graphRepresentation, FoldFun foldFunction, void* accumulator, void* parameter) {
+    printf("Da implementare\n");
+}
+
+void itrGraphBreadthFold(void* graph, void* graphRepresentation, FoldFun foldFunction, void* accumulator, void* parameter) {
+    printf("Da implementare\n");
+}
+
+
 void ConstructGraphIterative(GraphType* type) {
     type->graphEqual = itrGraphEqual;
 
@@ -148,6 +166,11 @@ void ConstructGraphIterative(GraphType* type) {
 
     type->graphPreOrderMap = itrGraphPreOrderMap;
     type->graphPostOrderMap = itrGraphPostOrderMap;
+    type->graphBreadthMap = itrGraphBreadthMap;
+
+    type->graphPreOrderFold = itrGraphPreOrderFold;
+    type->graphPostOrderFold = itrGraphPostOrderFold;
+    type->graphBreadthFold = itrGraphBreadthFold;
 }
 
 void DestructGraphIterative() {

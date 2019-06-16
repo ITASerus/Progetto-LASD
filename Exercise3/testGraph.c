@@ -1,14 +1,67 @@
 
 #include "testGraph.h"
 
+void mapSquareInteger(DataObject* dat, void* _) {
+    *(int*)dat->value = (*(int*)dat->value)*(*(int*)dat->value);
+}
+
+void mapDoubleFloat(DataObject* dat, void* _) {
+    *(float*)dat->value *= 2;
+}
+
+void mapLowerCase(DataObject* dat, void* _) {
+    for(int i = 0; i<strlen((char*)dat->value); i++) {
+        if((((char*)dat->value)[i] >= 65) && (((char*)dat->value)[i]<=90)) {
+            ((char*)dat->value)[i] += 32;
+        }
+    }
+}
+
+void mapUpperCase(DataObject* dat, void* _) {
+    for(int i = 0; i<strlen((char*)dat->value); i++) {
+        if((((char*)dat->value)[i] >= 97) && (((char*)dat->value)[i]<=122)) {
+            ((char*)dat->value)[i] -= 32;
+        }
+    }
+}
+
+void foldProdLesserThanN(DataObject* dat, void *val, void *n) {
+    if(*(int*)dat->value < *(int*)n) {
+        *(int*)val *= *(int*)dat->value;
+    }
+}
+
+void foldSumGreaterThanN(DataObject* dat, void *val, void *n) { //TODO: Non funziona bene sembra
+    if((*(float*)dat->value > *(int*)n)) {
+        *(float*)val += *(float*)dat->value;
+    }
+}
+
+void foldSumNumCharStrLessOrEqThanN(DataObject* dat, void *val, void *n) {
+    if( strlen((char*)dat->value) <= *(int*)n ) {
+        *(int*)val += strlen((char*)dat->value);
+    }
+}
+
+void foldConcatLessOrEqThanN(DataObject * dat, void *val, void *n) {
+    if((strlen((char*)dat->value) <= *(int*)n)) {
+        strcat(val, dat->value);
+    }
+}
+
+/* ************************************************************************** */
+
 void testGraph() {
+    char* buffer = (char*)malloc(sizeof(char) * MaxStrLen); //Buffer riservato all'input dell'utente
+
     GraphType* graphType = (GraphType*)malloc(sizeof(GraphType));
 
     int repType, number, scelta;
     printf("Inserire tipologia di struttra da utilizzare\n(1) Liste di adiacenza\n(2) Matrice di Adiacenza\n(3) Alberi di adiacenza\n");
     do {
         printf("Scelta: ");
-        scanf("%d", &repType);
+        getStr(buffer, MaxStrLen);
+        repType = strtol(buffer, NULL, 10);
         switch (repType) {
             case 1: {
                 graphType->graphRep = ConstructGraphLst();
@@ -32,7 +85,8 @@ void testGraph() {
     printf("Inserire tipologia di implementazione della pila da utilizzare\n(1) Ricorsiva\n(2) Iterativa\n");
     do {
         printf("Scelta: ");
-        scanf("%d", &scelta);
+        getStr(buffer, MaxStrLen);
+        scelta = strtol(buffer, NULL, 10);
         switch (scelta) {
             case 1: {
                 ConstructGraphRecursive(graphType);
@@ -54,7 +108,8 @@ void testGraph() {
     printf("Inserire tipologia di dato da gestire\n(1) Intero\n(2) Float\n(3) Stringhe\n(4) Record\n");
     do {
         printf("Scelta: ");
-        scanf("%d", &tipoDatoScelto);
+        getStr(buffer, MaxStrLen);
+        tipoDatoScelto = strtol(buffer, NULL, 10);
         switch (tipoDatoScelto) {
             case 1: {
                 datatype = ConstructIntDataType();
@@ -100,27 +155,27 @@ void testGraph() {
                "(10) Controllo esistenza di un arco tra due vertici presenti nel grafo\n");
         switch (tipoDatoScelto) {
             case 1: { //Interi
-                printf("(11) Prodotto di ogni elemento minore di N\n"
+                printf("\n(11) Prodotto di ogni elemento minore di N\n"
                        "(12) Applicazione 2n per ogni elemento\n");
                 break;
             }
             case 2: { //Float
-                printf("(11) Somma valori maggiori di N\n"
+                printf("\n(11) Somma valori maggiori di N\n"
                        "(12) Applicazione n^2 per ogni elemento\n");
                 break;
             }
             case 3: { //Stringhe
-                printf("(11) Concatenazione dei valori di lunghezza minore o uguale a N\n"
+                printf("\n(11) Concatenazione dei valori di lunghezza minore o uguale a N\n"
                        "(12) Applicazione funzione uppercase/lowercase per ogni elemento\n");
                 break;
             }
             default: { //Record
-                printf("(11) N/A\n"
+                printf("\n(11) N/A\n"
                        "(12) N/A\n");
                 break;
             }
         }
-        printf("(13) Controllo vuotezza del grafo\n"
+        printf("\n(13) Controllo vuotezza del grafo\n"
                "(14) Numero di nodi contenuti nel grafo\n"
                "(15) Numero di archi contenuti nel grafo\n"
                "(16) Svuotamento del grafo\n"
@@ -287,8 +342,103 @@ void testGraph() {
 
                 break;
             }
-            case 11: { break;}
-            case 12: { break;}
+            case 11: {
+                switch (tipoDatoScelto) {
+                    case 1: { //Int
+                        int* value = (int*)malloc(sizeof(int));
+                        *value = 1;
+
+                        int* n = (int*)malloc(sizeof(int));
+                        printf("Inserire N: ");
+                        scanf("%d", n);
+
+                        graphPreOrderFold(graphObject, foldProdLesserThanN, value, n);
+                        printf("Risultato: %d\n", *value);
+
+                        free(value);
+                        free(n);
+
+                        break;
+                    }
+                    case 2: { //Float
+                        float* value = (float*)malloc(sizeof(float));
+                        *value = 0;
+
+                        float* n = (float*)malloc(sizeof(float));
+                        printf("Inserire N: ");
+                        scanf("%f", n);
+
+                        graphPreOrderFold(graphObject, foldSumGreaterThanN, value, n);
+                        printf("Risultato: %f\n", *value);
+
+                        free(value);
+                        free(n);
+
+                        break;
+                    }
+                    case 3: { //String
+                        int* n = (int*)malloc(sizeof(int));
+                        printf("Inserire N: ");
+                        scanf("%d", n);
+
+                        int* value = (int*)malloc(sizeof(int));
+                        *value = 0;
+                        graphPreOrderFold(graphObject, foldSumNumCharStrLessOrEqThanN, value, n);
+                        char* strResult = (char*)malloc(sizeof(char) * (*(int*)value));
+                        strcpy(strResult, "");
+
+                        graphPreOrderFold(graphObject, foldConcatLessOrEqThanN, strResult, n);
+                        printf("Risultato: %s\n", strResult);
+
+                        free(value);
+                        free(n);
+                        free(strResult);
+
+                        break;
+                    }
+                    default: break; //Record
+                }
+
+                break;
+            }
+            case 12: {
+                switch (tipoDatoScelto) {
+                    case 1: { //Int
+                        graphPreOrderMap(graphObject, mapSquareInteger, NULL);
+                        printf("Operazione effettuata!\n");
+                        break;
+                    }
+                    case 2: { //Float
+                        graphPreOrderMap(graphObject, mapDoubleFloat, NULL);
+                        printf("Operazione effettuata!\n");
+                        break;
+                    }
+                    case 3: { //String
+                        printf("(1) Applica funzione upperCase\n(2) Applica funzione lowerCase\nScelta: ");
+                        scanf("%d", &scelta);
+                        switch (scelta) {
+                            case 1: {
+                                graphPreOrderMap(graphObject, mapUpperCase, NULL);
+                                printf("Operazione effettuata!\n");
+                                break;
+                            }
+                            case 2: {
+                                graphPreOrderMap(graphObject, mapLowerCase, NULL);
+                                printf("Operazione effettuata!\n");
+                                break;
+                            }
+                            default: {
+                                printf("Scleta non valida\n");
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    default: break; //Record
+                }
+
+                break;
+            }
             case 13: {
                 if(graphEmpty(graphObject)) {
                     printf("Il grafo è vuoto!\n");

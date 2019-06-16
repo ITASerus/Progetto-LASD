@@ -69,6 +69,7 @@ int recGraphShortestPath(void* graph, int numVertex, void* graphRepresentation, 
     return 0;
 }
 
+
 void _recGraphPreOrderMap(ITRObject* iterator, MapFun mapFunction, void* parameter) {
     if(!itrTerminated(iterator)) {
         mapFunction(((Vertex*)itrElement(iterator))->label, parameter);
@@ -101,6 +102,36 @@ void recGraphPostOrderMap(void* graph, void* graphRepresentation, MapFun mapFunc
     itrDestruct(vertexIterator);
 }
 
+void recGraphBreadthMap(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter) {
+    printf("Da implementare\n");
+}
+
+
+void _recGraphPreOrderFold(ITRObject* iterator, FoldFun foldFunction, void* accumulator, void* parameter) {
+    if(!itrTerminated(iterator)) {
+        foldFunction(((Vertex*)itrElement(iterator))->label, accumulator, parameter);
+        itrSuccessor(iterator);
+        _recGraphPreOrderFold(iterator, foldFunction, accumulator, parameter);
+    }
+}
+
+void recGraphPreOrderFold(void* graph, void* graphRepresentation, FoldFun foldFunction, void* accumulator, void* parameter) {
+    ITRObject* vertexIterator = ((GraphRepresentation*)graphRepresentation)->graphVertices(graph);
+
+    _recGraphPreOrderFold(vertexIterator, foldFunction, accumulator, parameter);
+
+    itrDestruct(vertexIterator);
+}
+
+void recGraphPostOrderFold(void* graph, void* graphRepresentation, FoldFun foldFunction, void* accumulator, void* parameter) {
+    printf("Da implementare\n");
+}
+
+void recGraphBreadthFold(void* graph, void* graphRepresentation, FoldFun foldFunction, void* accumulator, void* parameter) {
+    printf("Da implementare\n");
+}
+
+
 void ConstructGraphRecursive(GraphType* type) {
     type->graphEqual = recGraphEqual;
 
@@ -108,8 +139,13 @@ void ConstructGraphRecursive(GraphType* type) {
 
     type->graphPreOrderMap = recGraphPreOrderMap;
     type->graphPostOrderMap = recGraphPostOrderMap;
+    type->graphBreadthMap = recGraphBreadthMap;
+
+    type->graphPreOrderFold = recGraphPreOrderFold;
+    type->graphPostOrderFold = recGraphPostOrderFold;
+    type->graphBreadthFold = recGraphBreadthFold;
 }
 
-void DestructGraphRecursive() { //TODO: dA IMPLEMENTARE
+void DestructGraphRecursive() {
 
 }

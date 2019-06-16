@@ -151,6 +151,22 @@ void graphPostOrderMap(GraphObject* graphObject, MapFun mapFunction, void* param
     graphObject->type->graphPostOrderMap(graphObject->graph, graphObject->type->graphRep, mapFunction, parameter);
 }
 
+void graphBreadthMap(GraphObject* graphObject, MapFun mapFunction, void* parameter) {
+    graphObject->type->graphBreadthMap(graphObject->graph, graphObject->type->graphRep, mapFunction, parameter);
+}
+
+void graphPreOrderFold(GraphObject* graphObject, FoldFun foldFunction, void* accumulator, void* parameter) {
+    graphObject->type->graphPreOrderFold(graphObject->graph, graphObject->type->graphRep, foldFunction, accumulator, parameter);
+}
+
+void graphPostOrderFold(GraphObject* graphObject, FoldFun foldFunction, void* accumulator, void* parameter) {
+    graphObject->type->graphPostOrderFold(graphObject->graph, graphObject->type->graphRep, foldFunction, accumulator, parameter);
+}
+
+void graphBreadthFold(GraphObject* graphObject, FoldFun foldFunction, void* accumulator, void* parameter) {
+    graphObject->type->graphBreadthFold(graphObject->graph, graphObject->type->graphRep, foldFunction, accumulator, parameter);
+}
+
 /* ************************************************************************** */
 
 Vertex* createVertex(int name, DataObject* label) {
