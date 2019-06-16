@@ -174,6 +174,12 @@ void graphBreadthFold(GraphObject* graphObject, FoldFun foldFunction, void* accu
 
 /* ************************************************************************** */
 
+/**
+ * Crea un vertice (coppia nome-etichetta)
+ * @param name Nome del vertice
+ * @param label Etichetta del vertice
+ * @return Nuova istanza di un vertice con i dati passati come parametro
+ */
 Vertex* createVertex(int name, DataObject* label) {
     Vertex* newVertex = (Vertex*)malloc(sizeof(Vertex));
 
@@ -183,6 +189,12 @@ Vertex* createVertex(int name, DataObject* label) {
     return newVertex;
 }
 
+/**
+ * Crea una istanza di VertexLst, ovvero una linked-list di vertici (Vertex*)
+ * @param vertexInfo Vertice a cui si riferirà la nuova istanza VertexLst
+ * @param next Nodo successivo della linked-list di VertexLst
+ * @return Nuova istanza di VertexLst
+ */
 VertexLst* createVertexLstElement(Vertex* vertexInfo, VertexLst* next) {
     VertexLst *newVertexLstElement = (VertexLst *) malloc(sizeof(VertexLst));
 
@@ -192,6 +204,10 @@ VertexLst* createVertexLstElement(Vertex* vertexInfo, VertexLst* next) {
     return newVertexLstElement;
 }
 
+/**
+ * Elimina un nodo nella linked-list di VertexLst
+ * @param vertexLstElem Nodo da eliminare
+ */
 void deleteVertexLstElem(VertexLst* vertexLstElem){
     adtDestruct(vertexLstElem->vertexInfo->label);
     free(vertexLstElem);

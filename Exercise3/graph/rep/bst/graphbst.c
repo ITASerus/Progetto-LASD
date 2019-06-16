@@ -472,6 +472,12 @@ void DestructGraphBST(GraphRepresentation* type) {
 
 /* ************************************************************************** */
 
+/**
+ * Crea un elemento per la lista di alberi di adiacenza
+ * @param vertexPointer Puntatore al vertice a cui si riferisce l'albero di adiacenza
+ * @param nextVertex Vertice successivo nella lista di vertici presenti nel grafo
+ * @return Nuova istanza di AdjacentBSTLst
+ */
 AdjacentBSTLst* createAdjacentBSTLstElem(Vertex* vertexPointer, AdjacentBSTLst* nextVertex) {
     AdjacentBSTLst* newAdjacentBSTLst = (AdjacentBSTLst*)malloc(sizeof(AdjacentBSTLst));
 

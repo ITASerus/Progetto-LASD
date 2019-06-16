@@ -458,6 +458,13 @@ void DestructGraphLst(GraphRepresentation* type) {
 
 /* ************************************************************************** */
 
+/**
+ * Crea un elemento per la lista di adiacenza
+ * @param vertexPointer Puntatore al vertice a cui si riferisce l'albero di adiacenza
+ * @param nextVertex Vertice successivo nella lista di vertici presenti nel grafo
+ * @param nextAdjacent Adiacente successivo nella lista di liste di adiacenza
+ * @return Nuova istanza di AdjacentLst
+ */
 AdjacentLst* createAdjacentLstElement(Vertex* vertexPointer, AdjacentLst* nextVertex, AdjacentLst* nextAdjacent) {
     AdjacentLst* newAjdacentVertexLst = (AdjacentLst*)malloc(sizeof(AdjacentLst));
 
@@ -468,6 +475,11 @@ AdjacentLst* createAdjacentLstElement(Vertex* vertexPointer, AdjacentLst* nextVe
     return newAjdacentVertexLst;
 }
 
+/**
+ * Elimina una lista di adiacenza deallocandone ogni elemento
+ * @param adjacentLst Lista di adiacenza da eliminare
+ * @return Numero di elementi eliminati
+ */
 int deleteAdjacentLst(AdjacentLst* adjacentLst) {
     int numAdjacent = 0;
 

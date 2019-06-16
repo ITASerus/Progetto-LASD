@@ -467,6 +467,12 @@ void DestructGraphMat(GraphRepresentation* type) {
 
 /* ************************************************************************** */
 
+/**
+ * Elimina la riga e la colonna in posizione vertexPosition dalla matrice quadrata adjacentMatrix
+ * @param adjacentMatrix Matrice quadrata dalla quale si vuole rimuovere la riga e la colonna
+ * @param vertexPosition Posizione del vertice da eliminare dalla matrice di adiacenza
+ * @return Numero di occorrenze TRUE presenti in corrispondenza delle righe e colonne in vertexPosizion, corrispondono agloi adiacenti
+ */
 int deleteAdjacentRowColumn(AdjacentMatrix* adjacentMatrix, int vertexPosition) {
     int numAdjacentRemoved = 0;
 

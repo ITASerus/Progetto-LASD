@@ -8,6 +8,12 @@
 
 /* ************************************************************************** */
 
+/**
+ * Verifica ricorsivamente, tramtite due iteratori, se due grafi hanno gli stessi archi
+ * @param firstGraphAdjacent Iteratore sugli adiacenti del primo grafo
+ * @param secondGraphAdjacent Iteratore sugli adiacenti del secondo grafo
+ * @return TRUE se gli adiacenti dei due grafi sono uguali, FALSE altrimenti
+ */
 bool checkAdjacent(ITRObject* firstGraphAdjacent, ITRObject* secondGraphAdjacent) {
     if(!itrTerminated(firstGraphAdjacent) && !itrTerminated(secondGraphAdjacent)) {
         if( ((Vertex*)itrElement(firstGraphAdjacent))->name == ((Vertex*)itrElement(secondGraphAdjacent))->name &&
@@ -25,6 +31,16 @@ bool checkAdjacent(ITRObject* firstGraphAdjacent, ITRObject* secondGraphAdjacent
     }
 }
 
+/**
+ * Supporto alla funzione 'recGraphEqual' che ricorsivamente verifica se due grafi hanno i vertici uguali e, per ogni vertice, controlla se gli archi sono uguali richiamanto la funzione 'checkAdjacent'
+ * @param firstGraph Riferimento al primo grafo
+ * @param firstGraphRepresentation Riferimento al tipo di rappresentazione del primo grafo
+ * @param firstGraphVertices Iteratore sui vertici del primo grafo
+ * @param secondGraph Riferimento al secondo grafo
+ * @param secondGraphRepresentation Riferimento al tipo di rappresentazione del secondo grafo
+ * @param secondGraphVertices Iteratore sui vertici del secondo grafo
+ * @return TRUE se i due grafi sono uguali, FALSE altrimenti
+ */
 bool checkVertices(void* firstGraph, GraphRepresentation* firstGraphRepresentation, ITRObject* firstGraphVertices, void* secondGraph, GraphRepresentation* secondGraphRepresentation, ITRObject* secondGraphVertices) {
     if(!itrTerminated(firstGraphVertices) && !itrTerminated(secondGraphVertices)) {
         if( ((Vertex*)itrElement(firstGraphVertices))->name == ((Vertex*)itrElement(secondGraphVertices))->name &&
@@ -57,6 +73,14 @@ bool checkVertices(void* firstGraph, GraphRepresentation* firstGraphRepresentati
     }
 }
 
+/**
+ * Verifica ricorsivamente se due grafi sono uguali, per vertici e archi, a prescindere dalla loro implementazione, ric
+ * @param firstGraph Riferimento al primo grafo
+ * @param firstGraphRepresentation Riferimento al tipo di rappresentazione del primo grafo
+ * @param secondGraph Riferimento al secondo grafo
+ * @param secondGraphRepresentation Riferimento al tipo di rappresentazione del secondo grafo
+ * @return TRUE se i due grafi sono uguali, FALSE altrimenti
+ */
 bool recGraphEqual(void* firstGraph, void* firstGraphRepresentation, void* secondGraph, void* secondGraphRepresentation) {
     ITRObject* firstGraphVertexIterator = ((GraphRepresentation*)firstGraphRepresentation)->graphVertices(firstGraph);
     ITRObject* secondGraphVertexIterator = ((GraphRepresentation*)secondGraphRepresentation)->graphVertices(secondGraph);
