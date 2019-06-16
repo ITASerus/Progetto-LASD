@@ -6,53 +6,16 @@
 
 #include "testGraph.h"
 
-void mapSquareInteger(DataObject* dat, void* _) {
-    *(int*)dat->value = (*(int*)dat->value)*(*(int*)dat->value);
-}
+/* *********************** FUNZIONI MAP E FOLD ******************************* */
 
-void mapDoubleFloat(DataObject* dat, void* _) {
-    *(float*)dat->value *= 2;
-}
-
-void mapLowerCase(DataObject* dat, void* _) {
-    for(int i = 0; i<strlen((char*)dat->value); i++) {
-        if((((char*)dat->value)[i] >= 65) && (((char*)dat->value)[i]<=90)) {
-            ((char*)dat->value)[i] += 32;
-        }
-    }
-}
-
-void mapUpperCase(DataObject* dat, void* _) {
-    for(int i = 0; i<strlen((char*)dat->value); i++) {
-        if((((char*)dat->value)[i] >= 97) && (((char*)dat->value)[i]<=122)) {
-            ((char*)dat->value)[i] -= 32;
-        }
-    }
-}
-
-void foldProdLesserThanN(DataObject* dat, void *val, void *n) {
-    if(*(int*)dat->value < *(int*)n) {
-        *(int*)val *= *(int*)dat->value;
-    }
-}
-
-void foldSumGreaterThanN(DataObject* dat, void *val, void *n) { //TODO: Non funziona bene sembra
-    if((*(float*)dat->value > *(int*)n)) {
-        *(float*)val += *(float*)dat->value;
-    }
-}
-
-void foldSumNumCharStrLessOrEqThanN(DataObject* dat, void *val, void *n) {
-    if( strlen((char*)dat->value) <= *(int*)n ) {
-        *(int*)val += strlen((char*)dat->value);
-    }
-}
-
-void foldConcatLessOrEqThanN(DataObject * dat, void *val, void *n) {
-    if((strlen((char*)dat->value) <= *(int*)n)) {
-        strcat(val, dat->value);
-    }
-}
+void mapSquareInteger(DataObject* dat, void* _);
+void mapDoubleFloat(DataObject* dat, void* _);
+void mapLowerCase(DataObject* dat, void* _);
+void mapUpperCase(DataObject* dat, void* _);
+void foldProdLesserThanN(DataObject* dat, void *val, void *n);
+void foldSumGreaterThanN(DataObject* dat, void *val, void *n);
+void foldSumNumCharStrLessOrEqThanN(DataObject* dat, void *val, void *n);
+void foldConcatLessOrEqThanN(DataObject * dat, void *val, void *n);
 
 /* ************************************************************************** */
 
@@ -612,4 +575,97 @@ void testGraph() {
             }
         }
     } while (scelta != 0);
+}
+
+
+/**
+ * Dato un DataObject di DataType INTEGER, ne assegna il quadrato
+ * @param dat DataObject INTEGER di cui si vuole ottenere il quadrato
+ * @param _ NULL
+ */
+void mapSquareInteger(DataObject* dat, void* _) {
+    *(int*)dat->value = (*(int*)dat->value)*(*(int*)dat->value);
+}
+
+/**
+ * Dato un DataObject di DataType FLOAT, ne raddoppia il valore
+ * @param dat DataObject FLOAT di cui si vuole raddoppiare il valore
+ * @param _ NULL
+ */
+void mapDoubleFloat(DataObject* dat, void* _) {
+    *(float*)dat->value *= 2;
+}
+
+/**
+ * Dato un DataObject di DataType CHAR* (STRING), ne converte tutti i caratteri in minuscolo
+ * @param dat DataObject CHAR* (STRING) di cui si vuole convertire i caratteri
+ * @param _ NULL
+ */
+void mapLowerCase(DataObject* dat, void* _) {
+    for(int i = 0; i<strlen((char*)dat->value); i++) {
+        if((((char*)dat->value)[i] >= 65) && (((char*)dat->value)[i]<=90)) {
+            ((char*)dat->value)[i] += 32;
+        }
+    }
+}
+
+/**
+ * Dato un DataObject di DataType CHAR* (STRING), ne converte tutti i caratteri in maiuscolo
+ * @param dat DataObject CHAR* (STRING) di cui si vuole convertire i caratteri
+ * @param _ NULL
+ */
+void mapUpperCase(DataObject* dat, void* _) {
+    for(int i = 0; i<strlen((char*)dat->value); i++) {
+        if((((char*)dat->value)[i] >= 97) && (((char*)dat->value)[i]<=122)) {
+            ((char*)dat->value)[i] -= 32;
+        }
+    }
+}
+
+/**
+ * Dato un DataObject INTEGER 'dat', se il valore di 'dat' è minore di 'n', viene sommato a 'val' il valore di 'dat'
+ * @param dat DataObject INTEGER in esame
+ * @param val Valore al quale, a condizione soddisfatta, verrà sommato 'dat'
+ * @param n Valore di riferimento della condizione
+ */
+void foldProdLesserThanN(DataObject* dat, void *val, void *n) {
+    if(*(int*)dat->value < *(int*)n) {
+        *(int*)val *= *(int*)dat->value;
+    }
+}
+
+/**
+ *  Dato un DataObject FLOAT 'dat', se il valore di 'dat' è maggiore di 'n', viene moltiplicato a 'val' il valore di 'dat'
+ * @param dat DataObject FLOAT in esame
+ * @param val Valore al quale, a condizione soddisfatta, verrà moltiplicato 'dat'
+ * @param n Valore di riferimento della condizione
+ */
+void foldSumGreaterThanN(DataObject* dat, void *val, void *n) { //TODO: Non funziona bene sembra
+    if((*(float*)dat->value > *(int*)n)) {
+        *(float*)val += *(float*)dat->value;
+    }
+}
+
+/**
+ * Dato un DataObject CHAR* (STRING) 'dat', se il numero di caratteri di 'dat' è minore o uguale a 'n', viene sommato a 'val' il numero di caratteri di 'dat'
+ * @param dat DataObject CHAR* (STRING) in esame
+ * @param val Valore al quale, a condizione soddisfatta, verrà sommato il numero di caratteri di 'dat'
+ * @param n Valore di riferimento della condizione
+ */
+void foldSumNumCharStrLessOrEqThanN(DataObject* dat, void *val, void *n) {
+    if( strlen((char*)dat->value) <= *(int*)n ) {
+        *(int*)val += strlen((char*)dat->value);
+    }
+}
+
+/**
+ * Dato un DataObject CHAR* (STRING) 'dat', se il numero di caratteri di 'dat' è minore o uguale a 'n', viene concatenato a 'val' il valore di 'dat'
+ * @param dat DataObject CHAR* (STRING) in esame
+ * @param val Valore al quale, a condizione soddisfatta, verrà concatenato il valore di 'dat'
+ * @param n Valore di riferimento della condizione
+ */
+void foldConcatLessOrEqThanN(DataObject * dat, void *val, void *n) {
+    if((strlen((char*)dat->value) <= *(int*)n)) {
+        strcat(val, dat->value);
+    }
 }
