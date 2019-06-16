@@ -185,12 +185,14 @@ void testGraph() {
                "\n"
                "(0) Deallocazione della stuttura ed uscita dal programma\n"
                "Scelta: ");
-        scanf("%d", &scelta);
+        getStr(buffer, MaxStrLen);
+        scelta = strtol(buffer, NULL, 10);
         switch (scelta) {
             case 1: {
                 int numVertex;
                 printf("Numero di vertici da inserire nel grafo: ");
-                scanf("%d", &numVertex);
+                getStr(buffer, MaxStrLen);
+                numVertex = strtol(buffer, NULL, 10);
 
                 int* vertexReference = (int*)malloc(sizeof(int) * numVertex); //Vettore utilizzato per creare gli archi successivamente
 
@@ -205,7 +207,8 @@ void testGraph() {
                 }
 
                 printf("Numero di archi da inserire nel grafo: ");
-                scanf("%d", &number);
+                getStr(buffer, MaxStrLen);
+                number = strtol(buffer, NULL, 10);
 
                 int  fromVertexNumber;
                 int toVertexNumber;
@@ -233,7 +236,9 @@ void testGraph() {
             }
             case 5: {
                 printf("Inserire il nome del nuovo vertice: ");
-                scanf("%d", &number);
+                getStr(buffer, MaxStrLen);
+                number = strtol(buffer, NULL, 10);
+                printf("%d\n", number);
 
                 printf("Inserire il valore del nuovo vertice: ");
                 adtReadFromKeyboard(dataPtr);
@@ -249,7 +254,8 @@ void testGraph() {
             }
             case 6: {
                 printf("Inserire il nome del vertice da rimuovere: ");
-                scanf("%d", &number);
+                getStr(buffer, MaxStrLen);
+                number = strtol(buffer, NULL, 10);
 
                 if(graphExistsVertex(graphObject, number)) {
                     graphRemoveVertex(graphObject, number);
@@ -262,7 +268,8 @@ void testGraph() {
             }
             case 7: {
                 printf("Inserire il nome del vertice da ricercare: ");
-                scanf("%d", &number);
+                getStr(buffer, MaxStrLen);
+                number = strtol(buffer, NULL, 10);
 
                 if(graphExistsVertex(graphObject, number)) {
                     printf("Il vertice è presente nel grafo\n");
@@ -276,11 +283,13 @@ void testGraph() {
                 int fromName, toName;
 
                 printf("Inserire il nome del vertice da cui far partire l'arco: ");
-                scanf("%d", &fromName);
+                getStr(buffer, MaxStrLen);
+                fromName = strtol(buffer, NULL, 10);
 
                 if(graphExistsVertex(graphObject, fromName)) {
                     printf("Inserire il nome del vertice in cui far arrivare l'arco: ");
-                    scanf("%d", &toName);
+                    getStr(buffer, MaxStrLen);
+                    toName = strtol(buffer, NULL, 10);
 
                     if(graphExistsVertex(graphObject, toName)) {
                         graphInsertEdge(graphObject, fromName, toName);
@@ -299,11 +308,13 @@ void testGraph() {
                 int fromName, toName;
 
                 printf("Inserire il nome del vertice da cui parte l'arco che si vuole rimuovere: ");
-                scanf("%d", &fromName);
+                getStr(buffer, MaxStrLen);
+                fromName = strtol(buffer, NULL, 10);
 
                 if(graphExistsVertex(graphObject, fromName)) {
                     printf("Inserire il nome del vertice in cui arriva l'arco che si vuole rimuovere: ");
-                    scanf("%d", &toName);
+                    getStr(buffer, MaxStrLen);
+                    toName = strtol(buffer, NULL, 10);
 
                     if(graphExistsVertex(graphObject, toName)) {
                         graphRemoveEdge(graphObject, fromName, toName);
@@ -321,11 +332,13 @@ void testGraph() {
                 int fromName, toName;
 
                 printf("Inserire il nome del vertice da cui parte l'arco di cui si vuole controllare l'esitenza: ");
-                scanf("%d", &fromName);
+                getStr(buffer, MaxStrLen);
+                fromName = strtol(buffer, NULL, 10);
 
                 if(graphExistsVertex(graphObject, fromName)) {
                     printf("Inserire il nome del vertice in cui arriva l'arco di cui si vuole controllare l'esitenza: ");
-                    scanf("%d", &toName);
+                    getStr(buffer, MaxStrLen);
+                    toName = strtol(buffer, NULL, 10);
 
                     if(graphExistsVertex(graphObject, toName)) {
                         if(graphExistsEdge(graphObject, fromName, toName)) {
@@ -350,7 +363,8 @@ void testGraph() {
 
                         int* n = (int*)malloc(sizeof(int));
                         printf("Inserire N: ");
-                        scanf("%d", n);
+                        getStr(buffer, MaxStrLen);
+                        *n = strtol(buffer, NULL, 10);
 
                         graphPreOrderFold(graphObject, foldProdLesserThanN, value, n);
                         printf("Risultato: %d\n", *value);
@@ -366,7 +380,8 @@ void testGraph() {
 
                         float* n = (float*)malloc(sizeof(float));
                         printf("Inserire N: ");
-                        scanf("%f", n);
+                        getStr(buffer, MaxStrLen);
+                        *n = strtof(buffer, NULL);
 
                         graphPreOrderFold(graphObject, foldSumGreaterThanN, value, n);
                         printf("Risultato: %f\n", *value);
@@ -379,7 +394,8 @@ void testGraph() {
                     case 3: { //String
                         int* n = (int*)malloc(sizeof(int));
                         printf("Inserire N: ");
-                        scanf("%d", n);
+                        getStr(buffer, MaxStrLen);
+                        *n = strtol(buffer, NULL, 10);
 
                         int* value = (int*)malloc(sizeof(int));
                         *value = 0;
@@ -415,7 +431,8 @@ void testGraph() {
                     }
                     case 3: { //String
                         printf("(1) Applica funzione upperCase\n(2) Applica funzione lowerCase\nScelta: ");
-                        scanf("%d", &scelta);
+                        getStr(buffer, MaxStrLen);
+                        scelta = strtol(buffer, NULL, 10);
                         switch (scelta) {
                             case 1: {
                                 graphPreOrderMap(graphObject, mapUpperCase, NULL);

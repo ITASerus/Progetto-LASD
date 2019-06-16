@@ -38,7 +38,9 @@ void* stringRandomValue() {
 
 void* stringReadFromKeyboard() {
     char* string = (char*)malloc(sizeof(char) * (MaxStrLen + 1));
-    scanf("%s", string);
+
+    getStr(string, MaxStrLen);
+
     return string;
 }
 

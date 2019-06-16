@@ -59,14 +59,14 @@ void* recordRandomValue() {
 
 void* recordReadFromKeyboard() {
     Record* record = (Record*)malloc(sizeof(Record));
-    record->name = (char*)malloc(sizeof(char)*20);
-    record->surname = (char*)malloc(sizeof(char)*20);
+    record->name = (char*)malloc(sizeof(char)* MaxStrLen);
+    record->surname = (char*)malloc(sizeof(char)* MaxStrLen);
 
     printf("Inserire nome: ");
-    scanf("%s", record->name);
+    getStr(record->name, MaxStrLen);
 
     printf("Inserire cognome: ");
-    scanf("%s", record->surname);
+    getStr(record->surname, MaxStrLen);
 
     return record;
 }

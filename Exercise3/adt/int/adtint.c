@@ -29,7 +29,11 @@ void* intRandomValue() {
 
 void* intReadFromKeyboard() {
     int* value = (int*)malloc(sizeof(int));
-    scanf("%d", value);
+
+    char* buffer = (char*)malloc(sizeof(char) * 25);
+    getStr(buffer, 25);
+    *value = strtol(buffer, NULL, 10);
+
     return value;
 }
 
