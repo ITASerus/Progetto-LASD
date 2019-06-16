@@ -7,7 +7,7 @@ void printStructBST(DataObject* dat, void* _) {
 }
 
 void testBST() {
-    BSTType* bstTyp = NULL; //TODO: Prima c'era constructBSTIterative ma non so perchè, refuso?
+    BSTType* bstTyp = NULL;
     DataType* dataType = NULL;
 
     int scelta, number, tipoScelto;

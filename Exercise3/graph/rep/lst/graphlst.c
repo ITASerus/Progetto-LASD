@@ -58,8 +58,6 @@ void lstGraphDestruct(void* graph) {
         deleteVertexLstElem(vertexRef);
         deleteAdjacentLst(adjacentRef);
     }
-
-    //TODO: Aggiungere free vertexRef e freeAdhacentRef?
 }
 
 bool lstGraphEmpty(void* graph) {
@@ -108,7 +106,7 @@ void* lstGraphClone(void* graph) {
     /**** NOTA: Copio prima la lista di liste di adiacenza e poi gli adiacenti veri e propri perchè la lista di adiacenza contiene riferimenti ai nodi e, in mancanza di essi, non possono essere creati gli archi ***/
 }
 
-void* lstGraphTranspose(void* graph) { //TODO: Rivedi struttura
+void* lstGraphTranspose(void* graph) {
     GraphLst* newGraph = lstGraphConstruct();
 
     //Copio i vertici appartenenti al grafo da copiare
@@ -151,11 +149,10 @@ void* lstGraphTranspose(void* graph) { //TODO: Rivedi struttura
 bool lstGraphInsertVertex(void* graph, int name, DataObject* label) {
     GraphLst* graphLst = graph;
 
-    if(graphLst->vertexLst == NULL || graphLst->vertexLst->vertexInfo->name >= name) { //TODO: Togliere l'uguale? //Il grafo è vuoto o il vertice da inserire ha nome più piccolo di tutti gli altri
+    if(graphLst->vertexLst == NULL || graphLst->vertexLst->vertexInfo->name >= name) { //Il grafo è vuoto o il vertice da inserire ha nome più piccolo di tutti gli altri
 
-        if(graphLst->vertexLst != NULL && graphLst->vertexLst->vertexInfo->name == name) { //TODO: Ottimizzare assolutamente codice qui e sotto
-            printf("Vertice già presente (%d - %d)\n", graphLst->vertexLst->vertexInfo->name, name);
-            return false;
+        if(graphLst->vertexLst != NULL && graphLst->vertexLst->vertexInfo->name == name) {
+            return false; //Vertice già presente
         }
 
         //Creazione vertice
@@ -177,8 +174,7 @@ bool lstGraphInsertVertex(void* graph, int name, DataObject* label) {
         }
 
         if(currentVertexLstElem->nextVertex != NULL && currentVertexLstElem->nextVertex->vertexInfo->name == name) { //Controllo se il vertice che si vuole inserire non sia già presente
-            printf("Vertice già presente (%d - %d)\n", currentVertexLstElem->nextVertex->vertexInfo->name, name);
-            return false;
+            return false; //Vertice già presente
         }
 
         //Creazione vertice
@@ -208,7 +204,7 @@ int lstGraphRemoveVertex(void* graph, int name) {
             AdjacentLst* adjacentLstElemToRemove = ((GraphLst*)graph)->adjacentVertexLst;
             ((GraphLst*)graph)->adjacentVertexLst = ((GraphLst*)graph)->adjacentVertexLst->nextVertex;
 
-            adjacentRemoved += deleteAdjacentLst(adjacentLstElemToRemove); //TODO: Togliere il +? (inutile)
+            adjacentRemoved += deleteAdjacentLst(adjacentLstElemToRemove);
         } else {
             VertexLst* vertexLst = ((GraphLst*)graph)->vertexLst;
             AdjacentLst* adjacentLst = ((GraphLst*)graph)->adjacentVertexLst;
@@ -231,7 +227,7 @@ int lstGraphRemoveVertex(void* graph, int name) {
                 AdjacentLst* adjacentLstToRemove = adjacentLst->nextVertex;
                 adjacentLst->nextVertex = adjacentLst->nextVertex->nextVertex;
 
-                adjacentRemoved += deleteAdjacentLst(adjacentLstToRemove); //TODO: Togliere il +? (inutile)
+                adjacentRemoved += deleteAdjacentLst(adjacentLstToRemove);
             } else {
                 return -1;
             }
@@ -266,7 +262,7 @@ int lstGraphRemoveVertex(void* graph, int name) {
 
 bool lstGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) {
     AdjacentLst* currentAdjacentLstElem = ((GraphLst*)graph)->adjacentVertexLst; //Indice della lista di adiacenza
-    while(currentAdjacentLstElem != NULL && currentAdjacentLstElem->vertexPointer->name != fromVertexName) { //TODO: Ottimizzare ricerca mettendo limite
+    while(currentAdjacentLstElem != NULL && currentAdjacentLstElem->vertexPointer->name != fromVertexName) {
         currentAdjacentLstElem = currentAdjacentLstElem->nextVertex;
     }
 
@@ -291,8 +287,7 @@ bool lstGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) {
                 }
 
                 if(currentAdjacent->nextAdjacent != NULL && currentAdjacent->nextAdjacent->vertexPointer->name == toVertexName) { //Controllo se l'arco che si vuole inserire non sia già presente
-                    printf("Arco già presente (%d - %d)\n", currentAdjacent->nextAdjacent->vertexPointer->name, toVertexName);
-                    return false;
+                    return false; //Arco già presente
                 }
 
                 AdjacentLst* newAjdacentLstElem = createAdjacentLstElement(currentVertexLstElem->vertexInfo, NULL, currentAdjacent->nextAdjacent);
@@ -330,11 +325,7 @@ bool lstGraphRemoveEdge(void* graph, int fromVertexName, int toVertexName) {
                 free(adjacentElemToRemove);
 
                 return true;
-            } else {
-                printf("\nVertice di arrivo non presente");
             }
-        } else {
-            printf("\nVertice di partenza non presente");
         }
     }
 
@@ -402,8 +393,6 @@ void lstGraphSetVertexData(void* graph, int name, DataObject* newValue) {
 
     if(currentVertex != NULL && currentVertex->vertexInfo->name == name) {
         adtSetValue(currentVertex->vertexInfo->label, newValue->value);
-    } else {
-        printf("Vertice %d non presente\n", name);
     }
 }
 
@@ -423,8 +412,6 @@ ITRObject* lstGraphVertexEdges(void* graph, int name) {
 
     ITRType* itrType = ConstructLstAdjacentIterator();
     ITRObject* iterator = itrConstruct(itrType, lstInterface);
-
-    //free(lstInterface); //TODO: Se decommento, ho il problema in graphEqual e chissà dove altro
 
     return iterator;
 }

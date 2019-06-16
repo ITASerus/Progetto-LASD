@@ -500,6 +500,13 @@ void testGraph() {
                             itrSuccessor(adjacentIterator);
                         }
 
+                        printf("I grafi sono uguali?: ");
+                        if(graphEqual(graphObject, clonedGraph)) {
+                            printf("Sì!\n");
+                        } else {
+                            printf("No!\n"); //Condizione che non si verificherà mai. Inserita a puro scopo di verifica didattica
+                        }
+
                         itrDestruct(adjacentIterator);
 
                         itrSuccessor(vertexIterator);
@@ -590,6 +597,8 @@ void testGraph() {
                 }
                 printf("DataType deallocato!\n");
 
+                free(buffer);
+                printf("Buffer deallocato!\n");
                 break;
             }
             default: {

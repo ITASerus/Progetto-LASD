@@ -14,8 +14,6 @@ BSTItrInterface* initializeBSTIterator(int name, void* graphBST) {
         interface->adjacentTree = interface->adjacentTree->nextVertex;
     }
 
-    //free(index); //TODO: Serve?
-
     return interface;
 }
 

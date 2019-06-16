@@ -10,7 +10,30 @@
 #include "graph/graphitrvertex.h"
 #include "graph/rep/bst/graphbstitradjacent.h"
 
-/* ************************************************************************** */
+/* *************************** FUNZIONI PRINCIPALI **************************** */
+
+void* bstGraphConstruct();
+void bstGraphDestruct(void* graph);
+
+bool bstGraphEmpty(void* graph);
+
+void* bstGraphClone(void* graph);
+
+void* bstGraphTranspose(void* graph);
+
+bool bstGraphInsertVertex(void* graph, int name, DataObject* label);
+int bstGraphRemoveVertex(void* graph, int name);
+
+bool bstGraphInsertEdge(void* graph, int fromVertexName, int toVertexName);
+bool bstGraphRemoveEdge(void* graph, int fromVertexName, int toVertexName);
+
+bool bstGraphExistsVertex(void* graph, int name);
+bool bstGraphExistsEdge(void* graph, int fromVertexName, int toVertexName);
+
+DataObject* bstGraphGetVertexData(void* graph, int name);
+void bstGraphSetVertexData(void* graph, int name, DataObject* newValue);
+
+/* *************************** FUNZIONI AUSILIARIE **************************** */
 
 AdjacentBSTLst* createAdjacentBSTLstElem(Vertex* vertexPointer, AdjacentBSTLst* nextVertex);
 
@@ -40,7 +63,6 @@ void bstGraphDestruct(void* graph) {
         deleteVertexLstElem(vertexRef);
         bstDestruct(adjacentRef->adjacentTree);
         free(adjacentRef->vertexPointer);
-        //TODO: Aggiungere free vertexRef e freeAdhacentRef?
     }
 }
 
@@ -163,11 +185,10 @@ void* bstGraphClone(void* graph) {
 bool bstGraphInsertVertex(void* graph, int name, DataObject* label) {
     GraphBST* graphBST = graph;
 
-    if(graphBST->vertexLst == NULL || graphBST->vertexLst->vertexInfo->name >= name) { //TODO: Togliere l'uguale? //Il grafo è vuoto o il vertice da inserire ha nome più piccolo di tutti gli altri
+    if(graphBST->vertexLst == NULL || graphBST->vertexLst->vertexInfo->name >= name) { //Il grafo è vuoto o il vertice da inserire ha nome più piccolo di tutti gli altri
 
-        if(graphBST->vertexLst != NULL && graphBST->vertexLst->vertexInfo->name == name) { //TODO: Ottimizzare assolutamente codice qui e sotto
-            printf("Vertice già presente (%d - %d)\n", graphBST->vertexLst->vertexInfo->name, name);
-            return false;
+        if(graphBST->vertexLst != NULL && graphBST->vertexLst->vertexInfo->name == name) {
+            return false; //Vertice già presente
         }
 
         //Creazione vertice
@@ -190,8 +211,7 @@ bool bstGraphInsertVertex(void* graph, int name, DataObject* label) {
         }
 
         if(currentVertexLstElem->nextVertex != NULL && currentVertexLstElem->nextVertex->vertexInfo->name == name) { //Controllo se il vertice che si vuole inserire non sia già presente
-            printf("Vertice già presente (%d - %d)\n", currentVertexLstElem->nextVertex->vertexInfo->name, name);
-            return false;
+            return false; //Vertice già presente
         }
 
         //Creazione vertice
@@ -259,7 +279,7 @@ int bstGraphRemoveVertex(void* graph, int name) {
         AdjacentBSTLst* adjacentBSTLstIndex = ((GraphBST*)graph)->adjacentBSTLst;
 
         while(adjacentBSTLstIndex != NULL) {
-            DataObject* nameToDelete = adtConstruct(ConstructIntDataType()); //TODO: Cercare di evitare di creare un constructInt ogni volta?
+            DataObject* nameToDelete = adtConstruct(ConstructIntDataType());
             adtSetValue(nameToDelete, &name);
 
             int numVer = adjacentBSTLstIndex->adjacentTree->numberOfNodes;
@@ -279,7 +299,8 @@ bool bstGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) {
 
     //Ricerca del nodo da cui parte l'arco
     AdjacentBSTLst* fromVertexReference = ((GraphBST*)graph)->adjacentBSTLst; //Indice della lista di alberi di adiacenza
-    while(fromVertexReference != NULL && fromVertexReference->vertexPointer->name != fromVertexName) { //TODO: Ottimizzare ricerca mettendo limite
+
+    while(fromVertexReference != NULL && fromVertexReference->vertexPointer->name != fromVertexName) {
         fromVertexReference = fromVertexReference->nextVertex;
     }
 
@@ -291,10 +312,9 @@ bool bstGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) {
         }
 
         if(toVertexReference != NULL) { //Il vertice verso cui inserire l'arco è presente nel grafo
-            DataObject* newName = adtConstruct(ConstructIntDataType()); //TODO: Cercare di evitare di creare un constructInt ogni volta?
+            DataObject* newName = adtConstruct(ConstructIntDataType());
             adtSetValue(newName, &toVertexName);
 
-            //TODO: Cerca di utilizzare direttamente recBSTInsert
             int numVer = fromVertexReference->adjacentTree->numberOfNodes;
             bstInsert(fromVertexReference->adjacentTree, newName);
             if(fromVertexReference->adjacentTree->numberOfNodes > numVer) {
@@ -317,7 +337,7 @@ bool bstGraphRemoveEdge(void* graph, int fromVertexName, int toVertexName) {
         }
 
         if(adjacentBSTLstElem != NULL && adjacentBSTLstElem->vertexPointer->name == fromVertexName) { //Il vertice da cui parte l'arco esiste
-            DataObject* nameToDelete = adtConstruct(ConstructIntDataType()); //TODO: Cercare di evitare di creare un constructInt ogni volta?
+            DataObject* nameToDelete = adtConstruct(ConstructIntDataType());
             adtSetValue(nameToDelete, &toVertexName);
 
             int numVer = adjacentBSTLstElem->adjacentTree->numberOfNodes;
@@ -349,12 +369,12 @@ bool bstGraphExistsVertex(void* graph, int name) {
 bool bstGraphExistsEdge(void* graph, int fromVertexName, int toVertexName) {
     AdjacentBSTLst* adjacentLst = ((GraphBST*)graph)->adjacentBSTLst;
 
-    while(adjacentLst != NULL && adjacentLst->vertexPointer->name != fromVertexName) { //TODO: Limitare ricerca in base all'ordine
+    while(adjacentLst != NULL && adjacentLst->vertexPointer->name != fromVertexName) {
         adjacentLst = adjacentLst->nextVertex;
     }
 
     if(adjacentLst != NULL) { //Il nodo da cui parte l'arco esiste
-        DataObject* nameToFind = adtConstruct(ConstructIntDataType()); //TODO: Cercare di evitare di creare un constructInt ogni volta?
+        DataObject* nameToFind = adtConstruct(ConstructIntDataType());
         adtSetValue(nameToFind, &toVertexName);
 
         return bstExists(adjacentLst->adjacentTree, nameToFind);
@@ -386,13 +406,11 @@ void bstGraphSetVertexData(void* graph, int name, DataObject* newValue) {
     }
 
     if(currentVertex != NULL && currentVertex->vertexInfo->name == name) {
-        adtSetValue(currentVertex->vertexInfo->label, newValue->value); //TODO: Si usa così setValue
-    } else {
-        printf("Vertice %d non presente\n", name);
+        adtSetValue(currentVertex->vertexInfo->label, newValue->value);
     }
 }
 
-int bstGraphVertexFromPointer(Vertex* iterator) {
+int bstGraphVertexFromPointer(Vertex* iterator) { //TODO: Rivedi
     return ((Vertex*)itrElement(iterator))->name;
 }
 
@@ -408,8 +426,6 @@ ITRObject* bstGraphVertexEdges(void* graph, int name) {
 
     ITRType* itrType = ConstructBSTAdjacentIterator();
     ITRObject* iterator = itrConstruct(itrType, bstInterface);
-
-    //free(bstInterface); //TODO: SE DECOMMENTO CRASHA
 
     return iterator;
 }
@@ -445,7 +461,7 @@ GraphRepresentation* ConstructGraphBST() {
     return type;
 }
 
-void DestructGraphBST(GraphRepresentation* type) {//TODO: Sicuro prenda graphRepresentation?
+void DestructGraphBST(GraphRepresentation* type) {
     free(type);
 }
 

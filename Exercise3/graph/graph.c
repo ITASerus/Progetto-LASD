@@ -15,7 +15,7 @@ GraphObject* graphConstruct(GraphType* type) {
     return object;
 }
 
-void graphDestruct(GraphObject* graphObject) { //TODO: ATTENZIONE A QUANDO VIENE USATA. Il grafo dopo sembra ancora utilizzabile ma in realtà non lo è. trova il modo di mettere a null
+void graphDestruct(GraphObject* graphObject) {
     graphObject->type->graphRep->graphDestruct(graphObject->graph);
 
     graphObject->numVertex = 0;
@@ -57,7 +57,7 @@ void graphClear(GraphObject* graphObject) {
     itrDestruct(vertexIterator);
 }
 
-GraphObject* graphClone(GraphObject* graphObject) { //TODO: Assicurati di copiare anche labeò
+GraphObject* graphClone(GraphObject* graphObject) {
     GraphObject* clonedGraphObject =(GraphObject*)malloc(sizeof(GraphObject));
     clonedGraphObject->type = graphObject->type;
     clonedGraphObject->graph = graphObject->type->graphRep->graphClone(graphObject->graph);
@@ -68,7 +68,7 @@ GraphObject* graphClone(GraphObject* graphObject) { //TODO: Assicurati di copiar
     return clonedGraphObject;
 }
 
-GraphObject* graphTranspose(GraphObject* graphObject) { //TODO: Assicurati di copiare anche label
+GraphObject* graphTranspose(GraphObject* graphObject) {
     GraphObject* transposedGraphObject =(GraphObject*)malloc(sizeof(GraphObject));
     transposedGraphObject->type = graphObject->type;
     transposedGraphObject->graph = graphObject->type->graphRep->graphTranspose(graphObject->graph);

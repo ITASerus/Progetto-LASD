@@ -19,8 +19,6 @@ LstItrInterface* initializeLstIterator(int name, void* adjacentLst) {
         interface->adjacent = NULL;
     }
 
-    //free(index); //TODO: Serve?
-
     return interface;
 }
 
@@ -44,7 +42,7 @@ bool itrLstAdjacentTerminated(void* iterator) {
 }
 
 void* itrLstAdjacentGetElement(void* iterator) {
-    return ((GraphLstAdjacentIterator*)iterator)->element->adjacent->vertexPointer; //TODO: RIDARE QUESTO ELEMENTO?
+    return ((GraphLstAdjacentIterator*)iterator)->element->adjacent->vertexPointer;
 }
 
 void itrLstAdjacentSuccessor(void *iterator) {

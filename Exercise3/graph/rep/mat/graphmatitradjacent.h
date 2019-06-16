@@ -16,7 +16,7 @@ typedef struct MatItrInterface {
 } MatItrInterface;
 
 typedef struct GraphMatAdjacentIterator {
-    MatItrInterface* matInterface; //TODO: rinominare
+    MatItrInterface* matInterface;
     int currentElement;
 } GraphMatAdjacentIterator;
 

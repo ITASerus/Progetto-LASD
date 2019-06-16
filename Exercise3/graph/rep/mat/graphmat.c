@@ -4,7 +4,30 @@
 #include "graph/graphitrvertex.h"
 #include "graph/rep/mat/graphmatitradjacent.h"
 
-/* ************************************************************************** */
+/* *************************** FUNZIONI PRINCIPALI **************************** */
+
+void* matGraphConstruct();
+void matGraphDestruct(void* graph);
+
+bool matGraphEmpty(void* graph);
+
+void* matGraphClone(void* graph);
+
+void* matGraphTranspose(void* graph);
+
+bool matGraphInsertVertex(void* graph, int name, DataObject* label);
+int matGraphRemoveVertex(void* graph, int name);
+
+bool matGraphInsertEdge(void* graph, int fromVertexName, int toVertexName);
+bool matGraphRemoveEdge(void* graph, int fromVertexName, int toVertexName);
+
+bool matGraphExistsVertex(void* graph, int name);
+bool matGraphExistsEdge(void* graph, int fromVertexName, int toVertexName);
+
+DataObject* matGraphGetVertexData(void* graph, int name);
+void matGraphSetVertexData(void* graph, int name, DataObject* newValue);
+
+/* *************************** FUNZIONI AUSILIARIE **************************** */
 
 int deleteAdjacentRowColumn(AdjacentMatrix* adjacentMatrix, int vertexPosition);
 
@@ -54,7 +77,7 @@ bool matGraphInsertVertex(void* graph, int name, DataObject* label) {
         AdjacentMatrix* adjacentMatrix = graphMat->adjacentMatrix;
         adjacentMatrix->numVertex = 1;
 
-        adjacentMatrix->slotAllocated = 2; //TODO: Rivedi dimensione di allocazione
+        adjacentMatrix->slotAllocated = 2;
         bool** newAdjacentMatrix = (bool**)malloc(sizeof(bool*) * adjacentMatrix->slotAllocated);
         for(int i = 0; i < adjacentMatrix->slotAllocated; i++) {
             newAdjacentMatrix[i] = (bool*)malloc(sizeof(bool) * adjacentMatrix->slotAllocated);
@@ -66,8 +89,7 @@ bool matGraphInsertVertex(void* graph, int name, DataObject* label) {
         graphMat->adjacentMatrix->matrix = newAdjacentMatrix;
     } else {
         if(graphMat->vertexLst->vertexInfo->name == name) { //Il vertice da inserire è già presente in testa
-            printf("Vertice già presente (%d - %d)\n", graphMat->vertexLst->vertexInfo->name, name);
-            return false;
+            return false; //Vertice già presente
         } else { //Cerco se il vertice è già presente nel grafo e, in caso contrario, la posizione dove inserirlo
             Vertex* newVertex;
             VertexLst* newVertexLstElem;
@@ -87,8 +109,7 @@ bool matGraphInsertVertex(void* graph, int name, DataObject* label) {
                 }
 
                 if(currentVertexLstElem->nextVertex != NULL && currentVertexLstElem->nextVertex->vertexInfo->name == name) { //Controllo se il vertice che si vuole inserire non sia già presente
-                    printf("Vertice già presente (%d - %d)\n", currentVertexLstElem->nextVertex->vertexInfo->name, name);
-                    return false;
+                    return false;//Vertice già presente
                 }
 
                 //Creazione del vertice
@@ -102,7 +123,7 @@ bool matGraphInsertVertex(void* graph, int name, DataObject* label) {
             adjacentMatrix->numVertex++;
 
             if(adjacentMatrix->numVertex > adjacentMatrix->slotAllocated) { //La matrice di adiacenza va ingrandita
-                int newDimension = adjacentMatrix->slotAllocated*2; //TODO: Rivedi dimensione riallocazione
+                int newDimension = adjacentMatrix->slotAllocated*2;
 
                 //Aumento il numero di righe
                 bool** tmp = realloc(graphMat->adjacentMatrix->matrix, sizeof(*graphMat->adjacentMatrix->matrix) * newDimension); //Aumento il numero di righe
@@ -151,7 +172,6 @@ int matGraphRemoveVertex(void* graph, int name) {
 
             //Rimozione adiacenti
             adjacentRemoved = deleteAdjacentRowColumn(((GraphMat*)graph)->adjacentMatrix, 0);
-            printf("Adiacenti rimossi: %d\n", adjacentRemoved);
 
             return adjacentRemoved;
         } else {
@@ -266,7 +286,7 @@ void* matGraphTranspose(void* graph) {
     return newGraph;
 }
 
-bool matGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) { //TODO: Ottimizza sfruttando il fatto di sapere già toVertexName
+bool matGraphInsertEdge(void* graph, int fromVertexName, int toVertexName) {
     int fromVertexPos = 0;
     int toVertexPos = 0;
 
@@ -355,7 +375,7 @@ bool matGraphExistsEdge(void* graph, int fromVertexName, int toVertexName) {
     }
 
     return false;
-} //TODO: Forse puoi sfruttare l'inizializzazione della matrice per ritornare direttavemnte il valore della matrice contenuto alle coordinate passate come parametro
+}
 
 DataObject* matGraphGetVertexData(void* graph, int name) {
     VertexLst* currentVertex = ((GraphMat*)graph)->vertexLst;
@@ -381,8 +401,6 @@ void matGraphSetVertexData(void* graph, int name, DataObject* newValue) {
 
     if(currentVertex != NULL && currentVertex->vertexInfo->name == name) {
         adtSetValue(currentVertex->vertexInfo->label, newValue->value);
-    } else {
-        printf("Vertice %d non presente\n", name);
     }
 }
 

@@ -5,7 +5,7 @@
 /* ************************************************************************** */
 
 ITRObject* itrConstruct(ITRType* type, void* source) {
-    return type->construct(type, source); //TODO: Tolto cast a bstNode. Ritestare
+    return type->construct(type, source);
 }
 
 void itrDestruct(ITRObject* iterator) {
