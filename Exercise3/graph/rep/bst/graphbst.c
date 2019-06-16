@@ -1,3 +1,8 @@
+/**
+ * @name Progetto per il corso di Algoritmi e Strutture Dati A/A 2017/2018 - Corso di Laurea in Informatica
+ * @author Ernesto De Crecchio - N86001596
+ * @date 16/06/2019
+ */
 
 #include "graphbst.h"
 
@@ -410,7 +415,7 @@ void bstGraphSetVertexData(void* graph, int name, DataObject* newValue) {
     }
 }
 
-int bstGraphVertexFromPointer(Vertex* iterator) { //TODO: Rivedi
+int bstGraphVertexFromPointer(ITRObject* iterator) {
     return ((Vertex*)itrElement(iterator))->name;
 }
 

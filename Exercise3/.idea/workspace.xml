@@ -23,109 +23,124 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graph/graph.c">
+        <entry file="file://$PROJECT_DIR$/testGraph.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-111">
-              <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+            <state relative-caret-position="90">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
               <folding>
-                <element signature="e#21#377#0" />
+                <element signature="e#143#222#0" />
+                <element signature="e#224#461#0" />
+                <element signature="e#463#701#0" />
+                <element signature="e#703#854#0" />
+                <element signature="e#1050#1231#0" />
+                <element signature="e#1233#1392#0" />
+                <marker date="1560714613120" expanded="true" signature="1173:1225" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="2020:2727" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="2021:2727" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="2899:3429" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="3633:4424" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="3781:4418" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="4025:4117" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="5543:6361" ph="{...}" />
+                <marker date="1560714613120" expanded="true" signature="7012:23139" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="7034:8334" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="8355:8438" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="8459:8542" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="8563:8646" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="8667:9316" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="9337:9836" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="9857:10300" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="10321:11275" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="11296:12368" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="12390:13642" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="13664:15975" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="15997:17662" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="16525:17561" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="17684:17918" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="17940:18066" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="18088:18213" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="18235:18370" ph="{...}" />
+                <marker date="1560714613120" expanded="true" signature="18392:20064" ph="{...}" />
+                <marker date="1560714613120" expanded="false" signature="20086:21426" ph="{...}" />
+                <marker date="1560714613120" expanded="true" signature="21447:23020" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graph/itr/graphitr.c">
+        <entry file="file://$PROJECT_DIR$/testGraph.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
-              <folding>
-                <element signature="e#1#21#0" expanded="true" />
-                <element signature="e#211#2707#0" />
-                <element signature="e#2709#5203#0" />
-                <element signature="e#5206#5344#0" />
-                <element signature="e#5346#5485#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlst.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="438" column="6" lean-forward="true" selection-start-line="438" selection-start-column="6" selection-end-line="438" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graph/graphitrvertex.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graph/graphitrvertex.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graph/rep/bst/graphbst.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-346">
-              <caret line="412" column="64" selection-start-line="412" selection-start-column="64" selection-end-line="412" selection-end-column="64" />
-              <folding>
-                <element signature="e#1#22#0" expanded="true" />
-                <marker date="1560713881549" expanded="true" signature="7361:8048" ph="{...}" />
-                <marker date="1560713881549" expanded="true" signature="9456:12438" ph="{...}" />
-                <marker date="1560713881549" expanded="true" signature="9560:10302" ph="{...}" />
-                <marker date="1560713881549" expanded="true" signature="10308:11757" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmat.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-706">
-              <caret line="403" column="5" selection-start-line="403" selection-start-column="5" selection-end-line="403" selection-end-column="5" />
-              <folding>
-                <element signature="e#1#22#0" expanded="true" />
-                <marker date="1560713881561" expanded="true" signature="2059:3116" ph="{...}" />
-                <marker date="1560713881561" expanded="true" signature="3122:7083" ph="{...}" />
-              </folding>
+            <state relative-caret-position="90">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/graph/rec/graphrec.c">
+        <entry file="file://$PROJECT_DIR$/utility.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
-              <folding>
-                <element signature="e#110#851#0" />
-                <element signature="e#857#2540#0" />
-                <element signature="e#2546#3180#0" />
-                <element signature="e#3182#3341#0" />
-                <element signature="e#3344#3640#0" />
-                <element signature="e#3642#3947#0" />
-                <element signature="e#3949#4246#0" />
-                <element signature="e#4248#4555#0" />
-                <element signature="e#4557#4694#0" />
-                <element signature="e#4697#5044#0" />
-                <element signature="e#5046#5388#0" />
-                <element signature="e#5390#5551#0" />
-              </folding>
+            <state relative-caret-position="156">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility.h">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stack/vec/stackvec.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stack/stack.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stack/stack.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testBST.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testBST.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -151,57 +166,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/adt/rec/adtrec.c" />
+        <option value="$PROJECT_DIR$/adt/rec/adtrec.h" />
+        <option value="$PROJECT_DIR$/adt/str/adtstr.c" />
+        <option value="$PROJECT_DIR$/adt/str/adtstr.h" />
+        <option value="$PROJECT_DIR$/adt/adt.c" />
+        <option value="$PROJECT_DIR$/adt/adt.h" />
+        <option value="$PROJECT_DIR$/bst/itr/bstitr.c" />
+        <option value="$PROJECT_DIR$/bst/itr/bstitr.h" />
+        <option value="$PROJECT_DIR$/bst/rec/bstrec.c" />
+        <option value="$PROJECT_DIR$/bst/rec/bstrec.h" />
+        <option value="$PROJECT_DIR$/bst/bst.c" />
+        <option value="$PROJECT_DIR$/bst/bst.h" />
+        <option value="$PROJECT_DIR$/bst/bstitrbreadth.c" />
+        <option value="$PROJECT_DIR$/bst/bstitrbreadth.h" />
+        <option value="$PROJECT_DIR$/bst/bstitrinord.c" />
+        <option value="$PROJECT_DIR$/bst/bstitrinord.h" />
+        <option value="$PROJECT_DIR$/bst/bstitrpostord.c" />
+        <option value="$PROJECT_DIR$/bst/bstitrpostord.h" />
+        <option value="$PROJECT_DIR$/bst/bstitrpreord.c" />
+        <option value="$PROJECT_DIR$/bst/bstitrpreord.h" />
+        <option value="$PROJECT_DIR$/graph/itr/graphitr.h" />
+        <option value="$PROJECT_DIR$/graph/rec/graphrec.h" />
+        <option value="$PROJECT_DIR$/graph/rep/bst/graphbst.h" />
+        <option value="$PROJECT_DIR$/graph/rep/bst/graphbstitradjacent.c" />
+        <option value="$PROJECT_DIR$/graph/rep/bst/graphbstitradjacent.h" />
+        <option value="$PROJECT_DIR$/graph/rep/lst/graphlst.h" />
+        <option value="$PROJECT_DIR$/graph/rep/lst/graphlstitradjacent.c" />
+        <option value="$PROJECT_DIR$/graph/rep/lst/graphlstitradjacent.h" />
+        <option value="$PROJECT_DIR$/graph/rep/mat/graphmat.h" />
+        <option value="$PROJECT_DIR$/graph/rep/mat/graphmatitradjacent.c" />
+        <option value="$PROJECT_DIR$/graph/rep/mat/graphmatitradjacent.h" />
+        <option value="$PROJECT_DIR$/graph/graph.h" />
+        <option value="$PROJECT_DIR$/itr/itr.c" />
+        <option value="$PROJECT_DIR$/itr/itr.h" />
+        <option value="$PROJECT_DIR$/queue/lst/queuelst.c" />
+        <option value="$PROJECT_DIR$/queue/lst/queuelst.h" />
+        <option value="$PROJECT_DIR$/queue/vec/queuevec.c" />
+        <option value="$PROJECT_DIR$/queue/vec/queuevec.h" />
         <option value="$PROJECT_DIR$/queue/queue.c" />
         <option value="$PROJECT_DIR$/queue/queue.h" />
         <option value="$PROJECT_DIR$/stack/lst/stacklst.c" />
         <option value="$PROJECT_DIR$/stack/lst/stacklst.h" />
+        <option value="$PROJECT_DIR$/stack/vec/stackvec.c" />
         <option value="$PROJECT_DIR$/stack/vec/stackvec.h" />
         <option value="$PROJECT_DIR$/stack/stack.c" />
         <option value="$PROJECT_DIR$/stack/stack.h" />
-        <option value="$PROJECT_DIR$/utility.c" />
+        <option value="$PROJECT_DIR$/main.c" />
+        <option value="$PROJECT_DIR$/testGraph.c" />
+        <option value="$PROJECT_DIR$/testBST.c" />
         <option value="$PROJECT_DIR$/testBST.h" />
         <option value="$PROJECT_DIR$/testGraph.h" />
-        <option value="$PROJECT_DIR$/graph/graphitrpreord.h" />
-        <option value="$PROJECT_DIR$/adt/bstVertex/bstVertex.h" />
-        <option value="$PROJECT_DIR$/adt/vertex/vertex.h" />
-        <option value="$PROJECT_DIR$/adt/vertex/vertex.c" />
-        <option value="$PROJECT_DIR$/graph/rep/bst/graphbst.h" />
-        <option value="$PROJECT_DIR$/bst/rec/bstrec.c" />
-        <option value="$PROJECT_DIR$/bst/bst.c" />
-        <option value="$PROJECT_DIR$/itr/itr.h" />
-        <option value="$PROJECT_DIR$/graph/graphitrvertex.h" />
-        <option value="$PROJECT_DIR$/graph/rep/lst/graplstitradjacent.h" />
-        <option value="$PROJECT_DIR$/graph/rep/lst/graplstitradjacent.c" />
-        <option value="$PROJECT_DIR$/graph/rep/mat/graphmat.h" />
-        <option value="$PROJECT_DIR$/graph/rep/lst/graphlst.h" />
-        <option value="$PROJECT_DIR$/graph/rep/lst/graphlstitradjacent.h" />
-        <option value="$PROJECT_DIR$/graph/rep/bst/graphbstitradjacent.h" />
-        <option value="$PROJECT_DIR$/graph/graphitrvertex.c" />
-        <option value="$PROJECT_DIR$/graph/rep/mat/graphmatitradjacent.c" />
-        <option value="$PROJECT_DIR$/graph/rec/graphrec.h" />
-        <option value="$PROJECT_DIR$/graph/itr/graphitr.h" />
-        <option value="$PROJECT_DIR$/main.c" />
-        <option value="$PROJECT_DIR$/graph/itr/graphitr.c" />
-        <option value="$PROJECT_DIR$/graph/graph.h" />
-        <option value="$PROJECT_DIR$/graph/rec/graphrec.c" />
-        <option value="$PROJECT_DIR$/adt/str/adtstr.c" />
-        <option value="$PROJECT_DIR$/adt/int/adtint.c" />
-        <option value="$PROJECT_DIR$/adt/flt/adtflt.c" />
-        <option value="$PROJECT_DIR$/adt/rec/adtrec.h" />
-        <option value="$PROJECT_DIR$/adt/rec/adtrec.c" />
-        <option value="$PROJECT_DIR$/adt/adt.c" />
-        <option value="$PROJECT_DIR$/graph/rep/bst/graphbstitradjacent.c" />
-        <option value="$PROJECT_DIR$/graph/rep/lst/graphlstitradjacent.c" />
-        <option value="$PROJECT_DIR$/graph/rep/mat/graphmatitradjacent.h" />
-        <option value="$PROJECT_DIR$/itr/itr.c" />
-        <option value="$PROJECT_DIR$/stack/vec/stackvec.c" />
-        <option value="$PROJECT_DIR$/testBST.c" />
-        <option value="$PROJECT_DIR$/bst/itr/bstitr.c" />
-        <option value="$PROJECT_DIR$/graph/graph.c" />
-        <option value="$PROJECT_DIR$/testGraph.c" />
-        <option value="$PROJECT_DIR$/graph/rep/lst/graphlst.c" />
-        <option value="$PROJECT_DIR$/graph/rep/bst/graphbst.c" />
-        <option value="$PROJECT_DIR$/graph/rep/mat/graphmat.c" />
       </list>
     </option>
   </component>
@@ -224,19 +239,41 @@
             <path>
               <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
               <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
-              <item name="graph" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
-              <item name="graph" type="462c0819:PsiDirectoryNode" />
               <item name="itr" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
               <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
-              <item name="graph" type="462c0819:PsiDirectoryNode" />
-              <item name="rec" type="462c0819:PsiDirectoryNode" />
+              <item name="queue" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
+              <item name="queue" type="462c0819:PsiDirectoryNode" />
+              <item name="lst" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
+              <item name="queue" type="462c0819:PsiDirectoryNode" />
+              <item name="vec" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
+              <item name="stack" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
+              <item name="stack" type="462c0819:PsiDirectoryNode" />
+              <item name="lst" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Exercise3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise3" type="462c0819:PsiDirectoryNode" />
+              <item name="stack" type="462c0819:PsiDirectoryNode" />
+              <item name="vec" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -297,12 +334,12 @@
       <workItem from="1560411384096" duration="26020000" />
       <workItem from="1560534920688" duration="7511000" />
       <workItem from="1560581785124" duration="41493000" />
-      <workItem from="1560669461220" duration="39669000" />
+      <workItem from="1560669461220" duration="40403000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="328539000" />
+    <option name="totallyTimeSpent" value="329273000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -317,12 +354,12 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.53531075" visible="true" weight="0.15491259" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.53531075" visible="true" weight="0.15491259" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Structure" order="2" sideWeight="0.46468925" side_tool="true" weight="0.11814346" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4972875" weight="0.68265307" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4972875" visible="true" weight="0.68265307" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4996986" weight="0.31632653" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -360,341 +397,342 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/graph/graphitrpostord.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/graphitrpreord.h">
+    <entry file="file://$PROJECT_DIR$/bst/bstitrinord.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#134#157#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graph/graphitrpreord.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/itr/bstitr.h">
+    <entry file="file://$PROJECT_DIR$/bst/bstitrinord.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bst/bstitrpostord.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="61" selection-start-line="60" selection-end-line="61" />
-          <folding>
-            <element signature="e#1#27#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bst/bstitrpostord.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding>
-            <element signature="e#132#155#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/itr/itr.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/ptr/adtptr.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bstitrpreord.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bstitrinord.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlst.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmat.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/bst/graphbst.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#122#146#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bstitrinord.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-431" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/bst/graphbstitradjacent.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding>
-            <element signature="e#144#162#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bst/bstitrpreord.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stack/stack.c">
+    <entry file="file://$PROJECT_DIR$/bst/bstitrpreord.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#21#176#0" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testGraph.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlstitradjacent.h">
+    <entry file="file://$PROJECT_DIR$/graph/itr/graphitr.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#144#162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmatitradjacent.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rec/graphrec.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="90">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/graph/itr/graphitr.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bst.c">
+    <entry file="file://$PROJECT_DIR$/graph/rec/graphrec.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1397">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="90">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/rec/graphrec.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/rep/bst/graphbst.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#19#319#0" />
+            <marker date="1560714447566" expanded="false" signature="7540:8227" ph="{...}" />
+            <marker date="1560714447566" expanded="false" signature="9635:12617" ph="{...}" />
+            <marker date="1560714447566" expanded="false" signature="9739:10481" ph="{...}" />
+            <marker date="1560714447566" expanded="false" signature="10487:11936" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bst/bst.h">
+    <entry file="file://$PROJECT_DIR$/graph/rep/bst/graphbst.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-          <folding>
-            <element signature="e#112#135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/rec/bstrec.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2999">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#1#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/graph.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="789">
-          <caret line="182" column="48" lean-forward="true" selection-start-line="182" selection-start-column="48" selection-end-line="182" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/str/adtstr.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/rec/adtrec.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/int/adtint.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="34" column="38" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="34" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/rec/adtrec.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="69" column="4" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/flt/adtflt.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/adt.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="55" column="83" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="83" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/graph/rep/bst/graphbstitradjacent.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="e#1#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/graph/rep/bst/graphbstitradjacent.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlst.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlst.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlstitradjacent.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="44" column="83" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="83" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/itr/itr.c">
+    <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlstitradjacent.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stack/vec/stackvec.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="64" column="90" selection-start-line="64" selection-start-column="90" selection-end-line="64" selection-end-column="90" />
-          <folding>
-            <element signature="e#275#503#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testBST.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bst/itr/bstitr.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="457" column="73" selection-start-line="457" selection-start-column="73" selection-end-line="457" selection-end-column="73" />
-          <folding>
-            <element signature="e#212#505#0" />
-            <element signature="e#507#864#0" />
-            <element signature="e#866#1464#0" />
-            <element signature="e#1467#1881#0" />
-            <element signature="e#1884#3606#0" />
-            <element signature="e#3613#4684#0" />
-            <element signature="e#4691#5254#0" />
-            <element signature="e#5261#6070#0" />
-            <element signature="e#6076#6906#0" />
-            <element signature="e#6909#7129#0" />
-            <element signature="e#7131#7462#0" />
-            <element signature="e#7468#7718#0" />
-            <element signature="e#7721#7943#0" />
-            <element signature="e#7945#8279#0" />
-            <element signature="e#8285#8546#0" />
-            <element signature="e#8549#9335#0" />
-            <element signature="e#9337#10214#0" />
-            <element signature="e#10220#11032#0" />
-            <element signature="e#11035#11819#0" />
-            <element signature="e#12742#13550#0" />
-            <element signature="e#13553#13999#0" />
-            <element signature="e#14001#14444#0" />
-            <element signature="e#14446#14895#0" />
-            <element signature="e#14897#15339#0" />
-            <element signature="e#15342#15803#0" />
-            <element signature="e#15805#16263#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmatitradjacent.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="e#144#162#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmat.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <marker date="1560714447575" expanded="false" signature="2238:3295" ph="{...}" />
+            <marker date="1560714447575" expanded="false" signature="3301:7262" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmat.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmatitradjacent.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmatitradjacent.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#144#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/graph.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/graph.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/graphitrbreadth.c">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/graphitrpostord.c">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/graphitrpostord.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/graphitrbreadth.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/graphitrvertex.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/graphitrvertex.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/itr/itr.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/itr/itr.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/lst/queuelst.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/lst/queuelst.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/vec/queuevec.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/vec/queuevec.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/queue.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue/queue.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/lst/stacklst.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/lst/stacklst.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/vec/stackvec.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/vec/stackvec.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/stack.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack/stack.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testBST.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testBST.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testGraph.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="33" column="66" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="e#143#222#0" />
             <element signature="e#224#461#0" />
@@ -702,128 +740,53 @@
             <element signature="e#703#854#0" />
             <element signature="e#1050#1231#0" />
             <element signature="e#1233#1392#0" />
-            <marker date="1560713191442" expanded="true" signature="994:1046" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="1841:2548" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="1842:2548" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="2720:3250" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="3454:4245" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="3602:4239" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="3846:3938" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="5364:6182" ph="{...}" />
-            <marker date="1560713191442" expanded="true" signature="6833:22960" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="6855:8155" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="8176:8259" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="8280:8363" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="8384:8467" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="8488:9137" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="9158:9657" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="9678:10121" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="10142:11096" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="11117:12189" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="12211:13463" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="13485:15796" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="15818:17483" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="16346:17382" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="17505:17739" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="17761:17887" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="17909:18034" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="18056:18191" ph="{...}" />
-            <marker date="1560713191442" expanded="true" signature="18213:19885" ph="{...}" />
-            <marker date="1560713191442" expanded="false" signature="19907:21247" ph="{...}" />
-            <marker date="1560713191442" expanded="true" signature="21268:22841" ph="{...}" />
+            <marker date="1560714613120" expanded="true" signature="1173:1225" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="2020:2727" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="2021:2727" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="2899:3429" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="3633:4424" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="3781:4418" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="4025:4117" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="5543:6361" ph="{...}" />
+            <marker date="1560714613120" expanded="true" signature="7012:23139" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="7034:8334" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="8355:8438" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="8459:8542" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="8563:8646" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="8667:9316" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="9337:9836" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="9857:10300" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="10321:11275" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="11296:12368" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="12390:13642" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="13664:15975" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="15997:17662" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="16525:17561" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="17684:17918" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="17940:18066" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="18088:18213" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="18235:18370" ph="{...}" />
+            <marker date="1560714613120" expanded="true" signature="18392:20064" ph="{...}" />
+            <marker date="1560714613120" expanded="false" signature="20086:21426" ph="{...}" />
+            <marker date="1560714613120" expanded="true" signature="21447:23020" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graph/graph.c">
+    <entry file="file://$PROJECT_DIR$/testGraph.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-111">
-          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
-          <folding>
-            <element signature="e#21#377#0" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/mat/graphmat.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-706">
-          <caret line="403" column="5" selection-start-line="403" selection-start-column="5" selection-end-line="403" selection-end-column="5" />
-          <folding>
-            <element signature="e#1#22#0" expanded="true" />
-            <marker date="1560713881561" expanded="true" signature="2059:3116" ph="{...}" />
-            <marker date="1560713881561" expanded="true" signature="3122:7083" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/utility.h">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/bst/graphbst.c">
+    <entry file="file://$PROJECT_DIR$/utility.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-346">
-          <caret line="412" column="64" selection-start-line="412" selection-start-column="64" selection-end-line="412" selection-end-column="64" />
-          <folding>
-            <element signature="e#1#22#0" expanded="true" />
-            <marker date="1560713881549" expanded="true" signature="7361:8048" ph="{...}" />
-            <marker date="1560713881549" expanded="true" signature="9456:12438" ph="{...}" />
-            <marker date="1560713881549" expanded="true" signature="9560:10302" ph="{...}" />
-            <marker date="1560713881549" expanded="true" signature="10308:11757" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rep/lst/graphlst.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="438" column="6" lean-forward="true" selection-start-line="438" selection-start-column="6" selection-end-line="438" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/graphitrvertex.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/graphitrvertex.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/itr/graphitr.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
-          <folding>
-            <element signature="e#1#21#0" expanded="true" />
-            <element signature="e#211#2707#0" />
-            <element signature="e#2709#5203#0" />
-            <element signature="e#5206#5344#0" />
-            <element signature="e#5346#5485#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/rec/graphrec.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
-          <folding>
-            <element signature="e#110#851#0" />
-            <element signature="e#857#2540#0" />
-            <element signature="e#2546#3180#0" />
-            <element signature="e#3182#3341#0" />
-            <element signature="e#3344#3640#0" />
-            <element signature="e#3642#3947#0" />
-            <element signature="e#3949#4246#0" />
-            <element signature="e#4248#4555#0" />
-            <element signature="e#4557#4694#0" />
-            <element signature="e#4697#5044#0" />
-            <element signature="e#5046#5388#0" />
-            <element signature="e#5390#5551#0" />
-          </folding>
+        <state relative-caret-position="156">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>

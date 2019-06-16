@@ -59,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/queue/queue.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="681">
-              <caret line="69" column="12" lean-forward="true" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="87" />
+              <caret line="69" column="12" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -533,7 +533,7 @@
     <entry file="file://$PROJECT_DIR$/queue/queue.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="681">
-          <caret line="69" column="12" lean-forward="true" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="87" />
+          <caret line="69" column="12" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="87" />
         </state>
       </provider>
     </entry>
