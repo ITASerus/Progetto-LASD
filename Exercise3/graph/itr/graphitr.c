@@ -4,14 +4,14 @@
  * @date 16/06/2019
  */
 
-#include <bst/bst.h>
+#include "../../bst/bst.h"
 #include "graphitr.h"
 
-#include "queue.h"
-#include "queuevec.h"
+#include "../../queue/queue.h"
+#include "../../queue/vec/queuevec.h"
 
-#include "adt.h"
-#include "adtint.h"
+#include "../../adt/adt.h"
+#include "../../adt/int/adtint.h"
 
 /* ************************************************************************** */
 

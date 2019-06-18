@@ -83,9 +83,22 @@ CMakeFiles/Exercise3.dir/adt/int/adtint.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/adt/int/adtint.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/int/adtint.c -o CMakeFiles/Exercise3.dir/adt/int/adtint.c.s
 
+CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o: CMakeFiles/Exercise3.dir/flags.make
+CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o: ../adt/ptr/adtptr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.c
+
+CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.c > CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.i
+
+CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.c -o CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.s
+
 CMakeFiles/Exercise3.dir/adt/rec/adtrec.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/adt/rec/adtrec.c.o: ../adt/rec/adtrec.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Exercise3.dir/adt/rec/adtrec.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Exercise3.dir/adt/rec/adtrec.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/adt/rec/adtrec.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/rec/adtrec.c
 
 CMakeFiles/Exercise3.dir/adt/rec/adtrec.c.i: cmake_force
@@ -98,7 +111,7 @@ CMakeFiles/Exercise3.dir/adt/rec/adtrec.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/adt/str/adtstr.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/adt/str/adtstr.c.o: ../adt/str/adtstr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Exercise3.dir/adt/str/adtstr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Exercise3.dir/adt/str/adtstr.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/adt/str/adtstr.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/str/adtstr.c
 
 CMakeFiles/Exercise3.dir/adt/str/adtstr.c.i: cmake_force
@@ -111,7 +124,7 @@ CMakeFiles/Exercise3.dir/adt/str/adtstr.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/adt/adt.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/adt/adt.c.o: ../adt/adt.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Exercise3.dir/adt/adt.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Exercise3.dir/adt/adt.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/adt/adt.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.c
 
 CMakeFiles/Exercise3.dir/adt/adt.c.i: cmake_force
@@ -124,7 +137,7 @@ CMakeFiles/Exercise3.dir/adt/adt.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/bst/itr/bstitr.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/bst/itr/bstitr.c.o: ../bst/itr/bstitr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Exercise3.dir/bst/itr/bstitr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Exercise3.dir/bst/itr/bstitr.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/bst/itr/bstitr.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/itr/bstitr.c
 
 CMakeFiles/Exercise3.dir/bst/itr/bstitr.c.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/Exercise3.dir/bst/itr/bstitr.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/bst/rec/bstrec.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/bst/rec/bstrec.c.o: ../bst/rec/bstrec.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Exercise3.dir/bst/rec/bstrec.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Exercise3.dir/bst/rec/bstrec.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/bst/rec/bstrec.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.c
 
 CMakeFiles/Exercise3.dir/bst/rec/bstrec.c.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/Exercise3.dir/bst/rec/bstrec.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/bst/bst.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/bst/bst.c.o: ../bst/bst.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Exercise3.dir/bst/bst.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Exercise3.dir/bst/bst.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/bst/bst.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bst.c
 
 CMakeFiles/Exercise3.dir/bst/bst.c.i: cmake_force
@@ -163,7 +176,7 @@ CMakeFiles/Exercise3.dir/bst/bst.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/bst/bstitrbreadth.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/bst/bstitrbreadth.c.o: ../bst/bstitrbreadth.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Exercise3.dir/bst/bstitrbreadth.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Exercise3.dir/bst/bstitrbreadth.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/bst/bstitrbreadth.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrbreadth.c
 
 CMakeFiles/Exercise3.dir/bst/bstitrbreadth.c.i: cmake_force
@@ -176,7 +189,7 @@ CMakeFiles/Exercise3.dir/bst/bstitrbreadth.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/bst/bstitrinord.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/bst/bstitrinord.c.o: ../bst/bstitrinord.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Exercise3.dir/bst/bstitrinord.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Exercise3.dir/bst/bstitrinord.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/bst/bstitrinord.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrinord.c
 
 CMakeFiles/Exercise3.dir/bst/bstitrinord.c.i: cmake_force
@@ -189,7 +202,7 @@ CMakeFiles/Exercise3.dir/bst/bstitrinord.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/bst/bstitrpostord.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/bst/bstitrpostord.c.o: ../bst/bstitrpostord.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Exercise3.dir/bst/bstitrpostord.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Exercise3.dir/bst/bstitrpostord.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/bst/bstitrpostord.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrpostord.c
 
 CMakeFiles/Exercise3.dir/bst/bstitrpostord.c.i: cmake_force
@@ -202,7 +215,7 @@ CMakeFiles/Exercise3.dir/bst/bstitrpostord.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/bst/bstitrpreord.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/bst/bstitrpreord.c.o: ../bst/bstitrpreord.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Exercise3.dir/bst/bstitrpreord.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/Exercise3.dir/bst/bstitrpreord.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/bst/bstitrpreord.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrpreord.c
 
 CMakeFiles/Exercise3.dir/bst/bstitrpreord.c.i: cmake_force
@@ -215,7 +228,7 @@ CMakeFiles/Exercise3.dir/bst/bstitrpreord.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../graph/itr/graphitr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/itr/graphitr.c
 
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.i: cmake_force
@@ -228,7 +241,7 @@ CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o: ../graph/rec/graphrec.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rec/graphrec.c
 
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.i: cmake_force
@@ -241,7 +254,7 @@ CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../graph/rep/bst/graphbst.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbst.c
 
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.i: cmake_force
@@ -252,9 +265,22 @@ CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbst.c -o CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.s
 
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: CMakeFiles/Exercise3.dir/flags.make
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../graph/rep/bst/graphbstitradjacent.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbstitradjacent.c
+
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbstitradjacent.c > CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.i
+
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbstitradjacent.c -o CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.s
+
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../graph/rep/lst/graphlst.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlst.c
 
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.i: cmake_force
@@ -265,9 +291,22 @@ CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlst.c -o CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.s
 
+CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: CMakeFiles/Exercise3.dir/flags.make
+CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: ../graph/rep/lst/graphlstitradjacent.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlstitradjacent.c
+
+CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlstitradjacent.c > CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.i
+
+CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlstitradjacent.c -o CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.s
+
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: ../graph/rep/mat/graphmat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmat.c
 
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.i: cmake_force
@@ -278,9 +317,22 @@ CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmat.c -o CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.s
 
+CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: CMakeFiles/Exercise3.dir/flags.make
+CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: ../graph/rep/mat/graphmatitradjacent.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmatitradjacent.c
+
+CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmatitradjacent.c > CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.i
+
+CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmatitradjacent.c -o CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.s
+
 CMakeFiles/Exercise3.dir/graph/graph.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/graph/graph.c.o: ../graph/graph.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/Exercise3.dir/graph/graph.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/Exercise3.dir/graph/graph.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/graph.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.c
 
 CMakeFiles/Exercise3.dir/graph/graph.c.i: cmake_force
@@ -293,7 +345,7 @@ CMakeFiles/Exercise3.dir/graph/graph.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.o: ../graph/graphitrbreadth.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrbreadth.c
 
 CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.i: cmake_force
@@ -306,7 +358,7 @@ CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.o: ../graph/graphitrpostord.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrpostord.c
 
 CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.i: cmake_force
@@ -319,7 +371,7 @@ CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o: ../graph/graphitrpreord.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrpreord.c
 
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.i: cmake_force
@@ -330,9 +382,22 @@ CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrpreord.c -o CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.s
 
+CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: CMakeFiles/Exercise3.dir/flags.make
+CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../graph/graphitrvertex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.c
+
+CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.c > CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.i
+
+CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.c -o CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.s
+
 CMakeFiles/Exercise3.dir/itr/itr.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/itr/itr.c.o: ../itr/itr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/Exercise3.dir/itr/itr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/Exercise3.dir/itr/itr.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/itr/itr.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.c
 
 CMakeFiles/Exercise3.dir/itr/itr.c.i: cmake_force
@@ -345,7 +410,7 @@ CMakeFiles/Exercise3.dir/itr/itr.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/queue/lst/queuelst.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/queue/lst/queuelst.c.o: ../queue/lst/queuelst.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/Exercise3.dir/queue/lst/queuelst.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/Exercise3.dir/queue/lst/queuelst.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/queue/lst/queuelst.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/lst/queuelst.c
 
 CMakeFiles/Exercise3.dir/queue/lst/queuelst.c.i: cmake_force
@@ -358,7 +423,7 @@ CMakeFiles/Exercise3.dir/queue/lst/queuelst.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/queue/vec/queuevec.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/queue/vec/queuevec.c.o: ../queue/vec/queuevec.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/Exercise3.dir/queue/vec/queuevec.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/Exercise3.dir/queue/vec/queuevec.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/queue/vec/queuevec.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/vec/queuevec.c
 
 CMakeFiles/Exercise3.dir/queue/vec/queuevec.c.i: cmake_force
@@ -371,7 +436,7 @@ CMakeFiles/Exercise3.dir/queue/vec/queuevec.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/queue/queue.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/queue/queue.c.o: ../queue/queue.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/Exercise3.dir/queue/queue.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/Exercise3.dir/queue/queue.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/queue/queue.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/queue.c
 
 CMakeFiles/Exercise3.dir/queue/queue.c.i: cmake_force
@@ -384,7 +449,7 @@ CMakeFiles/Exercise3.dir/queue/queue.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/stack/lst/stacklst.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/stack/lst/stacklst.c.o: ../stack/lst/stacklst.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/Exercise3.dir/stack/lst/stacklst.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/Exercise3.dir/stack/lst/stacklst.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/stack/lst/stacklst.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/lst/stacklst.c
 
 CMakeFiles/Exercise3.dir/stack/lst/stacklst.c.i: cmake_force
@@ -397,7 +462,7 @@ CMakeFiles/Exercise3.dir/stack/lst/stacklst.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/stack/vec/stackvec.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/stack/vec/stackvec.c.o: ../stack/vec/stackvec.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/Exercise3.dir/stack/vec/stackvec.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/Exercise3.dir/stack/vec/stackvec.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/stack/vec/stackvec.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/vec/stackvec.c
 
 CMakeFiles/Exercise3.dir/stack/vec/stackvec.c.i: cmake_force
@@ -410,7 +475,7 @@ CMakeFiles/Exercise3.dir/stack/vec/stackvec.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/stack/stack.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/stack/stack.c.o: ../stack/stack.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/Exercise3.dir/stack/stack.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/Exercise3.dir/stack/stack.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/stack/stack.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/stack.c
 
 CMakeFiles/Exercise3.dir/stack/stack.c.i: cmake_force
@@ -423,7 +488,7 @@ CMakeFiles/Exercise3.dir/stack/stack.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/main.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/Exercise3.dir/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/Exercise3.dir/main.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/main.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/main.c
 
 CMakeFiles/Exercise3.dir/main.c.i: cmake_force
@@ -434,35 +499,9 @@ CMakeFiles/Exercise3.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/main.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/main.c -o CMakeFiles/Exercise3.dir/main.c.s
 
-CMakeFiles/Exercise3.dir/utility.c.o: CMakeFiles/Exercise3.dir/flags.make
-CMakeFiles/Exercise3.dir/utility.c.o: ../utility.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/Exercise3.dir/utility.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/utility.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.c
-
-CMakeFiles/Exercise3.dir/utility.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exercise3.dir/utility.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.c > CMakeFiles/Exercise3.dir/utility.c.i
-
-CMakeFiles/Exercise3.dir/utility.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/utility.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.c -o CMakeFiles/Exercise3.dir/utility.c.s
-
-CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o: CMakeFiles/Exercise3.dir/flags.make
-CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o: ../adt/ptr/adtptr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.c
-
-CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.c > CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.i
-
-CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.c -o CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.s
-
 CMakeFiles/Exercise3.dir/testBST.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/testBST.c.o: ../testBST.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/Exercise3.dir/testBST.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/Exercise3.dir/testBST.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/testBST.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/testBST.c
 
 CMakeFiles/Exercise3.dir/testBST.c.i: cmake_force
@@ -475,7 +514,7 @@ CMakeFiles/Exercise3.dir/testBST.c.s: cmake_force
 
 CMakeFiles/Exercise3.dir/testGraph.c.o: CMakeFiles/Exercise3.dir/flags.make
 CMakeFiles/Exercise3.dir/testGraph.c.o: ../testGraph.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/Exercise3.dir/testGraph.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/Exercise3.dir/testGraph.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/testGraph.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/testGraph.c
 
 CMakeFiles/Exercise3.dir/testGraph.c.i: cmake_force
@@ -486,62 +525,24 @@ CMakeFiles/Exercise3.dir/testGraph.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/testGraph.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/testGraph.c -o CMakeFiles/Exercise3.dir/testGraph.c.s
 
-CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: CMakeFiles/Exercise3.dir/flags.make
-CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../graph/graphitrvertex.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.c
+CMakeFiles/Exercise3.dir/utility.c.o: CMakeFiles/Exercise3.dir/flags.make
+CMakeFiles/Exercise3.dir/utility.c.o: ../utility.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/Exercise3.dir/utility.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/utility.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.c
 
-CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.c > CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.i
+CMakeFiles/Exercise3.dir/utility.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exercise3.dir/utility.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.c > CMakeFiles/Exercise3.dir/utility.c.i
 
-CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.c -o CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.s
-
-CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: CMakeFiles/Exercise3.dir/flags.make
-CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: ../graph/rep/lst/graphlstitradjacent.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlstitradjacent.c
-
-CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlstitradjacent.c > CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.i
-
-CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlstitradjacent.c -o CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.s
-
-CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: CMakeFiles/Exercise3.dir/flags.make
-CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: ../graph/rep/mat/graphmatitradjacent.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmatitradjacent.c
-
-CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmatitradjacent.c > CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.i
-
-CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmatitradjacent.c -o CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.s
-
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: CMakeFiles/Exercise3.dir/flags.make
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../graph/rep/bst/graphbstitradjacent.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o   -c /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbstitradjacent.c
-
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbstitradjacent.c > CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.i
-
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbstitradjacent.c -o CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.s
+CMakeFiles/Exercise3.dir/utility.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Exercise3.dir/utility.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.c -o CMakeFiles/Exercise3.dir/utility.c.s
 
 # Object files for target Exercise3
 Exercise3_OBJECTS = \
 "CMakeFiles/Exercise3.dir/adt/flt/adtflt.c.o" \
 "CMakeFiles/Exercise3.dir/adt/int/adtint.c.o" \
+"CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o" \
 "CMakeFiles/Exercise3.dir/adt/rec/adtrec.c.o" \
 "CMakeFiles/Exercise3.dir/adt/str/adtstr.c.o" \
 "CMakeFiles/Exercise3.dir/adt/adt.c.o" \
@@ -555,12 +556,16 @@ Exercise3_OBJECTS = \
 "CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o" \
 "CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o" \
 "CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o" \
+"CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o" \
 "CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o" \
+"CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o" \
 "CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o" \
+"CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o" \
 "CMakeFiles/Exercise3.dir/graph/graph.c.o" \
 "CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.o" \
 "CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.o" \
 "CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o" \
+"CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o" \
 "CMakeFiles/Exercise3.dir/itr/itr.c.o" \
 "CMakeFiles/Exercise3.dir/queue/lst/queuelst.c.o" \
 "CMakeFiles/Exercise3.dir/queue/vec/queuevec.c.o" \
@@ -569,20 +574,16 @@ Exercise3_OBJECTS = \
 "CMakeFiles/Exercise3.dir/stack/vec/stackvec.c.o" \
 "CMakeFiles/Exercise3.dir/stack/stack.c.o" \
 "CMakeFiles/Exercise3.dir/main.c.o" \
-"CMakeFiles/Exercise3.dir/utility.c.o" \
-"CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o" \
 "CMakeFiles/Exercise3.dir/testBST.c.o" \
 "CMakeFiles/Exercise3.dir/testGraph.c.o" \
-"CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o" \
-"CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o" \
-"CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o" \
-"CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o"
+"CMakeFiles/Exercise3.dir/utility.c.o"
 
 # External object files for target Exercise3
 Exercise3_EXTERNAL_OBJECTS =
 
 Exercise3: CMakeFiles/Exercise3.dir/adt/flt/adtflt.c.o
 Exercise3: CMakeFiles/Exercise3.dir/adt/int/adtint.c.o
+Exercise3: CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o
 Exercise3: CMakeFiles/Exercise3.dir/adt/rec/adtrec.c.o
 Exercise3: CMakeFiles/Exercise3.dir/adt/str/adtstr.c.o
 Exercise3: CMakeFiles/Exercise3.dir/adt/adt.c.o
@@ -596,12 +597,16 @@ Exercise3: CMakeFiles/Exercise3.dir/bst/bstitrpreord.c.o
 Exercise3: CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o
 Exercise3: CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o
 Exercise3: CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o
+Exercise3: CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o
 Exercise3: CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o
+Exercise3: CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o
 Exercise3: CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o
+Exercise3: CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o
 Exercise3: CMakeFiles/Exercise3.dir/graph/graph.c.o
 Exercise3: CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.o
 Exercise3: CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.o
 Exercise3: CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o
+Exercise3: CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o
 Exercise3: CMakeFiles/Exercise3.dir/itr/itr.c.o
 Exercise3: CMakeFiles/Exercise3.dir/queue/lst/queuelst.c.o
 Exercise3: CMakeFiles/Exercise3.dir/queue/vec/queuevec.c.o
@@ -610,14 +615,9 @@ Exercise3: CMakeFiles/Exercise3.dir/stack/lst/stacklst.c.o
 Exercise3: CMakeFiles/Exercise3.dir/stack/vec/stackvec.c.o
 Exercise3: CMakeFiles/Exercise3.dir/stack/stack.c.o
 Exercise3: CMakeFiles/Exercise3.dir/main.c.o
-Exercise3: CMakeFiles/Exercise3.dir/utility.c.o
-Exercise3: CMakeFiles/Exercise3.dir/adt/ptr/adtptr.c.o
 Exercise3: CMakeFiles/Exercise3.dir/testBST.c.o
 Exercise3: CMakeFiles/Exercise3.dir/testGraph.c.o
-Exercise3: CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o
-Exercise3: CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o
-Exercise3: CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o
-Exercise3: CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o
+Exercise3: CMakeFiles/Exercise3.dir/utility.c.o
 Exercise3: CMakeFiles/Exercise3.dir/build.make
 Exercise3: CMakeFiles/Exercise3.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Linking C executable Exercise3"

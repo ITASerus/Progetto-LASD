@@ -7,6 +7,7 @@ include_directories(.)
 include_directories(adt)
 include_directories(adt/flt)
 include_directories(adt/int)
+include_directories(adt/ptr)
 include_directories(adt/rec)
 include_directories(adt/str)
 include_directories(bst)
@@ -31,6 +32,8 @@ add_executable(Exercise3
         adt/flt/adtflt.h
         adt/int/adtint.c
         adt/int/adtint.h
+        adt/ptr/adtptr.c
+        adt/ptr/adtptr.h
         adt/rec/adtrec.c
         adt/rec/adtrec.h
         adt/str/adtstr.c
@@ -57,10 +60,16 @@ add_executable(Exercise3
         graph/rec/graphrec.h
         graph/rep/bst/graphbst.c
         graph/rep/bst/graphbst.h
+        graph/rep/bst/graphbstitradjacent.c
+        graph/rep/bst/graphbstitradjacent.h
         graph/rep/lst/graphlst.c
         graph/rep/lst/graphlst.h
+        graph/rep/lst/graphlstitradjacent.c
+        graph/rep/lst/graphlstitradjacent.h
         graph/rep/mat/graphmat.c
         graph/rep/mat/graphmat.h
+        graph/rep/mat/graphmatitradjacent.c
+        graph/rep/mat/graphmatitradjacent.h
         graph/graph.c
         graph/graph.h
         graph/graphitrbreadth.c
@@ -69,6 +78,8 @@ add_executable(Exercise3
         graph/graphitrpostord.h
         graph/graphitrpreord.c
         graph/graphitrpreord.h
+        graph/graphitrvertex.c
+        graph/graphitrvertex.h
         itr/itr.c
         itr/itr.h
         queue/lst/queuelst.c
@@ -84,5 +95,9 @@ add_executable(Exercise3
         stack/stack.c
         stack/stack.h
         main.c
+        testBST.c
+        testBST.h
+        testGraph.c
+        testGraph.h
         utility.c
-        utility.h adt/ptr/adtptr.c adt/ptr/adtptr.h testBST.c testBST.h testGraph.c testGraph.h graph/graphitrvertex.c graph/graphitrvertex.h graph/rep/lst/graphlstitradjacent.c graph/rep/lst/graphlstitradjacent.h graph/rep/mat/graphmatitradjacent.c graph/rep/mat/graphmatitradjacent.h graph/rep/bst/graphbstitradjacent.c graph/rep/bst/graphbstitradjacent.h)
+        utility.h)

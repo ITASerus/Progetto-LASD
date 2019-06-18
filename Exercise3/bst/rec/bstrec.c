@@ -240,10 +240,12 @@ DataObject* recBSTGetPredecessor(BSTNode* tree, DataObject* elem) {
 
 DataObject* recBSTGetNRemovePredecessor(BSTNode** tree, DataObject* elem) {
     printf("Da Implementare\n");
+    return NULL;
 }
 
 bool recBSTRemovePredecessor(BSTNode** tree, DataObject* elem) {
     printf("Da Implementare\n");
+    return NULL;
 }
 
 
@@ -278,10 +280,12 @@ DataObject* recBSTGetSuccessor(BSTNode* tree, DataObject* elem) {
 
 DataObject* recBSTGetNRemoveSuccessor(BSTNode** tree, DataObject* elem) {
     printf("Da Implementare\n");
+    return NULL;
 }
 
 bool recBSTRemoveSuccessor(BSTNode** tree, DataObject* elem) {
     printf("Da Implementare\n");
+    return false;
 }
 
 

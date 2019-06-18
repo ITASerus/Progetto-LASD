@@ -2,6 +2,13 @@
  * @name Progetto per il corso di Algoritmi e Strutture Dati A/A 2017/2018 - Corso di Laurea in Informatica
  * @author Ernesto De Crecchio - N86001596
  * @date 16/06/2019
+ *
+ * @note Per scelta implementativa, le funzioni che dovrebbero ritornare qualcosa
+ *       (ad esempio le funzioni headNDequeue o topNPop, in presenza di struttura vuota,
+ *       ritornano NULL. Tale caso deve essere gestito dall'utente. E' stata scelta questa
+ *       "strada" di implementazione in quanto il forzare il crash dell'applicativo con un
+ *       eventuale assert potrebbe far perdere all'utente i dati che ha inserito nella struttura,
+ *       il che renderebbe la libreria scomoda da utilizzare
  */
 
 #include "testGraph.h"
@@ -721,7 +728,7 @@ void foldProdLesserThanN(DataObject* dat, void *val, void *n) {
  * @param val Valore al quale, a condizione soddisfatta, verrà moltiplicato 'dat'
  * @param n Valore di riferimento della condizione
  */
-void foldSumGreaterThanN(DataObject* dat, void *val, void *n) { //TODO: Non funziona bene sembra
+void foldSumGreaterThanN(DataObject* dat, void *val, void *n) {
     if((*(float*)dat->value > *(int*)n)) {
         *(float*)val += *(float*)dat->value;
     }

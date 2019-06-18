@@ -48,6 +48,7 @@
 					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt"/>
 					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/flt"/>
 					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/int"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr"/>
 					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/rec"/>
 					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/str"/>
 					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst"/>
@@ -90,6 +91,7 @@
 					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt"/>
 					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/flt"/>
 					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/int"/>
+					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr"/>
 					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/rec"/>
 					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/str"/>
 					<Add directory="/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst"/>

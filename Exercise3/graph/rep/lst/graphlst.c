@@ -6,8 +6,8 @@
 
 #include "graphlst.h"
 
-#include "graph/graphitrvertex.h"
-#include "graph/rep/lst/graphlstitradjacent.h"
+#include "../../../graph/graphitrvertex.h"
+#include "../../../graph/rep/lst/graphlstitradjacent.h"
 
 /* *************************** FUNZIONI PRINCIPALI **************************** */
 

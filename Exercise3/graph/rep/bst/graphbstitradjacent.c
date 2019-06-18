@@ -5,7 +5,7 @@
  */
 
 #include "graphbstitradjacent.h"
-#include "bst/bstitrinord.h"
+#include "../../../bst/bstitrinord.h"
 /* ************************************************************************** */
 
 BSTItrInterface* initializeBSTIterator(int name, void* graphBST) {

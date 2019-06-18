@@ -50,6 +50,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../adt"
   "../adt/flt"
   "../adt/int"
+  "../adt/ptr"
   "../adt/rec"
   "../adt/str"
   "../bst"

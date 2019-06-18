@@ -36,7 +36,7 @@ typedef bool (*GraphExistsEdge)(void* graph, int fromVertexName, int toVertexNam
 typedef DataObject* (*GraphGetVertexData)(void* graph, int name);
 typedef void (*GraphSetVertexData)(void* graph, int name, DataObject* newValue);
 
-typedef int (*GraphVertexFromPointer)(void* iterator);
+typedef int (*GraphVertexFromPointer)(ITRObject* iterator);
 
 typedef ITRObject* (*GraphVertices)(void* graph);
 typedef ITRObject* (*GraphVertexEdges)(void* graph, int name);

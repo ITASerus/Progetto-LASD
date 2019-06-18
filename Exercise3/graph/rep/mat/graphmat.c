@@ -6,8 +6,8 @@
 
 #include "graphmat.h"
 
-#include "graph/graphitrvertex.h"
-#include "graph/rep/mat/graphmatitradjacent.h"
+#include "../../../graph/graphitrvertex.h"
+#include "../../../graph/rep/mat/graphmatitradjacent.h"
 
 /* *************************** FUNZIONI PRINCIPALI **************************** */
 

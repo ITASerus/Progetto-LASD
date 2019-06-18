@@ -6,14 +6,14 @@
 
 #include "graphbst.h"
 
-#include "bst/bst.h"
-#include "bst/rec/bstrec.h"
-#include "bst/bstitrpreord.h"
-#include "itr/itr.h"
-#include "adt/int/adtint.h"
+#include "../../../bst/bst.h"
+#include "../../../bst/rec/bstrec.h"
+#include "../../../bst/bstitrpreord.h"
+#include "../../../itr/itr.h"
+#include "../../../adt/int/adtint.h"
 
-#include "graph/graphitrvertex.h"
-#include "graph/rep/bst/graphbstitradjacent.h"
+#include "../../../graph/graphitrvertex.h"
+#include "../../../graph/rep/bst/graphbstitradjacent.h"
 
 /* *************************** FUNZIONI PRINCIPALI **************************** */
 

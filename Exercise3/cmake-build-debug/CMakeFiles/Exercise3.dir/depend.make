@@ -125,7 +125,7 @@ CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.o: ../stack/vec/stackvec.h
 CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.o: ../utility.h
 
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o: ../adt/adt.h
-CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o: ../graph/Graph.h
+CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o: ../graph/graphitrpreord.c
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o: ../graph/graphitrpreord.h
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o: ../itr/itr.h
@@ -140,17 +140,16 @@ CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../graph/graphitrvertex.h
 CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../itr/itr.h
 CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o: ../utility.h
 
-CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: .././adt/adt.h
-CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: .././bst/bst.h
-CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: .././utility.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../adt/adt.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../adt/int/adtint.h
-CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../queue/queue.h
-CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../queue/vec/queuevec.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../bst/bst.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../graph/itr/graphitr.c
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../graph/itr/graphitr.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../itr/itr.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../queue/queue.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../queue/vec/queuevec.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o: ../utility.h
 
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o: ../adt/adt.h
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o: ../graph/graph.h
@@ -159,78 +158,70 @@ CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o: ../graph/rec/graphrec.h
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o: ../itr/itr.h
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o: ../utility.h
 
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././adt/adt.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././adt/int/adtint.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././bst/bst.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././bst/bstitrpreord.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././bst/rec/bstrec.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././graph/graph.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././graph/graphitrvertex.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././graph/rep/bst/graphbstitradjacent.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././itr/itr.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././stack/stack.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: .././utility.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../adt/adt.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../adt/int/adtint.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../bst/bst.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../bst/bstitrpreord.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../bst/rec/bstrec.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../graph/graph.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../graph/graphitrvertex.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../graph/rep/bst/graphbst.c
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../graph/rep/bst/graphbst.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../graph/rep/bst/graphbstitradjacent.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../itr/itr.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../stack/stack.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o: ../utility.h
 
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: .././bst/bst.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: .././bst/bstitrinord.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: .././itr/itr.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: .././stack/stack.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../adt/adt.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../graph/graph.h
-CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../utility.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../bst/bst.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../bst/bstitrinord.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../graph/rep/bst/graphbst.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../graph/rep/bst/graphbstitradjacent.c
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../graph/rep/bst/graphbstitradjacent.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../itr/itr.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../stack/stack.h
+CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o: ../utility.h
 
-CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: .././graph/graph.h
-CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: .././graph/graphitrvertex.h
-CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: .././graph/rep/lst/graphlstitradjacent.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../adt/adt.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../graph/graph.h
+CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../graph/graphitrvertex.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../graph/rep/lst/graphlst.c
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../graph/rep/lst/graphlst.h
+CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../graph/rep/lst/graphlstitradjacent.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../itr/itr.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o: ../utility.h
 
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: ../adt/adt.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: ../graph/graph.h
-CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: ../itr/itr.h
-CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: ../utility.h
-CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: ../graph/rep/lst/graphlst.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: ../graph/rep/lst/graphlstitradjacent.c
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: ../graph/rep/lst/graphlstitradjacent.h
+CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: ../itr/itr.h
+CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o: ../utility.h
 
-CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: .././graph/graph.h
-CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: .././graph/graphitrvertex.h
-CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: .././graph/rep/mat/graphmatitradjacent.h
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: ../adt/adt.h
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: ../graph/graph.h
+CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: ../graph/graphitrvertex.h
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: ../graph/rep/mat/graphmat.c
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: ../graph/rep/mat/graphmat.h
+CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: ../graph/rep/mat/graphmatitradjacent.h
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: ../itr/itr.h
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o: ../utility.h
 
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: ../adt/adt.h
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: ../graph/graph.h
-CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: ../itr/itr.h
-CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: ../utility.h
-CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: ../graph/rep/mat/graphmat.h
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: ../graph/rep/mat/graphmatitradjacent.c
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: ../graph/rep/mat/graphmatitradjacent.h
+CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: ../itr/itr.h
+CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o: ../utility.h
 
-CMakeFiles/Exercise3.dir/itr/itr.c.o: .././adt/adt.h
-CMakeFiles/Exercise3.dir/itr/itr.c.o: .././bst/bst.h
-CMakeFiles/Exercise3.dir/itr/itr.c.o: .././utility.h
+CMakeFiles/Exercise3.dir/itr/itr.c.o: ../adt/adt.h
+CMakeFiles/Exercise3.dir/itr/itr.c.o: ../bst/bst.h
 CMakeFiles/Exercise3.dir/itr/itr.c.o: ../itr/itr.c
 CMakeFiles/Exercise3.dir/itr/itr.c.o: ../itr/itr.h
+CMakeFiles/Exercise3.dir/itr/itr.c.o: ../utility.h
 
 CMakeFiles/Exercise3.dir/main.c.o: ../adt/adt.h
 CMakeFiles/Exercise3.dir/main.c.o: ../adt/flt/adtflt.h

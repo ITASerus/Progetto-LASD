@@ -20,7 +20,6 @@ void testBST() {
     printf("Inserire tipologia di albero da utilizzare\n(1) Ricorsivo\n(2) Iterativo\n");
     do {
         printf("Scelta: ");
-        //scanf("%d", &scelta);
         char* buffer = (char*)malloc(sizeof(char)*10);
         getStr(buffer, 10);
         scelta = strtol(buffer, NULL, 10);

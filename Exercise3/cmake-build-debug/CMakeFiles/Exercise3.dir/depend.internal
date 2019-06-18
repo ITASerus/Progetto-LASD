@@ -126,7 +126,7 @@ CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
- /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/Graph.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrpreord.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrpreord.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
@@ -141,17 +141,16 @@ CMakeFiles/Exercise3.dir/graph/graphitrvertex.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.o
- .././adt/adt.h
- .././bst/bst.h
- .././utility.h
- ../adt/adt.h
- ../adt/int/adtint.h
- ../queue/queue.h
- ../queue/vec/queuevec.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/int/adtint.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bst.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/itr/graphitr.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/itr/graphitr.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/queue.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/vec/queuevec.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.h
@@ -160,78 +159,70 @@ CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbst.c.o
- .././adt/adt.h
- .././adt/int/adtint.h
- .././bst/bst.h
- .././bst/bstitrpreord.h
- .././bst/rec/bstrec.h
- .././graph/graph.h
- .././graph/graphitrvertex.h
- .././graph/rep/bst/graphbstitradjacent.h
- .././itr/itr.h
- .././stack/stack.h
- .././utility.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/int/adtint.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bst.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrpreord.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbst.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbst.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbstitradjacent.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/stack.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/graph/rep/bst/graphbstitradjacent.c.o
- .././bst/bst.h
- .././bst/bstitrinord.h
- .././itr/itr.h
- .././stack/stack.h
- ../adt/adt.h
- ../graph/graph.h
- ../utility.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bst.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bstitrinord.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbst.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbstitradjacent.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/bst/graphbstitradjacent.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/stack/stack.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlst.c.o
- .././graph/graph.h
- .././graph/graphitrvertex.h
- .././graph/rep/lst/graphlstitradjacent.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlst.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlst.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlstitradjacent.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/graph/rep/lst/graphlstitradjacent.c.o
- ../adt/adt.h
- ../graph/graph.h
- ../itr/itr.h
- ../utility.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlst.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlstitradjacent.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/lst/graphlstitradjacent.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmat.c.o
- .././graph/graph.h
- .././graph/graphitrvertex.h
- .././graph/rep/mat/graphmatitradjacent.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graphitrvertex.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmat.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmat.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmatitradjacent.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/graph/rep/mat/graphmatitradjacent.c.o
- ../adt/adt.h
- ../graph/graph.h
- ../itr/itr.h
- ../utility.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/graph.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmat.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmatitradjacent.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/graph/rep/mat/graphmatitradjacent.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/itr/itr.c.o
- .././adt/adt.h
- .././bst/bst.h
- .././utility.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bst.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.c
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/itr/itr.h
+ /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/main.c.o
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
  /Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/flt/adtflt.h
