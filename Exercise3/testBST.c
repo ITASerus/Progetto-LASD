@@ -12,16 +12,16 @@ void printStructBST(DataObject* dat, void* _) {
 }
 
 void testBST() {
+    char* buffer = (char*)malloc(sizeof(char) * MaxStrLen); //Buffer riservato all'input dell'utente
+
     BSTType* bstTyp = NULL;
     DataType* dataType = NULL;
 
     int scelta, number, tipoScelto;
-
     printf("Inserire tipologia di albero da utilizzare\n(1) Ricorsivo\n(2) Iterativo\n");
     do {
         printf("Scelta: ");
-        char* buffer = (char*)malloc(sizeof(char)*10);
-        getStr(buffer, 10);
+        getStr(buffer, MaxStrLen);
         scelta = strtol(buffer, NULL, 10);
 
         switch (scelta) {
@@ -43,7 +43,8 @@ void testBST() {
     printf("Inserire tipologia di dato da gestire\n(1) Intero\n(2) Float\n(3) Stringhe\n(4) Record\n");
     do {
         printf("Scelta: ");
-        scanf("%d", &tipoScelto);
+        getStr(buffer, MaxStrLen);
+        tipoScelto = strtol(buffer, NULL, 10);
         switch (tipoScelto) {
             case 1: {
                 dataType = ConstructIntDataType();
@@ -114,11 +115,13 @@ void testBST() {
 
         dataPtr = adtConstruct(dataType);
 
-        scanf("%d", &scelta);
+        getStr(buffer, MaxStrLen);
+        scelta = strtol(buffer, NULL, 10);
         switch (scelta) {
             case 1: {
                 printf("Numero di elementi da inserire nell'albero: ");
-                scanf("%d", &number);
+                getStr(buffer, MaxStrLen);
+                number = strtol(buffer, NULL, 10);
 
                 for(int i = 0; i < number; i++) {
                     adtRandomValue(dataPtr);
@@ -128,7 +131,6 @@ void testBST() {
                 printf("Elementi inseriti!\n");
                 break;
             }
-
             case 2: {
                 if(bstSize(bst) > 0) {
                     bstPreOrderMap(bst, printStructBST, NULL);
@@ -154,6 +156,29 @@ void testBST() {
                 break;
             }
             case 5: {
+                int x = 10;
+                adtSetValue(dataPtr, &x);
+                bstInsert(bst, dataPtr);
+                x = 5;
+                adtSetValue(dataPtr, &x);
+                bstInsert(bst, dataPtr);
+                x = 15;
+                adtSetValue(dataPtr, &x);
+                bstInsert(bst, dataPtr);
+                x = 7;
+                adtSetValue(dataPtr, &x);
+                bstInsert(bst, dataPtr);
+                x = 1;
+                adtSetValue(dataPtr, &x);
+                bstInsert(bst, dataPtr);
+                x = 12;
+                adtSetValue(dataPtr, &x);
+                bstInsert(bst, dataPtr);
+                x = 18;
+                adtSetValue(dataPtr, &x);
+                bstInsert(bst, dataPtr);
+
+
                 if(bstSize(bst) > 0) {
                     bstBreadthMap(bst, printStructBST, NULL);
                 } else {
@@ -161,7 +186,6 @@ void testBST() {
                 }
                 break;
             }
-
             case 6: {
                 printf("Valore da inserire: ");
                 adtReadFromKeyboard(dataPtr);
@@ -169,7 +193,6 @@ void testBST() {
                 printf("Valore inserito!\n");
                 break;
             }
-
             case 7: {
                 printf("Valore da rimuovere: ");
                 adtReadFromKeyboard(dataPtr);
@@ -177,7 +200,6 @@ void testBST() {
                 printf("Valore rimosso!");
                 break;
             }
-
             case 8: {
                 if((dataPtr = bstGetMin(bst)) != NULL) {
                     printf("Elemento minimo nell'albero: ");
@@ -206,7 +228,6 @@ void testBST() {
                 }
                 break;
             }
-
             case 11: {
                 if((dataPtr = bstGetMax(bst)) != NULL) {
                     printf("Elemento massimo nell'albero: ");
@@ -235,7 +256,6 @@ void testBST() {
                 }
                 break;
             }
-
             case 14: {
                 printf("Elemento di cui si vuole sapere il predecessore: ");
                 adtReadFromKeyboard(dataPtr);
@@ -306,7 +326,6 @@ void testBST() {
                 }
                 break;
             }
-
             case 20: {
                 if(bstEmpty(bst)) {
                     printf("L'albero è vuoto\n");

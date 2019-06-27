@@ -78,9 +78,9 @@ bool checkVertices(void* firstGraph, GraphRepresentation* firstGraphRepresentati
  * @param firstGraph Riferimento al primo grafo
  * @param firstGraphRepresentation Riferimento al tipo di rappresentazione del primo grafo
  * @param secondGraph Riferimento al secondo grafo
- * @param secondGraphRepresentation Riferimento al tipo di rappresentazione del secondo grafo
- * @return TRUE se i due grafi sono uguali, FALSE altrimenti
- */
+* @param secondGraphRepresentation Riferimento al tipo di rappresentazione del secondo grafo
+* @return TRUE se i due grafi sono uguali, FALSE altrimenti
+*/
 bool recGraphEqual(void* firstGraph, void* firstGraphRepresentation, void* secondGraph, void* secondGraphRepresentation) {
     ITRObject* firstGraphVertexIterator = ((GraphRepresentation*)firstGraphRepresentation)->graphVertices(firstGraph);
     ITRObject* secondGraphVertexIterator = ((GraphRepresentation*)secondGraphRepresentation)->graphVertices(secondGraph);

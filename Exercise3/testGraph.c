@@ -117,7 +117,7 @@ void testGraph() {
         printf("Menu':\n"
                "(1) Popolamento randomico del grafo con N elementi\n"
                "\n"
-               "(2) Visualizzazione dei vertici contenuti nel grafo\n"
+               "(2) Visualizzazione dei vertici pre - order\n"
                "(3) Visualizzazione del grafo e degli adiacente di ogni vertice\n"
                "\n"
                "(5) Inserimento manuale di un vertice nel grafo\n"
@@ -199,18 +199,38 @@ void testGraph() {
                 break;
             }
             case 2: {
-                ITRObject* vertexIterator = graphVertices(graphObject);
+                adtRandomValue(dataPtr);
+                graphInsertVertex(graphObject, 0, dataPtr);
+                adtRandomValue(dataPtr);
+                graphInsertVertex(graphObject, 1, dataPtr);
+                adtRandomValue(dataPtr);
+                graphInsertVertex(graphObject, 2, dataPtr);
+                adtRandomValue(dataPtr);
+                graphInsertVertex(graphObject, 3, dataPtr);
+                graphInsertEdge(graphObject, 0, 1);
+                graphInsertEdge(graphObject, 1, 2);
+                graphInsertEdge(graphObject, 2, 3);
+                graphInsertEdge(graphObject, 2, 1);
+                graphInsertEdge(graphObject, 0, 0);
+                graphInsertEdge(graphObject, 3, 1);
 
-                if(itrTerminated(vertexIterator)) {
+                ITRObject* iterator = itrConstruct(ConstructGraphPreOrderIterator(), graphObject);
+
+                if(itrTerminated(iterator)) {
                     printf("Grafo vuoto!\n");
-                } else {
-                    while(!itrTerminated(vertexIterator)) {
-                        printf("Nome Vertice: %d\n", ((Vertex*)itrElement(vertexIterator))->name);
-                        itrSuccessor(vertexIterator);
-                    }
                 }
 
-                itrDestruct(vertexIterator);
+                printf("------------------------------- Elemento corrente: %d\n", ((Vertex*)itrElement(iterator))->name);
+                itrSuccessor(iterator);
+                printf("------------------------------- Elemento corrente: %d\n", ((Vertex*)itrElement(iterator))->name);
+                itrSuccessor(iterator);
+                printf("------------------------------- Elemento corrente: %d\n", ((Vertex*)itrElement(iterator))->name);
+                itrSuccessor(iterator);
+                printf("------------------------------- Elemento corrente: %d\n", ((Vertex*)itrElement(iterator))->name);
+                itrSuccessor(iterator);
+                printf("------------------------------- Elemento corrente: %d\n", ((Vertex*)itrElement(iterator))->name);
+
+                itrDestruct(iterator);
 
                 break;
             }
@@ -252,7 +272,6 @@ void testGraph() {
                 printf("Inserire il nome del nuovo vertice: ");
                 getStr(buffer, MaxStrLen);
                 number = strtol(buffer, NULL, 10);
-                printf("%d\n", number);
 
                 printf("Inserire il valore del nuovo vertice: ");
                 adtReadFromKeyboard(dataPtr);

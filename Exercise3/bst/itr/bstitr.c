@@ -219,9 +219,10 @@ bool itrBSTInsert(BSTNode** tree, DataObject* elem) {
 
 bool itrBSTRemove(BSTNode** tree, DataObject* elem){
     if (tree != NULL) {
-        BSTNode *curr = *tree, *last = NULL;
+        BSTNode *curr = *tree;
+        BSTNode *last = NULL; //Nodo precedente a curr
 
-        while (curr && adtCompare(curr->key, elem) != 0) {
+        while (curr != NULL && adtCompare(curr->key, elem) != 0) {
             last = curr;
             if (adtCompare(curr->key, elem) < 0) {
                 curr = curr->right;
@@ -230,8 +231,8 @@ bool itrBSTRemove(BSTNode** tree, DataObject* elem){
             }
         }
 
-        if (curr) {
-            if (last) {
+        if (curr != NULL) { //Il nodo da rimuovere è stato trovato
+            if (last != NULL) {
                 if (curr == last->right) {
                     curr = _itrBSTDeleteRoot(curr);
                     last->right = curr;

@@ -106,12 +106,14 @@ bool recBSTInsert(BSTNode** tree, DataObject* elem) {
 
 bool recBSTRemove(BSTNode** tree, DataObject* elem) {
     if(*tree != NULL) {
-
         if(adtCompare((*tree)->key, elem) > 0) { //L'elemento da elminare si trova nel sottoalbero sinistro
+            printf("no\n");
             return recBSTRemove(&(*tree)->left, elem);
         } else if(adtCompare((*tree)->key, elem) < 0) { //L'elemento da eliminare si trova nel sottoalbero destro
+            printf("no\n");
             return recBSTRemove(&(*tree)->right, elem);
         } else { //L'elemento da eliminare è stato trovato
+            printf("si\n");
             *tree = _recBSTDeleteRoot(*tree);
             return true;
         }
@@ -252,24 +254,19 @@ bool recBSTRemovePredecessor(BSTNode** tree, DataObject* elem) {
 DataObject* _recBSTGetSuccessor(BSTNode* tree, DataObject* elem, BSTNode* father) {
     if(tree != NULL) {
         if(adtCompare(elem, tree->key) > 0) {
-            printf("DX\n");
             return _recBSTGetSuccessor(tree->right, elem, father);
         } else if(adtCompare(elem, tree->key) < 0) {
-            printf("SX\n");
             return _recBSTGetSuccessor(tree->left, elem, tree);
         } else {
             if(tree->right != NULL) {
-                printf("DX\n");
                 return recBSTGetMin(tree->right);
             }
         }
     }
 
     if(father != NULL) {
-        printf("Found\n");
         return father->key;
     } else {
-        printf("not found\n");
         return NULL;
     }
 }
@@ -278,9 +275,33 @@ DataObject* recBSTGetSuccessor(BSTNode* tree, DataObject* elem) {
     return _recBSTGetSuccessor(tree, elem, NULL);
 }
 
+DataObject* _recBSTGetNRemoveSuccessor(BSTNode** tree, DataObject* elem, BSTNode* father) {
+    if(*tree != NULL) {
+        if(adtCompare(elem, (*tree)->key) > 0) {
+            return _recBSTGetNRemoveSuccessor(&(*tree)->right, elem, father);
+        } else if(adtCompare(elem, (*tree)->key) < 0) {
+            return _recBSTGetNRemoveSuccessor(&(*tree)->left, elem, *tree);
+        } else {
+            if((*tree)->right != NULL) {
+                DataObject* min = adtClone(recBSTGetMin((*tree)->right));
+                printf("Successore: ");
+                adtWriteToMonitor(min);
+                printf("\n");
+                recBSTRemove(tree, min);
+                return min;
+            }
+        }
+    }
+
+    if(father != NULL) {
+        return father->key;
+    } else {
+        return NULL;
+    }
+}
+
 DataObject* recBSTGetNRemoveSuccessor(BSTNode** tree, DataObject* elem) {
-    printf("Da Implementare\n");
-    return NULL;
+    return _recBSTGetNRemoveSuccessor(tree, elem, NULL);
 }
 
 bool recBSTRemoveSuccessor(BSTNode** tree, DataObject* elem) {
@@ -313,8 +334,78 @@ void recBSTPostOrderMap(BSTNode* tree, MapFun mapFunction, void* parameter)  {
     }
 }
 
+void printStruct(DataObject* dat, void* _) {
+    BSTNode* node = dat->value;
+    adtWriteToMonitor(node->key);
+    printf(" - ");
+}
+
+void _recBSTBreadthMap(BSTNode* tree, MapFun mapFunction, void* queue)  {
+    if(!queEmpty(queue)) {
+
+        printf("MAP: ");
+        mapFunction(tree->key, NULL);
+        printf("\n");
+
+        if(tree->left) {
+            printf("Inserisco nella queue il figlio sinistro di ");
+            adtWriteToMonitor(tree->key);
+            printf("\n");
+
+            DataType* dataType = ConstructPointerDataType();
+            DataObject* data = adtConstruct(dataType);
+            adtSetValue(data, tree->left);
+            queEnqueue(queue, data);
+        }
+
+        if(tree->right) {
+            printf("Inserisco nella queue il figlio destro di ");
+            adtWriteToMonitor(tree->key);
+            printf("\n");
+
+            DataType* dataType = ConstructPointerDataType();
+            DataObject* data = adtConstruct(dataType);
+            adtSetValue(data, tree->right);
+            queEnqueue(queue, data);
+        }
+
+        printf("QUEUE ATTUALE: ");
+        queMap(queue, printStruct, NULL);
+        printf("\n");
+
+        BSTNode* node = ((DataObject*)queHeadNDequeue(queue))->value;
+
+        if(node->left) {
+            printf("\nSinistra di ");
+            adtWriteToMonitor(node->key);
+            printf("\n");
+            _recBSTBreadthMap(node->left, mapFunction, queue);
+        }
+
+        if(node->right) {
+            printf("\nDestra di ");
+            adtWriteToMonitor(node->key);
+            printf("\n");
+            _recBSTBreadthMap(node->right, mapFunction, queue);
+        }
+
+    } else {
+        printf("Queue vuota\n");
+    }
+}
+
 void recBSTBreadthMap(BSTNode* tree, MapFun mapFunction, void* parameter)  {
-    printf("Non disponibile\n");
+    QueueType* queType = ConstructQueueVecType();
+    QueueObject* queue = queConstruct(queType);
+
+    //Inizializzo la queue
+    DataType* dataType = ConstructPointerDataType();
+    DataObject* data = adtConstruct(dataType);
+    adtSetValue(data, tree);
+    queEnqueue(queue, data);
+
+
+    _recBSTBreadthMap(tree, mapFunction, queue);
 }
 
 
