@@ -6,43 +6,43 @@
 
 #IncludeRegexTransform: 
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
 ../utility.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/utility.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.h
 ../adt.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bst.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/bst.h
 ../utility.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/utility.h
 ../adt/adt.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.c
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.c
 bstrec.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.h
 ../../adt/ptr/adtptr.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.h
-../../queue/vec/queuevec.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/vec/queuevec.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.h
+../../queue/lst/queuelst.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/queue/lst/queuelst.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.h
 ../bst.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/bst/bst.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/bst.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/queue.h
-../utility.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
-../adt/adt.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/adt/adt.h
-
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/vec/queuevec.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/queue/lst/queuelst.h
 ../queue.h
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/queue/queue.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/queue/queue.h
 
-/Users/ernestodecrecchio/Documents/GitHub/Progetto-LASD/Exercise3/utility.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/queue/queue.h
+../utility.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/utility.h
+../adt/adt.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
+
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/utility.h
 assert.h
 -
 stdbool.h

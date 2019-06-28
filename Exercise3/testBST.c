@@ -156,29 +156,6 @@ void testBST() {
                 break;
             }
             case 5: {
-                int x = 10;
-                adtSetValue(dataPtr, &x);
-                bstInsert(bst, dataPtr);
-                x = 5;
-                adtSetValue(dataPtr, &x);
-                bstInsert(bst, dataPtr);
-                x = 15;
-                adtSetValue(dataPtr, &x);
-                bstInsert(bst, dataPtr);
-                x = 7;
-                adtSetValue(dataPtr, &x);
-                bstInsert(bst, dataPtr);
-                x = 1;
-                adtSetValue(dataPtr, &x);
-                bstInsert(bst, dataPtr);
-                x = 12;
-                adtSetValue(dataPtr, &x);
-                bstInsert(bst, dataPtr);
-                x = 18;
-                adtSetValue(dataPtr, &x);
-                bstInsert(bst, dataPtr);
-
-
                 if(bstSize(bst) > 0) {
                     bstBreadthMap(bst, printStructBST, NULL);
                 } else {

@@ -7,6 +7,7 @@
 #include "utility.h"
 #include "testBST.h"
 #include "testGraph.h"
+#include "testADT.h"
 
 /* ************************************************************************** */
 
@@ -25,20 +26,20 @@ int main()
     scelta = strtol(buffer, NULL, 10);
     switch (scelta) {
       case 1: {
-        //
-        break;
+          testADT();
+          break;
       }
       case 2: {
-        testBST();
-        break;
+          testBST();
+          break;
       }
       case 3: {
-        testGraph();
-        break;
+          testGraph();
+          break;
       }
       default: {
-        printf("Opzione non valida.\nOpzioni possibili:\n(1) Abstract Data Type\n(2) Alberi\n(3) Grafi");
-        break;
+          printf("Opzione non valida.\nOpzioni possibili:\n(1) Abstract Data Type\n(2) Alberi\n(3) Grafi");
+          break;
       }
     }
   } while (scelta != 1 && scelta != 2 && scelta!= 3);

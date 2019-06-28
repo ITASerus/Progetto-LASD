@@ -6,7 +6,7 @@
 
 #include "bstrec.h"
 #include "../../adt/ptr/adtptr.h"
-#include "../../queue/vec/queuevec.h"
+#include "../../queue/lst/queuelst.h"
 
 //*** PROTOTIPI FUNZIONI ***
 void recBSTDestruct(BSTNode* tree);
@@ -334,68 +334,34 @@ void recBSTPostOrderMap(BSTNode* tree, MapFun mapFunction, void* parameter)  {
     }
 }
 
-void printStruct(DataObject* dat, void* _) {
-    BSTNode* node = dat->value;
-    adtWriteToMonitor(node->key);
-    printf(" - ");
-}
 
-void _recBSTBreadthMap(BSTNode* tree, MapFun mapFunction, void* queue)  {
+void _recBSTBreadthMap(BSTNode* tree, MapFun mapFunction, QueueObject* queue, void* parameter)  {
     if(!queEmpty(queue)) {
-
-        printf("MAP: ");
-        mapFunction(tree->key, NULL);
-        printf("\n");
-
-        if(tree->left) {
-            printf("Inserisco nella queue il figlio sinistro di ");
-            adtWriteToMonitor(tree->key);
-            printf("\n");
-
-            DataType* dataType = ConstructPointerDataType();
-            DataObject* data = adtConstruct(dataType);
-            adtSetValue(data, tree->left);
-            queEnqueue(queue, data);
-        }
-
-        if(tree->right) {
-            printf("Inserisco nella queue il figlio destro di ");
-            adtWriteToMonitor(tree->key);
-            printf("\n");
-
-            DataType* dataType = ConstructPointerDataType();
-            DataObject* data = adtConstruct(dataType);
-            adtSetValue(data, tree->right);
-            queEnqueue(queue, data);
-        }
-
-        printf("QUEUE ATTUALE: ");
-        queMap(queue, printStruct, NULL);
-        printf("\n");
-
         BSTNode* node = ((DataObject*)queHeadNDequeue(queue))->value;
+        mapFunction(node->key, parameter);
 
         if(node->left) {
-            printf("\nSinistra di ");
-            adtWriteToMonitor(node->key);
-            printf("\n");
-            _recBSTBreadthMap(node->left, mapFunction, queue);
+            DataType* dataType = ConstructPointerDataType();
+            DataObject* data = adtConstruct(dataType);
+
+            adtSetValue(data, node->left);
+            queEnqueue(queue, data);
         }
 
         if(node->right) {
-            printf("\nDestra di ");
-            adtWriteToMonitor(node->key);
-            printf("\n");
-            _recBSTBreadthMap(node->right, mapFunction, queue);
+            DataType* dataType = ConstructPointerDataType();
+            DataObject* data = adtConstruct(dataType);
+
+            adtSetValue(data, node->right);
+            queEnqueue(queue, data);
         }
 
-    } else {
-        printf("Queue vuota\n");
+        _recBSTBreadthMap(node, mapFunction, queue, parameter);
     }
 }
 
 void recBSTBreadthMap(BSTNode* tree, MapFun mapFunction, void* parameter)  {
-    QueueType* queType = ConstructQueueVecType();
+    QueueType* queType = ConstructQueueLstType();
     QueueObject* queue = queConstruct(queType);
 
     //Inizializzo la queue
@@ -404,8 +370,10 @@ void recBSTBreadthMap(BSTNode* tree, MapFun mapFunction, void* parameter)  {
     adtSetValue(data, tree);
     queEnqueue(queue, data);
 
+    _recBSTBreadthMap(tree, mapFunction, queue, parameter);
 
-    _recBSTBreadthMap(tree, mapFunction, queue);
+    queDestruct(queue);
+    DestructQueueLstType(queType);
 }
 
 
@@ -418,7 +386,7 @@ void recBSTPreOrderFold(BSTNode* tree, FoldFun foldFunction, void* accumulator, 
 }
 
 void recBSTInOrderFold(BSTNode* tree, FoldFun foldFunction, void* accumulator, void* parameter) {
-    if (tree == NULL) {
+    if (tree != NULL) {
         recBSTInOrderFold(tree->left, foldFunction, accumulator, parameter);
         foldFunction(tree->key, accumulator, parameter);
         recBSTInOrderFold(tree->right, foldFunction, accumulator, parameter);

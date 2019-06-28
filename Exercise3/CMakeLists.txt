@@ -100,4 +100,4 @@ add_executable(Exercise3
         testGraph.c
         testGraph.h
         utility.c
-        utility.h)
+        utility.h testADT.c testADT.h)

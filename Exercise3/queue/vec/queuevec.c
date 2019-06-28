@@ -164,7 +164,7 @@ void queVecEnqueue(void* queue, void* elem) {
         queueVector->size *= 2;
     }
 
-    //Inserimento effettivo della stringa nella queue
+    //Inserimento effettivo dell'elemento  nella queue
     if(queueVector->front == -1) {
         queueVector->front = 0;
     }
