@@ -105,15 +105,12 @@ bool recBSTInsert(BSTNode** tree, DataObject* elem) {
 }
 
 bool recBSTRemove(BSTNode** tree, DataObject* elem) {
-    if(*tree != NULL) {
-        if(adtCompare((*tree)->key, elem) > 0) { //L'elemento da elminare si trova nel sottoalbero sinistro
-            printf("no\n");
+    if (*tree != NULL) {
+        if (adtCompare((*tree)->key, elem) > 0) { //L'elemento da elminare si trova nel sottoalbero sinistro
             return recBSTRemove(&(*tree)->left, elem);
-        } else if(adtCompare((*tree)->key, elem) < 0) { //L'elemento da eliminare si trova nel sottoalbero destro
-            printf("no\n");
+        } else if (adtCompare((*tree)->key, elem) < 0) { //L'elemento da eliminare si trova nel sottoalbero destro
             return recBSTRemove(&(*tree)->right, elem);
         } else { //L'elemento da eliminare è stato trovato
-            printf("si\n");
             *tree = _recBSTDeleteRoot(*tree);
             return true;
         }
@@ -240,12 +237,12 @@ DataObject* recBSTGetPredecessor(BSTNode* tree, DataObject* elem) {
     return _recBSTGetPredecessor(tree, elem, NULL);
 }
 
-DataObject* recBSTGetNRemovePredecessor(BSTNode** tree, DataObject* elem) {
+DataObject* recBSTGetNRemovePredecessor(BSTNode** tree, DataObject* elem) { //TODO: Da Implementare
     printf("Da Implementare\n");
     return NULL;
 }
 
-bool recBSTRemovePredecessor(BSTNode** tree, DataObject* elem) {
+bool recBSTRemovePredecessor(BSTNode** tree, DataObject* elem) { //TODO: Da Implementare
     printf("Da Implementare\n");
     return NULL;
 }
@@ -275,36 +272,12 @@ DataObject* recBSTGetSuccessor(BSTNode* tree, DataObject* elem) {
     return _recBSTGetSuccessor(tree, elem, NULL);
 }
 
-DataObject* _recBSTGetNRemoveSuccessor(BSTNode** tree, DataObject* elem, BSTNode* father) {
-    if(*tree != NULL) {
-        if(adtCompare(elem, (*tree)->key) > 0) {
-            return _recBSTGetNRemoveSuccessor(&(*tree)->right, elem, father);
-        } else if(adtCompare(elem, (*tree)->key) < 0) {
-            return _recBSTGetNRemoveSuccessor(&(*tree)->left, elem, *tree);
-        } else {
-            if((*tree)->right != NULL) {
-                DataObject* min = adtClone(recBSTGetMin((*tree)->right));
-                printf("Successore: ");
-                adtWriteToMonitor(min);
-                printf("\n");
-                recBSTRemove(tree, min);
-                return min;
-            }
-        }
-    }
-
-    if(father != NULL) {
-        return father->key;
-    } else {
-        return NULL;
-    }
+DataObject* recBSTGetNRemoveSuccessor(BSTNode** tree, DataObject* elem) { //TODO: Da Implementare
+    printf("Da Implementare\n");
+    return NULL;
 }
 
-DataObject* recBSTGetNRemoveSuccessor(BSTNode** tree, DataObject* elem) {
-    return _recBSTGetNRemoveSuccessor(tree, elem, NULL);
-}
-
-bool recBSTRemoveSuccessor(BSTNode** tree, DataObject* elem) {
+bool recBSTRemoveSuccessor(BSTNode** tree, DataObject* elem) { //TODO: Da Implementare
     printf("Da Implementare\n");
     return false;
 }
@@ -401,8 +374,46 @@ void recBSTPostOrderFold(BSTNode* tree, FoldFun foldFunction, void* accumulator,
     }
 }
 
-void recBSTBreadthFold(BSTNode* tree, FoldFun foldFunction, void* accumulator, void* parameter) {
-    printf("Non disponibile\n");
+
+void _recBSTBreadthFold(BSTNode* tree, FoldFun foldFunction, QueueObject* queue, void* accumulator, void* parameter) {
+    if(!queEmpty(queue)) {
+        BSTNode* node = ((DataObject*)queHeadNDequeue(queue))->value;
+        foldFunction(node->key, accumulator, parameter);
+
+        if(node->left) {
+            DataType* dataType = ConstructPointerDataType();
+            DataObject* data = adtConstruct(dataType);
+
+            adtSetValue(data, node->left);
+            queEnqueue(queue, data);
+        }
+
+        if(node->right) {
+            DataType* dataType = ConstructPointerDataType();
+            DataObject* data = adtConstruct(dataType);
+
+            adtSetValue(data, node->right);
+            queEnqueue(queue, data);
+        }
+
+        _recBSTBreadthFold(node, foldFunction, queue, accumulator, parameter);
+    }
+}
+
+void recBSTBreadthFold(BSTNode* tree, FoldFun foldFunction, void* accumulator, void* parameter) { //TODO: Da Testare
+    QueueType* queType = ConstructQueueLstType();
+    QueueObject* queue = queConstruct(queType);
+
+    //Inizializzo la queue
+    DataType* dataType = ConstructPointerDataType();
+    DataObject* data = adtConstruct(dataType);
+    adtSetValue(data, tree);
+    queEnqueue(queue, data);
+
+    _recBSTBreadthFold(tree, foldFunction, queue, accumulator, parameter);
+
+    queDestruct(queue);
+    DestructQueueLstType(queType);
 }
 
 
@@ -492,6 +503,7 @@ BSTNode* _recBSTDeleteRoot(BSTNode* tree) {
         }
         recBSTDestructNode(tmp); //Dealloco la vecchia radice
     }
+    if(tree == NULL) printf("ritorno NULL\n");
     return tree; //Ritorno la nuova radice
 }
 

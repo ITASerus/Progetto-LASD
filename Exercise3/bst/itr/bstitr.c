@@ -170,13 +170,6 @@ bool itrBSTExists(BSTNode* tree, DataObject* elem) {
         BSTNode *curr = tree;
 
         while (curr != NULL && (adtCompare(curr->key, elem) != 0)) {
-
-            printf("Confronto ");
-            adtWriteToMonitor(curr->key);
-            printf(" con ");
-            adtWriteToMonitor(elem);
-            printf("\n");
-
             if (adtCompare(curr->key, elem) < 0) {
                 curr = curr->right;
             } else {

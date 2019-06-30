@@ -21,6 +21,7 @@ int main()
   int scelta;
   printf("Inserire struttura da analizzare:\n(1) Abstract Data Type\n(2) Alberi\n(3) Grafi\n");
   do {
+      setbuf(stdout, 0);
     printf("Scelta: ");
     getStr(buffer, MaxStrLen);
     scelta = strtol(buffer, NULL, 10);

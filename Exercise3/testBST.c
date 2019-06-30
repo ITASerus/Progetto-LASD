@@ -7,6 +7,7 @@
 #include "testBST.h"
 
 void printStructBST(DataObject* dat, void* _) {
+    setbuf(stdout, 0);
     printf(" | ");
     adtWriteToMonitor(dat);
 }
@@ -18,6 +19,7 @@ void testBST() {
     DataType* dataType = NULL;
 
     int scelta, number, tipoScelto;
+    setbuf(stdout, 0);
     printf("Inserire tipologia di albero da utilizzare\n(1) Ricorsivo\n(2) Iterativo\n");
     do {
         printf("Scelta: ");
@@ -40,6 +42,7 @@ void testBST() {
         }
     } while (scelta != 1 && scelta != 2);
 
+    setbuf(stdout, 0);
     printf("Inserire tipologia di dato da gestire\n(1) Intero\n(2) Float\n(3) Stringhe\n(4) Record\n");
     do {
         printf("Scelta: ");
@@ -74,6 +77,7 @@ void testBST() {
     DataObject* dataPtr;
 
     do {
+        setbuf(stdout, 0);
         printf("\n***********************************************************************************************\n\n");
         printf("Menu':\n"
                "(1) Popolamento randomico dell'albero con N elementi\n"
@@ -119,6 +123,7 @@ void testBST() {
         scelta = strtol(buffer, NULL, 10);
         switch (scelta) {
             case 1: {
+                setbuf(stdout, 0);
                 printf("Numero di elementi da inserire nell'albero: ");
                 getStr(buffer, MaxStrLen);
                 number = strtol(buffer, NULL, 10);
@@ -128,6 +133,7 @@ void testBST() {
                     bstInsert(bst, dataPtr);
                 }
 
+                setbuf(stdout, 0);
                 printf("Elementi inseriti!\n");
                 break;
             }
@@ -292,13 +298,16 @@ void testBST() {
                 break;
             }
             case 19: {
+                setbuf(stdout, 0);
                 printf("Elemento di cui si vuole sapere il successore: ");
                 adtReadFromKeyboard(dataPtr);
                 if((dataPtr = bstGetNRemoveSuccessor(bst, dataPtr))) {
+                    setbuf(stdout, 0);
                     printf("Il successore è ");
                     adtWriteToMonitor(dataPtr);
                     printf("\nElemento rimosso\n");
                 } else {
+                    setbuf(stdout, 0);
                     printf("Non esiste successore\n");
                 }
                 break;
