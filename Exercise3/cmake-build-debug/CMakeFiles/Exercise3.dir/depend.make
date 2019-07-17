@@ -116,6 +116,7 @@ CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.obj: ../queue/vec/queuevec.h
 CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.obj: ../utility.h
 
 CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.obj: ../adt/adt.h
+CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.obj: ../adt/ptr/adtptr.h
 CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.obj: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.obj: ../graph/graphitrpostord.c
 CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.obj: ../graph/graphitrpostord.h
@@ -125,11 +126,10 @@ CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.obj: ../stack/vec/stackvec.h
 CMakeFiles/Exercise3.dir/graph/graphitrpostord.c.obj: ../utility.h
 
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.obj: ../adt/adt.h
-CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.obj: ../adt/int/adtint.h
+CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.obj: ../adt/ptr/adtptr.h
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.obj: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.obj: ../graph/graphitrpreord.c
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.obj: ../graph/graphitrpreord.h
-CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.obj: ../graph/graphitrvertex.h
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.obj: ../itr/itr.h
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.obj: ../stack/stack.h
 CMakeFiles/Exercise3.dir/graph/graphitrpreord.c.obj: ../stack/vec/stackvec.h
@@ -234,6 +234,7 @@ CMakeFiles/Exercise3.dir/main.c.obj: ../bst/bst.h
 CMakeFiles/Exercise3.dir/main.c.obj: ../bst/itr/bstitr.h
 CMakeFiles/Exercise3.dir/main.c.obj: ../bst/rec/bstrec.h
 CMakeFiles/Exercise3.dir/main.c.obj: ../graph/graph.h
+CMakeFiles/Exercise3.dir/main.c.obj: ../graph/graphitrpostord.h
 CMakeFiles/Exercise3.dir/main.c.obj: ../graph/graphitrpreord.h
 CMakeFiles/Exercise3.dir/main.c.obj: ../graph/itr/graphitr.h
 CMakeFiles/Exercise3.dir/main.c.obj: ../graph/rec/graphrec.h
@@ -323,6 +324,7 @@ CMakeFiles/Exercise3.dir/testGraph.c.obj: ../bst/bst.h
 CMakeFiles/Exercise3.dir/testGraph.c.obj: ../bst/itr/bstitr.h
 CMakeFiles/Exercise3.dir/testGraph.c.obj: ../bst/rec/bstrec.h
 CMakeFiles/Exercise3.dir/testGraph.c.obj: ../graph/graph.h
+CMakeFiles/Exercise3.dir/testGraph.c.obj: ../graph/graphitrpostord.h
 CMakeFiles/Exercise3.dir/testGraph.c.obj: ../graph/graphitrpreord.h
 CMakeFiles/Exercise3.dir/testGraph.c.obj: ../graph/itr/graphitr.h
 CMakeFiles/Exercise3.dir/testGraph.c.obj: ../graph/rec/graphrec.h

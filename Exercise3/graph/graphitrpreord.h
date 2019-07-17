@@ -17,20 +17,24 @@
 
 /* ************************************************************************** */
 
-typedef struct SupportInfo {
-    Vertex* vertexInfo;
+typedef struct SupportPre {
+    int name;
     char color;
-    ITRObject* adjacent;
-} SupportInfo;
+} SupportPre;
 
 typedef struct GraphPreOrderIterator {
-    ITRType* type;
-    Vertex* element;
+    GraphObject* graph;
+    Vertex* currentVertex;
+    SupportPre* support;
 
-    StackObject* stackPredecessor;
-    SupportInfo** support;
-    int maxVertexIndex;
-    int currentVertexIndex;
+    StackObject* stackVertices;
+    StackObject* stackAdjacent;
+
+    int indexVertices;
+    ITRObject* verticesIterator;
+    ITRObject* currentAdjIterator;
+
+    DataType *ptrType;
 } GraphPreOrderIterator;
 
 /* ************************************************************************** */

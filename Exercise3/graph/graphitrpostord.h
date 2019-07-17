@@ -12,15 +12,31 @@
 
 /* ************************************************************************** */
 
-typedef struct GraphPostOrderIterator
-{
-  // Struct da completare!
+typedef struct SupportPost {
+    int name;
+    char color;
+} SupportPost;
+
+typedef struct GraphPostOrderIterator {
+    GraphObject* graph;
+    Vertex* currentVertex;
+    SupportPost* support;
+
+    StackObject* stackVertices;
+    StackObject* stackAdjacent;
+    StackObject* stackIndexes;
+
+    int indexVertices;
+    ITRObject* verticesIterator;
+    ITRObject* currentAdjIterator;
+
+    DataType *ptrType;
 } GraphPostOrderIterator;
 
 /* ************************************************************************** */
 
-// type ConstructGraphPostOrderIterator(arguments);
-// type DestructGraphPostOrderIterator(arguments);
+ITRType* ConstructGraphPostOrderIterator();
+void DestructGraphPostOrderIterator(ITRType* type);
 
 /* ************************************************************************** */
 

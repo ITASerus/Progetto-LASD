@@ -34,6 +34,7 @@
 #include "graph/rep/lst/graphlst.h"
 #include "graph/rep/bst/graphbst.h"
 #include "graph/graphitrpreord.h"
+#include "graph/graphitrpostord.h"
 
 /* ************************************************************************** */
 

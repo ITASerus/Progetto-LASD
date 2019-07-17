@@ -32,8 +32,10 @@ void testGraph() {
     GraphType* graphType = (GraphType*)malloc(sizeof(GraphType));
 
     int repType, number, scelta;
+    setbuf(stdout, 0);
     printf("Inserire tipologia di struttra da utilizzare\n(1) Liste di adiacenza\n(2) Matrice di Adiacenza\n(3) Alberi di adiacenza\n");
     do {
+        setbuf(stdout, 0);
         printf("Scelta: ");
         getStr(buffer, MaxStrLen);
         repType = strtol(buffer, NULL, 10);
@@ -57,8 +59,10 @@ void testGraph() {
         }
     } while (repType != 1 && repType != 2 && repType!= 3);
 
+    setbuf(stdout, 0);
     printf("Inserire tipologia di implementazione della pila da utilizzare\n(1) Ricorsiva\n(2) Iterativa\n");
     do {
+        setbuf(stdout, 0);
         printf("Scelta: ");
         getStr(buffer, MaxStrLen);
         scelta = strtol(buffer, NULL, 10);
@@ -80,6 +84,7 @@ void testGraph() {
 
     DataType* datatype = NULL;
     int tipoDatoScelto;
+    setbuf(stdout, 0);
     printf("Inserire tipologia di dato da gestire\n(1) Intero\n(2) Float\n(3) Stringhe\n(4) Record\n");
     do {
         printf("Scelta: ");
@@ -113,12 +118,14 @@ void testGraph() {
     DataObject* dataPtr = adtConstruct(datatype);
 
     do {
+        setbuf(stdout, 0);
         printf("\n***********************************************************************************************\n\n");
         printf("Menu':\n"
                "(1) Popolamento randomico del grafo con N elementi\n"
                "\n"
-               "(2) Visualizzazione dei vertici pre - order\n"
-               "(3) Visualizzazione del grafo e degli adiacente di ogni vertice\n"
+               "(2) Visualizzazione dei vertici pre-order\n"
+               "(3) Visualizzazione dei vertici post-order\n"
+               "(4) Visualizzazione dei vertici in ampiezza\n"
                "\n"
                "(5) Inserimento manuale di un vertice nel grafo\n"
                "(6) Rimozione di un vertice dal grafo\n"
@@ -199,73 +206,38 @@ void testGraph() {
                 break;
             }
             case 2: {
-                adtRandomValue(dataPtr);
-                graphInsertVertex(graphObject, 0, dataPtr);
-                adtRandomValue(dataPtr);
-                graphInsertVertex(graphObject, 1, dataPtr);
-                adtRandomValue(dataPtr);
-                graphInsertVertex(graphObject, 2, dataPtr);
-                adtRandomValue(dataPtr);
-                graphInsertVertex(graphObject, 3, dataPtr);
-                graphInsertEdge(graphObject, 0, 1);
-                graphInsertEdge(graphObject, 1, 2);
-                graphInsertEdge(graphObject, 2, 3);
-                graphInsertEdge(graphObject, 2, 1);
-                graphInsertEdge(graphObject, 0, 0);
-                graphInsertEdge(graphObject, 3, 1);
+                ITRType* typ = ConstructGraphPreOrderIterator();
+                ITRObject* iterator = itrConstruct(typ, graphObject);
 
-                ITRObject* iterator = itrConstruct(ConstructGraphPreOrderIterator(), graphObject);
+                while(!itrTerminated(iterator)) {
+                    setbuf(stdout, 0);
+                    printf("OUTPUT: %d\n", ((Vertex*)itrElement(iterator))->name);
 
-                if(itrTerminated(iterator)) {
-                    printf("Grafo vuoto!\n");
+                    itrSuccessor(iterator);
                 }
 
-                printf("------------------------------- Elemento corrente: %d\n", ((Vertex*)itrElement(iterator))->name);
-                itrSuccessor(iterator);
-                printf("------------------------------- Elemento corrente: %d\n", ((Vertex*)itrElement(iterator))->name);
-                itrSuccessor(iterator);
-                printf("------------------------------- Elemento corrente: %d\n", ((Vertex*)itrElement(iterator))->name);
-                itrSuccessor(iterator);
-                printf("------------------------------- Elemento corrente: %d\n", ((Vertex*)itrElement(iterator))->name);
-                itrSuccessor(iterator);
-                printf("------------------------------- Elemento corrente: %d\n", ((Vertex*)itrElement(iterator))->name);
-
                 itrDestruct(iterator);
+                DestructGraphPreOrderIterator(typ);
 
                 break;
             }
             case 3: {
-                ITRObject* vertexIterator = graphVertices(graphObject);
+                ITRType* typ = ConstructGraphPostOrderIterator();
+                ITRObject* iterator = itrConstruct(typ, graphObject);
 
-                if(itrTerminated(vertexIterator)) {
-                    printf("Grafo vuoto!\n");
-                } else {
-                    while(!itrTerminated(vertexIterator)) {
-                        int name = ((Vertex*)itrElement(vertexIterator))->name;
-                        DataObject* label = ((Vertex*)itrElement(vertexIterator))->label;
-                        printf("Nome: %d, Etichetta: ", name);
-                        adtWriteToMonitor(label);
+                while(!itrTerminated(iterator)) {
+                    setbuf(stdout, 0);
+                    printf("OUTPUT: %d\n", ((Vertex*)itrElement(iterator))->name);
 
-                        printf(" - Adiacenti: ");
-                        ITRObject* adjacentIterator = graphVertexEdges(graphObject, name);
-
-                        while(!itrTerminated(adjacentIterator)) {
-                            printf("%d, ", ((Vertex*)itrElement(adjacentIterator))->name);
-                            itrSuccessor(adjacentIterator);
-                        }
-
-                        itrDestruct(adjacentIterator);
-
-                        itrSuccessor(vertexIterator);
-                        printf("\n");
-                    }
+                    itrSuccessor(iterator);
                 }
 
-                itrDestruct(vertexIterator);
+                itrDestruct(iterator);
+                DestructGraphPostOrderIterator(typ);
+
                 break;
             }
             case 4: {
-                printf("Da implementare\n");
                 break;
             }
             case 5: {
