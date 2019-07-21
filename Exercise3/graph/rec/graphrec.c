@@ -98,6 +98,83 @@ int recGraphShortestPath(void* graph, int numVertex, void* graphRepresentation, 
     return 0;
 }
 
+bool _recGraphIsAcyclic(GraphObject* graph, char* color, uint index) {
+    // Coloro il nodo di grigio
+    color[index] = 'g';
+    bool isAcyclic = true;
+
+    // Scendo ricorsivamente ai suoi adiacenti
+    ITRObject* vertexName = graphVertices(graph);
+    for(int i = 0; i< index; i++) {
+        itrSuccessor(vertexName);
+    }
+    Vertex* vertex = itrElement(vertexName);
+    ITRObject* adjIter = graphVertexEdges(graph, vertex->name);
+    while(!itrTerminated(adjIter) && isAcyclic) {
+
+        Vertex* innerAdj = itrElement(adjIter);
+        vertexName = graphVertices(graph);
+        uint innerIndex = 0;
+        while(!itrTerminated(vertexName) && ((Vertex*)itrElement(vertexName))->name != innerAdj->name) {
+            itrSuccessor(vertexName);
+            innerIndex++;
+        }
+
+        // Se il colore e' bianco allora procedo a prenderlo e visitarlo
+        if(color[innerIndex] == 'b') {
+            isAcyclic = _recGraphIsAcyclic(graph, color, innerIndex);
+        }
+        else if(color[innerIndex] == 'g') {
+            isAcyclic = false;
+        }
+
+        itrSuccessor(adjIter);
+    }
+    itrDestruct(adjIter);
+
+    // Coloro il vertice di nero in modo da garantirmi che questo percorso e' terminato
+    color[index] = 'n';
+
+    return isAcyclic;
+}
+
+bool recGraphIsAcyclic(void* graph) {
+    GraphObject* graphObject = (GraphObject*) graph;
+    bool ret = true;
+
+    // Dichiaro l'array dei colori
+    char* color = (char*) malloc(sizeof(char) * graphObject->numVertex);
+    int* names = (int*)malloc(sizeof(int) * graphObject->numVertex);
+    ITRObject* vertexName = graphVertices(graphObject);
+
+    for (int i = 0; i < graphObject->numVertex; ++i) {
+        names[i] = ((Vertex*)itrElement(vertexName))->name;
+        color[i] = 'b';
+
+        itrSuccessor(vertexName);
+    }
+
+    // Scorro i vari vertici del grafo
+    ITRObject* vertices = graphVertices(graphObject);
+    while(!itrTerminated(vertices) && ret) {
+        Vertex* vertex = itrElement(vertices);
+        uint index = 0;
+        while(index < graphObject->numVertex && names[index] != vertex->name) {
+            index++;
+        }
+
+        // Se il colore e' bianco allora procedo a visitarlo
+        if(color[index] == 'b') {
+            ret = _recGraphIsAcyclic(graphObject, color, index);
+        }
+        itrSuccessor(vertices);
+    }
+    itrDestruct(vertices);
+    free(color);
+    free(names);
+
+    return ret;
+}
 
 void _recGraphPreOrderMap(ITRObject* iterator, MapFun mapFunction, void* parameter) {
     if(!itrTerminated(iterator)) {
@@ -165,6 +242,8 @@ void ConstructGraphRecursive(GraphType* type) {
     type->graphEqual = recGraphEqual;
 
     type->graphShortestPath = recGraphShortestPath;
+
+    type->graphIsAcyclic = recGraphIsAcyclic;
 
     type->graphPreOrderMap = recGraphPreOrderMap;
     type->graphPostOrderMap = recGraphPostOrderMap;

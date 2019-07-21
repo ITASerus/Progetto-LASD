@@ -23,6 +23,7 @@ void foldProdLesserThanN(DataObject* dat, void *val, void *n);
 void foldSumGreaterThanN(DataObject* dat, void *val, void *n);
 void foldSumNumCharStrLessOrEqThanN(DataObject* dat, void *val, void *n);
 void foldConcatLessOrEqThanN(DataObject * dat, void *val, void *n);
+void printStructGraph(DataObject* dat, void* _);
 
 /* ************************************************************************** */
 
@@ -165,6 +166,8 @@ void testGraph() {
                "(19) Creazione e stampa di un clone del grafo e\n"
                "     controllo uguaglianza con il grafo principale\n"
                "(20) Creazione e stampa del trasposto del grafo\n"
+               "(21) Percorso minimo tra due vertici\n"
+               "(22) Verifica aciclicità\n"
                "\n"
                "(0) Deallocazione della stuttura ed uscita dal programma\n"
                "Scelta: ");
@@ -206,38 +209,18 @@ void testGraph() {
                 break;
             }
             case 2: {
-                ITRType* typ = ConstructGraphPreOrderIterator();
-                ITRObject* iterator = itrConstruct(typ, graphObject);
-
-                while(!itrTerminated(iterator)) {
-                    setbuf(stdout, 0);
-                    printf("OUTPUT: %d\n", ((Vertex*)itrElement(iterator))->name);
-
-                    itrSuccessor(iterator);
-                }
-
-                itrDestruct(iterator);
-                DestructGraphPreOrderIterator(typ);
+                graphPreOrderMap(graphObject, printStructGraph, NULL);
 
                 break;
             }
             case 3: {
-                ITRType* typ = ConstructGraphPostOrderIterator();
-                ITRObject* iterator = itrConstruct(typ, graphObject);
-
-                while(!itrTerminated(iterator)) {
-                    setbuf(stdout, 0);
-                    printf("OUTPUT: %d\n", ((Vertex*)itrElement(iterator))->name);
-
-                    itrSuccessor(iterator);
-                }
-
-                itrDestruct(iterator);
-                DestructGraphPostOrderIterator(typ);
+                graphPostOrderMap(graphObject, printStructGraph, NULL);
 
                 break;
             }
             case 4: {
+                graphBreadthMap(graphObject, printStructGraph, NULL);
+
                 break;
             }
             case 5: {
@@ -600,6 +583,37 @@ void testGraph() {
 
                 break;
             }
+            case 21: {
+                int fromName, toName;
+
+                printf("Inserire il nome del vertice iniziale: ");
+                getStr(buffer, MaxStrLen);
+                fromName = strtol(buffer, NULL, 10);
+
+                if(graphExistsVertex(graphObject, fromName)) {
+                    printf("Inserire il nome del vertice finale: ");
+                    getStr(buffer, MaxStrLen);
+                    toName = strtol(buffer, NULL, 10);
+
+                    if(graphExistsVertex(graphObject, toName)) {
+                        printf("Lunghezza: %d\n", graphShortestPath(graphObject, fromName, toName));
+                    } else {
+                        printf("Il vertice finale non è presente nel grafo!\n");
+                    }
+                } else {
+                    printf("Il vertice iniziale non è presente nel grafo!\n");
+                }
+
+                break;
+            }
+            case 22: {
+                if(graphIsAcyclic(graphObject)) {
+                    printf("Il grafo è aciclico\n");
+                } else{
+                    printf("Il grafo non è aciclico\n");
+                }
+                break;
+            }
             case 0: {
                 graphDestruct(graphObject);
                 printf("Grafo deallocato!\n");
@@ -747,4 +761,10 @@ void foldConcatLessOrEqThanN(DataObject * dat, void *val, void *n) {
     if((strlen((char*)dat->value) <= *(int*)n)) {
         strcat(val, dat->value);
     }
+}
+
+void printStructGraph(DataObject* dat, void* _) {
+    setbuf(stdout, 0);
+    adtWriteToMonitor(dat);
+    printf("\n");
 }

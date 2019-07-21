@@ -71,76 +71,125 @@ bool itrGraphEqual(void* firstGraph, void* firstGraphRepresentation, void* secon
     return true;
 }
 
-int itrGraphShortestPath(void* graph, int numVertex, void* graphRepresentation, int firstName, int secondName) {
-
-    //Inizializzo strutture di supporto
+int itrGraphShortestPath(void* graph, int numVertex, void* graphRepresentation, int start, int arrival) {
+    GraphObject* graphObject = (GraphObject*) graph;
     int shortestPath = -1;
 
-    int* vectorIndex = (int*)malloc(sizeof(int) * numVertex); //Vettore di vertici per corrispondenza vertice - indice
-    char* color = (char*)malloc(sizeof(char) * numVertex); //Vettore di colori di ogni vertice
-    int* distance = (int*)malloc(sizeof(int) * numVertex);
+    // Mi scorro i vari vertici per verificare che esistano entrambi
+    ITRObject* vertices = ((GraphRepresentation*)graphRepresentation)->graphVertices(graph);
+    uint startId = -1, arrivalId = -1;
+    bool foundStart = false, foundArrival = false;
 
-    for(int i = 0; i < numVertex; i++) {
-        color[i] = 'b';
-        distance[i] = -1;
-    }
-
-    QueueType* queType = ConstructQueueVecType();
-    QueueObject* queue = queConstruct(queType);
-
-    ITRObject* itrVertices = ((GraphRepresentation*)graphRepresentation)->graphVertices(graph);
-
-    int i = 0;
-    while(!itrTerminated(itrVertices)) {
-        vectorIndex[i] = ((Vertex*)itrElement(itrVertices))->name;
-        itrSuccessor(itrVertices);
-        i++;
-    }
-
-    DataType* dataType = ConstructIntDataType();
-    DataObject* dataObject = adtConstruct(dataType);
-    adtSetValue(dataObject, &firstName);
-
-    queEnqueue(queue, dataObject);
-
-    bool found = false;
-    int currentIndex = 0;
-    while(!queEmpty(queue) && !found) {
-        DataObject* name = queHeadNDequeue(queue);
-        int* currentName = adtGetValue(name);
-
-        currentIndex = 0;
-        while(vectorIndex[currentIndex] != *currentName) {
-            currentIndex++;
+    while(!itrTerminated(vertices) && (!foundStart || !foundArrival)) {
+        Vertex* vertex = itrElement(vertices);
+        ITRObject* graphIterator = ((GraphRepresentation*)graphRepresentation)->graphVertices(graph);
+        int index = 0;
+        while(!itrTerminated(graphIterator) && ((Vertex*)itrElement(graphIterator))->name != vertex->name) {
+            index++;
+            itrSuccessor(graphIterator);
         }
-        color[currentIndex] = 'n';
+        itrDestruct(graphIterator);
 
-        //Scorro tutti gli adiacenti di questo vertice e li accodo se bianchi
-        ITRObject* itrAdjacent = ((GraphRepresentation*)graphRepresentation)->graphVertexEdges(graph, *currentName);
-        while(!itrTerminated(itrAdjacent) && !found) {
+        // Se start o arrival esistono, allora mi prendo il loro index
+        if(start == vertex->name) {
+            startId = index;
+            foundStart = true;
+        }
 
-            int currentAdjacent = ((Vertex*)itrElement(itrAdjacent))->name;
+        if(arrival == vertex->name) {
+            arrivalId = index;
+            foundArrival = true;
+        }
+        itrSuccessor(vertices);
+    }
+    itrDestruct(vertices);
 
-            //Ricerco corrispondenza l'indice corrispondente al vertice
-            int j = 0;
-            while(vectorIndex[j] != currentAdjacent) {
-                j++;
+    /* Se entrambi sono falsi, oppure solo uno dei due è falso, ritorno -1 */
+    if((!foundStart && !foundArrival) || foundStart != foundArrival) {
+        shortestPath = -1;
+    }
+        // Altrimenti se sono lo stesso vertice il percorso è 0
+    else if(startId == arrivalId) {
+        shortestPath = 0;
+    }
+        // Altrimenti potrebbe esistere un percorso
+    else {
+
+        // Dichiaro l'array dei colori, array delle distanze e la coda
+        char* color = (char*) malloc(sizeof(char) * numVertex);
+        int* distance = (int*) malloc(sizeof(int) * numVertex);
+        DataType* intType = ConstructIntDataType();
+        DataObject* newElem = adtConstruct(intType);
+        QueueType* queueType = ConstructQueueVecType();
+        QueueObject* queue = queConstruct(queueType);
+
+        // Inizializzo i colori a bianco e le distanze a 0
+        for (int i = 0; i < graphObject->numVertex; ++i) {
+            color[i] = 'b';
+            distance[i] = -1;
+        }
+
+        /* Imposto che il colore grigio e la distanza 0 del nodo iniziale
+         * e lo accodo */
+        color[startId] = 'g';
+        distance[startId] = 0;
+        adtSetValue(newElem, &startId);
+        queEnqueue(queue, newElem);
+
+        // Effettuo la BFS, la interrompo se trovo l'elemento
+        bool found = false;
+        while(!queEmpty(queue) && !found) {
+            DataObject *name = queHeadNDequeue(queue);
+            uint currIndex = *(int*)adtGetValue(name); //TODO??
+
+            ITRObject* graphIterator = ((GraphRepresentation*)graphRepresentation)->graphVertices(graph);
+            int index = 0;
+            while(!itrTerminated(graphIterator) && index != currIndex) {
+                index++;
+                itrSuccessor(graphIterator);
             }
+            Vertex* vertex = itrElement(graphIterator);
+            itrDestruct(graphIterator);
 
-            if(color[j] == 'b') {
-                adtSetValue(dataObject, &vectorIndex[j]);
-                queEnqueue(queue, dataObject);
-                color[j] = 'g';
-                distance[j] = distance[currentIndex]+1; //Incremento la distanza
+            color[currIndex] = 'n';
 
-                if(vectorIndex[j] == secondName) {
-                    shortestPath = distance[j];
-                    found = true;
-                } else {
+            // Scorro tutti gli adiacenti di questo vertice e li accodo se bianchi
+            ITRObject *adjIter = ((GraphRepresentation*)graphRepresentation)->graphVertexEdges(graph, vertex->name);
+            while (!itrTerminated(adjIter) && !found) {
+                vertex = itrElement(adjIter);
+                graphIterator = ((GraphRepresentation*)graphRepresentation)->graphVertices(graph);
+                uint innerId = 0;
+                while(!itrTerminated(graphIterator) && ((Vertex*)itrElement(graphIterator))->name != vertex->name) {
+                    innerId++;
+                    itrSuccessor(graphIterator);
                 }
+                itrDestruct(graphIterator);
+
+                if (color[innerId] == 'b') {
+                    adtSetValue(newElem, &innerId);
+                    queEnqueue(queue, newElem);
+                    color[innerId] = 'g';
+                    distance[innerId] = distance[currIndex] + 1;
+
+                    if(innerId == arrivalId) {
+                        shortestPath = distance[arrivalId];
+                        found = true;
+                    }
+                }
+                itrSuccessor(adjIter);
             }
-            itrSuccessor(itrAdjacent);
+            itrDestruct(adjIter);
+
+            adtDestruct(name);
         }
+
+        queClear(queue);
+        queDestruct(queue);
+        DestructQueueVecType(queueType);
+        adtDestruct(newElem);
+        DestructIntDataType(intType);
+        free(color);
+        free(distance);
     }
 
     return shortestPath;
@@ -148,28 +197,85 @@ int itrGraphShortestPath(void* graph, int numVertex, void* graphRepresentation, 
 
 
 void itrGraphPreOrderMap(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter) {
-    printf("Da implementare\n");
+    ITRType* preOrderType = ConstructGraphPreOrderIterator();
+    ITRObject* iter = itrConstruct(preOrderType, graph);
+
+    while(!itrTerminated(iter)) {
+        Vertex* vertex = itrElement(iter);
+        printf("Nome: %d - Value: ", vertex->name);
+        mapFunction(vertex->label, parameter);
+        itrSuccessor(iter);
+    }
+    itrDestruct(iter);
+    DestructGraphBreadthIterator(preOrderType);
 }
 
 void itrGraphPostOrderMap(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter) {
-    printf("Da implementare\n");
+    ITRType* preOrderType = ConstructGraphPostOrderIterator();
+    ITRObject* iter = itrConstruct(preOrderType, graph);
+
+    while(!itrTerminated(iter)) {
+        Vertex* vertex = itrElement(iter);
+        printf("Nome: %d - Value: ", vertex->name);
+        mapFunction(vertex->label, parameter);
+        itrSuccessor(iter);
+    }
+    itrDestruct(iter);
+    DestructGraphBreadthIterator(preOrderType);
 }
 
 void itrGraphBreadthMap(void* graph, void* graphRepresentation, MapFun mapFunction, void* parameter) {
-    printf("Da implementare\n");
+    ITRType* breadthType = ConstructGraphBreadthIterator();
+    ITRObject* iter = itrConstruct(breadthType, graph);
+
+    while(!itrTerminated(iter)) {
+        Vertex* vertex = itrElement(iter);
+        printf("Nome: %d - Value: ", vertex->name);
+        mapFunction(vertex->label, parameter);
+        itrSuccessor(iter);
+    }
+    itrDestruct(iter);
+    DestructGraphBreadthIterator(breadthType);
 }
 
 
 void itrGraphPreOrderFold(void* graph, void* graphRepresentation, FoldFun foldFunction, void* accumulator, void* parameter) {
-    printf("Da implementare\n");
+    ITRType* preOrderType = ConstructGraphPreOrderIterator();
+    ITRObject* iter = itrConstruct(preOrderType, graph);
+
+    while(!itrTerminated(iter)) {
+        DataObject* dataObject = itrElement(iter);
+        foldFunction(dataObject, accumulator, parameter);
+        itrSuccessor(iter);
+    }
+    itrDestruct(iter);
+    DestructGraphBreadthIterator(preOrderType);
 }
 
 void itrGraphPostOrderFold(void* graph, void* graphRepresentation, FoldFun foldFunction, void* accumulator, void* parameter) {
-    printf("Da implementare\n");
+    ITRType* preOrderType = ConstructGraphPostOrderIterator();
+    ITRObject* iter = itrConstruct(preOrderType, graph);
+
+    while(!itrTerminated(iter)) {
+        DataObject* dataObject = itrElement(iter);
+        foldFunction(dataObject, accumulator, parameter);
+        itrSuccessor(iter);
+    }
+    itrDestruct(iter);
+    DestructGraphBreadthIterator(preOrderType);
 }
 
 void itrGraphBreadthFold(void* graph, void* graphRepresentation, FoldFun foldFunction, void* accumulator, void* parameter) {
-    printf("Da implementare\n");
+    ITRType* breadthType = ConstructGraphBreadthIterator();
+    ITRObject* iter = itrConstruct(breadthType, graph);
+
+    while(!itrTerminated(iter)) {
+        DataObject* dataObject = itrElement(iter);
+        foldFunction(dataObject, accumulator, parameter);
+        itrSuccessor(iter);
+    }
+    itrDestruct(iter);
+    DestructGraphBreadthIterator(breadthType);
 }
 
 

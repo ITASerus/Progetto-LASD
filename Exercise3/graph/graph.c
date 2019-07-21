@@ -148,28 +148,32 @@ int graphShortestPath(GraphObject* graphObject, int firstName, int secondName) {
     return graphObject->type->graphShortestPath(graphObject->graph, graphObject->numVertex, graphObject->type->graphRep, firstName, secondName);
 }
 
+bool graphIsAcyclic(GraphObject* graphObject) {
+    return graphObject->type->graphIsAcyclic(graphObject);
+}
+
 void graphPreOrderMap(GraphObject* graphObject, MapFun mapFunction, void* parameter) {
-    graphObject->type->graphPreOrderMap(graphObject->graph, graphObject->type->graphRep, mapFunction, parameter);
+    graphObject->type->graphPreOrderMap(graphObject, graphObject->type->graphRep, mapFunction, parameter);
 }
 
 void graphPostOrderMap(GraphObject* graphObject, MapFun mapFunction, void* parameter) {
-    graphObject->type->graphPostOrderMap(graphObject->graph, graphObject->type->graphRep, mapFunction, parameter);
+    graphObject->type->graphPostOrderMap(graphObject, graphObject->type->graphRep, mapFunction, parameter);
 }
 
 void graphBreadthMap(GraphObject* graphObject, MapFun mapFunction, void* parameter) {
-    graphObject->type->graphBreadthMap(graphObject->graph, graphObject->type->graphRep, mapFunction, parameter);
+    graphObject->type->graphBreadthMap(graphObject, graphObject->type->graphRep, mapFunction, parameter);
 }
 
 void graphPreOrderFold(GraphObject* graphObject, FoldFun foldFunction, void* accumulator, void* parameter) {
-    graphObject->type->graphPreOrderFold(graphObject->graph, graphObject->type->graphRep, foldFunction, accumulator, parameter);
+    graphObject->type->graphPreOrderFold(graphObject, graphObject->type->graphRep, foldFunction, accumulator, parameter);
 }
 
 void graphPostOrderFold(GraphObject* graphObject, FoldFun foldFunction, void* accumulator, void* parameter) {
-    graphObject->type->graphPostOrderFold(graphObject->graph, graphObject->type->graphRep, foldFunction, accumulator, parameter);
+    graphObject->type->graphPostOrderFold(graphObject, graphObject->type->graphRep, foldFunction, accumulator, parameter);
 }
 
 void graphBreadthFold(GraphObject* graphObject, FoldFun foldFunction, void* accumulator, void* parameter) {
-    graphObject->type->graphBreadthFold(graphObject->graph, graphObject->type->graphRep, foldFunction, accumulator, parameter);
+    graphObject->type->graphBreadthFold(graphObject, graphObject->type->graphRep, foldFunction, accumulator, parameter);
 }
 
 /* ************************************************************************** */

@@ -107,6 +107,7 @@ CMakeFiles/Exercise3.dir/graph/graph.c.obj: ../itr/itr.h
 CMakeFiles/Exercise3.dir/graph/graph.c.obj: ../utility.h
 
 CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.obj: ../adt/adt.h
+CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.obj: ../adt/int/adtint.h
 CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.obj: ../graph/graph.h
 CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.obj: ../graph/graphitrbreadth.c
 CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.obj: ../graph/graphitrbreadth.h
@@ -146,11 +147,15 @@ CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../adt/adt.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../adt/int/adtint.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../bst/bst.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../graph/graph.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../graph/graphitrbreadth.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../graph/graphitrpostord.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../graph/graphitrpreord.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../graph/itr/graphitr.c
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../graph/itr/graphitr.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../itr/itr.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../queue/queue.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../queue/vec/queuevec.h
+CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../stack/stack.h
 CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj: ../utility.h
 
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.obj: ../adt/adt.h
@@ -234,6 +239,7 @@ CMakeFiles/Exercise3.dir/main.c.obj: ../bst/bst.h
 CMakeFiles/Exercise3.dir/main.c.obj: ../bst/itr/bstitr.h
 CMakeFiles/Exercise3.dir/main.c.obj: ../bst/rec/bstrec.h
 CMakeFiles/Exercise3.dir/main.c.obj: ../graph/graph.h
+CMakeFiles/Exercise3.dir/main.c.obj: ../graph/graphitrbreadth.h
 CMakeFiles/Exercise3.dir/main.c.obj: ../graph/graphitrpostord.h
 CMakeFiles/Exercise3.dir/main.c.obj: ../graph/graphitrpreord.h
 CMakeFiles/Exercise3.dir/main.c.obj: ../graph/itr/graphitr.h
@@ -324,6 +330,7 @@ CMakeFiles/Exercise3.dir/testGraph.c.obj: ../bst/bst.h
 CMakeFiles/Exercise3.dir/testGraph.c.obj: ../bst/itr/bstitr.h
 CMakeFiles/Exercise3.dir/testGraph.c.obj: ../bst/rec/bstrec.h
 CMakeFiles/Exercise3.dir/testGraph.c.obj: ../graph/graph.h
+CMakeFiles/Exercise3.dir/testGraph.c.obj: ../graph/graphitrbreadth.h
 CMakeFiles/Exercise3.dir/testGraph.c.obj: ../graph/graphitrpostord.h
 CMakeFiles/Exercise3.dir/testGraph.c.obj: ../graph/graphitrpreord.h
 CMakeFiles/Exercise3.dir/testGraph.c.obj: ../graph/itr/graphitr.h

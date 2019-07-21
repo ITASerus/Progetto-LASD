@@ -61,7 +61,11 @@ void* graphPostOrderIteratorConstruct(void* type, void* graph) {
             // Se il vertice è bianco continuo con la discesa
             if(iter->support[adjIndex].color == 'b') {
                 // Salvo gli stati nello stack e continuo la discesa
-                adtSetValue(data, &adjIndex); //TODO: ??
+
+                int* converted = &adjIndex;
+                //adtSetValue(data, &adjIndex); //TODO: ??
+                adtSetValue(data, converted);
+
                 stkPush(iter->stackIndexes, data);
                 adtSetValue(data, iter->currentVertex);
                 stkPush(iter->stackVertices, data);
@@ -129,7 +133,7 @@ void graphPostOrderIteratorSuccessor(void* iterator) {
         adtDestruct(dataptr);
 
         dataptr = stkTopNPop(iter->stackIndexes);
-        iter->indexVertices = (int)adtGetValue(dataptr); //TODO: ??
+        iter->indexVertices = *((int*)adtGetValue(dataptr)); //TODO: ??
         adtDestruct(dataptr);
 
 
@@ -149,7 +153,11 @@ void graphPostOrderIteratorSuccessor(void* iterator) {
 
             if(iter->support[adjIndex].color == 'b') {
                 // Salvo gli stati nello stack e continuo la discesa
-                adtSetValue(data, &iter->indexVertices); //TODO: ??
+
+                int* converted = &iter->indexVertices;
+                //adtSetValue(data, &iter->indexVertices); //TODO: ??
+                adtSetValue(data, converted);
+
                 stkPush(iter->stackIndexes, data);
                 adtSetValue(data, iter->currentVertex);
                 stkPush(iter->stackVertices, data);
@@ -173,7 +181,7 @@ void graphPostOrderIteratorSuccessor(void* iterator) {
     if(!iter->currentVertex) {
         // Controllo se ci sono altri vertici bianchi da cui far partire la dfs
         while(!itrTerminated(iter->verticesIterator) && !iter->currentVertex) {
-            Vertex* nextVertex = itrElement(iter->currentAdjIterator);
+            Vertex* nextVertex = itrElement(iter->verticesIterator);
             int nextIndex = 0;
             while(iter->support[nextIndex].name != nextVertex->name) {
                 nextIndex++;
@@ -199,7 +207,11 @@ void graphPostOrderIteratorSuccessor(void* iterator) {
 
                     if(iter->support[innerIndex].color == 'b') {
                         // Salvo gli stati nello stack e continuo la discesa
-                        adtSetValue(data, &iter->indexVertices); //TODO: ??
+
+                        int* converted = &iter->indexVertices;
+                        //adtSetValue(data, &iter->indexVertices); //TODO: ??
+                        adtSetValue(data, converted);
+
                         stkPush(iter->stackIndexes, data);
                         adtSetValue(data, iter->currentVertex);
                         stkPush(iter->stackVertices, data);

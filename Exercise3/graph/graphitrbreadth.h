@@ -12,15 +12,27 @@
 
 /* ************************************************************************** */
 
-typedef struct GraphBreadthIterator
-{
-  // Struct da completare!
+typedef struct SupportBreadth {
+    int name;
+    char color;
+} SupportBreadth;
+
+typedef struct GraphBreadthIterator {
+    GraphObject* graph;
+    Vertex* currentVertex;
+    SupportBreadth* support;
+
+    QueueObject* queue;
+
+    ITRObject* verticesIterator;
+
+    DataType* intType;
 } GraphBreadthIterator;
 
 /* ************************************************************************** */
 
-// type ConstructGraphBreadthIterator(arguments);
-// type DestructGraphBreadthIterator(arguments);
+ITRType* ConstructGraphBreadthIterator();
+void DestructGraphBreadthIterator(ITRType* type);
 
 /* ************************************************************************** */
 

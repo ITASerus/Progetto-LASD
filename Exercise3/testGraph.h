@@ -35,6 +35,8 @@
 #include "graph/rep/bst/graphbst.h"
 #include "graph/graphitrpreord.h"
 #include "graph/graphitrpostord.h"
+#include "graph/graphitrbreadth.h"
+
 
 /* ************************************************************************** */
 

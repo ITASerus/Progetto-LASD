@@ -45,7 +45,7 @@ typedef bool (*GraphEqual)(void* firstGraph, void* firstGraphRepresentation, voi
 
 typedef int (*GraphShortestPath)(void* graph, int numVertex, void* graphRepresentation, int firstName, int secondName);
 
-// typedef type (*GraphIsAcyclic)(arguments);
+typedef bool (*GraphIsAcyclic)(void* graph);
 // typedef type (*GraphTopologicalOrder)(arguments);
 
 //typedef void* (*GraphMaximalReachableSubgraph)(void*);
@@ -108,6 +108,8 @@ typedef struct GraphType {
 
   GraphShortestPath graphShortestPath;
 
+  GraphIsAcyclic graphIsAcyclic;
+
   GraphPreOrderMap graphPreOrderMap;
   GraphPostOrderMap graphPostOrderMap;
   GraphBreadthMap graphBreadthMap;
@@ -166,7 +168,7 @@ bool graphEqual(GraphObject* firstGraphObject, GraphObject* secondGraphObject);
 
 int graphShortestPath(GraphObject* graphObject, int firstName, int secondName);
 
-// type graphIsAcyclic(arguments);
+bool graphIsAcyclic(GraphObject* graphObject);
 // type graphTopologicalOrder(arguments);
 
 // type graphMaximalReachableSubgraph(arguments);

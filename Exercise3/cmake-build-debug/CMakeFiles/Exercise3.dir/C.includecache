@@ -18,10 +18,6 @@ D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/int/adtint.h
 ../adt.h
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
 
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.h
-../adt.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
-
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/rec/adtrec.h
 ../adt.h
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
@@ -52,13 +48,13 @@ D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
 ../itr/itr.h
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/itr/itr.h
 
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpostord.c
-graphitrpostord.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpostord.h
-../stack/vec/stackvec.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/stack/vec/stackvec.h
-../adt/ptr/adtptr.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/ptr/adtptr.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrbreadth.h
+../itr/itr.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/itr/itr.h
+../queue/queue.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/queue/queue.h
+graph.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graph.h
 
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpostord.h
 ../itr/itr.h
@@ -79,6 +75,12 @@ D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graph.h
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/itr/graphitr.h
 ../graph.h
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graph.h
+../graphitrpreord.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpreord.h
+../graphitrpostord.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpostord.h
+../graphitrbreadth.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrbreadth.h
 
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/rec/graphrec.h
 ../graph.h
@@ -102,16 +104,6 @@ D:/Documenti/GitHub/Progetto-LASD/Exercise3/itr/itr.h
 ../utility.h
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/utility.h
 
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/main.c
-utility.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/utility.h
-testBST.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/testBST.h
-testGraph.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/testGraph.h
-testADT.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/testADT.h
-
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/queue/lst/queuelst.h
 ../queue.h
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/queue/queue.h
@@ -139,48 +131,6 @@ D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/stack/vec/stackvec.h
 ../stack.h
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/stack/stack.h
-
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/testADT.h
-adt/adt.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
-adt/int/adtint.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/int/adtint.h
-adt/flt/adtflt.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/flt/adtflt.h
-adt/str/adtstr.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/str/adtstr.h
-adt/rec/adtrec.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/rec/adtrec.h
-stack/stack.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/stack/stack.h
-stack/vec/stackvec.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/stack/vec/stackvec.h
-stack/lst/stacklst.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/stack/lst/stacklst.h
-queue/queue.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/queue/queue.h
-queue/vec/queuevec.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/queue/vec/queuevec.h
-queue/lst/queuelst.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/queue/lst/queuelst.h
-
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/testBST.h
-adt/adt.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
-adt/int/adtint.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/int/adtint.h
-adt/flt/adtflt.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/flt/adtflt.h
-adt/str/adtstr.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/str/adtstr.h
-adt/rec/adtrec.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/rec/adtrec.h
-bst/bst.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/bst.h
-bst/rec/bstrec.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.h
-bst/itr/bstitr.h
-D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/itr/bstitr.h
 
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/testGraph.c
 testGraph.h
@@ -231,6 +181,8 @@ graph/graphitrpreord.h
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpreord.h
 graph/graphitrpostord.h
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpostord.h
+graph/graphitrbreadth.h
+D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrbreadth.h
 
 D:/Documenti/GitHub/Progetto-LASD/Exercise3/utility.h
 assert.h

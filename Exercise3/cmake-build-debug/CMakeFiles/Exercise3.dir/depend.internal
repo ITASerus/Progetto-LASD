@@ -108,6 +108,7 @@ CMakeFiles/Exercise3.dir/graph/graph.c.obj
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/graph/graphitrbreadth.c.obj
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
+ D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/int/adtint.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graph.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrbreadth.c
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrbreadth.h
@@ -147,11 +148,15 @@ CMakeFiles/Exercise3.dir/graph/itr/graphitr.c.obj
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/int/adtint.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/bst.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graph.h
+ D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrbreadth.h
+ D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpostord.h
+ D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpreord.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/itr/graphitr.c
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/itr/graphitr.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/itr/itr.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/queue/queue.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/queue/vec/queuevec.h
+ D:/Documenti/GitHub/Progetto-LASD/Exercise3/stack/stack.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/utility.h
 CMakeFiles/Exercise3.dir/graph/rec/graphrec.c.obj
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/adt/adt.h
@@ -235,6 +240,7 @@ CMakeFiles/Exercise3.dir/main.c.obj
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/itr/bstitr.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graph.h
+ D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrbreadth.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpostord.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpreord.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/itr/graphitr.h
@@ -325,6 +331,7 @@ CMakeFiles/Exercise3.dir/testGraph.c.obj
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/itr/bstitr.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/bst/rec/bstrec.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graph.h
+ D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrbreadth.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpostord.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/graphitrpreord.h
  D:/Documenti/GitHub/Progetto-LASD/Exercise3/graph/itr/graphitr.h
